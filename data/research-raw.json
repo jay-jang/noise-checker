@@ -1,0 +1,1427 @@
+[
+ {
+  "findings": [
+   {
+    "name": "나무위키 '일베저장소/용어' 문서",
+    "description": "일베저장소에서 유래했거나 통용되는 은어를 카테고리별로 망라한 한국어 최대 규모의 용어 정리 문서. 각 용어마다 '유래(어원/사건/맥락)'가 상세히 서술되어 있는 것이 핵심 강점이다. 예: '민주화'(비추천/싫어요 의미, 동의대 납치살해사건에서 유래), '운지'(원래 구름버섯=雲芝이나 노무현 전 대통령 투신을 조롱하는 추락의 의미로 전용), '-노'(노무현 어투 고인드립 어미, 동남방언 의문어미 '-노'+성씨 盧에서 유래), '슨상/슨상님'(김대중 비하), '홍어'(전라도 지역 비하), '어묵/오뎅'(세월호 희생자 비하), '베충이'(일베 회원 자조 캐릭터). 상당수 용어가 실제로는 디시인사이드(합필갤, 코갤, 정사갤 등)에서 발원했음을 함께 명시해 출처 구분에 유용하다. 평범한 일반 단어(민주화, 운지, 게이 등)가 특수 의미로 쓰이는 케이스를 식별하는 데 특히 가치가 높다.",
+    "sources": [
+     "https://namu.wiki/w/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%9A%A9%EC%96%B4"
+    ],
+    "access_method": "웹 브라우저로 열람. namu.wiki는 일반 HTTP 스크래퍼/자동 fetch에 대해 403을 반환하므로(봇 차단), 헤드리스 브라우저(Playwright/Selenium) 또는 공식 데이터 덤프 활용 필요. 비영리 연구용은 namu.wiki 데이터베이스 덤프(dump.namu.wiki, 과거 제공분) 또는 미러를 검토.",
+    "license": "나무위키 문서는 CC BY-NC-SA 2.0 KR. 비영리·동일조건변경허락·출처표시 필요. 상업적 모더레이션 서비스에 원문 텍스트를 그대로 재배포하려면 라이선스 충돌 소지가 있으므로, 용어 목록을 '사실 데이터(어휘+유래 메모)'로 재가공하고 출처를 명기하는 방식 권장.",
+    "data_size": "수백 개 용어 항목, 카테고리별(정치/지역/젠더/이모티콘/숫자코드 등) 분류",
+    "update_potential": "문서가 활발히 갱신되어 신조어가 빠르게 반영됨(판본 r170 이상). 정기적으로 최신 판본 diff를 모니터링하면 신규 은어 업데이트 소스로 활용 가능.",
+    "notes": "WebFetch 직접 접근은 403으로 차단됨을 실측 확인. 영어 미러(en.namu.wiki)도 일부 문서 존재."
+   },
+   {
+    "name": "나무위키 '메갈리아/용어' 문서 (워마드 용어 포함)",
+    "description": "메갈리아·워마드 계열 은어를 유래와 함께 정리한 문서. 이들 용어가 기본적으로 디시인사이드 남초갤·일베 속어를 '미러링(성별 반전)'해 만든 것임을 명시한다. 예: '한남충'(한국남자=벌레, 비하), '한남또'(오유의 '오유가또'에서 파생된 '한국남자가 또'), '함흥자지'(함흥차사 변형, 성관계 후 잠적한 남성 비판), '냄져'(남자 비하 변형 표기). 일반 마케팅에서 '냄져' 같은 변형 표기나 특정 손모양 표식이 실수로 섞이는 것을 잡는 데 참고 가치가 크다. 폐쇄된 메갈리아 회원 다수가 워마드로 이주했으므로 두 커뮤니티 용어가 한 문서에서 통합 서술된다.",
+    "sources": [
+     "https://namu.wiki/w/%EB%A9%94%EA%B0%88%EB%A6%AC%EC%95%84/%EC%9A%A9%EC%96%B4",
+     "https://namu.wiki/w/%EC%9B%8C%EB%A7%88%EB%93%9C"
+    ],
+    "access_method": "위와 동일(헤드리스 브라우저 또는 덤프). '워마드', '메갈리아' 본 문서에도 로고/표식(집게손) 유래 설명 포함.",
+    "license": "CC BY-NC-SA 2.0 KR (비영리·출처표시)",
+    "data_size": "수백 개 용어 항목",
+    "update_potential": "활발히 갱신. 젠더 커뮤니티 신조어 추적에 유용.",
+    "notes": "미러링 구조를 이해하면 일베 표식과 워마드/메갈 표식을 양방향으로 동시 검출하는 룰 설계 가능."
+   },
+   {
+    "name": "위키백과(한국어) '집게손가락 음모론' 문서",
+    "description": "2021~2024년 '집게손가락' 표식 관련 기업/기관 논란 사례를 연도·날짜별로 가장 체계적으로 정리한 권위 있는 백과사전 문서. 표식의 유래(메갈리아 엠블럼의 엄지·검지 모양=남성 신체 조롱)부터 GS25(2021.5.1 캠핑 소시지 포스터, 디자이너 징계·임원 강등), 경찰청, BBQ·교촌치킨, 무신사, 이마트24, 카카오뱅크, 국방부, 스마일게이트(로스트아크), 스타벅스, 넥슨 메이플스토리(2023.11.25, 스튜디오 뿌리 제작, 실제 작화자는 남성으로 밝혀짐), 포스코, 보건복지부, 카카오게임즈 이터널리턴, 빙그레, 르노코리아(2024), 볼보(2024)까지 다수 사례를 출처와 함께 수록. 실제 오용/논란 사례 데이터베이스로 즉시 활용 가능한 최상위 소스.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EC%A7%91%EA%B2%8C%EC%86%90%EA%B0%80%EB%9D%BD_%EC%9D%8C%EB%AA%A8%EB%A1%A0"
+    ],
+    "access_method": "위키백과 공식 API(MediaWiki Action API, REST API) 또는 Wikimedia 덤프로 자유 수집 가능. WebFetch로도 정상 접근됨(403 없음).",
+    "license": "CC BY-SA 4.0 + GFDL. 출처표시·동일조건변경허락 하에 상업적 이용 가능(나무위키보다 라이선스가 관대).",
+    "data_size": "20여 개 기업/기관 사례, 날짜·콘텐츠 유형별 상세",
+    "update_potential": "신규 논란 발생 시 비교적 빠르게 추가됨. API로 문서 개정 이력을 폴링하면 신규 사례 자동 수집 가능.",
+    "notes": "'음모론'이라는 중립/회의적 관점으로 서술되어 있어, 사례 발생 사실과 '의도성 미입증' 맥락을 함께 제공한다. 서비스의 오탐(false positive) 경고 문구 작성에 유용."
+   },
+   {
+    "name": "위키백과(한국어) '일베저장소의 사건 및 사고' 문서",
+    "description": "일베 용어·상징이 외부(공공기관·대학·해외 광고 등)에서 사용돼 논란이 된 사건을 정리. 홍익대 일베 손모양 조형물(2016.5), 뉴욕 타임스퀘어 노무현 비하 광고(2018.1, 일베 유저 자비 게재), 서초구청 공무원 음란물 유포(2018) 등 실사례와 함께 주요 용어(운지, 노알라, MC무현, 어묵, 홍어, 로린이)의 유래를 표 형태로 제공. 위키백과 라이선스라 활용이 용이.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0"
+    ],
+    "access_method": "MediaWiki API/덤프로 자유 수집. WebFetch 정상 접근.",
+    "license": "CC BY-SA 4.0 (상업적 이용 가능, 출처표시)",
+    "data_size": "수십 건 사건 + 핵심 용어 표",
+    "update_potential": "API 폴링으로 개정 모니터링 가능",
+    "notes": "나무위키 대비 라이선스가 자유로워 1차 데이터 시드로 우선 채택 권장."
+   },
+   {
+    "name": "한국일보 '일베 놀이의 진화' 보도 (2026.5) — 도그휘슬 마케팅 실사례 모음",
+    "description": "기업 마케팅·영상 자막에 혐오 코드가 '도그휘슬(dog whistle)' 방식으로 삽입된 최신 실사례를 집약한 탐사 보도. 핵심 사례: (1)스타벅스코리아 '5·18 탱크데이'(5.18 계엄군 탱크 진압 조롱), (2)롯데 자이언츠 유튜브에서 광주 출신 노진혁 선수 이름 위에 '무한 박수' 자막을 겹쳐 '노무한 박수'='노무현 박수'로 읽히게 한 사례(2026.5.11), (3)래퍼 '리치 이기' 콘서트를 노무현 서거일(5.23)에 맞추고 시작시간 17:23·티켓값 52,300원으로 설정, (4)국민의힘 충북도당 SNS 옹호 댓글. 숫자 코드(523, 1818 등)·자막 겹침 같은 정교한 회피 기법 식별에 직접적으로 유용.",
+    "sources": [
+     "https://www.hankookilbo.com/news/article/A2026052204010005489?dtypecode=pancode_society"
+    ],
+    "access_method": "언론사 웹페이지 직접 열람(WebFetch 정상). 기사 본문 크롤링 시 저작권 유의(인용·사실 추출 위주).",
+    "license": "언론사 저작권. 사실(사례 목록)은 추출·재서술 가능하나 본문 복제 배포는 불가.",
+    "data_size": "4건 핵심 사례 + 대응 개념('화이트 일베')",
+    "update_potential": "동일 매체·기자의 후속 기획기사를 RSS/검색으로 추적하면 신규 사례 업데이트 가능",
+    "notes": "'도그휘슬', 숫자 코드, 자막 레이어 겹침 등 텍스트 단순 매칭으로 못 잡는 고난도 패턴을 보여줌 → 룰 엔진 설계 시 시각/숫자/조합 검사 필요성 근거."
+   },
+   {
+    "name": "파이낸셜뉴스 '탱크데이' 보도 및 '화이트 일베' 대응 개념 (2026.5)",
+    "description": "스타벅스 탱크데이 파문을 계기로, 기업이 혐오 표현을 사전 검수할 인력을 뜻하는 신조어 '화이트 일베'('화이트 해커'에서 파생)와 '일베 검사관' 개념을 소개한 보도. 실무 마케팅 담당자가 매일 디시인사이드·더쿠·인스티즈·X를 순회하며 신규 혐오 표현과 자사 논란을 점검하고, AI로 카드뉴스를 사전 검증한다는 현업 워크플로우를 구체적으로 기술. 본 서비스가 정확히 자동화하려는 그 'human-in-the-loop 모니터링' 수요와 한계('신조어가 계속 생겨 전부 확인 불가, 검증 시간 제약')를 실증하는 시장 근거 자료.",
+    "sources": [
+     "https://www.fnnews.com/news/202605220929327009"
+    ],
+    "access_method": "언론사 웹페이지 직접 열람(WebFetch 정상)",
+    "license": "언론사 저작권(사실 추출·인용 위주 활용)",
+    "data_size": "사례 1건 + 업계 대응 관행 서술",
+    "update_potential": "업계 트렌드/수요 검증용 참고자료",
+    "notes": "서비스 가치 제안(자동 도그휘슬 탐지 + 신조어 업데이트 파이프라인)의 직접적 정당화 근거."
+   },
+   {
+    "name": "허프포스트 '숨은 일베 찾기' — 지상파 방송 일베 표현 사례 정리",
+    "description": "MBC·KBS·SBS 지상파 프로그램에서 일베 용어/이미지가 자막·화면에 노출돼 논란이 된 사례를 한데 모은 정리 기사. 구체 사례와 유래: MBC '진짜 사나이'(2013.7.14, '탁 치니 억하고' 박종철 고문치사 조롱), SBS '런닝맨'(2016.9.4, '개운재·개운지'='운지'=노무현 투신 조롱 / 2019.6.2, '1번을 탁 찍으니 엌 사레들림'=박종철 사건 조롱), KBS '연예가중계'(2018.5.18, 일베 조작 이미지·김대중 비하 이미지 그대로 사용). 방송 자막에 섞여 들어가는 일베 코드의 전형적 패턴 라이브러리로 활용 가능.",
+    "sources": [
+     "https://www.huffingtonpost.kr/article/257460"
+    ],
+    "access_method": "언론사 웹페이지 직접 열람(WebFetch 정상)",
+    "license": "언론사 저작권(사실 추출 위주)",
+    "data_size": "지상파 3사 다수 사례",
+    "update_potential": "방송 자막 사례는 산발적 발생 → 언론 검색 키워드 모니터링 병행 필요",
+    "notes": "'탁 치니 억', '운지' 등은 일반 문맥에 자연스럽게 끼워넣기 쉬운 고위험 표현 → 우선 룰셋 후보."
+   },
+   {
+    "name": "GitHub Tanat05/korean-profanity-resources — 한국어 혐오표현 리소스 종합 저장소",
+    "description": "한국어 욕설·비속어·혐오표현 관련 데이터셋·라이브러리·API를 한곳에 집약한 메타 저장소. 워마드 혐오발언 데이터(약 2,081건) 등 특정 커뮤니티 유래 데이터 링크를 포함하며, korean-hate-chat-data(1,487만+건, CC BY-NC-SA 4.0), 텍스트 윤리검증 데이터(약 45만건, AI Hub), K-MHaS(약 11만건, CC BY-SA 4.0) 등으로 연결. 라이브러리로 korcen(Apache 2.0), f-word(MIT) 등, API로 KISO·Google Perspective 연동을 안내. 데이터 수집의 출발점(허브) 역할로 가장 효율적.",
+    "sources": [
+     "https://github.com/Tanat05/korean-profanity-resources"
+    ],
+    "access_method": "git clone 또는 GitHub 웹/API로 README 및 링크 수집. 각 하위 데이터셋은 개별 라이선스 확인 후 다운로드.",
+    "license": "저장소 자체는 큐레이션 목록. 각 데이터셋별 라이선스 상이(CC BY-NC-SA/CC BY-SA/AI Hub 약관 등) — 상업 이용 시 개별 검증 필수.",
+    "data_size": "수십 개 데이터셋/라이브러리/API 링크 집약",
+    "update_potential": "107+ 커밋, PR 기반 기여로 지속 갱신 → 신규 데이터셋 등장 시 추적 소스로 유용",
+    "notes": "단, 대부분 '혐오/욕설 분류용 라벨 데이터'이며 '용어별 유래(origin) 메타데이터'는 부족 → 유래는 나무위키/위키백과/논문으로 보완 필요."
+   },
+   {
+    "name": "한국어 혐오표현 분류 데이터셋군 (BEEP!, UnSmile, K-MHaS, KOCOH 등)",
+    "description": "커뮤니티 댓글 기반 한국어 혐오표현 라벨링 데이터셋 모음. (1)kocohub/korean-hate-speech(BEEP!): 연예뉴스 댓글 약 9,381건, CC BY-SA 4.0. (2)smilegate-ai/korean_unsmile_dataset: 소수자 대상 혐오/편견 표현 라벨, CC-BY-NC-ND 4.0. (3)adlnlp/K-MHaS: 뉴스댓글 다중라벨 약 11만건(COLING2022). (4)eparkatgithub/KOCOH: 맥락 의존적(겉보기 중립이나 맥락상 혐오) 혐오발언 데이터 — 도그휘슬·우회 표현 탐지에 특히 부합. 분류 모델 학습/벤치마킹용 코어 자산.",
+    "sources": [
+     "https://github.com/kocohub/korean-hate-speech",
+     "https://github.com/smilegate-ai/korean_unsmile_dataset",
+     "https://github.com/adlnlp/K-MHaS",
+     "https://github.com/eparkatgithub/KOCOH"
+    ],
+    "access_method": "각 GitHub 저장소에서 직접 다운로드/clone, 일부는 Hugging Face Datasets 제공.",
+    "license": "데이터셋별 상이: BEEP!/K-MHaS는 CC BY-SA 4.0(상업 가능, 동일조건), UnSmile은 CC-BY-NC-ND 4.0(비상업·변경불가) — 상업 서비스에서는 UnSmile 직접 학습 사용에 제약. KOCOH는 저장소 LICENSE 확인 필요.",
+    "data_size": "각 9천~11만 건 규모, 합산 시 수십만 건",
+    "update_potential": "학계 발표 주기로 신규 데이터셋 등장 → 정기 서베이 권장. 라이브 업데이트 소스로는 부적합(스냅샷 성격).",
+    "notes": "이들은 '혐오/비혐오' 또는 '대상 카테고리' 라벨 중심으로, 특정 커뮤니티 유래나 단어 origin 정보는 없음. 본 서비스의 '실수 검출'은 분류보다 '특정 표식·은어 사전 매칭'이 핵심이므로, 이 데이터셋은 보조 학습용으로 위치시키는 것이 적절."
+   },
+   {
+    "name": "학술 논문 — 백수빈(2019) '인터넷 젠더 커뮤니티의 통신언어에 대한 연구'",
+    "description": "세명대 대학원 국어국문학과 석사논문. 일베와 워마드 두 커뮤니티의 통신언어를 표기·형태·의미 층위로 나눠 '생성 원리'를 언어학적으로 분석. 혐오 정서 기반 언어 변이의 동기를 '저급 놀이문화·타자화 전략·미러링 전략' 세 가지로, 영향 요인을 젠더·이데올로기·지역·세대로 정리. 특정 은어의 생성 메커니즘(왜·어떻게 변형되는지)을 이해해 신조어를 예측·일반화하는 룰 설계에 이론적 기반 제공.",
+    "sources": [
+     "https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=DIKO0015153426"
+    ],
+    "access_method": "ScienceON(KISTI)에서 서지정보 열람, 원문은 RISS/국회도서관/해당 대학 리포지터리에서 다운로드 가능성. 회원/기관 인증 필요할 수 있음.",
+    "license": "학위논문 저작권(저자/기관). 연구·인용 목적 활용.",
+    "data_size": "석사학위논문 1편",
+    "update_potential": "단발성 자료(업데이트 소스 아님). 후속 연구 추적용.",
+    "notes": "용어 '목록' 자체보다 '생성 원리' 프레임이 가치. 변형 표기 정규화(예: 받침 교체, 음절 분리) 규칙화에 참고."
+   },
+   {
+    "name": "학술 논문/학위논문 — 일베저장소 혐오 감정동학 연구 (서울대 SNU repository)",
+    "description": "'인터넷 커뮤니티 일베저장소에서 나타나는 혐오와 열광의 감정동학'(서울대 학위논문). 디시인사이드→일베로 이어지는 인터넷 문화 계보, 일베 게시판 분석을 통한 혐오 구조, 이용자 인터뷰 기반 감정사회학 분석을 담음. 용어가 발생·확산되는 커뮤니티 맥락과 계보(디시 발원 사실 포함)를 학술적으로 뒷받침해, 용어 '출처(어느 커뮤니티)' 판정의 근거 자료로 활용 가능. KISTI ScienceON에 동일 주제 논문(cn=DIKO0013573911)도 등재.",
+    "sources": [
+     "https://s-space.snu.ac.kr/handle/10371/134439",
+     "https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=DIKO0013573911"
+    ],
+    "access_method": "SNU S-Space 리포지터리에서 PDF 원문 공개(다운로드 가능). ScienceON에서도 서지·일부 원문 제공.",
+    "license": "학위논문 저작권. 리포지터리 공개분은 열람·연구 활용 가능.",
+    "data_size": "학위논문 1편",
+    "update_potential": "단발성(이론·계보 참고용)",
+    "notes": "SNU 링크는 일시적 TLS 인증서 경고가 발생했으나 정식 공개 리포지터리이며 재접속/브라우저로 접근 가능."
+   },
+   {
+    "name": "나무위키 'GS25 남성혐오 논란' 및 '연예인·공인들의 일베 논란' 사례 문서",
+    "description": "두 문서 모두 실제 오용/논란 사례를 시계열로 가장 촘촘히 축적한 케이스 아카이브. 'GS25 남성혐오 논란'은 경과/관련·유사 주장 하위문서까지 두어 집게손 파동의 기업 연쇄 사례를 망라. '연예인·공인들의 일베 논란'은 개인 단위 실수 사례(남휘종 강의 중 '운지', 홍진호 '민주화' 부정적 사용, 김진표 '탑기어' 운지 사용 등)를 일자·맥락과 함께 정리. 본 서비스의 '실사례 라벨링·검증 코퍼스' 구축에 직접 활용 가능한 풍부한 케이스 풀.",
+    "sources": [
+     "https://namu.wiki/w/GS25%20%EB%82%A8%EC%84%B1%ED%98%90%EC%98%A4%20%EB%85%BC%EB%9E%80",
+     "https://namu.wiki/w/%EC%97%B0%EC%98%88%EC%9D%B8%C2%B7%EA%B3%B5%EC%9D%B8%EB%93%A4%EC%9D%98%20%EC%9D%BC%EB%B2%A0%20%EB%85%BC%EB%9E%80"
+    ],
+    "access_method": "헤드리스 브라우저 또는 나무위키 덤프(403 차단으로 단순 fetch 불가). 사례의 1차 출처(원 언론 기사)를 함께 수집해 교차검증 권장.",
+    "license": "CC BY-NC-SA 2.0 KR (비영리·출처표시) — 상업 서비스는 사실만 추출·재서술, 원문 복제 지양.",
+    "data_size": "두 문서 합산 수십~수백 개 사례 항목",
+    "update_potential": "신규 논란 발생 시 빠르게 갱신 → 최신 판본 모니터링으로 사례 업데이트 가능",
+    "notes": "각 사례는 반드시 원 언론 보도(인사이트/서울경제/머니투데이 등)로 2차 검증 후 데이터화 권장."
+   },
+   {
+    "name": "최신 개별 사례 1차 언론 출처 (롯데 자이언츠 '노무한 박수', EBS 펭수 '들켰노')",
+    "description": "최근(2025~2026) 발생한 대표적 일베 코드 실수 사례의 원 언론 보도. (1)롯데 자이언츠 구단 유튜브가 광주 출신 노진혁 선수 자막에 '무한 박수'를 겹쳐 '노무한 박수'로 읽히게 해 공식 사과(2026.5). (2)EBS '펭수' 콘텐츠에서 강사 정승제 장면에 '(들켰노...)' 자막('-노' 어미=노무현 고인드립 코드)이 등장, 사과 없이 삭제했다가 역풍(2025.11). 서비스가 잡아야 할 '자막 겹침/어미 코드' 유형의 실증 사례이자, 신규 사례 자동 수집용 키워드(구단명+자막+일베, 방송명+들켰노 등) 설계의 근거.",
+    "sources": [
+     "https://www.sedaily.com/article/20042638",
+     "https://www.insight.co.kr/news/553743",
+     "https://www.mt.co.kr/society/2025/11/06/2025110606011416157",
+     "https://www.xportsnews.com/article/2075070"
+    ],
+    "access_method": "언론사 웹페이지 직접 열람. 네이버/다음 뉴스 검색 API 또는 키워드 알림으로 신규 사례 상시 수집 파이프라인 구성 가능.",
+    "license": "언론사 저작권(사실·인용 위주 활용)",
+    "data_size": "개별 사례 다건",
+    "update_potential": "높음 — 뉴스 검색 키워드 모니터링이 본 서비스의 핵심 '업데이트 소스'가 될 수 있음(가장 신선한 신규 코드가 언론을 통해 먼저 드러남).",
+    "notes": "'-노' 어미, 자막 레이어 겹침, 숫자 코드(523/518/1818) 등은 단순 사전 매칭으로 놓치기 쉬워 문맥/조합 검사 룰이 필수임을 보여줌."
+   }
+  ],
+  "summary": "한국 악성 커뮤니티(일베, 메갈리아/워마드 등) 유래 용어의 '유래(origin)' 정보와 실제 기업·기관 오용 사례를 확보할 수 있는 출처를 조사해 13개 핵심 소스를 검증했습니다. 용어 유래의 1차 보고는 (1)나무위키 '일베저장소/용어', '메갈리아/용어' 문서로, 각 용어마다 어원·사건·맥락이 상세히 서술되어 있으나(예: '운지'=원래 구름버섯이나 노무현 투신 조롱, '-노'=노무현 어투 고인드립 어미, '민주화'=비추천/동의대 사건 유래), namu.wiki는 자동 fetch에 대해 403으로 차단되고 라이선스가 CC BY-NC-SA(비영리)라 상업 서비스에서는 사실만 재가공해야 합니다. 라이선스가 자유로운(CC BY-SA 4.0) 위키백과 '집게손가락 음모론'·'일베저장소의 사건 및 사고' 문서는 2021~2024년 GS25·BBQ·넥슨·르노·스타벅스 등 20여 개 기업/기관의 표식 오용 사례를 날짜·콘텐츠별로 가장 체계적으로 정리하고 있어 1차 데이터 시드로 적합합니다. 실사례 측면에서는 한국일보·파이낸셜뉴스·허프포스트 등 언론 보도가 스타벅스 '5·18 탱크데이', 롯데 자이언츠 '노무한 박수' 자막, 래퍼 콘서트 숫자 코드(523/52,300원), 지상파 방송(MBC '탁 치니 억', SBS '운지'), EBS 펭수 '들켰노' 등 정교한 도그휘슬·숫자·자막겹침 사례를 풍부하게 제공합니다. 데이터셋으로는 GitHub의 korean-profanity-resources(허브), BEEP!/UnSmile/K-MHaS/KOCOH가 있으나 대부분 '혐오 분류 라벨' 중심이고 '용어별 유래 메타데이터'는 부족해, 분류 학습용 보조 자산으로 두고 유래 정보는 위키·논문으로 보완해야 합니다. 학술적으로는 백수빈(2019) 젠더 커뮤니티 통신언어 연구와 서울대 일베 감정동학 논문이 은어 생성 원리와 디시→일베 계보를 뒷받침합니다.",
+  "recommendations": "1) 1차 데이터 시드는 라이선스가 자유로운(CC BY-SA 4.0) 한국어 위키백과 '집게손가락 음모론'·'일베저장소의 사건 및 사고'를 MediaWiki API로 수집해 구축하고, 나무위키의 풍부한 용어/유래 정보는 직접 복제 대신 '어휘+유래 요약+출처링크'의 사실 데이터로 재가공해 라이선스(CC BY-NC-SA, 비영리·출처표시) 충돌을 회피하세요. nuinuri@gmail.com 측 서비스가 상업적이라면 나무위키 원문 텍스트 재배포는 피하고 사실 추출만 하는 것이 안전합니다.\\n\\n2) 데이터 스키마에 반드시 '유래(origin)' 필드를 넣으세요: {표현, 표면적 의미, 커뮤니티상 의미, 발원 커뮤니티(디시/일베/메갈/워마드), 발생 시기, 유래 사건/맥락, 출처 URL, 위험도}. 특히 디시인사이드 발원이지만 일베로 알려진 용어가 많으므로 '발원'과 '확산처'를 분리 기록해 오판을 줄이세요.\\n\\n3) 단순 사전 매칭만으로는 부족합니다. 실사례 분석 결과 (a)일반어의 의미 전용('민주화·운지·게이'), (b)어미 코드('-노', '들켰노'), (c)숫자 코드(518/523/1818/52,300), (d)자막·이미지 레이어 겹침('노진혁'+'무한 박수'='노무한 박수'), (e)시각 표식(집게손가락) 등 다층 패턴이 존재합니다. 텍스트 정규화(받침 교체·음절 분리 복원)+문맥 규칙+숫자/날짜 조합 검사+이미지 검출을 결합한 하이브리드 엔진을 권장하며, 맥락 의존 혐오 데이터셋 KOCOH로 문맥 모델을 보강하세요.\\n\\n4) 핵심 차별점은 '신조어 자동 업데이트'입니다. 업계가 '화이트 일베'(수작업 모니터링)에 의존하고 신조어를 다 못 잡는다는 한계가 실증되었으므로, 네이버/다음 뉴스 검색 API와 위키 개정 이력 폴링으로 '신규 논란 코드'를 자동 수집하는 파이프라인을 만들면 가장 신선한 코드가 언론에 먼저 노출되는 특성을 활용할 수 있습니다.\\n\\n5) 오탐 관리가 방어적 서비스의 신뢰를 좌우합니다. '집게손가락'처럼 의도성이 미입증된 표식은 위키백과가 '음모론' 관점으로 서술하는 점을 반영해, 검출 시 '확정' 대신 '주의/검토 권고'로 등급화하고 유래·반론 맥락을 함께 노출해 기업이 과잉 자기검열에 빠지지 않도록 하세요.\\n\\n6) 라벨 데이터셋은 라이선스를 개별 검증하세요. BEEP!·K-MHaS(CC BY-SA 4.0)는 상업 활용 여지가 있으나 UnSmile(CC-BY-NC-ND)은 비상업·변경불가라 직접 학습에 제약이 있으므로, 상업 모델 학습 시 사용 가능 데이터를 분리 관리하세요."
+ },
+ {
+  "summary": "한국어 혐오표현/욕설 데이터셋 생태계는 (1) 뉴스 댓글 기반 라벨링 코퍼스(BEEP!, K-MHaS, KOLD), (2) 전문가 다중라벨 코퍼스(Smilegate UnSmile, HateScore, SelectStar/TUNiB), (3) 단어 사전(lexicon: bad_word_list, LDNOOBW, 나무위키 욕설, korcen 룰), (4) 정부 대규모 데이터(AI Hub 텍스트 윤리검증 데이터 45만+건), (5) 난독화/우회표기 대응 특화(KOTOX)로 구분됩니다. 방어적 브랜드 세이프티 관점에서 가장 가치 있는 것은 '카테고리별 다중 라벨 + 혐오 대상(target group) + 강도(intensity)'를 제공하는 UnSmile, KOLD, SelectStar/TUNiB와, 일베/워마드 등 실제 커뮤니티에서 직접 수집된 Curse-detection-data, Womad Hate Speech Data입니다. 단어 단위 표식 사전으로는 LDNOOBW(ko), bad_word_list, korcen 룰셋이 즉시 적용 가능합니다. 라이선스는 연구용(CC-BY-NC 계열)이 다수이며, 상업 서비스 적용 시 UnSmile/KOLD/Womad 등은 별도 허가 또는 재구축이 필요합니다. 출처(provenance) 메타데이터는 KOLD(naver_news + 날짜 + 기사 제목 + span)와 AI Hub가 가장 풍부하고, 단순 욕설 사전류는 provenance가 거의 없습니다. 대부분 '단어 사전'이 아니라 '문장 코퍼스'라는 점이 핵심이며, 사전 검출용 lexicon은 별도로 LDNOOBW/korcen/나무위키를 결합해 구축해야 합니다.",
+  "findings": [
+   {
+    "name": "Smilegate AI UnSmile Dataset (korean_unsmile_dataset)",
+    "description": "Smilegate AI가 공개한 전문가 라벨링 한국어 혐오표현 다중라벨 코퍼스. 문장 코퍼스(단어 사전 아님). 총 18,742문장(train 15,005 / valid 3,737). 10개 라벨: 여성/가족, 남성, 성소수자, 인종/국적, 연령, 지역, 종교, 기타혐오, 악플/욕설, clean. 포털/커뮤니티 웹 게시물 약 100만건에서 필터링 후 전문 라벨링 그룹이 다중라벨 부여(2019.1~2021.7 수집). 방어적 서비스에 핵심: 카테고리별로 어떤 집단을 겨냥하는지 분류 가능하고 clean 라벨이 있어 오탐 방지 학습에 유용.",
+    "access_method": "GitHub 클론(https://github.com/smilegate-ai/korean_unsmile_dataset)에서 TSV 직접 다운로드, 또는 HuggingFace datasets `smilegate-ai/kor_unsmile` 로드. 사전학습 분류모델 kor_unsmile도 공개.",
+    "data_size": "18,742 문장 (train 15,005 / valid 3,737), 10개 라벨",
+    "license": "데이터셋: CC-BY-NC-ND 4.0 (비상업/비2차변경). 코드·베이스라인 모델: Apache 2.0. 상업적 사용은 smilegate_ai@smilegate.com 문의 필요.",
+    "sources": [
+     "https://github.com/smilegate-ai/korean_unsmile_dataset",
+     "https://huggingface.co/datasets/smilegate-ai/kor_unsmile",
+     "https://smilegate.ai/en/2022/03/28/unsmile-dataset/"
+    ],
+    "update_potential": "정기 갱신 소스로는 부적합(2022 v1.0 이후 고정). 라벨 체계를 참조 표준으로 활용 권장.",
+    "notes": "ND(no-derivatives) 조항 때문에 데이터 변형/파생 배포 제한. 상업 서비스는 별도 라이선스 협의 필수."
+   },
+   {
+    "name": "korean-hate-speech (BEEP!) - kocohub",
+    "description": "SocialNLP@ACL 2020 발표 데이터. 한국 연예 뉴스 댓글 기반 문장 코퍼스. 라벨 9,381건(train 7,896 / valid 471 / test 974) + 비라벨 2,033,893건. 두 축으로 라벨링: (1) 혐오(hate/offensive/none), (2) 사회적 편향(gender/others/none). 뉴스 제목을 문맥으로 함께 제공. 단어 사전 없음.",
+    "access_method": "GitHub 클론(https://github.com/kocohub/korean-hate-speech)에서 TSV 다운로드. Korpora 라이브러리로도 로드 가능.",
+    "data_size": "라벨 9,381건 + 비라벨 약 203만건, TSV",
+    "license": "CC-BY-SA 4.0 (출처표시-동일조건변경허락). 상업적 활용은 가능하나 동일 라이선스 전파(share-alike) 의무.",
+    "sources": [
+     "https://github.com/kocohub/korean-hate-speech",
+     "https://ko-nlp.github.io/Korpora/en-docs/corpuslist/korean_hate_speech.html"
+    ],
+    "update_potential": "고정 데이터. 200만 비라벨 코퍼스는 추가 라벨링/사전 확장 원천으로 활용 가능.",
+    "notes": "혐오와 offensive(공격적이나 혐오는 아님)를 구분하는 라벨 체계가 브랜드 세이프티 임계값 설계에 유용."
+   },
+   {
+    "name": "KOLD: Korean Offensive Language Dataset",
+    "description": "KAIST, EMNLP 2022. NAVER 뉴스 + YouTube 댓글 40,429건 문장 코퍼스. 한국어 최초의 계층적(taxonomy) 공격언어 데이터로, 공격 여부(OFF), 대상 유형(TGT: group/individual/untargeted), 21개 한국 문화 맞춤 대상 집단(GRP, 예: 성정체성-여성, 성정체성-페미니스트 등)을 라벨링. 핵심 차별점: 공격적 표현 span과 대상 span을 문자 인덱스(off_start/end, tgt_start/end)로 표시 -> 어떤 단어/구가 문제인지 정밀 검출에 직접 활용 가능. 기사/영상 제목을 문맥으로 포함.",
+    "access_method": "GitHub 클론(https://github.com/boychaboy/KOLD)에서 data/kold_v1.json 다운로드. HuggingFace `nayohan/KOLD` 미러도 존재.",
+    "data_size": "40,429 댓글, JSON. guid/source/date/title/comment/labels + span 인덱스 필드 포함",
+    "license": "리포지토리에 명시적 라이선스 미표기(연구용 가정). 상업 사용 전 저자 확인 필요. 논문은 ACL Anthology 공개.",
+    "sources": [
+     "https://github.com/boychaboy/KOLD",
+     "https://aclanthology.org/2022.emnlp-main.744/",
+     "https://arxiv.org/abs/2205.11315",
+     "https://huggingface.co/datasets/nayohan/KOLD"
+    ],
+    "update_potential": "고정. 단, span+target 구조가 방어적 lexicon 자동 추출(어떤 표현이 어떤 집단 겨냥)에 가장 적합.",
+    "notes": "provenance 메타데이터(출처 플랫폼, 날짜, 원문 제목) 풍부. '페미니스트' 등 특정 집단 타겟 라벨이 워마드/메갈리아 관련 표현 검출에 직접 도움."
+   },
+   {
+    "name": "K-MHaS: Korean Multi-label Hate Speech Dataset",
+    "description": "COLING 2022 (adlnlp). 한국 온라인 뉴스 댓글 109,692 발화 문장 코퍼스(train 78,977 / valid 8,776 / test 21,939). 2018.1~2020.6 수집. 8개 세분 혐오 클래스: 출신(Origin), 외모(Physical), 정치성향(Politics), 혐오욕설(Profanity), 연령(Age), 성(Gender), 인종(Race), 종교(Religion) + Not Hate Speech. 1~4개 라벨 동시 부여 가능한 다중라벨 + 이진분류 모두 지원.",
+    "access_method": "GitHub(https://github.com/adlnlp/K-MHaS) 또는 HuggingFace `jeanlee/kmhas_korean_hate_speech` 로드. Colab 예제 제공.",
+    "data_size": "109,692 발화, 다중라벨(8 클래스), 약 110K 규모로 가장 큰 학술 라벨 코퍼스 중 하나",
+    "license": "CC-BY-SA 4.0 (Tanat05 카탈로그 기준). 동일조건변경허락.",
+    "sources": [
+     "https://github.com/adlnlp/K-MHaS",
+     "https://aclanthology.org/2022.coling-1.311/",
+     "https://huggingface.co/datasets/jeanlee/kmhas_korean_hate_speech",
+     "https://arxiv.org/abs/2208.10684"
+    ],
+    "update_potential": "고정. 대규모이므로 분류기 학습 메인 코퍼스로 적합.",
+    "notes": "정치성향(Politics) 라벨이 일베 계열 정치 혐오 표현 검출에 유용. 다중라벨이라 한 문장이 여러 카테고리에 걸치는 실제 케이스 학습 가능."
+   },
+   {
+    "name": "APEACH: Korean Hate Speech Evaluation Dataset",
+    "description": "Kakao/SNU, Findings of EMNLP 2022. 크라우드소싱(DeepNatural AI)으로 익명 참여자가 직접 생성한 혐오 발화 + 최소 사후라벨링. 약 3,844문장 평가셋. 핵심 가치: 사전학습 코퍼스와의 어휘 중복(lexical overlap)에 덜 민감해 모델 일반화 성능을 정직하게 측정 -> 방어적 서비스의 분류기 평가 벤치마크로 적합.",
+    "access_method": "GitHub(https://github.com/jason9693/APEACH) CSV 또는 HuggingFace `jason9693/APEACH`.",
+    "data_size": "약 3,844 문장 (평가 전용)",
+    "license": "CC-BY-SA 4.0 (Tanat05 카탈로그 기준).",
+    "sources": [
+     "https://github.com/jason9693/APEACH",
+     "https://huggingface.co/datasets/jason9693/APEACH",
+     "https://arxiv.org/abs/2202.12459"
+    ],
+    "update_potential": "고정 평가셋. 학습보다 모델 검증/리그레션 테스트용.",
+    "notes": "학습 데이터에 본 적 없는 표현으로 일반화를 테스트하므로, 신조어/우회표현 검출 성능 점검에 권장."
+   },
+   {
+    "name": "HateScore (sgunderscore/hatescore-korean-hate-speech)",
+    "description": "Human-in-the-Loop 방식 한국어 혐오표현 데이터. 약 11,000문장 = HITL 태깅 1,700 + 위키피디아 중립문 2,200 + 룰기반 생성 중립문 7,100. 10개 카테고리: 여성, 성소수자, 지역, 인종/국적, 종교, 연령, 남성(7개 혐오) + 기타혐오, 단순모욕, clean. UnSmile의 다중 어노테이터 합의 대신 모델 분류확률 + 연구자 1인 판단으로 효율화. 대상 집단 메타데이터 제공.",
+    "access_method": "GitHub 클론(https://github.com/sgunderscore/hatescore-korean-hate-speech), HateScore.csv.",
+    "data_size": "약 11,000 문장 (혐오 + 중립 혼합)",
+    "license": "Apache 2.0 (상업적 사용 친화적).",
+    "sources": [
+     "https://github.com/sgunderscore/hatescore-korean-hate-speech",
+     "https://github.com/sgunderscore/hatescore-korean-hate-speech/blob/main/README.md"
+    ],
+    "update_potential": "HITL 파이프라인 자체가 갱신 가능 구조. 자체 데이터 추가 라벨링 워크플로 참조에 유용.",
+    "notes": "Apache 2.0이라 상업 서비스에 가장 부담 없이 적용 가능한 카테고리형 데이터. 중립문 다량 포함이 오탐(false positive) 억제 학습에 매우 유리."
+   },
+   {
+    "name": "SelectStar Open Dataset - 한국어 혐오 발화 (TUNiB x HUMANE Lab)",
+    "description": "TUNiB과 HUMANE Lab이 수집한 50만 문장 중 20만 공개, 그 중 약 10만 오픈 릴리스. 11개 카테고리: 모욕, 욕설, 외설, 폭력위협/범죄조장, 성혐오, 연령, 인종/지역, 장애, 종교, 정치성향, 직업. 각 항목에 4점 리커트 강도(intensity) 평가 + 혐오 대상(target)과 혐오 표현(expression)을 하이라이트 태깅. 방어적 서비스에 매우 적합: 강도 점수로 임계값 조절, 대상/표현 분리로 정밀 검출.",
+    "access_method": "신청 폼(https://tally.so/r/3NODKb) 통한 다운로드. 페이지: https://open.selectstar.ai/ko/tunib",
+    "data_size": "약 10만 공개(전체 50만 중), 11개 카테고리 + 강도 + target/expression 태깅",
+    "license": "CC-BY-SA 3.0 (출처표시-동일조건변경허락).",
+    "sources": [
+     "https://open.selectstar.ai/ko/tunib",
+     "https://open.selectstar.ai/ko/"
+    ],
+    "update_potential": "현재 고정 공개분. 강도 기반 라벨이 브랜드 세이프티 등급(주의/차단) 설계에 직접 매핑 가능.",
+    "notes": "11개 카테고리 중 '직업, 장애, 정치성향'은 다른 데이터에 드물어 커버리지 보완에 가치. 강도 4단계가 마케팅 문구의 경미한 표현과 명백한 혐오를 구분하는 데 핵심."
+   },
+   {
+    "name": "AI Hub 텍스트 윤리검증 데이터 (Text Ethics Verification Data)",
+    "description": "한국지능정보사회진흥원(NIA) 주관 정부 구축 대규모 비윤리 텍스트 데이터(2021 구축, 2022.7 갱신). Tanat05 카탈로그 기준 약 453,340건 규모. 비윤리 학습데이터(대화셋) + 윤리 학습데이터(일반문서/공개대화셋)로 구성, 다문장 문서에서 2~4문장 윈도우 단위로 비윤리 문장블록·문장을 식별. AI 윤리 상위 온톨로지 설계 + 분류 가이드라인 기반 라벨링. 국내 최대 규모급.",
+    "access_method": "AI Hub 회원가입 + 로그인 후 신청/다운로드(https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=558). 라벨링데이터+원천데이터 train/valid 제공.",
+    "data_size": "약 45만건 규모(라벨+원천), 문장블록 단위 비윤리 식별",
+    "license": "AI Hub 이용정책 적용(국내 한정·목적 제한 등). 상업 활용 전 이용약관 확인 필수(https://www.aihub.or.kr/intrcn/guid/usagepolicy.do).",
+    "sources": [
+     "https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=558",
+     "https://aihub.or.kr/aihubdata/data/view.do?aihubDataSe=realm&currMenu=115&dataSetSn=558&topMenu=100",
+     "https://www.aihub.or.kr/intrcn/guid/usagepolicy.do?currMenu=151&topMenu=105"
+    ],
+    "update_potential": "정부 데이터로 버전 갱신 이력 있음. 규모가 커 메인 학습 코퍼스 후보.",
+    "notes": "관련 데이터로 'AI 윤리 연구용 비정형 텍스트 데이터셋'(dataSetSn=268)도 존재 - 네이버 뉴스 댓글, 트위터, 비속어 빈도 높은 커뮤니티 댓글 수집. AI Hub는 가입·국내 IP·목적 제한이 있어 글로벌 서비스 적용 시 약관 주의."
+   },
+   {
+    "name": "Curse-detection-data (2runo)",
+    "description": "문장의 욕설 여부를 이진(0/1) 분류한 한글 데이터 5,825문장. 핵심: 출처가 일간베스트(일베), 오늘의 유머 등 실제 커뮤니티 -> 악성 커뮤니티 용어가 그대로 포함. 단순욕설, 인종차별, 정치갈등 조장, 성/성차별, 타인 비하를 모두 욕설로 폭넓게 라벨. 모호한 경우 보수적으로 비욕설 처리. 문장 코퍼스(단어 사전 아님).",
+    "access_method": "GitHub 클론(https://github.com/2runo/Curse-detection-data), dataset.txt (파이프 구분: 문장|라벨).",
+    "data_size": "5,825 문장, 이진 라벨",
+    "license": "MIT (상업적 사용 자유).",
+    "sources": [
+     "https://github.com/2runo/Curse-detection-data"
+    ],
+    "update_potential": "고정. 단, 일베 등 타겟 커뮤니티 실제 용례 확보 원천으로 가치.",
+    "notes": "MIT 라이선스 + 타겟 커뮤니티 직접 수집이라 방어적 서비스의 '실제 악성 용어' 시드 확보에 최적. 정치갈등/지역 비하 표현이 일베 표식 검출에 직접 활용."
+   },
+   {
+    "name": "Womad Hate Speech Data (Kaggle)",
+    "description": "한국 극단 커뮤니티 워마드(Womad)에서 직접 수집한 혐오표현 데이터 약 2,081건. 본 서비스가 명시적으로 타겟한 워마드/메갈리아 계열 커뮤니티의 실제 용례를 담은 희소 자원. 문장 코퍼스 추정.",
+    "access_method": "Kaggle 다운로드(https://www.kaggle.com/datasets/captainnemo9292/korean-extremist-website-womad-hate-speech-data). Kaggle 계정 필요.",
+    "data_size": "약 2,081건",
+    "license": "라이선스 명시 불확실(Tanat05 카탈로그 '미확인'). 사용 전 Kaggle 페이지 약관 확인 필수.",
+    "sources": [
+     "https://www.kaggle.com/datasets/captainnemo9292/korean-extremist-website-womad-hate-speech-data",
+     "https://github.com/Tanat05/korean-profanity-resources"
+    ],
+    "update_potential": "고정. 워마드 특유 표식/용어 시드 확보에 거의 유일한 공개 자원.",
+    "notes": "함께 'LGBT-targeted HateSpeech'(네이버뉴스 성소수자 대상 댓글 8,837건, CC-BY-NC-SA 4.0, Kaggle junbumlee)도 존재 - 메갈리아/워마드 관련 성소수자 혐오 표현 보완. 규모 작고 provenance 불명확하니 검증·수기 큐레이션 권장."
+   },
+   {
+    "name": "KOTOX: Korean Toxic Dataset for Deobfuscation and Detoxification (2025)",
+    "description": "한국어 최초 난독화(obfuscation) 대응 특화 데이터. K/DA 코퍼스 기반 2,294 고품질 중립-유해 쌍에서 증강, 총 6,882 샘플(난이도 easy/normal/hard). 17개 규칙 5범주: 음운(자음/모음 치환·재음절화·연음), 도상(한글 유사글자·교차스크립트·회전), 음차(라틴/CJK 음성치환·의미치환), 통사(띄어쓰기 교란·음절 애너그램), 화용(기호/이모지 삽입). 사용자가 탐지를 회피하려 변형한 표기(예: ㅅㅂ, 시1발 등)를 검출/복원/정화하는 데 직접 활용.",
+    "access_method": "GitHub 클론(https://github.com/leeyejin1231/KOTOX). 난이도별 디렉토리 + 증강/분류/파인튜닝 파이썬 스크립트.",
+    "data_size": "6,882 샘플 (train 5,505 / valid 687 / test 690), 3난이도",
+    "license": "MIT (상업적 사용 자유).",
+    "sources": [
+     "https://github.com/leeyejin1231/KOTOX",
+     "https://arxiv.org/abs/2510.10961"
+    ],
+    "update_potential": "변형 규칙 17종이 룰 엔진으로 재사용 가능 -> 신규 우회표기 자동 생성/탐지에 지속 활용. 갱신 잠재력 높음.",
+    "notes": "마케팅 문구에 숨은 우회표기 혐오 용어를 잡는 방어 서비스에 핵심. 룰셋을 lexicon 변형 생성기로 차용하면 사전 커버리지가 폭발적으로 확장됨."
+   },
+   {
+    "name": "KoTox - Korean Toxic Instruction Dataset (byunsj, NeurIPS 2023 WS)",
+    "description": "LLM 독성 완화를 위해 자동 생성된 한국어 비윤리 instruction-output 쌍 약 39K. 직접적인 댓글 분류 코퍼스라기보다 LLM 디톡스/세이프티 튜닝용. 방어 서비스가 자체 LLM 기반 모더레이터를 둘 경우 안전 튜닝 데이터로 활용 가능. (이름이 동일한 2025 KOTOX와 별개 데이터이므로 혼동 주의.)",
+    "access_method": "GitHub 클론(https://github.com/byunsj/KoTox-Korean-Toxic-Instruction-Dataset).",
+    "data_size": "약 39K instruction-output 쌍",
+    "license": "리포지토리 LICENSE 파일 확인 필요(GitHub에 LICENSE 존재).",
+    "sources": [
+     "https://github.com/byunsj/KoTox-Korean-Toxic-Instruction-Dataset"
+    ],
+    "update_potential": "고정. 분류보다 생성형 모더레이터 안전성 강화에 적합.",
+    "notes": "분류 데이터 아님 -> 본 서비스의 '검출' 목적엔 보조적. KOTOX(2025, leeyejin1231)와 반드시 구분."
+   },
+   {
+    "name": "LDNOOBW List of Dirty, Naughty, Obscene Words - Korean (ko)",
+    "description": "Shutterstock 관리 다국어 욕설 단어 사전. 한국어(ko) 단어 리스트 파일 포함. 단어 단위 lexicon이라 사전 검출(블록리스트) 즉시 적용 가능. 다국어 표준이라 글로벌 서비스에 일관 적용 용이.",
+    "access_method": "GitHub raw 다운로드(https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/blob/master/ko).",
+    "data_size": "ko 리스트(수십~수백 단어 규모), 단어 사전",
+    "license": "CC-BY 4.0 (출처표시만으로 상업 사용 가능).",
+    "sources": [
+     "https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words"
+    ],
+    "update_potential": "리포 업데이트 시 pull로 갱신 가능. 기본 블록리스트 시드로 적합하나 한국어 커버리지는 제한적이라 보완 필요.",
+    "notes": "CC-BY라 상업 적용 부담 최소. 다만 커뮤니티 은어/신조어는 거의 미포함 -> korcen/나무위키/Curse-detection 시드로 보강 필요."
+   },
+   {
+    "name": "bad_word_list (hlog2e) 및 기타 한국어 욕설 단어 사전",
+    "description": "한국어 비속어 1,143단어 JSON 배열 lexicon. 그 외 f-word list(theeluwin, ~400단어, MIT), korean-badwords, slang.csv(4,315), LoL 필터링 리스트 2020(3,272), 나무위키 욕설/한국어 문서(CC-BY-NC-SA 2.0) 등이 Tanat05 카탈로그에 집계됨. 모두 문장이 아닌 단어 단위 사전이라 사전 검출(키워드 매칭/정규식)에 직접 사용.",
+    "access_method": "GitHub raw 다운로드: bad_word_list(https://github.com/hlog2e/bad_word_list), f-word(https://github.com/theeluwin/f-word/blob/master/f_word/data/bad_words.json). 나무위키는 위키 페이지 크롤.",
+    "data_size": "bad_word_list 1,143단어 / f-word ~400 / slang 4,315 / LoL 3,272 단어",
+    "license": "bad_word_list 불명확, f-word MIT, 나무위키 CC-BY-NC-SA 2.0(비상업). 출처별 상이 -> 개별 확인 필수.",
+    "sources": [
+     "https://github.com/hlog2e/bad_word_list",
+     "https://github.com/theeluwin/f-word",
+     "https://namu.wiki/w/%EC%9A%95%EC%84%A4/%ED%95%9C%EA%B5%AD%EC%96%B4"
+    ],
+    "update_potential": "MIT/공개 리스트는 자체 머지로 마스터 lexicon 구축 가능. 나무위키는 비상업 라이선스라 상업 서비스 직접 포함 부적합(참조용).",
+    "notes": "사전류는 provenance 메타데이터가 거의 없음(어느 커뮤니티 유래인지 불명). 키워드 매칭은 오탐 위험 크므로 문맥 모델과 병행 권장."
+   },
+   {
+    "name": "korcen 및 korcen-ml (Tanat05) - 룰/딥러닝 비속어 판별 라이브러리",
+    "description": "키워드+룰 기반 한국어 비속어 필터 라이브러리(korcen)와 딥러닝 판별 모델(korcen-ml, korcen-kogpt2). 일반/성적/비하 등 수준별 판별. 우회표기(자모 분리, 특수문자 삽입) 일부 대응. 라이브러리 형태라 즉시 통합 가능하며, 내부 룰셋이 사실상 방대한 한국어 비속어 패턴 사전 역할.",
+    "access_method": "GitHub(https://github.com/Tanat05/korcen, https://github.com/KR-korcen/korcen-ml) + PyPI 설치. JS/TS/Java/Go/Dart 포팅 다수 존재.",
+    "data_size": "룰셋 기반(단어/패턴 다수), 모델 포함",
+    "license": "korcen 리포 라이선스 확인 필요(다수 포트는 Apache/MIT). API는 korcen-api Apache 2.0.",
+    "sources": [
+     "https://github.com/Tanat05/korcen",
+     "https://github.com/KR-korcen/korcen-ml",
+     "https://github.com/Tanat05/korean-profanity-resources"
+    ],
+    "update_potential": "활발히 유지보수되는 라이브러리 -> 버전 업으로 신규 패턴 반영. 다국어 포트로 서비스 스택 맞춤 통합 용이.",
+    "notes": "Tanat05의 korean-profanity-resources 자체가 한국어 욕설/혐오 데이터·사전·라이브러리·API를 총망라한 메타 카탈로그라 1차 진입점으로 강력 추천."
+   },
+   {
+    "name": "Tanat05/korean-profanity-resources (메타 카탈로그) 및 KoMultiText 등 보조 자원",
+    "description": "한국어 욕설/비속어/혐오 데이터셋·라이브러리·API·모델을 라이선스·규모와 함께 표로 정리한 종합 인덱스 리포지토리. 본 조사의 단일 최고 진입점. 부가로 KoMultiText(Dasol-Choi, NeurIPS2023 WS, SNS 댓글, 선호도+욕설+9종 편향 다중태스크 라벨), korean-hate-chat-data(약 1,488만건 대규모, CC-BY-NC-SA 4.0), DKTC(TUNiB, 협박/갈취/직장내괴롭힘 등 위협 대화 4,450건, CC-BY-NC-SA 4.0) 등도 카탈로그에 포함.",
+    "access_method": "GitHub(https://github.com/Tanat05/korean-profanity-resources) README 표 참조. 각 항목의 원본 GitHub/Kaggle/HuggingFace 링크 제공.",
+    "data_size": "카탈로그(20+ 데이터셋/사전). KoMultiText 약 4만 라벨, korean-hate-chat-data 약 1,488만, DKTC 4,450",
+    "license": "리포 자체 라이선스 명시 약함(참조용). 개별 자원 라이선스 상이.",
+    "sources": [
+     "https://github.com/Tanat05/korean-profanity-resources",
+     "https://github.com/Dasol-Choi/KoMultiText",
+     "https://github.com/tunib-ai/DKTC",
+     "https://github.com/songys/AwesomeKorean_Data"
+    ],
+    "update_potential": "커뮤니티 유지 카탈로그 -> 신규 데이터셋 등재 추적에 정기 모니터링 소스로 활용 가능. korean-hate-chat-data는 대규모라 신조어 마이닝 원천.",
+    "notes": "AwesomeKorean_Data(songys)도 한국어 데이터 링크 종합 인덱스로 보완. 국립국어원 '모두의 말뭉치'(kli.korean.go.kr)는 신청제이며 혐오 전용은 아니나 온라인 대화/감성분석 말뭉치로 보조 활용 가능."
+   }
+  ],
+  "recommendations": "권장 적용 전략(방어적 브랜드 세이프티 관점):\n\n1) 라이선스 안전 우선 코어 구축: 상업 서비스라면 우선 Apache 2.0(HateScore)·MIT(Curse-detection-data, KOTOX, f-word)·CC-BY(LDNOOBW ko)·CC-BY-SA(K-MHaS, BEEP!, APEACH, SelectStar/TUNiB) 자원으로 학습/사전을 구성하세요. UnSmile(CC-BY-NC-ND)·KOLD(라이선스 불명)·Womad(불명)·나무위키(NC)는 '참조·검증·라벨 체계 표준'으로만 쓰고, 상업 배포 데이터에는 직접 포함하지 마세요. AI Hub 텍스트 윤리검증 데이터는 규모가 크지만 이용약관(목적/국내 제한)을 반드시 사전 검토해야 합니다.\n\n2) 이중 레이어 검출: (a) 사전(lexicon) 레이어 - LDNOOBW(ko) + bad_word_list + f-word + korcen 룰셋을 머지해 마스터 블록리스트를 만들고 키워드/정규식으로 1차 필터. (b) 문맥 모델 레이어 - K-MHaS(대규모 다중라벨) + SelectStar/TUNiB(11카테고리+강도) + HateScore(중립문 다수)로 분류기를 학습해 오탐을 줄이세요. 사전 단독은 마케팅 문구의 정상 표현을 오탐하기 쉬우므로 반드시 문맥 모델과 병행해야 합니다.\n\n3) 카테고리·강도 매핑: SelectStar/TUNiB의 11카테고리+4점 강도와 KOLD의 21개 대상집단을 서비스 내부 분류 표준으로 채택하면, '경미한 표현=주의 플래그'와 '명백한 혐오=차단'을 분리해 기업 마케팅 실수 검출에 적합한 등급 체계를 만들 수 있습니다.\n\n4) 타겟 커뮤니티 표식 시드 확보: 일베 검출은 Curse-detection-data(일베/오유 직접 수집, MIT)와 K-MHaS의 Politics 라벨을, 워마드/메갈리아 검출은 Womad Hate Speech Data(Kaggle)와 LGBT-targeted HateSpeech, KOLD의 '페미니스트' 대상 라벨을 시드로 사용하세요. 다만 이들 표식은 규모가 작고 provenance가 불명확하므로 반드시 전문가 수기 큐레이션과 정기 업데이트를 거쳐야 합니다.\n\n5) 우회표기(난독화) 대응: KOTOX의 17개 변형 규칙(음운/도상/음차/통사/화용)을 룰 엔진으로 차용해 마스터 lexicon의 각 단어에 대해 자동으로 변형 표기를 생성·탐지하세요. 이것이 ㅅㅂ, 시1발, 특수문자 삽입 등 마케팅에 숨은 우회 혐오 표현을 잡는 핵심입니다.\n\n6) 정기 갱신 파이프라인: korean-profanity-resources(Tanat05)와 AwesomeKorean_Data를 모니터링해 신규 데이터셋 등재를 추적하고, korean-hate-chat-data(약 1,488만건) 같은 대규모 비라벨 코퍼스에서 신조어를 주기적으로 마이닝하세요. HateScore의 Human-in-the-Loop 워크플로를 참조해 자체 라벨링 루프를 구축하면 신조어 대응이 지속 가능합니다.\n\n7) 출처(provenance) 추적: 사전류는 어느 커뮤니티에서 유래했는지 메타데이터가 거의 없으므로, KOLD(출처 플랫폼/날짜/원문 제목/span)와 AI Hub처럼 provenance가 풍부한 데이터를 기준으로 자체 lexicon에 '유래 커뮤니티·최초 출현·카테고리' 메타 필드를 직접 부여해 관리할 것을 권장합니다."
+ },
+ {
+  "findings": [
+   {
+    "name": "나무위키 데이터베이스 덤프 (Namuwiki DB Dump)",
+    "description": "나무위키는 한국 최대 위키로 일베/메갈리아/워마드 등 커뮤니티 용어를 가장 상세히 정리한 '일베저장소/용어', '메갈리아/용어' 등의 문서를 보유. 과거에는 SQL/JSON 형식의 전체 DB 덤프를 빅데이터 분석/미러 제작용으로 제공했으나, 운영진이 강력한 anti-crawling(봇 차단) 체계를 구축한 뒤로 덤프 제공이 불안정해졌고 한동안 중단된 것으로 확인됨. 본문 직접 fetch 시 HTTP 403 Forbidden이 반환되어 봇 접근이 차단됨. 라이선스는 CC BY-NC-SA 2.0 KR(비영리·동일조건변경허락)이라 상업 서비스에 원문을 그대로 재배포/포함하는 것은 제약이 큼. 다만 '용어 목록'을 참고용 시드(seed) 사전 구축에 활용하고, 비영리 학습/내부 참조에 한정하면 유용.",
+    "sources": [
+     "https://namu.wiki/w/%EB%82%98%EB%AC%B4%EC%9C%84%ED%82%A4:%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EB%8D%A4%ED%94%84",
+     "https://namu.wiki/w/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%9A%A9%EC%96%B4",
+     "https://namu.wiki/w/%EB%A9%94%EA%B0%88%EB%A6%AC%EC%95%84/%EC%9A%A9%EC%96%B4",
+     "https://m.dcinside.com/board/namuwiki/71522"
+    ],
+    "license": "CC BY-NC-SA 2.0 KR (비영리·동일조건변경허락). 상업적 재배포 제약 큼. 일부 문서/삽화는 별도 라이선스.",
+    "access_method": "공식 덤프는 제공 중단/불안정. 봇 직접 크롤링은 403으로 차단됨. 비영리 목적의 수동 참조 또는 미러 사이트(thewiki.kr 등) 경유. 상업 서비스 내 원문 포함은 라이선스상 부적합.",
+    "data_size": "위키 전체 수십~수백 GB급(과거 SQL/JSON 덤프 기준). 용어 문서 단위로는 수천 개 항목.",
+    "update_potential": "용어 문서가 활발히 갱신되어 신조어 추적에 이상적이나, 자동 덤프/크롤링이 막혀 있어 정기 자동 업데이트 소스로는 부적합. 사람이 주기적으로 용어 문서 변경분을 검토하는 반자동 방식 권장.",
+    "notes": "이 서비스의 핵심 시드 사전 출처이지만 라이선스(NC)와 크롤링 차단이 이중 장벽. 원문 복제가 아닌 '용어 리스트 추출+자체 재작성' 방식으로 우회 권장."
+   },
+   {
+    "name": "Smilegate AI UnSmile 데이터셋 + kor_unsmile 모델 (HuggingFace)",
+    "description": "스마일게이트 AI가 공개한 한국어 혐오발언 데이터셋 및 텍스트 분류 모델. 2019.1~2021.7 포털/커뮤니티에서 수집한 약 55만 건 기반으로 약 1.8만 건(train 15,005 / valid 3,737)을 구축. 멀티라벨 카테고리: 여성/가족, 남성, 성소수자, 인종/국적, 연령, 지역, 종교, 기타혐오, 악플/욕설, clean 등. HuggingFace에 모델(smilegate-ai/kor_unsmile, 다운로드 26.6k)과 데이터셋이 모두 공개되어 즉시 로딩 가능(단, HF Inference API 미배포라 로컬/자체 서빙 필요). 우리 서비스의 base 분류기로 가장 먼저 검토할 후보.",
+    "sources": [
+     "https://huggingface.co/smilegate-ai/kor_unsmile",
+     "https://huggingface.co/datasets/smilegate-ai/kor_unsmile",
+     "https://github.com/smilegate-ai/korean_unsmile_dataset",
+     "https://smilegate.ai/en/2022/03/28/unsmile-dataset/"
+    ],
+    "license": "데이터셋: CC BY-NC-ND 4.0 (비영리·변경금지). 모델 가중치 라이선스는 레포 확인 필요. NC/ND라 상업적 직접 활용 및 파생물 배포에 제약.",
+    "access_method": "HuggingFace Hub에서 transformers로 직접 로드: pipeline('text-classification', model='smilegate-ai/kor_unsmile'). 자체 인프라에 배포해 inference. 데이터셋은 datasets 라이브러리로 로드.",
+    "data_size": "약 1.8만 라벨 문장 (원천 약 55만 건 중 선별)",
+    "update_potential": "데이터셋 자체는 2022년 고정(정기 업데이트 없음). 신규 신조어는 미반영. 우리가 자체 신조어 데이터를 추가해 fine-tune하는 방식으로 활용.",
+    "notes": "라이선스가 NC-ND라 상업 서비스에서는 (a)자체 데이터로 재학습 또는 (b)스마일게이트와 별도 협의가 안전. 카테고리 체계는 벤치마크로 매우 유용."
+   },
+   {
+    "name": "Tunib x HUMANE Lab x SelectStar 한국어 혐오표현 데이터셋",
+    "description": "Tunib(카카오브레인 NLP 출신 창업)과 고려대 HUMANE Lab, 데이터 기업 SelectStar 협업으로 구축한 대규모 혐오표현 데이터셋. 총 50만 문장 중 약 20만 건(공개 선별 약 10만)을 오픈데이터로 공개. 11개 카테고리(모욕, 욕설, 외설, 폭력위협/범죄조장, 성혐오, 연령, 인종/지역, 장애, 종교, 정치성향, 직업)로 분류하고, 4점 리커트 척도 점수 + 혐오표현 span + 혐오대상 span을 태깅. K-HATERS(약 19.2만 뉴스 댓글, target-specific offensiveness rating)로 학술 발표됨. Tunib은 TUNiB-Electra-ko 모델 및 TUNiBridge NLP API도 운영.",
+    "sources": [
+     "https://open.selectstar.ai/ko/tunib",
+     "https://arxiv.org/pdf/2310.15439",
+     "https://huggingface.co/datasets/jeanlee/kmhas_korean_hate_speech"
+    ],
+    "license": "공개 데이터셋: CC BY-SA 3.0 (저작자표시·동일조건변경허락) — 상업 활용 가능, 출처표시+동일 라이선스 필요. NC가 아니라 UnSmile보다 상업 활용에 유리.",
+    "access_method": "SelectStar 신청 폼(https://tally.so/r/3NODKb)을 통해 다운로드. Tunib 상용 API(TUNiBridge)는 별도 계약.",
+    "data_size": "공개 약 10~20만 문장 (전체 50만 중)",
+    "update_potential": "데이터셋은 시점 고정. 다만 11개 세분화 카테고리 + 대상/표현 span 태깅 구조는 우리 라벨 스킴 설계의 우수한 참조 모델. 정기 업데이트는 자체 파이프라인 필요.",
+    "notes": "CC BY-SA 3.0(상업 가능)이라는 점에서 본 서비스의 학습 데이터로 UnSmile보다 매력적. span 태깅이 있어 '문장 내 어느 표현이 문제인지' 하이라이트 기능 구현에 직접 활용 가능."
+   },
+   {
+    "name": "HuggingFace 한국어 혐오/욕설 분류 모델 체크포인트 모음",
+    "description": "즉시 inference 가능한 공개 체크포인트들: (1) smilegate-ai/kor_unsmile — 멀티라벨 혐오 분류, 다운로드 26.6k. (2) beomi/beep-KcELECTRA-base-hate — BEEP! 데이터셋으로 fine-tune된 KcELECTRA 기반 혐오 분류기, pipeline으로 즉시 사용. (3) beomi/korean-hatespeech-classifier — 한국어 혐오 분류기. (4) base 모델로 beomi/KcELECTRA-base, beomi/KcELECTRA-base-v2022(네이버 뉴스 댓글로 사전학습, 비속어/구어체에 강함), monologg/KoELECTRA(나무위키 포함 34GB 학습) — 자체 fine-tune 출발점. (5) monologg/korean-hate-speech-koelectra(GitHub) — KoELECTRA bias/hate 분류, weighted F1 74.77. 댓글/구어체 도메인 적합도가 핵심 선택 기준.",
+    "sources": [
+     "https://huggingface.co/smilegate-ai/kor_unsmile",
+     "https://huggingface.co/beomi/beep-KcELECTRA-base-hate",
+     "https://huggingface.co/beomi/korean-hatespeech-classifier",
+     "https://huggingface.co/beomi/KcELECTRA-base-v2022",
+     "https://github.com/monologg/korean-hate-speech-koelectra"
+    ],
+    "license": "모델별 상이(레포 model card 확인 필수). KcELECTRA 계열은 비교적 개방적. 학습 데이터(BEEP!=CC BY-SA, UnSmile=NC-ND) 라이선스가 파생 모델에 전이될 수 있어 주의.",
+    "access_method": "transformers의 pipeline/AutoModelForSequenceClassification으로 HF Hub에서 직접 로드. 자체 GPU/CPU 서빙. HF Inference Endpoints로 배포 가능.",
+    "data_size": "각 모델 base size(KcELECTRA-base 등 ~110M 파라미터급)",
+    "update_potential": "체크포인트 자체는 고정. 우리가 신조어 라벨 데이터를 모아 주기적으로 fine-tune/continual learning으로 갱신하는 구조에서 base로 활용.",
+    "notes": "KcELECTRA 계열(네이버 댓글 사전학습)이 커뮤니티 구어체/은어/초성체에 강해 본 도메인에 가장 적합. UnSmile 모델은 멀티라벨 카테고리가 바로 쓸 수 있어 빠른 PoC에 적합."
+   },
+   {
+    "name": "korean-profanity-resources 큐레이션 레포 + 오픈소스 필터 라이브러리",
+    "description": "Tanat05/korean-profanity-resources가 한국어 욕설/혐오 데이터셋·라이브러리·API를 집대성한 메타 저장소. 데이터셋: korean-malicious-comments(1만, MIT), Curse-detection-data(5,825, MIT), kmhas(78,978, CC BY-SA 4.0), Korean Hate Chat Data(1,490만, CC BY-NC-SA 4.0), UnSmile, BEEP!(9,381, CC BY-SA 4.0), KOLD(40,429), K-MHaS(109,692, CC BY-SA 4.0). 라이브러리: korcen(Python, Apache 2.0, 키워드/정규식 기반), korcen.ts(TS), f-word(MIT), Cenkor(JS, Apache 2.0). API: korcen-api(Apache 2.0 REST), profanity-filter-api(GPL-3.0). 룰베이스 korcen은 초성/우회표기 변형까지 잡아 ML 모델과 하이브리드로 쓰기 좋음.",
+    "sources": [
+     "https://github.com/Tanat05/korean-profanity-resources",
+     "https://github.com/Tanat05/korcen",
+     "https://github.com/smilegate-ai/korean_unsmile_dataset",
+     "https://huggingface.co/datasets/jeanlee/kmhas_korean_hate_speech"
+    ],
+    "license": "리소스별 상이. Apache 2.0/MIT(korcen, f-word 등)는 상업 활용 자유. CC BY-SA 데이터는 상업 가능(동일 라이선스). CC BY-NC-SA(Korean Hate Chat)는 비영리 제한.",
+    "access_method": "GitHub clone / pip install korcen. REST API는 self-host. 큐레이션 레포로 신규 리소스 등재 여부를 주기 모니터링.",
+    "data_size": "데이터셋 합산 수백만 건 규모(Korean Hate Chat 단독 1,490만)",
+    "update_potential": "이 큐레이션 레포 자체를 정기 모니터링 대상으로 삼으면 신규 데이터셋/라이브러리 출현을 추적 가능. korcen 사전은 커뮤니티 PR로 신조어가 지속 추가됨.",
+    "notes": "Apache/MIT 라이선스 자산(korcen 룰엔진 + MIT 데이터셋)으로 라이선스 청정한 1차 시스템 구축 가능. ML 모델은 그 위에 보강하는 하이브리드 권장."
+   },
+   {
+    "name": "네이버 검색 API(뉴스) — 용어 논란 모니터링 소스",
+    "description": "네이버 개발자센터의 검색 API(뉴스)로 '일베 용어 논란', 'OO 혐오표현 광고', '메갈 손가락' 등 키워드를 정기 질의해 신규 논란/신조어 등장을 자동 탐지하는 모니터링 파이프라인 구축 가능. CLIENT_ID/CLIENT_SECRET 발급 후 query/display/start/sort(date) 파라미터로 호출, JSON 응답. 기업 마케팅 사고(예: GS25 사건)는 거의 항상 언론 보도로 표면화되므로, 뉴스 API는 '사후 논란'을 가장 빠르게 포착하는 신호원. 무료 쿼터 내에서 일일 배치로 운영 가능.",
+    "sources": [
+     "https://developers.naver.com/docs/serviceapi/search/news/news.md",
+     "https://github.com/Ohmry/naver-api-search-news"
+    ],
+    "license": "네이버 오픈 API 이용약관(일일 호출 한도, 출처표시 등). 검색 결과 본문 저장/재배포는 약관·저작권 검토 필요.",
+    "access_method": "developers.naver.com 앱 등록 → CLIENT_ID/SECRET → REST 호출. 일일 배치 cron으로 키워드 셋 질의.",
+    "data_size": "쿼리당 최대 100건/요청, 일일 호출 한도 내",
+    "update_potential": "매우 높음 — 정기 배치로 '신규 혐오표현/논란 키워드'를 자동 수집하는 핵심 업데이트 신호원. 새 용어가 뉴스에 등장→사람 검수→사전 등재 워크플로우의 트리거.",
+    "notes": "본 서비스의 '지속 업데이트' 엔진 핵심. 뉴스 본문 전체 저장보다 제목/링크/키워드 추출 중심으로 운영해 저작권 리스크 최소화."
+   },
+   {
+    "name": "Google Trends (pytrends / 공식 alpha API) — 신조어 급상승 탐지",
+    "description": "신조어/은어가 대중화되는 시점을 검색량 급증으로 포착. pytrends(비공식, GeneralMills)로 interest_over_time, related_queries, realtime_trending_searches 등을 호출하나 비공식이라 백엔드 변경 시 자주 깨지고 production 신뢰성 낮음. 2025년 7월 Google이 공식 Trends API(alpha)를 출시(제한적 엔드포인트/쿼터). 특정 의심 용어의 검색량 추이로 '확산 중인 신조어'를 우선순위화하는 보조 신호로 활용.",
+    "sources": [
+     "https://github.com/GeneralMills/pytrends",
+     "https://developers.google.com/search/blog/2025/07/trends-api",
+     "https://pypi.org/project/pytrends/"
+    ],
+    "license": "pytrends는 비공식(Google ToS 영향). 공식 API는 Google 약관. 상업 운영 시 공식 API 권장.",
+    "access_method": "pip install pytrends(비공식) 또는 Google Trends API alpha 신청. 의심 용어 리스트의 검색량 추이 폴링.",
+    "data_size": "지표성 인덱스 데이터(절대량 아님)",
+    "update_potential": "중간 — 신조어 확산 '속도' 신호로 유용하나 한국어 특수 은어는 검색량이 낮아 누락 가능. 보조 신호로 활용, 뉴스 API와 병행 권장.",
+    "notes": "단독으로는 약하고, 네이버 뉴스 API + 위키 변경분 + 자체 사용자 신고를 결합한 멀티소스 업데이트 파이프라인의 한 축으로 사용."
+   },
+   {
+    "name": "한국어 위키백과 덤프 (dumps.wikimedia.org) — 라이선스 청정 보조 소스",
+    "description": "나무위키와 달리 한국어 위키백과는 dumps.wikimedia.org에서 정기 전체 덤프(kowiki pages-articles.xml.bz2 등)를 공개하고, MediaWiki Action API로 특정 문서(예: '메갈리아', '일베저장소', 혐오표현 관련 문서) 실시간 조회 가능. 라이선스가 CC BY-SA로 상업 활용 가능(출처표시+동일조건). 나무위키만큼 은어를 망라하진 않지만, 라이선스가 깨끗하고 자동 덤프/API가 안정적이어서 '합법적 정기 업데이트 백본'으로 적합.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C",
+     "https://meta.wikimedia.org/wiki/Data_dumps/ko"
+    ],
+    "license": "CC BY-SA 3.0/4.0 (상업 활용 가능, 출처표시+동일조건변경허락). 텍스트는 GFDL/CC BY-SA 듀얼.",
+    "access_method": "dumps.wikimedia.org에서 kowiki 덤프 정기 다운로드. 또는 MediaWiki Action API(action=query)로 문서 단위 폴링.",
+    "data_size": "kowiki 전체 수 GB(bz2 압축)",
+    "update_potential": "높음 — 월 단위 정기 덤프 + API 실시간 조회 모두 합법적으로 자동화 가능. 페미위키(femiwiki, MediaWiki 기반, AGPLv3 코드)도 동일 방식 보조 소스로 검토 가능.",
+    "notes": "나무위키의 라이선스/크롤링 장벽을 우회하는 '합법적 자동 업데이트' 대안. 단 은어 커버리지는 나무위키보다 낮아 수동 큐레이션과 병행 필요."
+   },
+   {
+    "name": "네이버 클린봇 / 카카오 세이프봇 — 벤치마크 레퍼런스 (비공개 API)",
+    "description": "네이버 'AI 클린봇'(2026년 3.0으로 고도화, 기사 제목·본문 맥락까지 반영해 악성 댓글 정밀 차단, 욕설 없는 악플도 탐지)과 카카오 '세이프봇'(2020.12 도입, 욕설 자동 음표 치환). 카카오는 치환 댓글이 2021년 53.7%, 2022년 63.8% 감소. 둘 다 외부 공개 API가 아닌 자사 서비스 내장형이라 직접 연동 불가하지만, 본 서비스의 성능 목표/UX(자동 치환, 맥락 반영)의 벤치마크. 학술 연구에서 클린봇이 단순욕설은 잘 잡지만 스테레오타이핑·완곡 혐오는 약하다는 한계가 보고됨 — 우리 서비스의 차별화 포인트(dog-whistle/완곡표현 탐지)로 삼을 수 있음.",
+    "sources": [
+     "https://www.ajunews.com/view/20260429141210992",
+     "https://www.hankookilbo.com/News/Read/A2022121409350005418",
+     "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10895543"
+    ],
+    "license": "비공개 사내 시스템(외부 API 미제공)",
+    "access_method": "직접 연동 불가. 공개 보도/논문을 통한 벤치마크 참조만 가능.",
+    "data_size": "N/A",
+    "update_potential": "N/A (참조용)",
+    "notes": "기존 대형 필터의 '약점'(완곡·스테레오타이핑·dog-whistle 미탐지)이 본 방어적 브랜드세이프티 서비스의 핵심 차별화 영역."
+   },
+   {
+    "name": "Hive Moderation Text API / Perspective API — 글로벌 상용/무료 모더레이션 API",
+    "description": "Hive Moderation: ~30개 언어(한국어 포함) 텍스트 모더레이션 상용 API, V3 Playground(100req/day 무료) 후 Enterprise 전환. 가격은 영업 문의(볼륨 기반 커스텀). Perspective API(Google Jigsaw): 무료, TOXICITY 등 속성, 한국어 지원(신형 UTC 다국어 모델로 12개 언어 강화). 단, Jigsaw가 Perspective API를 sunset 예정 — 2026년 2월까지 쿼터/요청 처리, 이후 서비스 종료 예정이라 신규 의존은 부적합. 두 API 모두 한국 커뮤니티 특유 은어/dog-whistle에는 한계가 있어 보조/비교용.",
+    "sources": [
+     "https://hivemoderation.com/text-moderation",
+     "https://docs.thehive.ai/docs/text-moderation-api",
+     "https://developers.perspectiveapi.com/s/about-the-api-attributes-and-languages",
+     "https://thehive.ai/pricing"
+    ],
+    "license": "Hive: 상용 라이선스(유료). Perspective: 무료(단 2026년 종료 예정).",
+    "access_method": "Hive: API 키 발급 후 REST. Perspective: Google API 신청(종료 예정이라 비권장).",
+    "data_size": "N/A (SaaS)",
+    "update_potential": "벤더가 모델 갱신하나 한국 특화 은어 대응은 약함. Perspective는 종료 예정이라 업데이트 소스로 부적합.",
+    "notes": "글로벌 baseline 비교/보강용으로만. 한국 악성 커뮤니티 특화 은어는 자체 사전+한국어 모델이 필수. Perspective 의존 금지(2026 종료)."
+   },
+   {
+    "name": "커뮤니티 직접 크롤링의 법적·윤리적·기술적 고려사항",
+    "description": "한국 판례상 무단 크롤링은 (1)저작권/데이터베이스권 침해, (2)부정경쟁행위, (3)정보통신망법상 무단침입으로 책임 가능. 대표 판례: 잡코리아-사람인 사건(사람인의 무단 크롤링을 부정경쟁행위로 위법 판단), 대법원 2021도1533(크롤링의 형사법적 책임 검토). robots.txt는 법적 강제력은 없으나 위반 시 고의·위법성 판단에 불리하게 작용. 나무위키는 anti-crawling으로 봇을 차단(403)하고 약관상 크롤링 금지를 명시. 추가로 커뮤니티 게시물에는 개인정보(닉네임·신상)가 섞여 개인정보보호법 리스크, 혐오 원문 대량 저장은 콘텐츠 보관 윤리 문제. 결론: 악성 커뮤니티 원문 직접 대량 크롤링은 법적·윤리적 리스크가 높아 지양하고, 라이선스 명확한 데이터셋/위키백과 덤프/뉴스 API/사용자 신고 기반의 합법 소스로 사전을 구성할 것.",
+    "sources": [
+     "https://www.shinkim.com/kor/media/newsletter/1843",
+     "https://m.lawtimes.co.kr/Content/Article?serial=98844",
+     "https://file.scourt.go.kr/dcboard/1727143941701_111221.pdf",
+     "https://atlaw.kr/kr-blog/%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9D%98-%ED%98%95%EC%82%AC%EC%B2%98%EB%B2%8C-%EA%B0%80%EB%8A%A5%EC%84%B1-%EB%8C%80%EB%B2%95%EC%9B%90-2021%EB%8F%841533-%ED%8C%90%EA%B2%B0-%EC%99%84%EC%A0%84/"
+    ],
+    "license": "N/A (법적 고려사항)",
+    "access_method": "직접 크롤링 대신: 라이선스 명확 공개 데이터셋 + 위키백과/페미위키 덤프·API + 뉴스 API + 사용자 신고 채널 활용. 부득이한 수집 시 robots.txt 준수, 약관 확인, 개인정보 비식별화, 최소 수집.",
+    "data_size": "N/A",
+    "update_potential": "직접 크롤링은 법적 리스크로 비권장. 합법 소스 조합으로 업데이트 파이프라인 구성.",
+    "notes": "방어적 서비스라는 정당한 목적이라도 무단 대량 크롤링의 위법성은 면제되지 않음. 컴플라이언스를 설계 단계부터 내장할 것."
+   },
+   {
+    "name": "GS25/르노/애플코리아 등 기업 마케팅 손동작·표식 논란 사례 (유스케이스 검증)",
+    "description": "본 서비스가 막으려는 사고의 실제 사례. 2021년 GS25가 캠핑 포스터에서 엄지·검지로 집는 손모양(메갈리아가 2015년 한국 남성 비하 목적으로 차용한 dog-whistle)을 사용해 논란→포스터 수정 반복 후 철회, 사과, 담당자 징계·팀장 해임. 동일 손모양으로 넥슨·카카오게임즈·BBQ·교촌·무신사 등 다수 브랜드가 광고 철회·사과. 르노코리아(2024)도 유튜브 영상의 손모양으로 사과. 애플코리아(2025) iPhone Air 광고에서 해당 손동작을 의도적으로 뺀 것이 화제. 이는 텍스트뿐 아니라 '시각 표식(이미지/제스처)'까지 검출 범위에 포함해야 함을 보여주는 강력한 근거.",
+    "sources": [
+     "https://wtop.com/asia/2021/10/why-a-hand-gesture-has-south-korean-companies-on-edge/",
+     "https://www.koreatimes.co.kr/business/companies/20240701/renault-korea-apologizes-for-youtube-channels-alleged-misandry-symbol",
+     "https://piunikaweb.com/2025/09/11/this-missing-hand-gesture-in-apple-koreas-iphone-air-ad-has-the-internet-cackling/"
+    ],
+    "license": "N/A (사례/뉴스)",
+    "access_method": "뉴스 보도 모니터링(네이버 뉴스 API로 자동 포착 가능)",
+    "data_size": "N/A",
+    "update_potential": "이런 신규 사례가 곧 새 검출 룰의 출처. 뉴스 모니터링으로 신규 논란 표식을 지속 발굴.",
+    "notes": "서비스 범위를 텍스트 용어 + 시각 표식(손동작 등 이미지)으로 확장해야 한다는 핵심 근거. 마케팅 검수(pre-publication) UX의 명확한 가치 제안."
+   }
+  ],
+  "summary": "한국어 콘텐츠 모더레이션/브랜드 세이프티(방어적 검출) 서비스의 데이터·기술·법무를 4개 축으로 조사했습니다. (1) 지속 업데이트 소스: 나무위키는 일베/메갈/워마드 용어를 가장 풍부하게 보유하나 라이선스가 CC BY-NC-SA(비영리)이고 봇 크롤링이 403으로 차단되며 공식 DB 덤프 제공이 중단·불안정해 자동 업데이트 소스로 부적합합니다. 대신 (a)라이선스가 깨끗하고 덤프·API가 안정적인 한국어 위키백과(CC BY-SA), (b)신규 논란을 가장 빠르게 포착하는 네이버 뉴스 검색 API, (c)신조어 확산 속도를 보는 Google Trends(공식 alpha API 또는 pytrends), (d)Tanat05 큐레이션 레포 모니터링, (e)사용자 신고를 결합한 멀티소스 파이프라인을 권장합니다. (2) 직접 크롤링은 잡코리아-사람인 판결·대법원 2021도1533 등으로 저작권/DB권/부정경쟁/개인정보 리스크가 크고, 방어적 목적이라도 위법성이 면제되지 않으므로 지양해야 합니다. (3) 기존 서비스: 네이버 클린봇 3.0·카카오 세이프봇은 비공개 사내 시스템(연동 불가, 벤치마크용)이며 단순욕설은 잘 잡지만 완곡·스테레오타이핑·dog-whistle에 약하다는 점이 우리의 차별화 영역입니다. Hive는 한국어 지원 상용 API, Perspective API는 한국어 지원하나 2026년 2월 이후 종료 예정이라 신규 의존 금지입니다. 오픈소스로는 korcen(Apache 2.0 룰엔진)이 초성/우회표기까지 잡아 하이브리드에 유용합니다. (4) HuggingFace 모델: smilegate-ai/kor_unsmile(멀티라벨), beomi/beep-KcELECTRA-base-hate, beomi/korean-hatespeech-classifier가 즉시 사용 가능하며, base로는 네이버 댓글 사전학습 KcELECTRA 계열이 커뮤니티 구어체에 최적입니다. 데이터셋은 상업 활용 가능한 CC BY-SA(BEEP!, K-MHaS, kmhas, Tunib/SelectStar)와 비영리 제한(UnSmile=NC-ND, Korean Hate Chat=NC-SA)을 구분해야 합니다. GS25·르노·애플코리아 손동작 사례는 서비스가 텍스트뿐 아니라 시각 표식까지 다뤄야 함을 입증합니다.",
+  "recommendations": "1) 라이선스 청정 우선 전략: 1차 시스템은 상업 활용 가능한 자산만으로 구성하세요. 룰엔진은 korcen(Apache 2.0)+자체 정규식, 학습 데이터는 BEEP!/K-MHaS/kmhas/Tunib-SelectStar(모두 CC BY-SA, 상업 가능, 출처표시+동일조건)로 한정하고, UnSmile(NC-ND)·Korean Hate Chat(NC-SA)·나무위키 원문(NC)은 상업 서비스에 직접 포함하지 말고 내부 벤치마크/비교용으로만 쓰거나 권리자와 별도 협의하세요.\\n\\n2) 하이브리드 검출 아키텍처: (a)korcen 룰+사전 매칭으로 초성체·우회표기·명시 욕설을 빠르게 잡고, (b)그 위에 KcELECTRA 계열 fine-tuned 분류기(smilegate kor_unsmile 또는 beep-KcELECTRA를 출발점)로 맥락·완곡 혐오를 보강하세요. 네이버 클린봇이 약한 '스테레오타이핑/dog-whistle'를 핵심 차별화로 삼아 별도 사전(메갈 손동작, 특정 밈·은어)과 맥락 룰을 운영하세요.\\n\\n3) 시각 표식까지 확장: GS25·르노·애플코리아 사례가 증명하듯 마케팅 사고의 상당수는 손동작 등 이미지 표식입니다. 텍스트 모듈과 별개로 이미지 제스처/심볼 검출(Hive 이미지 모더레이션 또는 자체 비전 모델) 로드맵을 포함하세요.\\n\\n4) 합법적 지속 업데이트 파이프라인: 자동 소스로 (i)네이버 뉴스 API 일일 배치로 '혐오표현 광고/용어 논란' 키워드 모니터링, (ii)한국어 위키백과 덤프·MediaWiki API로 관련 문서 변경분 추적, (iii)Google Trends로 신조어 급상승 확인, (iv)Tanat05 큐레이션 레포 신규 등재 감시를 돌리고, 모든 자동 신호는 '사람 검수 후 사전 등재' 휴먼인더루프 게이트를 거치게 하세요. 사용자/고객 신고 채널을 1차 신조어 발굴원으로 적극 활용하세요.\\n\\n5) 컴플라이언스 내장: 악성 커뮤니티 원문 무단 대량 크롤링은 금지(법적 리스크). 부득이한 수집 시 robots.txt·약관 준수, 개인정보 비식별화, 최소 수집 원칙을 적용하고, 혐오 원문 저장 최소화 정책을 문서화하세요.\\n\\n6) Perspective API 의존 금지(2026.2 종료). 글로벌 baseline이 필요하면 Hive를 비교/보강용으로만 사용하고, 한국 특화 은어는 반드시 자체 한국어 모델+사전으로 대응하세요."
+ },
+ {
+  "summary": "한국어 텍스트 변형(자모 분리, 음절 치환, 특수문자 삽입, 야민정음, 영문 음차, 초성체)에 대응하는 콘텐츠 모더레이션/브랜드 세이프티 서비스 구축을 위한 데이터·기술 조사 결과입니다. 네 가지 축(변형 패턴, 매칭 알고리즘, 문맥 분류, 서빙 기술) 모두에서 실사용 가능한 오픈소스와 학술 자료를 확인했습니다.\n\n핵심 발견:\n(1) 변형 패턴 대응 - korcen(키워드+변형 우회 탐지), tetrapod(자모 병합), badwordDetection2(영문 키보드 입력 ㅂ=q 역치환), KOTOX 논문(17개 변형 규칙을 음운/도상/음차/통사/화용 5범주로 체계화) 등 변형 대응 로직이 이미 정형화되어 있습니다.\n(2) 매칭 알고리즘 - pyahocorasick(C 확장 Aho-Corasick), flashtext/flashtext2(Trie 기반, 키워드 500개 초과 시 regex보다 압도적으로 빠름), 한글 정규화는 Python 내장 unicodedata(NFD/NFKD) + hgtk/jamo/hangul-utils로 자모 분해, soynlp의 초/중/종성 단위 Levenshtein으로 fuzzy matching, Kiwi(kiwipiepy) 형태소 분석기(웹 텍스트 87% 정확도)를 결합하는 파이프라인이 표준입니다.\n(3) 문맥 분류(동음이의어 문제) - KcELECTRA(beomi)·KoELECTRA 기반 파인튜닝 모델과 UnSmile, BEEP!, K-MHaS, K-HATERS, AI Hub 텍스트 윤리검증 데이터 등 대규모 라벨링 데이터셋으로 문장 수준 분류기를 학습해 '운지=버섯' 같은 무해 문맥의 오탐을 줄일 수 있습니다. LLM(GPT-4) 제로샷도 Perspective API 대비 recall이 크게 우수합니다.\n(4) 서빙 - 사전 필터(Aho-Corasick/flashtext)로 후보를 빠르게 걸러낸 뒤 ML 분류기로 문맥 검증하는 2단계 캐스케이드가 권장됩니다.\n\n방어적 서비스의 핵심 난제는 '오탐(false positive) 최소화'이며, 이는 변형 정규화 후보 매칭 + 문장 단위 ML 문맥 분류의 결합으로 해결하는 것이 정석입니다.",
+  "findings": [
+   {
+    "name": "korcen (한국어 비속어 판별 라이브러리)",
+    "description": "키워드 기반 한국어 비속어 판별 라이브러리로, 단순 사전 매칭을 넘어 특수문자·이모지(예: 🖕)로 표현된 욕설과 자모 변형 우회를 탐지하도록 설계되어 있습니다. Python 외에 TypeScript(korcen.ts), Go(korcen-go), JS(cenkor) 포트와 REST API(korcen-api)까지 생태계가 갖춰져 있어, 방어적 1차 룰 기반 필터의 출발점으로 적합합니다. 영어·일본어·중국어도 부분 지원합니다.",
+    "access_method": "GitHub 클론 또는 pip 설치(pip install korcen). 다국어 포트는 각 언어 패키지 매니저(npm 등)로 설치.",
+    "data_size": "내장 비속어 키워드 DB + LoL 필터링 리스트(3,272개), slang.csv(4,315개) 등 사전 포함",
+    "license": "MIT (일부 포트는 Apache 2.0)",
+    "sources": [
+     "https://github.com/Tanat05/korcen",
+     "https://github.com/Tanat05/korcen.ts",
+     "https://github.com/fluffy-melli/korcen-go",
+     "https://github.com/fluffy-melli/korcen-api"
+    ],
+    "update_potential": "비속어 키워드 DB를 외부 파일로 분리해 운영하면 신조어 추가 시 코드 변경 없이 갱신 가능. 업스트림 저장소 커밋을 주기적으로 동기화하는 방식도 가능.",
+    "notes": "공식 문서에 정규화 알고리즘 세부가 충분히 기술돼 있지 않으므로, 소스 코드를 직접 검토해 자모 변형/반복문자 처리 로직을 확인할 것."
+   },
+   {
+    "name": "korean-profanity-resources (Tanat05) - 종합 리소스 허브",
+    "description": "한국어 욕설·비속어·혐오표현 관련 데이터셋·라이브러리·API·모델을 한 곳에 모은 메타 저장소입니다. 20여 개 데이터셋(크기·라이선스 표기 포함), 12개 언어별 라이브러리, 3개 API, 3개 ML 모델을 정리해 두어 본 프로젝트의 출발점 인덱스로 가장 가치가 높습니다. 변형 대응(자모분리/야민정음/특수문자) 기법 자체는 상세 문서화돼 있지 않아 개별 라이브러리 소스 검토가 필요합니다.",
+    "access_method": "GitHub 저장소 열람. README 표에 각 자원의 URL·크기·라이선스가 정리됨.",
+    "data_size": "데이터셋 합산 시 수천만 건 규모(korean-hate-chat-data 단독 약 1,487만 건 포함)",
+    "license": "저장소 자체는 공개. 개별 자원 라이선스는 MIT/Apache 2.0/CC BY-SA/CC BY-NC-ND 등 상이하므로 상업 서비스 적용 시 개별 확인 필수.",
+    "sources": [
+     "https://github.com/Tanat05/korean-profanity-resources"
+    ],
+    "update_potential": "이 저장소의 watch/star 및 커밋 히스토리를 모니터링하면 새 데이터셋·라이브러리 등장을 주기적 업데이트 소스로 활용 가능.",
+    "notes": "상업적 콘텐츠 모더레이션 서비스에서는 CC BY-NC(비상업) 라이선스 데이터셋(UnSmile, kmhas, LGBT-hatespeech 등)의 사용 범위에 주의."
+   },
+   {
+    "name": "KOTOX: A Korean Toxic Dataset for Deobfuscation and Detoxification (arXiv 2510.10961)",
+    "description": "한국어 난독화(우회) 독성 텍스트를 다루는 최초의 페어 데이터셋·연구로, 변형 패턴을 5개 범주 17개 변환 규칙으로 체계화한 점이 본 프로젝트의 변형 분류 설계에 직접 활용 가능합니다. 범주: (1)음운적(자음/모음 치환·삽입·연음 8규칙), (2)도상적(한글 분해성·회전 이용 시각 유사 치환 3규칙=야민정음), (3)음차(CJK/라틴/의미 외래어 3규칙), (4)통사적(띄어쓰기·음절 애너그램 2규칙), (5)화용적(무관 기호·이모지 삽입 1규칙). 변형 텍스트로 학습 시 성능 격차가 최대 34.67% 감소함을 보였습니다.",
+    "access_method": "논문(arXiv) 열람 + 코드·데이터 GitHub 공개(https://github.com/leeyejin1231/KOTOX).",
+    "data_size": "6,882건(학습 5,505 / 검증 687 / 테스트 690). 중립-독성 페어 2,294쌍에서 변형 증강.",
+    "license": "논문은 arXiv 게재. 데이터/코드 라이선스는 저장소에서 확인 필요(명시 미상).",
+    "sources": [
+     "https://arxiv.org/html/2510.10961v2",
+     "https://github.com/leeyejin1231/KOTOX"
+    ],
+    "update_potential": "변형 규칙 17개를 정규화·증강 엔진의 룰셋으로 직접 이식하면 신규 우회 패턴 대응 시 규칙만 추가하는 방식으로 확장 가능.",
+    "notes": "본 서비스의 '변형 정규화기' 설계 청사진으로 가장 직접적인 학술 근거. HateBERT/XLM-R/multilingual RoBERTa + GPT-4.1 등 모델 벤치마크도 제공."
+   },
+   {
+    "name": "PHISH in MESH: Korean Adversarial Phonetic Substitution (arXiv 2505.21380)",
+    "description": "한글의 음운 구조를 악용한 적대적 음차 치환(phonetic substitution) 공격과, 음운·의미 특징을 통합해 탐지 모델 견고성을 높이는 MESH 방어 기법을 제안합니다. 한국어가 표음 문자라 음차 변형이 사람에겐 읽히지만 탐지기를 쉽게 회피한다는 점을 정량적으로 다뤄, 방어적 서비스의 음차 우회 대응 근거로 활용됩니다.",
+    "access_method": "arXiv PDF 열람(CC BY 4.0). 저자: Byungjun Kim, Minju Kim, Hyeonchu Park, Bugeun Kim.",
+    "data_size": "복수의 표준 한국어 NLP 벤치마크에서 평가(상세는 본문 참조)",
+    "license": "CC BY 4.0 (논문)",
+    "sources": [
+     "https://arxiv.org/pdf/2505.21380",
+     "https://arxiv.org/abs/2505.21380"
+    ],
+    "update_potential": "음차 치환 공격 모델링을 정기적 레드팀(adversarial) 테스트셋 생성에 활용해 탐지기 회피 내성을 지속 점검 가능.",
+    "notes": "탐지 모델에 음운 특징(phonetic feature)을 입력으로 추가하는 MESH 접근은 음차 우회에 특히 효과적."
+   },
+   {
+    "name": "tetrapod / badwordDetection2 - 변형 우회 대응 모듈",
+    "description": "tetrapod는 변형된 욕설 표현을 탐지하기 위해 흩어진 한글 자모를 한 글자로 최대한 병합(자모합성)하는 정규화 함수가 핵심입니다. badwordDetection2는 여러 우회 방식별 필터를 모듈로 모은 구조로, 특히 영문 키보드 상태로 친 욕설을 역치환(q→ㅂ, Q→ㅃ, 'Tlqkf'→'ㅆㅣㅂㅏㄹ')하는 필터가 영문 음차 변형 대응의 구체적 구현 예입니다.",
+    "access_method": "GitHub 클론. tetrapod는 JS, badwordDetection2는 Python.",
+    "data_size": "라이브러리(룰/필터 모음)",
+    "license": "badwordDetection2: MIT (tetrapod 라이선스는 저장소 확인)",
+    "sources": [
+     "https://github.com/hmmhmmhm/tetrapod",
+     "https://github.com/0-inf/badwordDetection2"
+    ],
+    "update_potential": "필터가 모듈식이라 신규 우회 패턴별 필터를 독립적으로 추가/교체 가능.",
+    "notes": "영문 키보드 역치환 매핑 테이블은 본 서비스의 '영문 음차→한글 자모' 정규화 단계에 그대로 차용 가능."
+   },
+   {
+    "name": "pyahocorasick - Aho-Corasick 다중 패턴 매칭",
+    "description": "C 확장으로 구현된 빠르고 메모리 효율적인 다중 패턴 문자열 검색 라이브러리. Trie를 오토마톤으로 변환해 입력 텍스트를 단 한 번 순회하며 다수의 금칙어(needle)를 동시 검색합니다. 대형 오토마톤을 pickle로 저장·재사용할 수 있어, 수천~수만 개 금칙어/변형 패턴을 빠르게 1차 스크리닝하는 서빙 코어로 적합합니다.",
+    "access_method": "pip install pyahocorasick. C 확장 + 순수 파이썬 폴백 제공.",
+    "data_size": "라이브러리(Python 3.6+, Linux/macOS/Windows)",
+    "license": "BSD-3-Clause",
+    "sources": [
+     "https://pypi.org/project/pyahocorasick/",
+     "https://github.com/WojciechMula/pyahocorasick",
+     "https://pyahocorasick.readthedocs.io/"
+    ],
+    "update_potential": "금칙어 자동(automaton)을 별도 빌드·pickle 캐싱하면 사전 갱신 시 오토마톤만 재빌드하여 무중단 배포 가능.",
+    "notes": "정규화(자모 분해·특수문자 제거) 후 매칭하면 변형 우회 탐지율이 크게 상승. exact/approximate 매칭 모두 지원."
+   },
+   {
+    "name": "flashtext / flashtext2 - Trie 기반 고속 키워드 검출·치환",
+    "description": "Aho-Corasick에서 영감을 받은 Trie 기반 키워드 추출/치환 라이브러리로, 검색 복잡도가 텍스트 길이에 선형입니다. 키워드가 500개를 초과하면 regex 대비 압도적으로 빨라(대규모에서 며칠 vs 15분 수준) 대량 금칙어 스크리닝에 이상적입니다. flashtext2는 Rust로 재작성돼 원본 대비 약 3~10배 빠릅니다.",
+    "access_method": "pip install flashtext (또는 flashtext2).",
+    "data_size": "라이브러리",
+    "license": "MIT",
+    "sources": [
+     "https://pypi.org/project/flashtext2/",
+     "https://stackabuse.com/searching-and-replacing-words-in-python-with-flashtext/",
+     "https://arxiv.org/pdf/1711.00046"
+    ],
+    "update_potential": "KeywordProcessor에 키워드를 동적 add/remove 할 수 있어 신조어 사전 핫리로드에 유리.",
+    "notes": "특수문자(^,$,* 등) 패턴 매칭은 불가하므로 정규식과 역할 분담 필요. 단순 사전 매칭/치환에 최적."
+   },
+   {
+    "name": "한글 자모 분해/정규화 도구 (unicodedata, hgtk, jamo, hangul-utils)",
+    "description": "변형 정규화의 핵심 단계인 자모 분해를 위한 도구군. Python 내장 unicodedata.normalize('NFD'/'NFKD')로 호환 분해를, 서드파티로는 hgtk(자모 분해/조합·자모 자동완성·문자종 판별), python-jamo(U+11xx↔U+31xx 자모 변환), hangul-utils(split_syllables/join_jamos, Open Korean Text 기반 정규화)를 활용합니다. '시1발'의 특수문자 삽입, 'ㅅㅂ' 초성체 등은 자모 분해 후 매칭으로 잡아낼 수 있습니다.",
+    "access_method": "unicodedata는 표준 라이브러리. 나머지는 pip install hgtk / jamo / hangul-utils.",
+    "data_size": "라이브러리",
+    "license": "각 패키지별(대체로 오픈소스). hgtk/jamo는 공개 라이선스.",
+    "sources": [
+     "https://docs.python.org/3/library/unicodedata.html",
+     "https://pypi.org/project/hgtk/",
+     "https://python-jamo.readthedocs.io/",
+     "https://github.com/kaniblu/hangul-utils",
+     "https://github.com/bluedisk/hangul-toolkit"
+    ],
+    "update_potential": "정규화 로직은 안정적이라 갱신 빈도 낮음. 표준 NFD/NFKD 기반이므로 유지보수 부담 적음.",
+    "notes": "주의: 유니코드 호환 자모(U+31xx)와 조합용 자모(U+11xx)가 다르므로 분해 후 표준형으로 통일해야 매칭 일관성 확보."
+   },
+   {
+    "name": "soynlp - 초/중/종성 단위 Levenshtein 거리 (한국어 fuzzy matching)",
+    "description": "두 한글 글자를 초/중/종성으로 분해해 자모 단위 Levenshtein 거리(0~3, 3으로 정규화)를 계산하는 함수를 제공해, 글자 단위가 아닌 자모 단위 유사도 기반 fuzzy matching을 가능케 합니다. '머가리'(야민정음)나 오타·음절 치환 변형을 원형 금칙어와의 근사 거리로 탐지하는 데 활용됩니다.",
+    "access_method": "pip install soynlp. (해설: LOVIT 블로그에 자모 단위 Levenshtein 구현 설명)",
+    "data_size": "라이브러리",
+    "license": "오픈소스(GPL 계열, 저장소 확인 권장)",
+    "sources": [
+     "https://lovit.github.io/nlp/2018/08/28/levenshtein_hangle/",
+     "https://github.com/scarletcho/KoLM"
+    ],
+    "update_potential": "거리 임계값 튜닝으로 오탐/미탐 균형 조정 가능. 룰 갱신보다는 임계값·가중치 운영 파라미터 관리.",
+    "notes": "자모 단위 편집거리는 변형 탐지에 강력하나 연산 비용이 있으므로, Aho-Corasick 1차 필터 후 후보에만 적용하는 캐스케이드가 효율적."
+   },
+   {
+    "name": "Kiwi / kiwipiepy - 한국어 형태소 분석기",
+    "description": "빠르고 범용적인 한국어 형태소 분석기로 웹 텍스트 약 87%, 문어 약 94% 정확도를 보이며 기존 오픈소스 대비 우수합니다. C++ 코어에 Python 래퍼(kiwipiepy)를 제공해 대용량 처리에 유리합니다. 형태소 분석으로 어절을 정규화하면 '운지'가 명사(버섯)로 쓰인 문맥과 비하 표현 문맥을 구분하는 전처리, 사용자 사전 등록을 통한 신조어 토큰화에 활용됩니다.",
+    "access_method": "pip install kiwipiepy. (Mecab-ko, KoNLPy, pecab 등도 대안)",
+    "data_size": "라이브러리 + 경량 내장 모델",
+    "license": "LGPL v3 (kiwipiepy)",
+    "sources": [
+     "https://github.com/bab2min/kiwi",
+     "https://pypi.org/project/kiwipiepy/",
+     "https://github.com/hyunwoongko/pecab"
+    ],
+    "update_potential": "사용자 사전(user dictionary)에 신조어/은어를 등록해 토큰화 정확도를 지속 갱신 가능. 형태소 단위 통계로 신규 의심어 발굴에도 활용.",
+    "notes": "동음이의어 문맥 판별의 보조 신호(품사·주변 형태소)로 유용하나, 최종 문맥 판단은 ML 분류기에 위임 권장."
+   },
+   {
+    "name": "KcELECTRA / KoELECTRA 기반 혐오표현 분류 모델",
+    "description": "댓글·구어체 한국어로 사전학습된 KcELECTRA(beomi)와 KoELECTRA를 혐오표현 데이터셋으로 파인튜닝한 문장 수준 분류기. 같은 단어라도 문맥에 따라 무해/유해를 구분하는 동음이의어 오탐 억제의 핵심 기술입니다. 예: TTA-DQA의 KcELECTRA 멀티라벨 모델은 모욕·욕설·외설·폭력위협·성/연령/인종지역/장애/종교/정치/직업/무혐오 12개 범주를 분류. monologg의 KoELECTRA 기반 bias/hate 분류 구현도 공개돼 있습니다.",
+    "access_method": "Hugging Face에서 모델 로드(transformers). UnSmile/BEEP!/K-MHaS 등으로 자체 파인튜닝 가능.",
+    "data_size": "KcELECTRA-base 사전학습 모델 + 파인튜닝 데이터셋 규모에 따름",
+    "license": "KcELECTRA 베이스: MIT/Apache 계열(모델 카드 확인). 파인튜닝 모델·데이터는 개별 라이선스.",
+    "sources": [
+     "https://huggingface.co/beomi/KcELECTRA-base-v2022",
+     "https://huggingface.co/TTA-DQA/HateDetection_MultiLabel_KcElectra_FineTuning",
+     "https://github.com/monologg/korean-hate-speech-koelectra"
+    ],
+    "update_potential": "신규 라벨 데이터 축적 시 주기적 재파인튜닝으로 신조어·맥락 변화 반영. 운영 로그의 오탐/미탐을 능동학습(active learning) 라벨로 환류 가능.",
+    "notes": "방어적 서비스의 2단계(문맥 검증) 분류기로 핵심. 1단계 사전 매칭이 후보를 좁히고, 이 모델이 문장 맥락으로 최종 판정."
+   },
+   {
+    "name": "Smilegate UnSmile (kor_unsmile) 데이터셋·베이스라인",
+    "description": "여성/가족·남성·성소수자·인종/국적·연령·지역·종교·기타혐오·악플/욕설 + clean 범주의 멀티라벨 혐오표현 데이터셋. 학습 15,005 / 검증 3,737건. 사회과학 석사급 작업자 다수결로 라벨링해 주관성을 줄였습니다. 베이스라인 모델·코드가 함께 제공돼 KcELECTRA 파인튜닝의 표준 출발점으로 널리 쓰입니다.",
+    "access_method": "Hugging Face datasets(smilegate-ai/kor_unsmile) 또는 GitHub. transformers/datasets로 로드.",
+    "data_size": "총 18,742건(학습 15,005 / 검증 3,737)",
+    "license": "코드·베이스라인 모델: Apache 2.0 / 데이터셋: CC BY-NC-ND 4.0 (비상업·변경불가)",
+    "sources": [
+     "https://github.com/smilegate-ai/korean_unsmile_dataset",
+     "https://huggingface.co/datasets/smilegate-ai/kor_unsmile",
+     "https://smilegate.ai/en/2022/03/28/unsmile-dataset/"
+    ],
+    "update_potential": "데이터 자체 갱신은 드물지만, 범주 체계를 본 서비스 라벨 스키마의 기준으로 채택 가능.",
+    "notes": "데이터 라이선스가 CC BY-NC-ND이므로 상업 서비스에서 데이터 재배포·파생물 제작 시 제약. 모델 학습 활용 가부는 라이선스 해석 신중히 검토."
+   },
+   {
+    "name": "BEEP! (korean-hate-speech) 데이터셋",
+    "description": "연예 뉴스 댓글 기반 최초의 사람 라벨링 한국어 독성 발화 코퍼스. hate/offensive/none(혐오)과 gender/others/none(편향) 2차원 라벨을 제공. 라벨 9,381건(학습 7,896 / 검증 471 / 테스트 974) + 사전학습용 비라벨 약 203만 건. koco 라이브러리로 간편 로드되며 SocialNLP@ACL 2020 논문에 근거합니다.",
+    "access_method": "GitHub 클론 또는 koco 라이브러리. Kaggle 대회로 평가 가능. Korpora 패키지로도 접근.",
+    "data_size": "라벨 9,381건 + 비라벨 약 2,033,893건",
+    "license": "CC BY-SA 4.0",
+    "sources": [
+     "https://github.com/kocohub/korean-hate-speech",
+     "https://ko-nlp.github.io/Korpora/en-docs/corpuslist/korean_hate_speech.html"
+    ],
+    "update_potential": "비라벨 203만 건은 도메인 적응 사전학습(domain-adaptive pretraining)·준지도학습 소스로 활용 가능.",
+    "notes": "CC BY-SA는 상업 활용 가능(저작자 표시+동일 라이선스 공유 조건). 편향(gender) 라벨이 별도로 있어 브랜드 세이프티 맥락에 유용."
+   },
+   {
+    "name": "K-MHaS / K-HATERS / APEACH / AI Hub 텍스트 윤리검증 데이터",
+    "description": "대규모 한국어 혐오표현 데이터셋군. K-MHaS는 뉴스 댓글 109,692건 멀티라벨(8개 세부 클래스, COLING2022). K-HATERS는 타깃별 등급(target-specific ratings) 코퍼스. APEACH는 적대적(perturbation) 평가셋으로 모델 견고성 측정에 유용. AI Hub '텍스트 윤리검증 데이터'(데이터셋 558)는 453,340건 규모의 국가 구축 자원으로 욕설·혐오·차별을 포괄합니다.",
+    "access_method": "K-MHaS/APEACH는 GitHub·Hugging Face. AI Hub 데이터는 aihub.or.kr에서 내국인 신청 후 다운로드(승인제).",
+    "data_size": "K-MHaS 109,692 / AI Hub 윤리검증 453,340 / APEACH 3,844 등",
+    "license": "K-MHaS·BEEP!류: CC BY-SA 4.0 / AI Hub: 자체 이용약관(국내 한정·신청제) / APEACH: CC BY-SA 4.0",
+    "sources": [
+     "https://github.com/adlnlp/K-MHaS",
+     "https://arxiv.org/pdf/2310.15439",
+     "https://github.com/jason9693/APEACH",
+     "https://aihub.or.kr/aihubdata/data/view.do?dataSetSn=558"
+    ],
+    "update_potential": "AI Hub는 정기적으로 신규 데이터셋을 추가·갱신하므로 국가 자원 모니터링 채널로 활용. APEACH류 적대셋은 회피 내성 회귀 테스트에 반복 사용.",
+    "notes": "AI Hub 데이터는 내국인 신청·승인제이며 상업 활용 범위는 약관 확인 필수. 멀티라벨 스키마는 본 서비스 분류 체계 설계에 참고."
+   },
+   {
+    "name": "LLM 기반 모더레이션 (GPT-4 / OpenAI Moderation / KoTox-Instruction)",
+    "description": "GPT-4 등 LLM 제로샷 모더레이션은 Perspective API 대비 비슷한 정밀도(0.94 vs 0.96)에 훨씬 높은 재현율(0.25 vs 0.02)을 보여 미탐을 줄이는 데 유리합니다. 한국어 특화로는 KoTox(39,000개 독성 instruction-output 페어로 유해 요청 거절 학습), K-OMG(LLM 프롬프트 기반 한국어 공격 표현 생성)가 있습니다. 동음이의어·문맥 판단을 프롬프트로 위임하거나, 룰/소형분류기 통과분에 대해 LLM으로 2차 검증하는 하이브리드가 실용적입니다.",
+    "access_method": "OpenAI API(GPT-4o, Moderation endpoint). KoTox 데이터셋은 논문/공개 채널. 프롬프트 엔지니어링으로 한국어 컨텍스트 주입.",
+    "data_size": "KoTox 39,000 페어",
+    "license": "OpenAI API는 상용 약관. 데이터셋은 개별 라이선스.",
+    "sources": [
+     "https://kumarde.com/papers/llm-contentmod.pdf",
+     "https://ojs.aaai.org/index.php/ICWSM/article/download/31358/33518/35414",
+     "https://platform.openai.com/docs/guides/moderation"
+    ],
+    "update_potential": "LLM은 프롬프트·few-shot 예시만 갱신하면 신규 은어 대응이 즉시 가능해 신조어 변화에 가장 민첩. 단, 비용·지연·일관성 관리 필요.",
+    "notes": "비용/지연 때문에 전수 적용보다는 룰+소형분류기 캐스케이드의 최종 애매 케이스에만 LLM 호출하는 설계 권장. 한국어 은어는 few-shot 예시 제공 시 성능 향상."
+   },
+   {
+    "name": "한국 인터넷 신조어·은어 사전 (나무위키 / 위키백과 / 위키낱말사전)",
+    "description": "일베·워마드/메갈리아 계열 은어와 그 유래·의미를 정리한 공개 위키 자원. '운지'(디시 합성갤 유래 고인 모욕어이자 한편 버섯/추락 의미의 동음 충돌), '민주화'(일베 조롱어), '한남(충)'(메갈/워마드 미러링어), '틀딱(충)' 등 표식 어휘와 변형·맥락을 추적하는 데 유용합니다. 동음이의어 오탐 사례(운지=버섯) 식별의 근거 자료로 활용됩니다.",
+    "access_method": "웹 크롤링/열람(나무위키, 위키백과 '대한민국의 인터넷 신조어 목록', 위키낱말사전, 표준국어대사전).",
+    "data_size": "지속 갱신되는 위키 문서군",
+    "license": "위키백과/위키낱말사전: CC BY-SA. 나무위키: CC BY-NC-SA(상업 이용 제한) — 직접 콘텐츠 복제 시 주의.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/대한민국의_인터넷_신조어_목록",
+     "https://namu.wiki/w/신조어",
+     "https://ko.wiktionary.org/wiki/위키낱말사전:대문",
+     "https://stdict.korean.go.kr/"
+    ],
+    "update_potential": "위키 문서 변경 이력을 주기적으로 모니터링하면 신규 은어·표식의 등장과 의미 변화를 추적하는 사실상의 '신조어 업데이트 피드'로 활용 가능. 동음이의어 화이트리스트 구축에도 유용.",
+    "notes": "나무위키는 CC BY-NC-SA라 상업 서비스에 콘텐츠 원문을 그대로 싣기 어렵고, 어휘 목록을 참고해 자체 사전을 별도 구축하는 방식이 안전. 위키 정보는 부정확/편향 가능성이 있어 검수 필요."
+   }
+  ],
+  "recommendations": "방어적(오탐 최소화 우선) 한국어 콘텐츠 모더레이션 서비스 구축을 위한 권장 아키텍처와 운영 방안입니다.\n\n1) 2단계 캐스케이드(정규화 매칭 → 문맥 분류)를 기본 골격으로 채택하세요.\n   - 1단계 정규화기: 입력을 (a)unicodedata NFD/NFKD 분해 + hgtk/jamo로 자모 정규화, (b)특수문자·반복문자·이모지 제거/축약, (c)영문 키보드 음차 역치환(badwordDetection2의 q→ㅂ 매핑 차용), (d)KOTOX의 17개 변형 규칙을 역방향 정규화 룰로 적용해 표준형으로 환원.\n   - 1단계 매칭: 정규화된 텍스트를 pyahocorasick(또는 flashtext)로 금칙어/표식 사전과 다중 패턴 매칭하여 후보를 빠르게 추출. 미세 변형은 soynlp 초/중/종성 Levenshtein으로 후보에 한해 근사 매칭.\n   - 2단계 문맥 분류: 1단계 후보가 잡힌 문장만 KcELECTRA/KoELECTRA 파인튜닝 분류기에 넣어 '운지=버섯' 같은 무해 문맥을 걸러내 오탐을 억제. 애매 케이스(분류 신뢰도 경계)만 GPT-4 LLM 2차 검증으로 비용·지연을 통제.\n\n2) 데이터·라이선스 전략을 명확히 하세요(상업 서비스 전제).\n   - 상업 활용 가능: BEEP!(CC BY-SA), K-MHaS(CC BY-SA), APEACH(CC BY-SA). 모델 학습 메인 코퍼스로 우선.\n   - 비상업 제약: UnSmile(데이터 CC BY-NC-ND), kmhas, LGBT-hatespeech 등 CC BY-NC 계열은 라벨 스키마·평가 참고용으로만 쓰고 상업 배포물에는 신중히. AI Hub 윤리검증 데이터(453,340건)는 내국인 신청·약관 확인 후 활용.\n   - 사전(lexicon)은 나무위키 원문을 복제하지 말고, 어휘 목록을 참고해 자체 금칙어·동음이의어 화이트리스트를 독립 구축하세요.\n\n3) 동음이의어 오탐(false positive) 억제를 최우선 KPI로 설정하세요. 방어적 서비스의 신뢰는 '무해 문장을 유해로 잘못 막지 않는 것'에서 나옵니다. 화이트리스트(운지=버섯, 민주화의 정상 정치 용례 등)와 문맥 분류기 신뢰도 임계값, Kiwi 형태소 신호(품사·주변어)를 결합해 다층 방어하세요.\n\n4) 주기적 업데이트 파이프라인을 설계하세요.\n   - 신조어 피드: korean-profanity-resources 저장소 커밋, AI Hub 신규 데이터, 위키(신조어 목록) 변경 이력을 모니터링.\n   - 룰 핫리로드: pyahocorasick 오토마톤·flashtext KeywordProcessor를 외부 사전에서 빌드해 무중단 갱신.\n   - 능동학습: 운영 로그의 오탐/미탐을 라벨로 환류해 KcELECTRA 분류기를 정기 재파인튜닝.\n   - 회피 내성 회귀 테스트: APEACH·PHISH/KOTOX의 변형 생성 규칙으로 적대 테스트셋을 자동 생성해 배포 전마다 회피율을 점검.\n\n5) 단계별 도입 로드맵: (1차) korcen + pyahocorasick + 자모 정규화로 룰 기반 MVP → (2차) UnSmile/BEEP! 학습 KcELECTRA 문맥 분류기 추가 → (3차) LLM 하이브리드 + 신조어 자동 업데이트 + 적대 테스트 자동화."
+ },
+ {
+  "summary": "일베·메갈 시각 표식과 이미지 검출 조사. 검출은 pHash·YOLO·MediaPipe·OCR·CLIP+FAISS 앙상블.",
+  "findings": [
+   {
+    "name": "일베 인증 손모양 ㅇㅂ",
+    "description": "엄지검지 원에 약지만 접기. MediaPipe 약지 룰 검출.",
+    "sources": [
+     "https://www.khan.co.kr/article/201501291802111"
+    ]
+   },
+   {
+    "name": "일베 노무현 합성 로고/베츙이",
+    "description": "로고에 ㅇㅂ/ILBE 변형. SBS MBC KBS 방송사고. pHash YOLO OCR.",
+    "sources": [
+     "https://www.nocutnews.co.kr/news/6407788"
+    ]
+   },
+   {
+    "name": "메갈 집게손가락",
+    "description": "2021 GS25, 2023 넥슨 메이플 논란. 구별 불가, 자동 판정 금지.",
+    "sources": [
+     "https://www.mt.co.kr/tech/2023/12/03/2023120314150847221"
+    ]
+   },
+   {
+    "name": "검출 기술/수집",
+    "description": "pHash YOLO MediaPipe OCR CLIP+FAISS. 위키미디어 뉴스 자체수집, 해시만 저장.",
+    "sources": [
+     "https://github.com/jarvisx17/OpenAI-Clip-Image-Search"
+    ]
+   }
+  ],
+  "recommendations": "다중 신호 앙상블 검출. 메갈 손가락은 자동 판정 금지·검토 플래그. 해시·임베딩만 저장."
+ },
+ {
+  "gaps": [
+   {
+    "topic": "오탐(false positive) 전용 평가 자원: 대항표현(counter-speech)·인용·재전유(reclaimed) 문맥 데이터셋",
+    "why": "matching-tech 섹션은 본 서비스의 핵심 난제를 명시적으로 '오탐 최소화'로 규정했으나, 실제로 확보된 자원은 모두 '혐오 탐지(recall) 중심' 코퍼스(UnSmile, BEEP!, K-MHaS, KOLD)와 적대적 '혐오 생성' 평가셋(APEACH)뿐이고, '무해/대항/인용 문맥을 혐오로 잘못 잡는지'를 전용으로 측정하는 자원이 빠져 있습니다. 검증된 고려대 '대항표현 데이터셋' 연구(담화와인지 2022, KCI ART002841065)는 SOTA 혐오탐지 모델 정확도가 일반 97.9%에서 대항표현 42.7%로 붕괴함을 정량적으로 보여줍니다. 브랜드 세이프티 서비스에서 가장 치명적인 사고는 미탐이 아니라, 페미니스트가 '한남충'을 비판하며 인용한 문장, 혐오 사건을 보도한 기사, 욕설을 되받아치는 대항표현(또는 운지=버섯 같은 동음 무해 문맥)을 '일베/메갈 코드'로 오판해 무고한 콘텐츠/기업을 표식하는 것입니다. 이는 명예훼손 리스크와 직결되며, 동음이의어 오탐 억제(matching-tech)·표식 자동판정 금지(image-symbols)와 같은 맥락의 핵심 갭입니다.",
+    "search_prompt": "한국어 혐오표현 탐지의 '오탐(false positive)' 전용 평가 자원을 조사하라. 특히 (1) 고려대 '혐오와 대항: 혐오표현 탐지 모델 평가를 위한 대항표현 데이터셋 구축'(담화와인지 2022, KCI ART002841065, ScholarWorks@Korea University handle 2021.sw.korea/142042)의 데이터셋 규모·공개 여부(GitHub/HuggingFace 링크)·라이선스·모델 정확도 붕괴(97.9%→42.7%) 재현 가능성을 확인하고, (2) 재전유(reclaimed)/인용/뉴스보도/풍자/대항표현 등 '무해하지만 혐오 어휘를 포함하는' 문맥을 모은 한국어/영어 데이터셋(예: counter-speech corpus, hatespeechdata.com 카탈로그, reclaimed slur 벤치마크)을 WebSearch/WebFetch로 실제 URL과 함께 검증하라. (3) 동음이의어(운지=버섯) 및 인용부호/출처표기 기반으로 오탐을 줄이는 평가 프로토콜이나 negative test set 구축 사례도 찾아라. 각 finding마다 검증 가능한 URL을 포함하고 라이선스를 명시하라."
+   },
+   {
+    "topic": "서비스 자체의 법적 리스크와 규제 공백: 혐오표현 법정 정의 부재, 오탐 명예훼손/업무방해/무고 책임, 차별금지법 입법 현황",
+    "why": "update-sources는 '크롤링'의 위법성(잡코리아-사람인, 대법원 2021도1533)만 다뤘을 뿐, 서비스가 특정 기업의 콘텐츠를 '일베/메갈 코드'로 판정·표식·통보하는 행위 자체의 법적 책임(명예훼손, 신용훼손, 업무방해, 오탐 시 무고/허위사실 적시)은 조사되지 않았습니다. 더 근본적으로 한국에는 혐오표현의 법정 정의가 없습니다: 포괄적 차별금지법은 2007~2021년 12회 발의 후 전부 폐기되었고, 2025.11 조국혁신당이 당론화했으나 여전히 미입법(위키백과·KCI ART002644408·로앤비 176529 등 검증). 즉 서비스가 분류 기준으로 삼을 '법적 ground truth'가 부재하므로, 무엇을 혐오로 판정할지에 대한 정당성·면책 근거를 사업 설계 단계에서 확보해야 합니다. 또한 광고를 통한 차별조장 금지(장혜영 안)·표시광고법·정보통신망법 임시조치 등은 고객(기업)의 컴플라이언스 수요와 서비스의 책임 한계를 동시에 규정하므로 사업화에 필수입니다.",
+    "search_prompt": "한국어 혐오표현/도그휘슬 자동 탐지·브랜드 세이프티 서비스 '제공자 자신'의 법적 리스크와 규제 환경을 조사하라. (1) 본 서비스가 특정 기업/개인의 콘텐츠를 '일베·메갈 혐오 코드'로 판정·표식·고객 통보할 때 발생 가능한 명예훼손(정보통신망법 제70조), 신용훼손/업무방해, 오탐 시 허위사실 적시·무고 책임의 성립 요건과 면책(진실성·공익성·상당성) 법리를 한국 판례/법령으로 확인하라. (2) 한국 포괄적 차별금지법·혐오표현 규제 입법 현황(2007~2025 발의·폐기 이력, 2025년 조국혁신당 인권개혁 3대 법안, 광고를 통한 차별조장 금지 조항, 국가인권위 입장)과 '혐오표현의 법정 정의 부재'가 서비스 분류 기준에 미치는 영향을 정리하라. (3) 표시광고법, EU DSA·온라인 콘텐츠 모더레이션 규범 등 고객 기업이 따라야 할 규제와 B2B 서비스의 책임 한계(약관상 면책, 자문 vs 판정의 경계)도 조사하라. 위키백과·KCI·로앤비·국가법령정보센터·대법원 판례 등 검증 가능한 URL을 각 finding에 포함하라."
+   },
+   {
+    "topic": "남혐(misandry)·메갈/워마드 계열 구조화 용어 사전의 비대칭적 부족",
+    "why": "본 서비스가 막으려는 실제 최대 사고 유형(GS25, 넥슨 메이플, 르노, 애플코리아 추정, 집게손가락)은 대부분 일베가 아니라 메갈/워마드 계열 남혐 도그휘슬입니다. 그러나 확보된 자산은 비대칭적입니다: 일베 쪽은 나무위키 '일베저장소/용어'·위키백과 등으로 어원·사건 메타데이터가 풍부한 반면, 남혐 쪽은 문장 단위 라벨(UnSmile '남성', HateScore '남성')과 나무위키 '메갈리아/용어'·'워마드' 산문, 소규모 Womad Hate Speech Data(약 2,081건)에 그쳐, LDNOOBW/bad_word_list/korcen에 준하는 '재사용 가능한 구조화 남혐 lexicon(용어+유래+변형+강도)'이 사실상 없습니다. 사전 검출(블록리스트) 단계에서 남혐 어휘·숫자코드(6.9, 오조오억, 허버허버 등)·미러링 변형을 즉시 적용할 단어 사전이 비어 있으면, 서비스의 가장 빈번한 실사용 사고 유형을 1차 룰에서 놓치게 됩니다.",
+    "search_prompt": "한국어 남성혐오(misandry)·메갈리아/워마드 계열 용어의 '재사용 가능한 구조화 단어 사전(lexicon: 용어+유래+변형표기+강도/맥락)'이 존재하는지 조사하라. (1) GitHub/HuggingFace/Kaggle에서 남혐 전용 단어 사전 또는 메갈/워마드 용어집 데이터(예: Womad Hate Speech Data 2,081건의 어휘 추출 가능성, korean-profanity-resources 내 남혐 항목, slang.csv 등)를 실제 URL·규모·라이선스와 함께 확인하라. (2) '한남충/한남또/냄져/6.9/오조오억/허버허버/삼일한/재기' 등 대표 남혐 어휘·숫자코드·미러링 변형의 유래와 라이선스 청정 출처(위키백과 CC BY-SA, 학술논문 백수빈 2019 등)를 정리하고, 나무위키(CC BY-NC-SA, 크롤링 차단) 의존을 줄일 대안 시드를 찾아라. (3) 일베 용어 대비 남혐 용어의 사전화(lexicon) 자원이 실제로 부족한지(비대칭) 정량적으로 비교하라. 각 finding에 검증 가능한 URL과 라이선스를 명시하고, 상업 서비스 적용 가능 여부를 판정하라."
+   },
+   {
+    "topic": "2024-2026 최신 신조어·도그휘슬의 검증된 시드 인벤토리(라이선스 청정) 부재",
+    "why": "update-sources는 신조어를 '포착하는 파이프라인'(네이버 뉴스 API, Google Trends, 위키 덤프, 사용자 신고)은 설계했으나, 막상 서비스 출시 시점에 즉시 탑재할 '검증된 2024-2026 최신 용어 시드 목록' 자체가 빠져 있습니다. 더구나 날짜·유래가 가장 촘촘한 1차 소스인 나무위키는 CC BY-NC-SA(비영리)·크롤링 403 차단으로 상업 시드로 직접 쓸 수 없습니다. 한국일보(2026.5) 'X·디시·더쿠·인스티즈를 매일 순회'하는 현업 워크플로우가 보여주듯 신조어 반감기가 짧아, 기존 연구용 코퍼스(2018~2021 수집)는 최신 도그휘슬을 거의 담지 못합니다. '라이선스가 깨끗하고 날짜가 검증된 최신 용어 시드'가 없으면 서비스는 출시 첫날부터 최신 사고(롯데 노무한, EBS 들켰노 등 2025~2026 사례)를 놓칩니다.",
+    "search_prompt": "한국 악성 커뮤니티(일베·메갈/워마드·디시·X)에서 2024~2026년에 새로 등장하거나 기업 마케팅에서 문제된 '최신 혐오 신조어·도그휘슬·숫자코드·자막겹침 코드'의 검증된 시드 목록을, 라이선스가 청정한(상업 활용 가능) 1차 출처 중심으로 수집하라. (1) 2024~2026 언론 보도(한국일보 '일베 놀이의 진화' 2026.5, 파이낸셜뉴스 '탱크데이/화이트 일베', 롯데 자이언츠 '노무한 박수', EBS 펭수 '들켰노', 스타벅스 5·18 탱크데이 등)에서 신규 용어·코드를 추출해 날짜·유래와 함께 정리하라. (2) 위키백과 '집게손가락 음모론'·'일베저장소의 사건 및 사고'의 최신 갱신분에서 2024년 이후 추가된 사례를 확인하라. (3) 나무위키(CC BY-NC-SA, 비상업) 의존 없이 신조어를 지속 갱신할 수 있는 라이선스 청정 1차 소스(언론 API, 위키백과 덤프, 학술자료, 공개 신고 데이터)의 실효성을 평가하라. 각 finding에 검증 가능한 URL·날짜·라이선스를 포함하고, 2018~2021년 수집 연구 코퍼스가 최신 용어를 얼마나 못 담는지 한계를 명시하라."
+   }
+  ]
+ },
+ {
+  "findings": [
+   {
+    "name": "고려대 '혐오와 대항: 혐오표현 탐지 모델 평가를 위한 대항표현 데이터셋 구축' (담화와인지 2022, 29권 2호)",
+    "description": "박하율(고려대)·박현아(연세대)·송상헌(고려대)이 발표한 한국어 최초의 대항표현(counter-speech) 데이터셋 구축 논문. 대항표현은 혐오에 맞서는 응답이지만 혐오 어휘·유사 구조를 자주 포함하기 때문에 SOTA 혐오 탐지 모델이 이를 혐오로 오분류하는 false positive를 평가하기 위한 자원이다. 핵심 주장인 '정확도 97.9% -> 42.7% 붕괴'는 KCI 초록과 ScholarWorks@Korea University, DBpia 초록 3곳에서 모두 동일하게 확인되었다(재현 가능 주장 검증 완료). 다만 데이터셋 규모(샘플 수)는 초록에 명시되지 않으며, 본문 PDF는 KCI/DBpia 유료/기관 접근 또는 ScholarWorks 핸들로만 제공된다.",
+    "sources": [
+     "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002841065",
+     "https://scholar.korea.ac.kr/handle/2021.sw.korea/142042",
+     "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11063346"
+    ],
+    "access_method": "논문 전문은 KCI(ART002841065), DBpia(NODE11063346), ScholarWorks@Korea University(handle 2021.sw.korea/142042)에서 확인. 데이터셋 자체의 공개 GitHub/HuggingFace 링크는 다수 검색어(한국어/영어, 저자명 박하율, 'counter-speech korean dataset release')로 조사했으나 발견되지 않음 -> 사실상 미공개로 판단. 데이터 확보는 저자/소속기관(고려대 송상헌 연구실, sanghoun@korea.ac.kr 추정) 직접 문의 필요.",
+    "data_size": "초록상 규모 미공개. 대상 집단(target group) 어노테이션 포함 한국어 최초 대항표현 데이터셋이라고만 명시.",
+    "license": "라이선스 명시 없음(미공개 추정). 학술지 게재물로 본문 PDF는 KCI/DBpia 접근 권한 필요.",
+    "update_potential": "데이터셋이 공개되지 않아 직접 갱신 소스로 쓰기 어려움. 평가 프로토콜(혐오 어휘 포함 대항표현을 negative case로 두는 설계)과 97.9%->42.7% 같은 벤치마크 지표는 자체 한국어 negative test set 설계의 '설계 근거/목표 지표'로 인용·차용하는 것이 현실적.",
+    "notes": "저자/기관 직접 컨택으로 데이터 공유 요청을 권장. 미공개라는 점이 오히려 자체 한국어 오탐 평가셋을 구축할 차별화 근거가 됨."
+   },
+   {
+    "name": "HateCheck - Functional Tests for Hate Speech Detection Models (Röttger et al., ACL 2021)",
+    "description": "혐오 탐지 모델의 약점을 진단하는 29개 기능 테스트 스위트. 총 3,728개 케이스 중 11개 테스트(1,165건)가 '혐오 어휘를 포함하지만 무해한' 대조(non-hateful contrast) 케이스로, 본 방어적 서비스의 오탐 평가에 직결된다. 특히 F8(슬러 동음이의어/slur homonyms), F9(재전유 슬러/reclaimed slurs), F18-F19(혐오 어휘 인용·보고), F20-F21(대항표현/counter-speech), F11(욕설이 들어간 무해 문장) 등이 핵심 negative 카테고리다. 논문은 상용 모델들이 reclaimed slur(F9)에서 정확도 33-40%, counter-speech(F20/21)에서 27-33%로 급락함을 보여 동음이의어·인용·대항표현 오탐 문제를 정량 증명한다.",
+    "sources": [
+     "https://aclanthology.org/2021.acl-long.4/",
+     "https://github.com/paul-rottger/hatecheck-data",
+     "https://arxiv.org/abs/2012.15606"
+    ],
+    "access_method": "GitHub paul-rottger/hatecheck-data에서 test_suite_cases.csv(3,728 케이스), test_suite_annotations.csv 직접 다운로드. 영어 데이터지만 negative test set의 카테고리 설계(동음이의어/재전유/인용/대항표현/욕설)를 한국어로 그대로 이식 가능.",
+    "data_size": "3,728 테스트 케이스(혐오 2,563 / 무해 1,165), 29개 기능 테스트",
+    "license": "CC-BY-4.0 (출처 표기 시 자유 사용, 상용 가능)",
+    "update_potential": "테스트 카테고리 분류 체계(F1-F29)를 한국어 오탐 평가셋의 템플릿으로 채택. 일베/워마드 용어, 운지 같은 동음이의어를 F8/F9 슬롯에 매핑해 한국형 HateCheck를 주기적으로 확장하는 골격으로 활용 권장.",
+    "notes": "방어적 오탐 검출 서비스의 평가 프로토콜 표준으로 가장 직접적이고 라이선스도 가장 자유로움."
+   },
+   {
+    "name": "Multilingual HateCheck (MHC) - Röttger et al. (WOAH at NAACL 2022)",
+    "description": "HateCheck를 10개 언어(아랍어, 네덜란드어, 프랑스어, 독일어, 힌디어, 이탈리아어, 만다린, 폴란드어, 포르투갈어, 스페인어)로 확장한 34개 기능 다국어 테스트 스위트. 동음이의어·재전유·대항표현·욕설 등 무해 대조 케이스 구조를 다국어로 복제하는 방법론을 제공한다. 다만 조사 결과 '한국어는 포함되지 않음'이 확인되어, 한국어 버전은 직접 구축해야 한다는 공백(gap)이자 차별화 기회를 시사한다.",
+    "sources": [
+     "https://aclanthology.org/2022.woah-1.15/",
+     "https://github.com/rewire-online/multilingual-hatecheck",
+     "https://arxiv.org/abs/2206.09917"
+    ],
+    "access_method": "GitHub rewire-online/multilingual-hatecheck에서 언어별 CSV 다운로드. 한국어 미포함이므로, MHC의 번역·현지화 방법론(템플릿 기반 케이스 생성)을 참고해 한국어 negative test set을 신규 구축.",
+    "data_size": "10개 언어 x 34개 기능 테스트(언어별 약 3,500여 케이스)",
+    "license": "GitHub 저장소 기준 CC-BY-4.0 계열(원 HateCheck 라이선스 승계). 사용 전 저장소 LICENSE 확인 권장.",
+    "update_potential": "한국어가 빠져 있다는 점이 본 서비스의 '한국어 기능 테스트 스위트 자체 제작' 명분. MHC의 functionality 정의를 한국어로 번역·현지화해 정기 갱신 벤치마크로 운영 가능.",
+    "notes": "한국어 부재 = 시장 공백. 자체 한국형 HateCheck 구축의 직접적 근거 자료."
+   },
+   {
+    "name": "CONAN 데이터셋 패밀리 (CONAN / Multitarget-CONAN / DIALOCONAN / Knowledge-grounded CONAN)",
+    "description": "혐오발언-대항서사(counter-narrative) 쌍 데이터셋 모음. CONAN(2019)은 영어·프랑스어·이탈리아어 4,078쌍(증강 14,988쌍, 이슬람혐오 중심), Multitarget-CONAN(2021)은 7개 혐오 대상 5,003쌍, DIALOCONAN(2022)은 16,625턴 다중턴 대화. 대항표현이 혐오 어휘를 포함하면서도 무해한 대표 사례를 대량 제공해, '무해하지만 혐오 어휘 포함' 문맥의 영어권 레퍼런스 코퍼스로 활용 가능하다. 다만 한국어는 미포함.",
+    "sources": [
+     "https://github.com/marcoguerini/CONAN",
+     "https://aclanthology.org/P19-1271/",
+     "https://arxiv.org/abs/1910.03270"
+    ],
+    "access_method": "GitHub marcoguerini/CONAN에서 JSON/CSV 직접 다운로드(로그인 불필요). 번역/현지화하여 한국어 대항표현 negative 예시의 시드로 활용 가능.",
+    "data_size": "CONAN 4,078쌍(증강 14,988), Multitarget-CONAN 5,003쌍, DIALOCONAN 3,059대화/16,625턴, Knowledge-grounded 195쌍",
+    "license": "연구 목적 사용 가능, 재배포 금지(redistribution prohibited). 논문 인용 필수. -> 상용 서비스 내부 학습/평가에는 라이선스 검토 필요, 재배포 불가 주의.",
+    "update_potential": "대항표현 패턴(혐오 인용 후 반박)의 언어학적 구조 참고용. 재배포 금지이므로 직접 번역·재가공 시 라이선스 제약 확인 필수.",
+    "notes": "재배포 금지 조항 때문에 상용 서비스 데이터로 직접 동봉은 위험. 패턴 학습/설계 참조에 한정 권장."
+   },
+   {
+    "name": "Hate Speech Detection and Reclaimed Language (ACM Web Science 2024) + ReCLAIM/MULTIPRIDE 재전유 슬러 벤치마크",
+    "description": "재전유(reclaimed) 언어가 혐오 탐지 false positive를 유발하는 문제를 정면으로 다룬 연구군. ACM WebSci 2024 논문은 재전유 언어에 초점을 맞춘 데이터셋을 만들어 in-group 재전유 사용을 혐오로 오탐하지 않도록 하는 방법(개별 단어 의존을 줄이고 문맥 인식)을 제시한다. MULTIPRIDE@EVALITA 2026은 LGBTQ+ 맥락의 슬러 재전유를 derogatory와 구분하는 최초의 다국어 코퍼스(영어/이탈리아어/스페인어, 2020-2022 트위터·레딧·드라마 대사), 이탈리아어 ReCLAIM 프로젝트도 존재. 모두 '동일 어휘가 맥락에 따라 혐오 또는 연대'가 되는 재전유 오탐의 직접 벤치마크다.",
+    "sources": [
+     "https://dl.acm.org/doi/10.1145/3614419.3644025",
+     "https://github.com/rbg-research/MultiPRIDE-Evalita-2026",
+     "https://arxiv.org/abs/2602.12818",
+     "https://ceur-ws.org/Vol-3878/39_main_long.pdf"
+    ],
+    "access_method": "MULTIPRIDE는 GitHub rbg-research/MultiPRIDE-Evalita-2026에서 공유 태스크 데이터·베이스라인 접근. ACM 논문은 ACM DL(기관 접근), ReCLAIM은 CEUR-WS 오픈액세스 PDF. 한국어 부재이나 재전유 false-positive 평가 설계·라벨 정의를 차용.",
+    "data_size": "MULTIPRIDE: 영/이/스 3개 언어 소셜미디어 텍스트(Task A 이진 재전유 탐지, Task B 사용자 바이오 문맥). 19개 팀 참가 규모.",
+    "license": "MULTIPRIDE 공유태스크 데이터는 저장소 약관(EVALITA 공유태스크 라이선스) 준수 필요. ReCLAIM/CEUR-WS 논문은 오픈액세스(CC 계열). 각 저장소 LICENSE 개별 확인.",
+    "update_potential": "재전유 어휘 목록과 '맥락 기반 라벨링(바이오/인용 출처)' 프로토콜을 한국어 워마드/메갈리아 계열 재전유 표현 평가에 응용. 매년 갱신되는 공유태스크라 신규 벤치마크 추적 소스로 유효.",
+    "notes": "재전유 오탐 평가의 최신·전문 자원. 한국어판 부재로 자체 구축 필요성 재확인."
+   },
+   {
+    "name": "Lost in Moderation (CHI 2025) - 상용 모더레이션 API의 과잉검열 실증",
+    "description": "5개 상용 콘텐츠 모더레이션 API(OpenAI, Amazon 등)를 4개 데이터셋·500만 쿼리로 감사한 연구. 핵심 발견은 상용 API가 대항표현, 재전유 슬러, 그리고 흑인·LGBTQIA+·유대인·무슬림 관련 콘텐츠를 '과잉검열(over-moderate)'한다는 것 -> 본 방어적 서비스가 막아야 할 false positive가 상용 시스템에서도 광범위함을 정량 증명. 동시에 암묵적/코드화된 혐오는 과소검열됨. 영어 중심.",
+    "sources": [
+     "https://arxiv.org/abs/2503.01623",
+     "https://arxiv.org/html/2503.01623v1"
+    ],
+    "access_method": "arXiv 오픈액세스(PDF/HTML/TeX). 감사 방법론과 과잉검열 카테고리 정의를 한국어 오탐 평가 지표 설계에 차용.",
+    "data_size": "5개 API x 4개 데이터셋 x 약 500만 쿼리 감사",
+    "license": "CC-BY-4.0 (arXiv 논문)",
+    "update_potential": "'어떤 무해 카테고리가 상용 API에서 과잉검열되는가'를 정의한 분류를 한국어 negative test set의 카테고리 목록으로 채택. 상용 API 벤치마크 비교의 방법론 레퍼런스.",
+    "notes": "오탐 문제의 산업적 심각성·시장 수요를 입증하는 근거 자료(사업 명분)."
+   },
+   {
+    "name": "HateScore (sgunderscore/hatescore-korean-hate-speech) - 한국어 중립문장 2.2K 포함",
+    "description": "8K 혐오발언 + 2.2K 중립(neutral) 문장으로 구성된 한국어 데이터셋. 중립 문장은 '혐오 이슈를 다루지만 적대적이지 않은' 위키피디아 문장 등에서 수집·규칙 생성되어, 민감 주제를 논하는 무해 문장을 혐오로 오탐하지 않도록 하는 negative case를 한국어로 직접 제공한다. UnSmile 데이터셋과 동일 라벨링 기준을 승계. 7개 혐오 카테고리 + 단순욕설/clean 라벨 포함.",
+    "sources": [
+     "https://github.com/sgunderscore/hatescore-korean-hate-speech",
+     "https://open.selectstar.ai/ko/tunib"
+    ],
+    "access_method": "GitHub에서 HateScore.csv 직접 다운로드, HuggingFace 데모/사전학습 모델 제공.",
+    "data_size": "약 11,000건(혐오 약 8,000 + 중립 약 2,200)",
+    "license": "Apache 2.0 (비영리·학술 목적 명시). 상용 사용 시 README의 비영리/학술 단서 조항 확인 필요.",
+    "update_potential": "한국어 negative(중립) 문장의 즉시 사용 가능한 시드. '혐오 주제를 다루지만 무해'한 문장 패턴을 추가 수집·확장하는 기준 데이터로 활용.",
+    "notes": "한국어 오탐 평가에 바로 투입 가능한 가장 실용적인 공개 negative 데이터."
+   },
+   {
+    "name": "Korean UnSmile Dataset (smilegate-ai) - clean 카테고리 4,674건",
+    "description": "18,742건 멀티라벨 한국어 혐오 데이터셋. 10개 카테고리 중 'clean(무해)' 4,674건(약 25%)이 오탐 평가용 ground truth로 유용하다. 혐오 카테고리(여성/가족, 남성, 성소수자, 인종/국적, 연령, 지역, 종교 등)와 함께 특정 개인 지칭 여부 이진 태그를 제공해, 경계선 문장에서 혐오와 무해를 구분하는 평가에 활용 가능.",
+    "sources": [
+     "https://github.com/smilegate-ai/korean_unsmile_dataset"
+    ],
+    "access_method": "GitHub에서 데이터 다운로드. 베이스라인 모델 Apache 2.0.",
+    "data_size": "18,742건(혐오 10,139 / 욕설 3,929 / clean 4,674)",
+    "license": "데이터셋: CC-BY-NC-ND 4.0(비상용, 변형금지 - 상용 서비스 사용 시 smilegate_ai@smilegate.com 허가 필요). 코드/모델: Apache 2.0",
+    "update_potential": "clean 카테고리를 negative 평가 풀로 사용. 단 CC-BY-NC-ND 4.0(비상용+변형금지)이므로 상용 제품 동봉 전 라이선스 허가 필수 - 평가 전용/내부 검증 용도로 한정 권장.",
+    "notes": "라이선스 제약(NC-ND)이 가장 강함. 상용 배포 데이터로는 부적합, 내부 평가에만."
+   },
+   {
+    "name": "KOLD: Korean Offensive Language Dataset (boychaboy/KOLD) - 제목·문맥·스팬 제공",
+    "description": "네이버 뉴스·유튜브 댓글 40,429건을 계층적(공격성 유형/대상)으로 라벨링하고, 공격 표현 스팬(OFF_span)과 대상 스팬(TGT_span)을 모두 표기한 한국어 데이터셋. 기사·영상 제목(title)을 문맥(context)으로 제공해 동일 어휘라도 문맥에 따른 공격성 판단을 평가할 수 있어, 인용·보도 맥락의 오탐 분석과 스팬 단위 정밀 검출에 유용. 21개 한국 문화 맞춤 대상 그룹 라벨 포함.",
+    "sources": [
+     "https://github.com/boychaboy/KOLD",
+     "https://aclanthology.org/2022.emnlp-main.744/",
+     "https://arxiv.org/abs/2205.11315"
+    ],
+    "access_method": "GitHub boychaboy/KOLD의 data/kold_v1.json 직접 다운로드. HuggingFace 미러(nayohan/KOLD)도 존재.",
+    "data_size": "40,429 댓글, 계층적 라벨 + 공격/대상 스팬",
+    "license": "README에 명시적 OSI 라이선스 없음. 단 '본 데이터를 온라인에 공격 표현을 자동 생성·게시하는 학습데이터로 사용 금지' 명시. 상용 사용 전 저자 확인 권장.",
+    "update_potential": "제목(context)+댓글 구조와 스팬 어노테이션은 '문맥 기반 오탐 판정' 프로토콜의 한국어 레퍼런스. 동일 어휘가 제목 문맥에 따라 공격/비공격으로 갈리는 케이스 추출에 활용.",
+    "notes": "명시적 라이선스 부재가 약점. 사용 목적 제한 조항 준수 필요."
+   },
+   {
+    "name": "운지/버섯 동음이의어 - 일베 표식과 합법 어휘의 충돌(나무위키/위키백과)",
+    "description": "'운지'는 (1)악기 운지법(손가락 사용법), (2)운지버섯(구름버섯), (3)임금의 대궐, (4)타지키스탄 지명, (5)여성 인명 등 다수의 합법적 동음이의어를 가지면서, 일베발 노무현 전 대통령 비하 슬러로도 쓰인다. 즉 '운지법', '운지버섯' 같은 정상 문장이 혐오로 오탐될 수 있는 대표적 한국어 false-positive 사례다. 위키백과·나무위키에 정상 의미와 혐오 의미가 병기되어 있어, 동음이의어 negative test set 구축의 1차 근거 자료로 활용 가능. 단, 2020년대 들어 origin을 모르고 쓰는 사용자가 늘어 문맥 판정의 필요성이 커짐.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EC%9A%B4%EC%A7%80",
+     "https://namu.wiki/w/%EC%9A%B4%EC%A7%80",
+     "https://namu.wiki/w/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%9A%A9%EC%96%B4"
+    ],
+    "access_method": "위키백과/나무위키 크롤링으로 동음이의어 의미 목록 수집. 일베 용어 문서로 표식 목록 확보 후, 합법 용례(운지법/운지버섯 등)를 negative, 혐오 용례를 positive로 라벨링한 한국형 HateCheck F8(동음이의어) 슬롯 구성.",
+    "data_size": "개별 용어 단위(문서 다수). 일베 용어 문서는 수백 개 표제어 규모.",
+    "license": "위키백과 CC-BY-SA 4.0. 나무위키 CC-BY-NC-SA 2.0 KR(비상용). 인용·출처표기 준수, 나무위키는 비상용 조항 주의 - 직접 텍스트 동봉보다 용어 리스트/정의 참조에 활용.",
+    "update_potential": "신조어·표식이 계속 생성되므로 위키 문서를 주기적 크롤링해 동음이의어·표식 사전을 갱신하는 1차 업데이트 소스로 적합. 단 나무위키 NC 라이선스로 직접 배포 대신 자체 검증·재작성 권장.",
+    "notes": "동음이의어(운지=버섯) 오탐 사례의 핵심 근거. 인용부호/출처표기 기반 문맥 판정 프로토콜과 결합해 negative test set 구성에 직접 사용."
+   }
+  ],
+  "summary": "한국어 혐오표현 탐지의 '오탐(false positive)' 전용 평가 자원을 3개 축으로 조사·검증했다. (1) 고려대 '혐오와 대항'(담화와인지 2022, 박하율·박현아·송상헌) 논문의 핵심 주장인 정확도 붕괴(97.9%->42.7%)는 KCI(ART002841065)·ScholarWorks(handle 2021.sw.korea/142042)·DBpia 3개 출처에서 동일하게 확인했다. 그러나 데이터셋 규모는 초록에 미공개이며, 다국어 검색·저자명 검색에도 공개 GitHub/HuggingFace 링크나 라이선스가 발견되지 않아 '사실상 미공개'로 판단된다(데이터 확보는 저자/고려대 연구실 직접 문의 필요). (2) '무해하지만 혐오 어휘를 포함하는' 문맥의 영어권 표준 자원으로 HateCheck(CC-BY-4.0, F8 동음이의어·F9 재전유·F18-19 인용·F20-21 대항표현·F11 욕설의 무해 대조 1,165건), Multilingual HateCheck(10개 언어, 한국어 미포함), CONAN 패밀리(대항서사 쌍, 재배포 금지), 재전유 벤치마크(ACM WebSci 2024, MULTIPRIDE@EVALITA 2026, ReCLAIM), 그리고 상용 API 과잉검열 실증(Lost in Moderation, CHI 2025)을 실제 URL과 라이선스까지 검증했다. (3) 동음이의어·인용 기반 오탐 저감 자원으로는 한국어 HateScore(중립문장 2.2K, Apache 2.0), UnSmile clean 카테고리(4,674건, CC-BY-NC-ND 4.0), KOLD(제목 문맥+스팬, 라이선스 불명), 그리고 '운지=운지버섯/운지법' 동음이의어 사례(위키백과 CC-BY-SA, 나무위키 NC)를 확인했다. 핵심 시사점: 한국어 전용 오탐/대항표현 평가셋은 공개 자원이 거의 없어(MHC도 한국어 부재, 고려대 데이터셋 미공개), HateCheck의 카테고리 체계를 한국어로 이식해 자체 negative test set을 구축하는 것이 가장 현실적이며 차별화 기회다.",
+  "recommendations": "1) 평가 프로토콜 표준 채택: HateCheck(CC-BY-4.0, 상용 가능)의 29개 기능 테스트 체계를 그대로 한국어로 이식해 '한국형 HateCheck'를 구축하라. F8(동음이의어), F9(재전유 슬러), F18-19(혐오 어휘 인용·보도), F20-21(대항표현), F11(욕설 포함 무해)을 한국어 negative 카테고리의 골격으로 삼는다. 고려대 논문의 97.9%->42.7% 지표는 자체 모델의 '오탐 붕괴' 목표 측정 지표로 인용하라.\\n\\n2) 즉시 사용 가능한 한국어 negative 시드: HateScore의 중립문장 2.2K(Apache 2.0, 상용 친화)를 1차 negative 풀로 도입하라. UnSmile의 clean 4,674건은 라이선스가 CC-BY-NC-ND 4.0(비상용+변형금지)이므로 상용 제품 동봉 금지 - 내부 평가 전용으로만 쓰고 변형·재배포는 smilegate에 허가받아라.\\n\\n3) 동음이의어 false-positive 사전 구축: '운지(운지법/운지버섯) = 일베 슬러'가 대표 사례다. 위키백과(CC-BY-SA)·나무위키 일베 용어 문서를 크롤링하되, 나무위키는 CC-BY-NC-SA(비상용)이므로 원문 동봉 대신 용어 리스트를 자체 검증·재작성하라. 각 표식마다 (합법 용례=negative / 혐오 용례=positive)를 짝지어 동음이의어 테스트셋을 만들고, 인용부호·출처표기(예: 따옴표 안 인용, 뉴스 보도 문맥) 신호를 오탐 완화 피처로 추가하라.\\n\\n4) 라이선스 리스크 관리: CONAN(재배포 금지)·고려대 데이터셋(미공개)·KOLD(라이선스 불명)는 직접 동봉하지 말고 '설계·패턴 참조'에만 한정하라. 상용 동봉 가능 자원은 HateCheck(CC-BY-4.0), HateScore(Apache, 단 비영리/학술 단서 확인)로 제한된다.\\n\\n5) 주기적 업데이트 소스: MULTIPRIDE 같은 공유태스크와 위키 용어 문서는 신조어·표식이 계속 추가되므로 정기 크롤링/추적 대상으로 삼아 동음이의어·재전유·표식 사전을 갱신하라. 단 각 소스의 라이선스(특히 나무위키 NC, CONAN 재배포 금지)를 갱신 파이프라인 단계마다 재확인하라.\\n\\n6) 차별화 명분: Multilingual HateCheck에 한국어가 없고 고려대 대항표현 데이터셋이 미공개라는 '공백'이 본 방어적 서비스의 핵심 차별화다. 한국어 오탐/대항표현 평가셋을 자체 구축해 (가능하면) 공개하면 학술·산업 양쪽에서 레퍼런스 자원이 될 수 있다."
+ },
+ {
+  "findings": [
+   {
+    "name": "정보통신망법 제70조(사이버 명예훼손) — '비방 목적' 구성요건과 공익성 면책 법리",
+    "description": "본 서비스가 특정 기업/개인의 콘텐츠를 '일베·메갈 혐오 코드'로 판정·표식하여 고객에게 통보하는 행위는 정보통신망법 제70조(사이버 명예훼손)의 가장 큰 법적 리스크다. 제70조 제1항(사실적시)은 7년/5천만원 이하, 제2항(허위사실)은 7년/5천만원 이하로 형법(제307조, 5년/3년)보다 가중처벌된다. 핵심은 '비방할 목적'이 별도 구성요건이라는 점이다. 대법원은 (1) 사회적 평가를 떨어뜨릴 사실이라고 해서 비방목적이 당연히 인정되는 것이 아니고, (2) 적시 사실이 '공공의 이익'에 관한 것이면 특별한 사정이 없는 한 비방목적은 부인되며, (3) 주된 동기가 공익이면 부수적 사익 목적이 있어도 비방목적이 없다고 본다. 즉 비방목적이 인정되면 형법 제310조 위법성조각(진실성·공익성)이 적용될 여지가 없고, 비방목적이 부정되면 정통망법이 아닌 형법 제307조로 넘어가 제310조 면책을 다툰다. 서비스 설계상 시사점: 판정·통보를 '특정인 비방'이 아니라 '브랜드 리스크 정보 제공이라는 공익적·계약적 목적'으로 구조화하고, 표식 표현을 사실 적시가 아닌 의견·확률 평가로 한정하며, 고객사 내부로 통보 범위를 제한(공연성 차단)하는 것이 면책 전략의 핵심이다.",
+    "sources": [
+     "https://www.law.go.kr/LSW/precInfoP.do?mode=0&precSeq=239243",
+     "https://www.law.go.kr/LSW/precInfoP.do?precSeq=147199",
+     "https://casenote.kr/%EB%B2%95%EB%A0%B9/%EC%A0%95%EB%B3%B4%ED%86%B5%EC%8B%A0%EB%A7%9D_%EC%9D%B4%EC%9A%A9%EC%B4%89%EC%A7%84_%EB%B0%8F_%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8_%EB%93%B1%EC%97%90_%EA%B4%80%ED%95%9C_%EB%B2%95%EB%A5%A0/%EC%A0%9C70%EC%A1%B0",
+     "https://law.go.kr/detcInfoP.do?mode=0&detcSeq=49133"
+    ],
+    "access_method": "국가법령정보센터(law.go.kr) 판례·헌재결정례 검색, CaseNote 법령조문 열람",
+    "license": "공공저작물(국가법령정보센터, 공공누리)",
+    "update_potential": "국가법령정보센터·대법원 판례속보(scourt.go.kr)에서 정통망법 명예훼손 신규 판례를 분기별 모니터링하면 면책 기준 변동 추적 가능",
+    "notes": "형법 제310조 면책 3요건(진실성·공익성·상당성)은 정통망법 비방목적이 부정된 경우에만 적용된다는 점이 실무상 가장 자주 오해되는 부분"
+   },
+   {
+    "name": "사실적시 명예훼손죄 합헌 결정 (헌재 2021. 2. 25. 2017헌마1113·2018헌바330 병합)",
+    "description": "헌법재판소는 진실한 사실을 적시해도 처벌하는 형법 제307조 제1항(사실적시 명예훼손)을 5:4로 합헌 결정했다. 다수의견은 사실적시 매체의 다양화로 전파속도·파급효과가 광범위하고 한번 훼손된 명예는 회복이 어렵다는 점에서 표현의 자유 제한이 정당하다고 봤다. 반면 재판관 4인(위헌의견)은 사생활의 비밀에 해당하지 않는 사실적시까지 처벌하는 것은 과잉금지 위반이라고 봤다. 본 서비스 관점에서 이 결정의 의미는 (1) '내용이 진실이어도' 명예훼손이 성립할 수 있으므로 '우리 판정은 사실이다'라는 항변만으로는 형사책임을 면하기 어렵고, (2) 따라서 진실성보다 '공익성·비방목적 부재'를 면책의 1차 방어선으로 삼아야 한다는 점이다. 4인의 위헌의견은 향후 입법·판례 변화 가능성을 시사하므로 지속 모니터링 대상이다.",
+    "sources": [
+     "https://www.lawtimes.co.kr/news/168233",
+     "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002764714",
+     "https://news.koreanbar.or.kr/news/articleView.html?idxno=25293",
+     "https://www.hankookilbo.com/News/Read/A2021022517220001139"
+    ],
+    "access_method": "법률신문·KCI 논문·대한변협 법조신문 기사, 헌재 결정문(ccourt.go.kr)",
+    "license": "헌재 결정문 공공저작물, 언론기사는 인용 범위 내 활용",
+    "update_potential": "사실적시 명예훼손 비범죄화 입법 논의가 계속되므로 국회 의안정보시스템·헌재 후속 사건 추적 권장",
+    "notes": "사건번호 정확표기: 헌재 2021. 2. 25. 2017헌마1113, 2018헌바330(병합)"
+   },
+   {
+    "name": "업무방해죄·신용훼손죄 — 허위사실 유포에 의한 영업 방해 리스크 (대법원 2021. 9. 30. 선고 2021도6634)",
+    "description": "오탐으로 멀쩡한 기업 콘텐츠를 '혐오 코드'로 잘못 표식·통보하면 명예훼손 외에 형법 제314조(업무방해)·제313조(신용훼손) 책임이 추가될 수 있다. 대법원 2021도6634는 (1) '허위사실 유포'는 객관적 진실과 부합하지 않는 사실 유포로 단순 의견·가치판단은 제외되고, (2) 사실/의견 판단은 언어의 통상적 의미·증명가능성·문맥·사회적 상황 등 전체 정황으로 하며, (3) 의견과 사실이 혼재된 경우 전체적으로 판단하고, (4) 기본사실이 진실이어도 거짓이 덧붙어 업무방해 위험이 있으면 성립하나 중요부분이 진실이고 세부 차이·다소 과장에 그쳐 위험이 없으면 불성립한다고 판시했다. 신용훼손죄의 '신용'은 경제적 지불능력·지불의사에 대한 사회적 신뢰로 한정된다. 또한 1개 허위사실 유포가 업무방해죄와 허위사실적시 명예훼손죄에 모두 해당하면 상상적 경합이다. 시사점: 판정 결과물을 '의견·확률 스코어'로 표현하고 '증명가능한 단정적 사실'로 표현하지 않을수록 업무방해죄 성립 가능성이 낮아진다.",
+    "sources": [
+     "https://casenote.kr/%EB%8C%80%EB%B2%95%EC%9B%90/2021%EB%8F%846634",
+     "https://scourt.go.kr/portal/news/NewsViewAction.work?pageIndex=1&searchWord=&searchOption=&seqnum=7997&gubun=4&type=0",
+     "https://www.law.go.kr/LSW/precInfoP.do?precSeq=148247",
+     "https://www.law.go.kr/LSW/precInfoP.do?evtNo=2009%EB%85%B8849"
+    ],
+    "access_method": "CaseNote·대법원 판례속보(scourt.go.kr)·국가법령정보센터 판례 검색",
+    "license": "판례 공공저작물",
+    "update_potential": "대법원 판례속보 RSS로 업무방해/신용훼손 신규 판결 추적 가능",
+    "notes": "'위계에 의한 업무방해'와 '허위사실 유포에 의한 업무방해'는 행위태양이 다르므로 자동 표식 오류는 후자에 가깝다"
+   },
+   {
+    "name": "무고죄 성립요건 — 오탐·악의적 신고 시 형사 리스크 (형법 제156조)",
+    "description": "서비스가 판정 결과를 수사기관·국가인권위 등에 '신고'하는 단계까지 가면 무고죄가 문제될 수 있다. 무고죄는 (1) 객관적으로 신고사실이 허위이고, (2) 주관적으로 신고자가 허위임을 인식해야 성립한다. 핵심 면책 포인트: 객관적 사실과 일치하지 않더라도 '신고자가 진실이라고 확신'하고 신고했으면 무고죄가 성립하지 않는다. 다만 범의는 미필적 고의로 충분하여 '진실하다는 확신 없이' 신고하면 무고가 인정될 수 있다. 또한 '필요한 조사를 해달라'는 목적이었다는 항변은 인정되지 않는다. 시사점: 본 서비스가 직접 외부 신고 기능을 제공하는 것은 무고 리스크가 크므로, 신고 여부 판단·실행은 고객사에 귀속시키고 서비스는 탐지·정보제공에 그치도록 책임 경계를 설계해야 한다.",
+    "sources": [
+     "https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=573&ccfNo=2&cciNo=2&cnpClsNo=1",
+     "https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=573&ccfNo=2&cciNo=2&cnpClsNo=2",
+     "https://casenote.kr/%EB%8C%80%EB%B2%95%EC%9B%90/84%EB%8F%842215",
+     "https://bigcase.ai/cases/%EB%8C%80%EB%B2%95%EC%9B%90/2022%EB%8F%843413"
+    ],
+    "access_method": "찾기쉬운 생활법령정보(easylaw.go.kr)·CaseNote·BigCase 판례 검색",
+    "license": "공공저작물(법제처)",
+    "update_potential": "입법·판례 변화가 적은 안정적 법리이나 BigCase/CaseNote로 신규 판례 모니터 가능",
+    "notes": "무고죄 면책의 핵심은 '신고자의 진실 확신'이므로 서비스는 탐지 근거(코퍼스 출처·매칭 로그)를 보존해 확신의 합리성을 입증할 수 있어야 한다"
+   },
+   {
+    "name": "한국 차별금지법/평등법 입법 이력 (2007~2025) 및 19년간 상임위 미통과",
+    "description": "포괄적 차별금지법은 2007년 노무현 정부안(17대, 성적지향 등 7개 항목 삭제 후 임기만료 폐기)을 시작으로, 2011년 권영길안(18대 폐기), 2012년 김재연안(19대 폐기), 2013년 김한길·최원식안(보수 기독교계 압력으로 철회), 2020년 장혜영안(정의당), 2021년 이상민 '평등에 관한 법률안'·박주민안·권인숙안 등이 발의되었으나 2007년 이후 19년간 단 한 번도 상임위 문턱을 넘지 못했다. 위키백과는 차별금지법은 11회 이상 발의·폐기되었고 국가인권위가 2020년 7월 1일 입법권고를 한 사실을 기록한다. 이 입법 공백이 본 서비스에 미치는 핵심 영향: 한국에는 '혐오표현'이나 '차별'에 대한 법정 정의(legal definition)가 존재하지 않으므로, 서비스의 '일베·메갈 혐오 코드' 분류 기준은 법령 근거 없이 사업자 자체 기준에 의존할 수밖에 없고, 이는 분류의 자의성·오탐 시 명예훼손 항변 약화로 직결된다.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%B0%A8%EB%B3%84%EA%B8%88%EC%A7%80%EB%B2%95",
+     "https://namu.wiki/w/%EC%B0%A8%EB%B3%84%EA%B8%88%EC%A7%80%EB%B2%95/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD/%EC%9E%85%EB%B2%95%20%EC%8B%9C%EB%8F%84",
+     "https://equalityact.kr/about/",
+     "https://www.khan.co.kr/article/202601270700011"
+    ],
+    "access_method": "위키백과·차별금지법제정연대(equalityact.kr)·경향신문 아카이브, 국회 의안정보시스템 교차검증",
+    "license": "위키백과 CC BY-SA, 언론기사 인용",
+    "update_potential": "국회 의안정보시스템(likms.assembly.go.kr)·차별금지법제정연대 법안 페이지로 신규 발의/폐기 추적, 입법 동향이 분류기준 정당성에 직접 영향",
+    "notes": "법정 정의 부재가 서비스의 최대 분류 리스크. 자체 기준은 반드시 출처·근거를 문서화해야 함"
+   },
+   {
+    "name": "2025년 조국혁신당 '인권개혁 3대 법안' — 증오선동죄(형법 개정안)와 광고 차별 조장 금지",
+    "description": "2025년 11월 13일 조국혁신당 비대위는 (1) 차별행위에 '괴롭힘' 규정 신설, (2) '증오선동죄' 도입, (3) 포괄적 차별금지법 제정을 '인권개혁 3대 법안'으로 당론화했다. 신장식 의원은 11월 19일 성별·종교·장애·민족·인종·사회적 신분 등을 이유로 특정 집단을 향한 차별·적의·폭력을 공개적으로 조장·선동하는 행위를 처벌하는 '증오선동죄' 형법 개정안을 발의했고, 정춘생 의원은 22대 국회 첫 차별금지법 발의를 추진했다. 진보당 손솔 의원도 연내 발의를 추진 중이다. 별도로 행정안전부는 혐오·비방성 현수막에 대응해 옥외광고물법 '금지광고물 적용 가이드라인'을 시행(인간 존엄 부정·인권 침해·사회통합 저해 우려 광고물을 금지)하고 옥외광고물법 개정을 추진 중이다. 시사점: 만약 증오선동죄가 입법되면 '혐오표현'에 형사 처벌 근거와 법정 정의가 생겨 본 서비스의 분류 기준에 법적 앵커가 마련되지만, 동시에 서비스의 오탐 판정이 '범죄 혐의 표식'으로 해석되어 명예훼손 책임이 가중될 수 있다.",
+    "sources": [
+     "https://www.sedaily.com/NewsView/2H0H69JH13",
+     "https://www.khan.co.kr/article/202511241639001",
+     "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003197432",
+     "https://www.korea.kr/news/policyNewsView.do?newsId=148954976"
+    ],
+    "access_method": "서울경제·경향신문·오마이뉴스·정책브리핑(korea.kr) 기사, 국회 의안정보시스템 법안원문 교차확인 필요",
+    "license": "언론기사 인용 범위",
+    "update_potential": "증오선동죄·차별금지법은 입법 진행 중이므로 국회 의안정보시스템·국민참여입법센터(opinion.lawmaking.go.kr)에서 상시 추적해야 함. 입법 시 분류기준·법적리스크 재평가 필수",
+    "notes": "광고를 통한 차별 조장 금지는 역대 차별금지법안에 일관되게 포함된 조항으로, 입법 시 기업 마케팅의 1차 규제 근거가 됨"
+   },
+   {
+    "name": "차별금지법안의 '광고를 통한 차별 조장 금지' 조항 및 징벌적 손해배상(제35조)",
+    "description": "역대 차별금지법/평등법안은 '특정 개인이나 집단에 대한 분리·구별·제한·배제 등 불리한 대우를 표시하거나 조장하는 광고 행위'를 차별로 규정하고 이를 금지한다. 이는 본 서비스의 정확한 타깃 시장(기업 마케팅이 실수로 혐오 코드를 쓰는 것을 사전 검출)과 직결되는 조항이다. 또한 장혜영안 제35조는 악의적 차별(고의성·지속반복성·보복성·피해규모 고려)에 대해 손해액의 3~5배 징벌적 손해배상을 규정한다. 인권운동사랑방 등은 '광고되는 차별'의 사회적 파급력을 강조한다. 현재는 입법되지 않았으나, 입법 시 기업 고객은 마케팅 콘텐츠의 차별 조장 여부를 사전 점검할 강력한 법적 유인을 갖게 되어 본 서비스의 시장 정당성이 강화된다. 다만 법정 정의가 확정되기 전까지는 서비스가 '법적 차별 광고'를 단정하기보다 '리스크 가능성'을 제시하는 데 그쳐야 한다.",
+    "sources": [
+     "https://www.sarangbang.or.kr/oreum/69582",
+     "https://equalityact.kr/equalityact-bill/",
+     "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002668151",
+     "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%B0%A8%EB%B3%84%EA%B8%88%EC%A7%80%EB%B2%95"
+    ],
+    "access_method": "인권운동사랑방·차별금지법제정연대 법안 비교표(Google Sheets)·KCI 논문, 국회 의안 원문",
+    "license": "위키/단체자료 인용, KCI 논문 저작권 유의",
+    "update_potential": "법안 원문 조항번호는 발의안마다 다르므로 신규 발의 시 차별금지법제정연대 비교표로 광고 차별 조항 표현 갱신 필요",
+    "notes": "제35조 징벌적 손배(3~5배)는 장혜영안 기준이며, 평등법안 등 타 발의안은 조문번호·배수가 상이할 수 있음"
+   },
+   {
+    "name": "국가인권위원회 '혐오표현 실태조사 및 규제방안 연구' 및 혐오표현 정의·규제 신중론",
+    "description": "국가인권위원회는 '혐오표현 실태조사 및 규제방안 연구'에서 혐오표현을 '어떤 개인·집단에 대하여 사회적 소수자로서의 속성을 가졌다는 이유로 차별·혐오하거나 차별·적의·폭력을 선동하는 표현'으로 정의하고, 차별적 괴롭힘·차별표시·공개적 멸시모욕위협·증오선동으로 유형화했다(여성·성소수자·장애인·이주민이 주요 대상). 그러나 인권위와 학계는 '혐오표현 자체에 법정 정의가 없어 경계 확정이 불가능'하므로 형사 규제에는 신중해야 하고, 형성적·시민사회 대응 중심 규제를 병행해야 한다는 입장이다. 국민 70.3%가 혐오표현을 경험했다는 조사(대한변협)도 있다. 본 서비스 시사점: 인권위 정의는 '법령'이 아니라 '연구·권고' 수준이므로 분류기준의 보조 근거로 활용하되 단독 근거로 삼기엔 약하고, '사회적 소수자 대상성'이라는 인권위 정의의 핵심 요소를 분류 로직에 반영하면 자의성 비판을 줄일 수 있다.",
+    "sources": [
+     "https://www.humanrights.go.kr/site/program/board/basicboard/view?menuid=001003001004&pagesize=10&boardtypeid=16&boardid=7600652",
+     "https://www.humanrights.go.kr/site/program/webzine/subview?menuid=003001&boardtypeid=1016&boardid=7603981&searchissue=7603997",
+     "https://news.koreanbar.or.kr/news/articleView.html?idxno=24309",
+     "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002440862"
+    ],
+    "access_method": "국가인권위원회(humanrights.go.kr) 발간자료·웹진, 대한변협 법조신문, KCI 논문",
+    "license": "인권위 발간자료 공공누리, KCI 논문 저작권 유의",
+    "update_potential": "인권위 발간자료실·보도자료를 정기 모니터링하면 혐오표현 정의·실태조사 갱신본 확보 가능. 분류 기준의 권위 있는 보조 근거",
+    "notes": "인권위 정의의 '사회적 소수자 대상성' 요건은 일베/메갈 양방향 코드를 모두 포착하려는 서비스 설계 시 균형 기준으로 유용"
+   },
+   {
+    "name": "표시·광고의 공정화에 관한 법률(표시광고법) 제3조 — 부당 표시·광고 4유형",
+    "description": "고객 기업이 직접 따라야 할 국내 광고 규제의 핵심은 표시광고법 제3조다. 사업자가 소비자를 속이거나 오인시킬 우려가 있고 공정거래질서를 해칠 우려가 있는 ① 거짓·과장 ② 기만 ③ 부당비교 ④ 비방의 표시·광고를 금지하며, 성립요건은 '4유형 해당+소비자 오인성+공정거래저해성'이다. 특히 '비방' 유형은 '객관적 근거 없이 다른 사업자/상품을 비방하거나 불리한 사실만 표시·광고'하는 것으로, 본 서비스가 경쟁사·특정 기업을 '혐오 코드 사용 기업'으로 표식·공표할 경우 표시광고법상 비방 광고 또는 명예훼손·업무방해와 경합할 수 있다. 공정거래위원회가 법령·판례·구체적 사실관계를 종합 판단한다. 시사점: 서비스 자체의 마케팅(예: '경쟁 솔루션은 혐오 코드를 놓친다')에도 표시광고법이 적용되므로 객관적 근거 없는 비교·비방 광고를 피해야 한다.",
+    "sources": [
+     "https://www.law.go.kr/LSW/lsInfoP.do?lsId=002011&ancYnChk=0",
+     "https://www.lawnb.com/Info/ContentView?sid=L000002011_3_20220509",
+     "https://www.daeryunlaw-trade.com/lawInfo_new/9006",
+     "https://www.consumer.go.kr/user/bbs/consumer/380/940/bbsDataView/2813.do"
+    ],
+    "access_method": "국가법령정보센터(law.go.kr) 법령 원문·로앤비(lawnb.com)·소비자24",
+    "license": "법령 공공저작물",
+    "update_potential": "표시광고법은 2025.1.21 개정(법률 제20712호) 등 개정이 잦으므로 국가법령정보센터 연혁법령으로 추적",
+    "notes": "표시광고법은 '차별 광고'를 직접 규율하지 않음. 차별 조장 광고 규제는 차별금지법 입법을 기다려야 함(현행 공백)"
+   },
+   {
+    "name": "EU 디지털서비스법(DSA) — 콘텐츠 모더레이션·광고 제한·시스템 리스크 의무",
+    "description": "한국 기업이 EU 시장에 서비스/광고를 제공하면 DSA(2024.2 전면 시행)를 따라야 한다. DSA는 (1) 불법 콘텐츠(혐오표현·허위정보 포함) 신고·신속대응·투명한 이의절차 의무, (2) 민감정보(인종·정치성향·성적지향 등) 기반 타깃 광고 금지 및 미성년자 타깃 광고 금지, (3) 모든 광고 라벨링·광고주 공개 의무를 부과한다. 월 4,500만 이용자 이상 초대형 플랫폼(VLOP/VLOSE)은 연례 시스템 리스크 평가·완화조치·독립 감사·연구자 데이터 접근까지 의무화된다. 시사점: 본 서비스 같은 '혐오 코드 탐지' 솔루션은 DSA 체제에서 플랫폼의 콘텐츠 모더레이션·시스템 리스크 완화 도구로 B2B 수요가 발생하며, '신뢰할 수 있는 신고자(Trusted Flagger)/Monitoring Reporter' 생태계와 연계될 수 있다. 다만 DSA의 '불법 콘텐츠' 판단 권한은 플랫폼/당국에 있고 서비스는 보조 도구이므로, 판정의 최종 책임이 고객사에 있음을 약관에 명확히 해야 한다.",
+    "sources": [
+     "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act",
+     "https://digital-strategy.ec.europa.eu/en/faqs/digital-services-act-questions-and-answers",
+     "https://www.consilium.europa.eu/en/policies/digital-services-act/",
+     "https://digital-strategy.ec.europa.eu/en/policies/dsa-impact-platforms"
+    ],
+    "access_method": "유럽집행위원회 디지털전략 포털(digital-strategy.ec.europa.eu)·EU이사회(consilium.europa.eu) 공식 문서",
+    "license": "EU 공식문서(재사용 가능, CC BY 4.0 통상)",
+    "update_potential": "집행위 DSA 정책페이지·VLOP 지정 목록·투명성 보고서로 의무 변화 추적",
+    "notes": "DSA는 한국 내 서비스에는 직접 적용되지 않으나 글로벌 고객사가 따르는 사실상의 표준이므로 제품 요구사항에 반영 권장"
+   },
+   {
+    "name": "EU 혐오표현 대응 행동강령+(Code of Conduct+)의 DSA 제45조 편입 (2025.1.20)",
+    "description": "2025년 1월 20일 EU집행위는 '온라인 불법 혐오표현 대응 개정 행동강령+(Code of Conduct+)'를 DSA 제45조 행동강령 틀에 편입했다(2016년 강령의 강화판). 서명 플랫폼은 Facebook·Instagram·LinkedIn·Microsoft·Snapchat·TikTok·Twitch·X·YouTube·Dailymotion·Rakuten Viber·Jeuxvideo.com 등이다. 핵심은 (1) 혐오표현 전문성을 가진 비영리/공공 'Monitoring Reporters' 네트워크(DSA상 Trusted Flagger 포함)가 플랫폼의 혐오표현 신고 처리 방식을 정기 모니터링하고, (2) 강령 준수가 DSA 연례 독립 감사의 일부가 되어 투명성·책임성을 강화하는 것이다. 시사점: 본 서비스는 'Monitoring Reporter/Trusted Flagger'에 데이터·분류 인프라를 제공하는 B2B 포지션을 취할 수 있으나, 이때 '판정의 정확성'에 대한 평판·법적 책임이 커지므로 분류 정확도·오탐률 공개와 인간 검수(human-in-the-loop)를 전제로 해야 한다.",
+    "sources": [
+     "https://luxembourg.representation.ec.europa.eu/actualites-et-evenements/actualites/commission-welcomes-integration-revised-code-conduct-countering-illegal-hate-speech-online-digital-2025-01-20_en",
+     "https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/combatting-discrimination/racism-and-xenophobia/eu-code-conduct-countering-illegal-hate-speech-online_en",
+     "https://digital-strategy.ec.europa.eu/en/library/code-conduct-countering-illegal-hate-speech-online",
+     "https://digital-strategy.ec.europa.eu/en/news/first-results-published-under-revised-code-conduct-countering-illegal-hate-speech-online"
+    ],
+    "access_method": "유럽집행위 공식 보도자료·디지털전략 라이브러리",
+    "license": "EU 공식문서",
+    "update_potential": "강령+ 모니터링 결과 보고서가 정기 공개되므로 혐오표현 탐지 벤치마크·플랫폼 처리율 데이터로 활용 가능",
+    "notes": "행동강령+은 '불법' 혐오표현이 대상이며 EU 회원국별 법정 정의에 의존 — 한국의 법정 정의 부재와 대비됨"
+   },
+   {
+    "name": "약관규제법 제7조 — B2B 서비스의 면책조항 한계와 '자문 vs 판정' 경계",
+    "description": "본 서비스의 B2B 약관 면책 설계는 '약관의 규제에 관한 법률(약관규제법)'의 강행규정에 구속된다. 약관규제법은 8개 유형의 불공정약관을 무효화하며, 특히 제7조는 '사업자·이행보조자·피용자의 고의 또는 중대한 과실로 인한 법률상 책임을 배제하는 조항'을 무효로 한다. 즉 본 서비스가 '오탐에 대해 일체 책임지지 않는다'는 전면 면책 조항을 두어도 고의·중과실 책임은 면제되지 않는다. 따라서 책임 한계 설계의 핵심은 (1) 서비스 성격을 '확정 판정(judgment)'이 아니라 '리스크 정보 제공·자문(advisory)'으로 규정하고 최종 의사결정·공표 책임을 고객사에 귀속시키며, (2) 경과실 범위 내에서 손해배상 상한(예: 직전 1년 이용료)을 설정하고, (3) 인간 검수 의무·정확도 한계·오탐 가능성을 약관에 명시적으로 고지하는 것이다. 공정거래위원회 표준약관 및 약관심사 기준을 참고해야 한다.",
+    "sources": [
+     "https://www.ftc.go.kr/www/contents.do?key=122",
+     "https://www.law.go.kr/LSW/lsLinkProc.do?lsNm=%EC%95%BD%EA%B4%80%EC%9D%98%EA%B7%9C%EC%A0%9C%EC%97%90%EA%B4%80%ED%95%9C%EB%B2%95%EB%A5%A0&efYd=19980710&lsId=prec19980710&lsClsCd=L&joNo=000700&mode=11",
+     "https://minwho.kr/kr/business/business_case_view.php?bgu=view&idx=45734"
+    ],
+    "access_method": "공정거래위원회(ftc.go.kr) 표준약관·국가법령정보센터 약관규제법 조문·법무법인 업무사례",
+    "license": "법령 공공저작물",
+    "update_potential": "공정위 약관심사 사례·표준약관 개정으로 면책조항 유효성 기준 추적",
+    "notes": "'자문(advisory) vs 판정(adjudication)' 경계가 형사 면책(비방목적·무고)과 민사 면책(약관)을 동시에 좌우하는 가장 중요한 제품·법무 설계 변수"
+   }
+  ],
+  "summary": "한국에서 '일베·메갈 혐오 코드' 탐지·브랜드세이프티 서비스 제공자 자신의 가장 큰 법적 리스크는, 고객의 콘텐츠를 혐오 코드로 판정·표식·통보하는 행위가 정보통신망법 제70조(사이버 명예훼손, 형법보다 가중), 형법상 신용훼손·업무방해, 그리고 외부 신고 시 무고죄를 구성할 수 있다는 점이다. 한국 대법원·헌재 법리상 (1) 정통망법 명예훼손은 '비방 목적'이 별도 구성요건이고 공익성이 인정되면 비방목적이 부인되며, (2) 헌재는 사실적시 명예훼손죄를 5:4로 합헌 결정해 '내용이 진실이어도' 처벌될 수 있고, (3) 업무방해죄의 '허위사실 유포'에서 단순 의견·가치판단은 제외되므로, 면책의 핵심은 진실성보다 '공익적·자문적 목적 + 의견·확률 표현'으로 서비스를 구조화하는 데 있다. 한국에는 '혐오표현'·'차별'의 법정 정의가 없다(차별금지법 2007년 이후 19년간 11회 발의·전부 폐기). 이 공백 때문에 서비스의 분류 기준은 법령 근거 없이 사업자 자체 기준에 의존할 수밖에 없어 오탐 시 면책 항변이 약해진다. 2025년 조국혁신당의 '인권개혁 3대 법안'(증오선동죄 형법 개정안+괴롭힘 규정+포괄적 차별금지법)과 역대 차별금지법안의 '광고를 통한 차별 조장 금지' 조항이 입법되면 분류 기준의 법적 앵커가 생기지만, 동시에 오탐 판정이 '범죄·위법 혐의 표식'으로 격상되어 명예훼손 책임이 가중되는 양면성이 있다. 고객 기업 측 규제로는 표시광고법 제3조(부당 표시·광고 4유형), 글로벌 고객의 경우 EU DSA(콘텐츠 모더레이션·민감정보 타깃광고 금지·시스템 리스크 평가)와 2025.1.20 DSA에 편입된 혐오표현 대응 행동강령+(Trusted Flagger/Monitoring Reporter 체계)가 중요하다. B2B 책임 한계는 약관규제법 제7조(고의·중과실 면책조항 무효)의 강행규정에 구속되므로, 전면 면책은 불가능하며 '판정이 아닌 자문' 포지셔닝과 인간 검수가 법무 설계의 핵심이다.",
+  "recommendations": "1) '판정'이 아닌 '자문'으로 포지셔닝: 서비스 산출물을 '특정 기업이 혐오 코드를 썼다'는 단정적 사실 적시가 아니라 '리스크 확률 스코어·의견'으로 표현하라. 업무방해죄의 '허위사실 유포'와 정통망법 명예훼손의 '사실 적시'는 모두 의견·가치판단을 제외하므로, 표현을 의견화하고 단정적 라벨('일베 기업', '혐오 브랜드')을 금지어로 관리하는 것이 1차 방어선이다.\n\n2) 통보 범위를 고객사 내부로 한정해 '공연성'을 차단하라. 제3자 공표·공개 랭킹·외부 신고 기능은 명예훼손·업무방해·무고 리스크를 폭증시키므로 기본 제공하지 말고, 신고 여부 판단·실행은 고객사에 귀속시켜라(무고 면책: 신고자의 진실 확신 요건).\n\n3) 분류 근거를 문서화·보존하라. 법정 정의가 없으므로 자체 기준의 정당성이 유일한 방패다. 각 코드/표식의 출처(악성 커뮤니티 용례·시점·맥락), 매칭 로직, 인간 검수 로그를 보존해 '진실 확신의 합리성'(무고)과 '공익성·상당성'(명예훼손 면책)을 입증할 수 있게 하라. 국가인권위 혐오표현 정의의 '사회적 소수자 대상성' 요건을 분류 로직에 반영하면 자의성 비판을 줄일 수 있다.\n\n4) 오탐(false positive)을 최우선 KPI로 관리하라. 일반 문장·맥락에서 우연히 쓰인 표현(동음이의·인용·비판적 언급)을 혐오 코드로 오판하면 곧바로 명예훼손·업무방해·약관상 손해배상으로 이어진다. 인간 검수(human-in-the-loop)를 표식·통보 단계의 필수 절차로 약관에 명시하라.\n\n5) 약관 책임 한계를 약관규제법 제7조에 맞춰 설계하라. 전면 면책은 무효이므로, (a) 서비스를 자문·정보제공으로 정의하고 최종 의사결정·공표 책임은 고객에게 귀속, (b) 경과실 범위 내 손해배상 상한(예: 직전 12개월 이용료) 설정, (c) 정확도 한계·오탐 가능성·인간 검수 권고를 명시적으로 고지하라. 고의·중과실 책임은 면제 불가임을 전제로 운영 프로세스를 정비하라.\n\n6) 입법 동향을 상시 모니터링하라. 2025년 증오선동죄·차별금지법(광고 차별 조장 금지 포함)이 입법되면 분류 기준에 법적 앵커가 생기는 동시에 오탐의 법적 무게가 커진다. 국회 의안정보시스템·국민참여입법센터·국가법령정보센터·대법원 판례속보를 분기별로 추적해 면책 기준과 제품 요구사항을 갱신하라.\n\n7) 글로벌 고객 대응으로 EU DSA·행동강령+ 호환성을 제품 요구사항에 반영하되, 'DSA상 불법 콘텐츠 판단 권한은 플랫폼/당국에 있고 본 서비스는 보조 도구'라는 책임 경계를 약관과 마케팅 양쪽에 일관되게 명시하라. 서비스 자체 마케팅의 비교·비방 표현도 표시광고법 제3조 적용 대상임을 유의하라."
+ },
+ {
+  "findings": [
+   {
+    "name": "재사용 가능한 구조화 남혐 lexicon의 부재 (핵심 결론)",
+    "description": "조사 결과, '용어+유래+변형표기+강도/맥락'을 갖춘 재사용 가능한 구조화 남성혐오(misandry) 전용 단어 사전은 GitHub/HuggingFace/Kaggle 어디에도 공개 데이터로 존재하지 않습니다. 가장 포괄적인 한국어 욕설/혐오 리소스 모음인 Tanat05/korean-profanity-resources의 24개 데이터셋 중 남혐을 명시적으로 다루는 것은 'Womad Hate Speech Data'(문장 단위, 2,081건) 하나뿐이며, 메갈리아/워마드 용어집이나 남혐 전용 lexicon은 0개입니다. songys/AwesomeKorean_Data 종합 목록에도 젠더 혐오 슬러(slur) 사전은 없습니다. 즉 시장에 '바로 쓸 수 있는 구조화 남혐 사전'이라는 공백이 실재합니다.",
+    "sources": [
+     "https://github.com/Tanat05/korean-profanity-resources",
+     "https://github.com/songys/AwesomeKorean_Data"
+    ],
+    "data_size": "리소스 모음 내 데이터셋 24개 중 남혐 명시 데이터 1개(문장 단위), 구조화 남혐 lexicon 0개",
+    "license": "리포지토리별 상이(혼합)",
+    "access_method": "GitHub 공개 클론",
+    "update_potential": "리포지토리가 주기적으로 신규 데이터셋을 추가하므로 워치(watch)/주기적 diff 모니터링 대상으로 적합",
+    "notes": "결론: 남혐 전용 '구조화 사전'은 직접 구축해야 함. 외부에 완성품이 없음."
+   },
+   {
+    "name": "Womad Hate Speech Data (Kaggle, captainnemo9292) - 2,081건",
+    "description": "사용자가 언급한 '워마드 혐오발언 데이터 2,081건'의 실제 출처입니다. 한국 극단 사이트 워마드에서 수집한 댓글/문장을 분류한 데이터로, 문장 단위(sentence-level) 라벨이며 lexicon(단어 사전)이 아닙니다. 어휘 추출(빈도 기반 후보 단어 마이닝)은 기술적으로 가능하지만, 핵심 문제는 라이선스입니다. Kaggle API 메타데이터 확인 결과 licenseName이 'Unknown'으로, 상업적 재배포 권리가 불명확합니다. 또한 usabilityRating 0.41로 문서화/품질이 낮습니다.",
+    "sources": [
+     "https://www.kaggle.com/datasets/captainnemo9292/korean-extremist-website-womad-hate-speech-data/data",
+     "https://github.com/Tanat05/korean-profanity-resources"
+    ],
+    "data_size": "2,081 행, 약 166KB, 다운로드 약 505회",
+    "license": "Unknown (Kaggle API licenseName='Unknown') — 상업 이용 부적합",
+    "access_method": "Kaggle API/웹 다운로드",
+    "update_potential": "단발성 업로드로 보이며 갱신성 낮음 — 정기 업데이트 소스로 부적합",
+    "notes": "상업 서비스 판정: 부적합. 라이선스 불명으로 원천 데이터 재배포 불가. 단, '검증용 평가셋'으로 내부 비공개 사용 검토 가능하나 권리 확인 필수. 어휘는 '시드 후보 발굴'에만 참고하고 청정 출처로 재정의 권장."
+   },
+   {
+    "name": "korean-profanity-resources의 slang.csv (4,315건) - 플랫 단어 리스트",
+    "description": "직접 클론해 확인한 결과, slang.csv는 헤더가 'slang,' 하나뿐인 단일 컬럼 플랫 단어 리스트(4,315행)입니다. 유래/변형/강도/맥락 같은 구조화 필드가 전혀 없습니다. 남혐 어휘는 극소수만 포함(확인된 항목: 한남충, 재기해, 한남, 허버리년 등 약 4~7개)되어 남혐 커버리지가 매우 빈약합니다. 영어 욕설(bitch, dildo 등)과 한국어 일반 욕설이 혼재합니다. 리포지토리 README상 slang.csv 라이선스는 '확인 필요(미확정)'로 표기되어 있습니다.",
+    "sources": [
+     "https://github.com/Tanat05/korean-profanity-resources/blob/main/slang.csv",
+     "https://github.com/Tanat05/korean-profanity-resources"
+    ],
+    "data_size": "4,315행, 단일 컬럼(slang). 남혐 관련 항목 약 4~7개에 불과",
+    "license": "확인 필요(README 표기 '미확정') — 상업 이용 위험",
+    "access_method": "GitHub raw/clone (파일 경로는 리포지토리 루트의 slang.csv, /dataset/ 하위 아님)",
+    "update_potential": "리포지토리 커밋 히스토리로 증분 추적 가능하나 남혐 항목 증가는 미미",
+    "notes": "상업 서비스 판정: 부적합/제한적. 구조화 사전 아님 + 라이선스 미확정 + 남혐 커버리지 빈약. 일반 욕설 보조 시드로만 제한 활용."
+   },
+   {
+    "name": "smilegate-ai korean_unsmile_dataset - '남성' 라벨 보유(문장 단위)",
+    "description": "스마일게이트 AI의 18,742문장 데이터셋으로, 10개 멀티라벨 중 '남성(Male)'을 여성/가족과 별도 카테고리로 분리해 둔 점이 강점입니다. 남혐 문장 자체는 확보되나 단어 단위 주석(word-level)이 아니라 문장 단위라 lexicon은 아닙니다. 라이선스가 데이터셋 CC BY-NC-ND 4.0(비영리·변경금지)이라 상업적 직접 이용과 파생물 제작이 모두 금지됩니다(상업 이용은 smilegate_ai@smilegate.com 별도 협의 필요).",
+    "sources": [
+     "https://github.com/smilegate-ai/korean_unsmile_dataset",
+     "https://huggingface.co/datasets/smilegate-ai/kor_unsmile"
+    ],
+    "data_size": "18,742문장(train 15,005 / valid 3,737), 10개 멀티라벨",
+    "license": "데이터: CC BY-NC-ND 4.0 (상업·변경 금지) / 코드: Apache-2.0",
+    "access_method": "GitHub, HuggingFace datasets",
+    "update_potential": "단발성 릴리스 — 정기 업데이트 소스 아님",
+    "notes": "상업 서비스 판정: 직접 이용 부적합(상업 협의 필요). '남성' 라벨 문장에서 후보 어휘 마이닝 → 청정 출처로 재정의하는 연구 참고용으로만 활용 권장."
+   },
+   {
+    "name": "HateScore (sgunderscore) - '남성(men)' 혐오 카테고리 + 위키 기반 중립문 + Apache-2.0",
+    "description": "약 11,000건(HITL 1,700 + 위키백과 기반 중립문 2,200 + 룰기반 중립문 7,100) 데이터로, 7개 혐오 카테고리에 '남성(men)'을 명시 포함합니다. 제작자는 한국 온라인의 급증하는 반남(anti-male) 표현 때문에 남성을 포함했다고 밝힙니다. 라이선스가 Apache-2.0으로 상업 이용에 가장 유리한 축에 속합니다(다만 데이터는 비영리·학술 목적 공개라는 README 문구가 병기되어 있어 데이터 자체의 상업 이용 가능 범위는 추가 확인 권장). 특히 '중립문(neutral)' 2,200건이 위키백과 출처라 '오탐 방지(brand safety의 정탐/오탐 균형)'에 매우 유용합니다.",
+    "sources": [
+     "https://github.com/sgunderscore/hatescore-korean-hate-speech"
+    ],
+    "data_size": "약 11,000건(HITL 1,700, 위키 중립문 2,200, 룰기반 중립문 7,100), 7+3 카테고리",
+    "license": "Apache-2.0 (단, README에 '비영리·학술 목적 공개' 문구 병기 → 데이터 상업 범위 확인 권장)",
+    "access_method": "GitHub clone",
+    "update_potential": "단발성 — 정기 소스는 아니나 오탐방지 평가셋으로 장기 유효",
+    "notes": "상업 서비스 판정: 조건부 적합(라이선스 양호, 데이터 상업 범위만 재확인). lexicon은 아니지만 '문맥/오탐 방지' 골든셋으로 가장 가치 높음."
+   },
+   {
+    "name": "한국어 위키백과 - 남성혐오/메갈리아/워마드 문서 (CC BY-SA 4.0, 청정 시드)",
+    "description": "라이선스 청정(CC BY-SA 4.0, 출처표시+동일조건이면 상업 이용 가능)한 1차 시드 후보입니다. 다만 실측 결과: (a) '남성혐오' 문서는 학술/역사 중심으로 한남충·냄져·재기 등 인터넷 용어 글로사리(용어표)가 없습니다. (b) '메갈리아' 문서는 한남충·김치남·미러링·보지대장부 등 일부 용어를 서술형으로 언급하나 별도 용어표는 없습니다. (c) '워마드' 문서는 용어 섹션이 없습니다. 즉 위키백과는 '맥락·유래의 권위 있는 청정 인용처'로는 유효하나, 곧바로 추출 가능한 구조화 용어집은 제공하지 않습니다.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/남성혐오",
+     "https://ko.wikipedia.org/wiki/메갈리아",
+     "https://ko.wikipedia.org/wiki/워마드"
+    ],
+    "data_size": "문서 3건(서술형, 용어표 없음). 용어 언급은 메갈리아 문서가 가장 풍부",
+    "license": "CC BY-SA 4.0 (출처표시+동일조건변경허락 시 상업 이용 가능)",
+    "access_method": "MediaWiki API(action=query/parse)로 합법적 수집 가능, 덤프(dumps.wikimedia.org) 다운로드 가능",
+    "update_potential": "높음 — MediaWiki API/정기 덤프로 신규 용어 등장을 주기적 모니터링 가능(권장 핵심 업데이트 소스)",
+    "notes": "상업 서비스 판정: 적합(유래/정의의 권위 인용처). 단 '구조화 용어집'은 직접 가공 필요. 동일조건변경허락(ShareAlike) 의무로 파생 사전 배포 시 라이선스 전파 주의."
+   },
+   {
+    "name": "FemiWiki 한남충 등 항목 (CC BY-SA 4.0, 남혐 용어 유래 청정 출처)",
+    "description": "femiwiki.com은 CC BY-SA 4.0 라이선스로, 나무위키(NC) 대비 상업 이용이 가능한 점이 결정적 장점입니다. '한남충' 항목은 2017년경 워마드/디시 미러링 맥락(김치남 차단 → 한남충 등장)과 의미 확장을 서술합니다. 구조화 DB 형태는 아니지만 개별 남혐 용어의 '유래·의미'를 청정 라이선스로 제공하는 드문 출처라, 나무위키 의존을 줄이는 1차 대안 시드로 가치가 높습니다. MediaWiki 기반이라 API 수집도 가능합니다.",
+    "sources": [
+     "https://femiwiki.com/w/한남충",
+     "https://femiwiki.com/w/워마드"
+    ],
+    "data_size": "개별 용어 항목 다수(서술형). 남혐/페미니즘 용어 커버리지가 위키백과보다 넓음",
+    "license": "CC BY-SA 4.0 (상업 이용 가능, 출처표시+동일조건)",
+    "access_method": "MediaWiki API(api.php) 수집 가능, 페이지 단위 파싱",
+    "update_potential": "높음 — MediaWiki API로 신규/개정 용어 정기 모니터링 가능",
+    "notes": "상업 서비스 판정: 적합(나무위키 대체 1차 시드). 관점이 특정 진영(페미니즘)에 치우쳐 정의가 편향될 수 있으니 위키백과/학술과 교차검증 권장. ShareAlike 전파 의무 유의."
+   },
+   {
+    "name": "학술 1차 출처: 박대아(2018) '남성혐오표현의 유형과 사용 양상' + 후속 반사형 연구",
+    "description": "사용자가 지목한 '백수빈 2019'는 검증 결과 남혐 용어 유형론의 정본 출처가 아닙니다(백수빈은 DBpia상 경찰대 범죄학과 소속, 성폭력 무고죄 연구자로 남혐 lexicon과 무관). 남혐 표현의 어휘 유형론을 다룬 권위 있는 청정 학술 출처는 박대아(2018) '남성혐오표현의 유형과 사용 양상'(우리어문연구 62집, pp.273-304)입니다. 워마드 중심으로 호칭형/대체형 혐오표현을 분류하며 남성 신체 비하 대체어가 고빈도임을 분석합니다. 후속으로 '남성혐오표현과 여성혐오표현의 상호작용 연구 - 반사형(反射型) 혐오표현 중심'도 미러링 구조 분석에 유용합니다. KCI/Semantic Scholar에 서지정보가 공개돼 있습니다(전문은 유료/기관접근).",
+    "sources": [
+     "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002386344",
+     "https://www.semanticscholar.org/paper/남성혐오표현의-유형과-사용-양상-박대아/e416b54d08ea9622a1d3895ff2f48fa91fe24b96",
+     "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002702231",
+     "https://www.dbpia.co.kr/author/authorDetail?ancId=5199935"
+    ],
+    "data_size": "논문 본문 32p(유형 분류 체계 제공). 어휘 목록은 본문 내 산재",
+    "license": "학술 저작권(인용은 가능, 본문 복제·재배포 불가). 분류 '체계/방법론'은 아이디어로 차용 가능",
+    "access_method": "KCI/DBpia 서지 무료, 전문은 기관/유료 접근",
+    "update_potential": "낮음(단발 논문) — 단, lexicon '강도/맥락 분류 스키마' 설계의 학술 근거로 1회성 활용 가치 큼",
+    "notes": "정정 사항: '백수빈 2019' → 정본은 '박대아 2018'. 상업 판정: 인용·분류체계 차용 적합(전문 복제 불가). lexicon의 '강도/맥락 필드' 정의에 학술 근거 제공."
+   },
+   {
+    "name": "나무위키 의존의 라이선스 리스크 (CC BY-NC-SA 2.0 KR, 상업 차단)",
+    "description": "남혐 용어의 유래·변형이 가장 풍부한 곳은 나무위키(메갈리아/용어, 일베저장소/용어, 한남충, 재기해 등)지만 상업 서비스에는 직접 사용 불가합니다. 나무위키 저작물은 CC BY-NC-SA 2.0 KR로 '비영리(NC)' 조건이라 상업적 콘텐츠 모더레이션 서비스에 텍스트를 복제·파생하면 라이선스 위반입니다. 또한 robots.txt 기반 크롤링 제약도 있습니다(법적 구속력은 약하나 ToS/저작권 리스크 별개). 따라서 나무위키는 '용어 존재 여부 인지(리서치 단서)'까지만 쓰고, 실제 사전 텍스트는 위키백과(BY-SA)·페미위키(BY-SA)·학술 인용으로 재작성해야 합니다.",
+    "sources": [
+     "https://namu.wiki/w/메갈리아/용어",
+     "https://namu.wiki/w/robots.txt",
+     "https://namu.wiki/w/한남충"
+    ],
+    "data_size": "용어 문서 다수(가장 풍부)이나 상업 사용 불가",
+    "license": "CC BY-NC-SA 2.0 KR (비영리 전용 — 상업 서비스 부적합)",
+    "access_method": "웹 열람 가능하나 크롤링/복제는 ToS·저작권 리스크",
+    "update_potential": "내용 갱신은 빠르나 라이선스상 상업 파이프라인에 직접 편입 불가",
+    "notes": "상업 서비스 판정: 부적합(NC). '대안 시드' = 위키백과 MediaWiki API + 페미위키 API + 박대아 2018 분류체계로 나무위키 의존 대체."
+   },
+   {
+    "name": "비대칭(asymmetry) 정량 비교: 일베 vs 남혐 사전화 자원",
+    "description": "정량 비교 결과 비대칭이 확인됩니다. (1) 데이터셋 차원: 일베 대표어 '운지'는 KoreanHateSpeech/HateScore 등 다수 데이터셋과 위키백과 '일베저장소' 문서에 정착돼 있고, 나무위키 '일베저장소/용어'는 방대한 정리표를 보유합니다. 반면 남혐 전용 데이터는 Womad 2,081건(라이선스 불명) 사실상 1종에 불과합니다. (2) 사전화 차원: 두 진영 모두 '구조화 lexicon'은 공개본이 없으나, 일베 용어는 위키백과/언론 인용이 풍부해 청정 시드 확보가 쉬운 반면, 남혐 용어는 위키백과 용어표 부재로 청정 시드가 페미위키+학술 소수에 의존합니다. (3) slang.csv 실측에서도 일베/일반 마커와 남혐 마커가 각 약 7개로 모두 빈약해, '둘 다 미사전화' 상태이되 남혐 쪽이 라이선스 청정 시드 접근성에서 더 불리합니다. 결론: 남혐 lexicon 자원은 절대량·청정 출처 모두에서 열위이며, 직접 구축 필요성이 일베보다 큽니다.",
+    "sources": [
+     "https://namu.wiki/w/일베저장소/용어",
+     "https://ko.wikipedia.org/wiki/일베저장소",
+     "https://github.com/Tanat05/korean-profanity-resources",
+     "https://www.kaggle.com/datasets/captainnemo9292/korean-extremist-website-womad-hate-speech-data/data"
+    ],
+    "data_size": "남혐 전용 데이터 1종(2,081, 라이선스 불명) vs 일베 어휘는 다수 데이터셋·위키백과 문서에 분산 정착. 구조화 lexicon은 양측 모두 0",
+    "license": "혼합(상당수 NC/불명)",
+    "access_method": "데이터셋별 상이",
+    "update_potential": "위키백과(BY-SA) 기반 모니터링은 일베·남혐 모두 가능",
+    "notes": "판정: 비대칭 사실. 남혐은 (a)전용 데이터 희소 (b)청정 용어표 부재로 'lexicon 공백'이 더 심함 → 본 방어 서비스의 차별화 가치가 큰 영역."
+   }
+  ],
+  "summary": "한국어 남성혐오(misandry)·메갈리아/워마드 계열의 '재사용 가능한 구조화 단어 사전(용어+유래+변형표기+강도/맥락)'은 GitHub·HuggingFace·Kaggle 어디에도 공개 완성품으로 존재하지 않습니다. 가장 포괄적인 한국어 욕설/혐오 리소스 모음(Tanat05/korean-profanity-resources)의 24개 데이터셋 중 남혐을 명시한 것은 'Womad Hate Speech Data(2,081건, 문장 단위)' 하나뿐이고, 이마저 Kaggle 라이선스가 'Unknown'이라 상업 재배포가 불가합니다. 사용자가 지목한 slang.csv는 실측 결과 단일 컬럼 플랫 리스트(4,315행)이며 남혐 어휘는 4~7개에 불과하고 라이선스도 미확정이라 '구조화 사전'이 아닙니다. smilegate unsmile은 '남성' 라벨을 분리해 두었으나 CC BY-NC-ND(상업·변경 금지)라 직접 이용이 막혀 있고, HateScore는 '남성' 카테고리와 위키 기반 중립문을 Apache-2.0으로 제공해 오탐 방지 골든셋으로 가장 유용하나 역시 lexicon은 아닙니다. 라이선스 청정 시드로는 한국어 위키백과(CC BY-SA 4.0, 단 용어표는 없고 서술형)와 페미위키(CC BY-SA 4.0, 한남충 등 유래 제공)가 핵심 대안이며, 학술 정본은 사용자가 언급한 '백수빈 2019'가 아니라 '박대아(2018) 남성혐오표현의 유형과 사용 양상'(및 후속 반사형 혐오표현 연구)입니다. 가장 풍부한 나무위키는 CC BY-NC-SA 2.0 KR(비영리)이라 상업 파이프라인에 직접 편입 불가합니다. 일베 대비 남혐은 전용 데이터 희소 + 청정 용어표 부재로 사전화 자원이 정량·질적 모두 열위(비대칭 확인)이며, 이는 곧 본 방어 서비스가 직접 lexicon을 구축할 때 차별화 가치가 큰 공백임을 의미합니다.",
+  "recommendations": "1) 자체 구축 전제: 완성된 구조화 남혐 lexicon은 외부에 없으므로 '용어/표준표기/변형(자모분리·숫자코드·미러링)/유래/강도/맥락/오탐주의' 스키마를 직접 설계해야 합니다. 강도·맥락 필드 정의의 학술 근거로 박대아(2018) 호칭형/대체형 분류와 반사형 혐오표현 연구를 인용 차용하세요(본문 복제는 금지, 분류 체계만 차용).\\n2) 청정 시드 파이프라인(나무위키 의존 제거): 1차 시드는 (a) 한국어 위키백과 MediaWiki API/정기 덤프(남성혐오·메갈리아·워마드·일베저장소 문서, CC BY-SA 4.0), (b) 페미위키 MediaWiki API(한남충 등, CC BY-SA 4.0) 두 BY-SA 출처로 한정하세요. 두 출처 모두 ShareAlike이므로, 파생 사전을 외부 배포할 경우 동일조건(BY-SA) 전파 의무가 생깁니다 — 사내 비공개 운영이면 부담이 적으나, 사전 공개·판매 시 라이선스 전략(분리 배포/속성 명시)을 사전에 법무 검토하세요.\\n3) 나무위키·Womad Kaggle·unsmile은 '시드 후보 발굴 및 내부 평가'까지만: 나무위키(NC), Womad(Unknown), unsmile(BY-NC-ND)은 상업 직접 이용 부적합입니다. 이들은 '어떤 용어가 존재하는가'를 인지하는 리서치 단서로만 쓰고, 실제 사전 텍스트(정의·유래)는 반드시 위키백과/페미위키/학술 인용으로 재작성(rewrite)해 라이선스를 청정화하세요. Womad 2,081건은 권리 확인 전까지 모델 학습·재배포에 넣지 말고, 부득이하면 빈도 기반 후보 어휘 추출에만 비공개로 제한 사용하세요.\\n4) 오탐(false positive) 방지 골든셋 확보: 본 서비스는 '일반 문장·기업 마케팅의 우발적 오용 검출'이 목적이므로 정탐만큼 오탐 억제가 중요합니다. HateScore의 위키백과 기반 중립문 2,200건(Apache-2.0)을 평가용 골든셋으로 확보해 '6.9/오조오억/삼일한' 같은 숫자·일반어 충돌 용어의 문맥 판별 기준을 만드세요(예: 숫자코드는 단독 표기 시 저강도, 남성 지칭 맥락 결합 시 고강도로 가중). HateScore 데이터의 상업 사용 범위(README '비영리·학술' 문구)는 도입 전 1회 확인하세요.\\n5) 정기 업데이트 소스: 신조어·변형은 빠르게 진화하므로 위키백과/페미위키 MediaWiki API를 주기적으로 diff 모니터링(신규 문서·문단 등장 감지)하고, korean-profanity-resources/AwesomeKorean_Data 리포지토리를 워치해 신규 데이터셋 출현을 추적하는 갱신 파이프라인을 권장합니다.\\n6) 비대칭 대응: 남혐 lexicon은 일베 대비 청정 자원이 더 부족하므로, 페미위키+위키백과+학술 외에 사내 전문가 검수(휴먼 인 더 루프)로 변형표기(자모분리 'ㅎㄴㅊ', 우회표기, 미러링 신조어)를 지속 보강하는 것이 사실상 필수입니다. 이 영역이 경쟁 공백이자 본 서비스의 차별화 포인트입니다."
+ },
+ {
+  "summary": "2024-2026 한국 일베발 혐오 코드는 밈을 외피로 일반 문장과 기업 마케팅에 숨는 도그휘슬로 진화했고 대형 사고가 잇따랐다. 롯데 노무한 박수 2026.5.11, 스타벅스 5.18 탱크데이 2026.5.18, EBS 들켰노 2025.11. 한국일보 2026.5.24는 이를 일베 놀이의 진화로 분석하며 기표 유포-발각 게임화-해명 2차 조롱 3단계 구조와 화이트 일베 신조어를 포착했다. 검출 과제는 노무/운지/들켰노/18/집게손가락/코알라/탱크 같은 기존 코드와 자막 위치 겹침 같은 시각 코드를 함께 잡는 것이다. 위키백과 CC BY-SA 4.0와 학술 코퍼스가 청정 소스이나 2018-2021 수집분이라 신규 용어를 못 담아 언론 채굴과 덤프 동기화 결합 파이프라인이 필수다. 나무위키 CC BY-NC-SA는 상업 불가라 배제한다.",
+  "findings": [
+   {
+    "name": "한국일보 일베 놀이의 진화 (2026.5.24)",
+    "description": "혐오 놀이 3단계(기표 유포/발각 게임화/해명 2차 조롱)와 도그휘슬/부인가능성 개념. 사례: 탱크데이(5.18 탱크 암시 스타벅스 2026.5.18), 노무한 박수(롯데 2026.5.11), 코알라(노무현 조롱), 래퍼 리치(5.23). 박인성 교수 인용.",
+    "sources": [
+     "https://www.hankookilbo.com/news/article/A2026052204010005489?dtypecode=pancode_society",
+     "https://news.nate.com/view/20260524n01898",
+     "https://imnews.imbc.com/replay/2026/nwdesk/article/6825096_37004.html"
+    ],
+    "access_method": "WebFetch로 용어/날짜 메타데이터만 추출. BigKinds/RSS 모니터링.",
+    "data_size": "단일 심층 기사, 코드 5종.",
+    "license": "한국일보 저작권(전문복제 금지). 용어 정의는 비보호로 시드화 가능.",
+    "update_potential": "높음. 신규 코드 최초 보도 1차 채널.",
+    "notes": "발행일 2026.5.24."
+   },
+   {
+    "name": "파이낸셜뉴스 화이트 일베/탱크데이 (2026.5.22-5.30)",
+    "description": "신조어: 탱크데이(스타벅스 5.18 폄훼 이벤트), 화이트 일베(화이트 해커 파생 혐오표현 사전 검수 인력). 담당자 수동 모니터링 커뮤니티로 디시인사이드/더쿠/인스티즈/X 명시. 혐오 표현 끊임없이 생겨나 완전 검증 곤란.",
+    "sources": [
+     "https://www.fnnews.com/news/202605220929327009",
+     "https://www.fnnews.com/news/202605301543380817",
+     "https://www.fnnews.com/news/202605261208472469"
+    ],
+    "access_method": "WebFetch 메타데이터 추출. 모니터링 대상을 크롤 타깃으로 활용.",
+    "data_size": "기사 4건, 신조어 2종.",
+    "license": "기사 저작권. 용어 정의는 시드화 가능.",
+    "update_potential": "높음. 메타 신조어/사고 최속 보도.",
+    "notes": "자동 화이트 일베 가치 제안 근거."
+   },
+   {
+    "name": "자막 시각 겹침: 롯데 노무한 박수(2026.5.11), EBS 들켰노(2025.11)",
+    "description": "롯데 자이언츠TV가 노진혁 위 무한 박수 자막을 겹쳐 노무한 박수로 읽힘(노무 코드). EBS는 평서문에 -노 어미 붙인 들켰노 자막(일베식 도그휘슬). 텍스트 블랙리스트로 못 잡아 OCR과 형태소 결합 필요.",
+    "sources": [
+     "https://www.newsis.com/view/NISX20260512_0003625546",
+     "https://www.sedaily.com/article/20043695",
+     "https://www.imaeil.com/page/view/2026051114031317189",
+     "https://www.xportsnews.com/article/2075070",
+     "https://www.mydaily.co.kr/page/view/2025110715202859545"
+    ],
+    "access_method": "WebFetch 사례 추출. positive 테스트셋 활용.",
+    "data_size": "사례 2건, 다수 매체 교차검증.",
+    "license": "기사 저작권. 메커니즘은 테스트셋화 가능.",
+    "update_potential": "높음. 반복 재현 유형이라 회귀 테스트 보존 가치.",
+    "notes": "롯데 2026.5.11, EBS 2025.11."
+   },
+   {
+    "name": "위키백과 집게손가락 음모론 (메갈 시각 코드, 2024 사례)",
+    "description": "메갈리아(2017 폐쇄) 로고 유래 집게손가락 음모론과 페미니스트 사냥 양면 기술. 2024: 르노코리아(2024.6.30), 볼보(2024.7.1), 이터널리턴(2024.7), 메이플스토리(2024.6). 르노 악플러 86명 조사(2025.2 송치). 2025-26 미수록으로 단독 최신성 한계 증명. 시각 기호라 텍스트 검출 불가.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EC%A7%91%EA%B2%8C%EC%86%90%EA%B0%80%EB%9D%BD_%EC%9D%8C%EB%AA%A8%EB%A1%A0",
+     "https://www.khan.co.kr/article/202312051853001",
+     "https://www.womennews.co.kr/news/articleView.html?idxno=254953"
+    ],
+    "access_method": "월간 XML 덤프 동기화. 문단 파싱으로 사례 추출.",
+    "data_size": "단일 문서, 시각 코드 1종.",
+    "license": "CC BY-SA 4.0(상업 가능, 동일조건). 파생물 CC BY-SA 공유 시 활용.",
+    "update_potential": "중간. 최신 반영 지연. 언론 선행 후 교차검증 보조.",
+    "notes": "이미지/제스처 인식 모듈 필요."
+   },
+   {
+    "name": "위키백과 일베저장소의 사건 및 사고 (코어 코드 사전, 청정)",
+    "description": "코어 코드: 운지(노무현 투신 조롱), 노알라/코알라(합성 비하), 어묵/오뎅(세월호 비하), 폭식투쟁(세월호 조롱), 로린이(아동 성적 대상화). 마지막 편집 2026.5.12로 유지되나 서술이 2012-2020에 집중, 2023-26 신규(탱크데이/노무한 박수/들켰노) 미수록으로 백과 단독 최신 용어 한계 입증.",
+    "sources": [
+     "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+     "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
+     "https://librewiki.net/wiki/%EC%9D%BC%EA%B0%84%EB%B2%A0%EC%8A%A4%ED%8A%B8_%EC%A0%80%EC%9E%A5%EC%86%8C/%EC%82%AC%EA%B1%B4%EC%82%AC%EA%B3%A0"
+    ],
+    "access_method": "XML 덤프(dumps.wikimedia.org/kowiki) 월간 동기화. 리브레위키(CC BY-SA)도 보조.",
+    "data_size": "단일 장문, 코어 코드 5종 이상.",
+    "license": "CC BY-SA 4.0(상업 가능). 리브레위키도 CC BY-SA(나무위키 NC와 대비).",
+    "update_potential": "중간. 코어 안정, 신규 지연. 덤프로 코어 갱신, 신규는 언론 보강.",
+    "notes": "편집 2026.5.12, CC BY-SA 4.0 확인. 나무위키 상업 불가 대안."
+   },
+   {
+    "name": "학술 한국어 혐오발언 코퍼스 (KOLD/K-HATERS/BEEP/APEACH/K-MHaS) - 2018-2021 한계",
+    "description": "K-MHaS 109692건 2018.1-2020.6, BEEP 9381건 CC BY-SA 4.0, KOLD 약 40429건 2022(제약 문구), K-HATERS 약 192000건 2021년 2개월 CC BY 4.0, APEACH CC BY-SA 4.0. 전 코퍼스 2018-2021 수집이라 2024-26 신규 코드 미포함으로 정적 코퍼스만으론 최신 사고를 구조적으로 놓침.",
+    "sources": [
+     "https://github.com/kocohub/korean-hate-speech",
+     "https://github.com/boychaboy/KOLD",
+     "https://github.com/ssu-humane/k-haters",
+     "https://arxiv.org/abs/2310.15439",
+     "https://huggingface.co/datasets/jason9693/APEACH",
+     "https://paperswithcode.com/dataset/korean-multi-label-hate-speech-dataset"
+    ],
+    "access_method": "GitHub/HuggingFace 로드. 베이스라인과 회귀 테스트셋. 라이선스 개별 확인(KOLD 제약).",
+    "data_size": "합산 35만 건 이상.",
+    "license": "BEEP/APEACH/K-MHaS는 CC BY-SA 4.0, K-HATERS는 CC BY 4.0(상업 가능). KOLD 제약 문구로 검토. 상업 길 열림.",
+    "update_potential": "낮음. 일회성 스냅샷이라 자체 갱신 안 됨. 정적만으론 안 되는 증거.",
+    "notes": "K-MHaS 2018.1-2020.6, K-HATERS 2021 확인."
+   },
+   {
+    "name": "지속 갱신용 1차 소스 평가: BigKinds/위키백과 덤프/공개 규제 데이터",
+    "description": "BigKinds(한국언론진흥재단) 34년 약 8천만 건, 뉴스빅데이터 API로 키워드 모니터링 신규 코드 최속 포착(원문 저작권이라 메타데이터만). 위키백과 XML 덤프 CC BY-SA 4.0 월간 동기화로 코어 갱신. 방송통신심의위 2025.10.1 폐지로 방송미디어통신심의위 이관, 사이버폭력 통계 공개. 3중 구조(언론 채굴+덤프 코어+학술 베이스라인)가 청정+지속갱신 충족. 머니투데이(2026.5.30)가 10년째 신고해도 혐오 진화로 정적 시스템 한계 보도.",
+    "sources": [
+     "https://www.bigkinds.or.kr/",
+     "https://github.com/KPF-bigkinds/BIGKINDS-LAB",
+     "https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C",
+     "https://www.mt.co.kr/tech/2026/05/30/2026052917542948906"
+    ],
+    "access_method": "BigKinds는 공공데이터포털 가입 후 API 신청. 위키백과는 dumps.wikimedia.org에서 덤프 다운로드. 규제는 공공데이터포털 파일.",
+    "data_size": "BigKinds 약 8천만 기사, 덤프 수 GB.",
+    "license": "BigKinds 원문 저작권(메타데이터만). 덤프 CC BY-SA 4.0(상업 가능). 공공데이터는 공공누리. 나무위키 CC BY-NC-SA(상업 불가, 배제).",
+    "update_potential": "매우 높음. 언론 선행 포착, 덤프 코어 안정화.",
+    "notes": "나무위키 CC BY-NC-SA 확인으로 상업 시드 부적합."
+   }
+  ],
+  "recommendations": "1) 3중 데이터 파이프라인으로 라이선스 청정성과 최신성을 동시 확보하라. 코어 안정 시드는 위키백과 한국어판 XML 덤프 CC BY-SA 4.0 월간 동기화로 일베저장소의 사건 및 사고와 집게손가락 음모론에서 운지/노알라/어묵/집게손가락을 자동 추출한다. 신규 용어는 BigKinds 뉴스빅데이터 API와 주요 매체 한국일보/파이낸셜뉴스/MBC RSS로 일베 논란/혐오 자막/마케팅 논란 키워드를 상시 모니터링하되 기사 원문은 저작권 보호이므로 용어/날짜/유래 메타데이터만 시드 DB에 적재한다. 베이스라인 학습은 KOLD/K-HATERS CC BY 4.0/BEEP/APEACH/K-MHaS CC BY-SA 4.0로 하되 KOLD는 상업 배포 전 라이선스를 검토한다.\n\n2) 나무위키 CC BY-NC-SA는 1차 의존에서 제외하라. 상업 재배포/파생이 불가하고 동일조건변경허락 의무가 따른다. 내부 리서치 참고용으로만 제한하고 시드/학습 데이터에 포함하지 마라. 청정한 리브레위키 CC BY-SA를 보조 소스로 대체 검토하라.\n\n3) 텍스트 사전만으로는 부족하니 멀티모달 검출을 설계하라. 롯데 노무한 박수 자막 위치 겹침, 로고 합성, 집게손가락 제스처는 블랙리스트로 안 잡힌다. OCR로 자막 텍스트와 좌표를 함께 추출해 인접 텍스트 겹침 노+무한을 탐지하고, 형태소 분석으로 맥락에 안 맞는 -노 종결어미 들켰노를 플래그하며, 이미지 모델로 집게손가락 제스처와 변조 로고를 검출하는 3개 모듈을 결합하라.\n\n4) plausible deniability 점수를 핵심 지표로 삼아라. 한국일보 3단계 구조 기표 유포/발각 게임화/해명 2차 조롱을 설계 원리로 반영해 일반 문맥에서도 성립하지만 커뮤니티 코드와 겹치는 회색지대 표현에 위험도를 매겨 검수자에게 경고하는 자동 화이트 일베 도구로 포지셔닝하라.\n\n5) 최신성 한계를 회귀 테스트로 상시 검증하라. 2018-2021 학술 코퍼스만으로 학습한 모델은 탱크데이/화이트 일베/들켰노/집게손가락 2024 사례를 구조적으로 놓친다. 2024-2026 실제 사고 롯데/스타벅스/EBS/르노/볼보/이터널리턴/메이플을 별도 positive 테스트셋으로 영구 보존하고 신규 사고 보도마다 케이스를 추가해 모델/룰 회귀를 점검하라.\n\n6) 컴플라이언스/윤리 가드레일을 명문화하라. 본 서비스는 혐오 코드의 사용이 아닌 사전 검출 방어가 목적임을 약관/문서에 명시하고, 집게손가락 사례처럼 허위 음모론 기반 무고한 표현을 위험으로 오탐 false positive하지 않도록 검증 관점 여성신문/경향 팩트체크를 반영해 페미니스트 사냥식 역효과를 방지하라."
+ }
+]
