@@ -47,7 +47,7 @@
 |---|---|---|---|---|
 | **K-MHaS** | 109,692 | 8클래스 다중라벨 (출신/외모/정치/욕설/연령/성/인종/종교) | CC BY-SA 4.0 | ✅ **학습 메인** |
 | **BEEP!** (kocohub) | 9,381 라벨 + 203만 비라벨 | hate/offensive/none × gender bias | CC BY-SA 4.0 | ✅ 학습 + 도메인 적응 사전학습 |
-| **SelectStar/TUNiB** (K-HATERS) | ~10만 공개 | 11카테고리 + **4점 강도** + target/expression **span** | CC BY-SA 3.0 | ✅ 학습 + 등급 설계 기준 |
+| **SelectStar/TUNiB** | ~10만 공개 | 11카테고리 + **4점 강도** + target/expression **span** | CC BY-SA 3.0 (SelectStar 배포 채널 기준) | ✅ 학습 + 등급 설계 기준 |
 | **HateScore** | ~11,000 (중립문 2.2K 포함) | 10카테고리, '남성' 분리 | Apache 2.0 (README에 비영리 문구 병기 → 1회 확인) | ✅ **오탐 방지 골든셋** |
 | **APEACH** | 3,844 | 평가 전용 (어휘 중복에 강건) | CC BY-SA 4.0 | ✅ 일반화 평가 |
 | Curse-detection-data (2runo) | 5,825 | 이진 (일베/오유 직접 수집) | MIT | ✅ 일베 용례 시드 |
@@ -55,8 +55,12 @@
 | KOLD | 40,429 | 계층 라벨 + 21개 대상그룹 + **span + 출처/날짜/제목** | 명시 없음 | ⚠️ 저자 확인 전 평가/참조용 |
 | UnSmile (Smilegate) | 18,742 (clean 4,674) | 10라벨 — **라벨 체계 표준으로 참조** | CC BY-NC-ND 4.0 | ⚠️ 내부 평가 전용, 상업은 smilegate_ai@smilegate.com 협의 |
 | AI Hub 텍스트 윤리검증 | ~453,340 | 비윤리 문장블록 | AI Hub 약관 (내국인 신청제) | ⚠️ 약관 검토 후 |
-| **K-HATERS** (ssu-humane) | ~192,000 | 대상별 공격성 등급 (2021 뉴스 댓글) | **CC BY 4.0** | ✅ 대규모 학습 — 라이선스 가장 관대 |
+| **K-HATERS** (ssu-humane) | ~192,000 | 대상별 공격성 등급 (2021 뉴스 댓글, EMNLP 2023) | ⚠️ **확정 필요** — 원자료 내 CC BY 4.0/CC BY-SA 표기 혼재. 확정 전까지 보수적으로 CC BY-SA로 취급 | ⚠️ 사용 전 저장소 LICENSE 1회 확인 필수 |
 | Womad Hate Speech (Kaggle) | 2,081 | 워마드 직접 수집 — 희소 자원 | **Unknown** | ⚠️ 후보 어휘 발굴만, 비공개 제한 사용 |
+
+> ⚠️ **SelectStar/TUNiB ↔ K-HATERS 관계 주의**: 두 항목은 같은 연구 계보(TUNiB×HUMANE Lab)에서 나왔으나
+> 라벨 체계(11카테고리+4점 vs 3점 대상별 등급)와 배포 채널이 다르다. **같은 데이터로 단정하지도, 별개로 단정하지도 말 것** —
+> 배포 채널별로 라이선스가 다를 수 있으므로 data-curator가 적재 시 채널·LICENSE 파일을 직접 확인하고 source.notes에 기록한다.
 | KOCOH | 맥락 의존 혐오 | 도그휘슬 부합 | 확인 필요 | ⚠️ |
 | korean-hate-chat-data | 1,488만 | 대규모 비라벨급 | CC BY-NC-SA | ⚠️ 비영리 — 신조어 마이닝 연구용 |
 

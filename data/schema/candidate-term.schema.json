@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "noise-checker/candidate-term",
+  "title": "후보 용어 엔트리 (lexicon-researcher / data-curator 산출물 계약)",
+  "type": "object",
+  "required": ["surface", "meaning", "origin_story", "severity", "ambiguity", "categories", "evidence"],
+  "properties": {
+    "surface": { "type": "string", "description": "대표 표기" },
+    "term_kind": { "enum": ["word", "phrase", "pattern", "number"], "default": "word" },
+    "pattern": { "type": "string", "description": "term_kind=pattern일 때 정규식" },
+    "meaning": { "type": "string", "description": "커뮤니티 내 사용 의미" },
+    "origin_community": { "enum": ["ilbe", "megalia", "womad", "dcinside", "other", "unknown"] },
+    "spread_communities": { "type": "array", "items": { "type": "string" }, "description": "발원과 확산처 분리 기록 (디시 발원→일베 확산 등)" },
+    "origin_story": { "type": "string", "description": "유래: 언제/어떤 사건/어떤 맥락" },
+    "origin_period": { "type": "string", "description": "예: '2012년경'" },
+    "severity": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "ambiguity": { "enum": ["unambiguous", "ambiguous", "common"] },
+    "safe_contexts": { "type": "array", "items": { "type": "string" }, "description": "무해 문맥 키워드 (ambiguity≠unambiguous면 필수)" },
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["misogyny", "misandry", "region_hate", "deceased", "disability", "race_nation", "politics", "sexual_minority", "age", "religion", "community_jargon"] }
+    },
+    "combination_rules": {
+      "description": "조합/맥락 의존 위험 규칙 (number/common 항목 — 02 §3.8 composite_rule로 적재)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["trigger_kind", "base_severity", "severity_delta"],
+        "properties": {
+          "trigger_kind": { "enum": ["co_occurrence", "date_context", "amount_context", "time_context", "proximity"] },
+          "trigger_terms_surface": { "type": "array", "items": { "type": "string" }, "description": "동시 출현 대상 용어 표기" },
+          "trigger_pattern": { "type": "string", "description": "날짜/금액/시각 정규식 (예: '52,?300\\s*원')" },
+          "proximity_window": { "type": "integer" },
+          "base_severity": { "type": "integer", "minimum": 1, "maximum": 5, "description": "단독 출현 시 강도" },
+          "severity_delta": { "type": "integer", "minimum": 0, "maximum": 4, "description": "조건 충족 시 가산" }
+        }
+      }
+    },
+    "variants_observed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["variant", "variant_kind"],
+        "properties": {
+          "variant": { "type": "string" },
+          "variant_kind": { "enum": ["jamo", "leet", "chosung", "yamin", "translit", "spacing", "regex"] },
+          "source_url": { "type": "string" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["url", "title", "source_type", "evidence_type"],
+        "properties": {
+          "url": { "type": "string" },
+          "archive_url": { "type": "string", "description": "web.archive.org 백업 — 위키/뉴스는 필수 권장" },
+          "title": { "type": "string" },
+          "source_type": { "enum": ["dataset", "wiki", "news", "academic", "community", "government", "internal"] },
+          "evidence_type": { "enum": ["origin", "usage", "incident", "definition"] },
+          "license": { "type": "string", "description": "예: 'CC BY-SA 4.0', '언론사 저작권(사실 추출만)'" },
+          "publisher": { "type": "string" },
+          "published_at": { "type": "string" },
+          "excerpt": { "type": "string", "maxLength": 300, "description": "최소 인용 (저작권)" },
+          "reliability": { "type": "integer", "minimum": 1, "maximum": 5 }
+        }
+      }
+    },
+    "related_incidents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "source_url"],
+        "properties": {
+          "title": { "type": "string" },
+          "occurred_at": { "type": "string" },
+          "medium": { "enum": ["ad", "broadcast", "game", "product", "sns", "app", "other"] },
+          "sample_text": { "type": "string", "description": "문제가 된 실제 문구 → must_catch 골든셋 후보" },
+          "source_url": { "type": "string" }
+        }
+      }
+    },
+    "needs_verification": { "type": "boolean", "default": false, "description": "출처 미확정 — draft 고정" },
+    "legal_review_flag": { "type": "boolean", "default": false, "description": "특정인 실명 관련 등 법무 검토 필요" },
+    "collector": { "type": "string", "description": "생성 주체: 'agent:lexicon-researcher' 등" },
+    "collected_at": { "type": "string", "format": "date-time" }
+  }
+}

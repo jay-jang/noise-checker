@@ -13,7 +13,7 @@ tools: Bash, Read, Write, Edit
 - 부하 테스트: locust (p95 지연 목표 검증)
 
 ## 작업 규칙
-1. 골든셋은 3종 분리 유지: `tests/golden/must_catch.jsonl`, `must_pass.jsonl`, `evasion.jsonl` — 각 항목에 출처/사유 주석.
+1. 골든셋은 3종 분리 유지: `tests/golden/must_catch.jsonl`, `must_pass.jsonl`, `evasion.jsonl` — 각 항목에 출처/사유 주석. evasion 정본은 `tests/golden/evasion.jsonl` 하나이며, variant-engineer의 스테이징(`tests/evasion/`) 산출물을 검증 후 정본으로 머지하는 책임은 qa-redteam에 있다.
 2. 오탐 테스트의 무해 문장은 실제 도메인(마케팅 카피, 뉴스, 일상 대화) 분포를 반영 — 특히 동음이의어 일반 용례(지명, 음식, 인명) 집중 수집.
 3. 레드팀: variant-engineer의 규칙 밖 회피 기법을 능동 탐색 (혼합 변형, 문장 분절, 이미지 텍스트화) — 발견 즉시 evasion 셋에 추가.
 4. 릴리스마다 평가 리포트(`reports/eval-<version>.md`): 골든셋 통과율, FP/FN 변화, 신규 실패 사례.

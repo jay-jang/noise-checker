@@ -37,17 +37,20 @@
 
 ## 2. 텍스트 검사 파이프라인
 
-### 단계 0 — 정규화
-DB 설계 문서 §4의 `normalized_key` 함수를 입력 텍스트 전체에 적용. 원문↔정규화문 간 **오프셋 매핑**을 유지해 매칭 위치를 원문 좌표로 환원한다.
+### 단계 0 — 정규화 (+오프셋 배열)
+DB 설계 문서 §4의 정규화를 적용하되, 검사 경로는 `normalize(text) -> (norm_text, src_offset)` 튜플을 사용 (02 §4.1). 자모 분해는 1→N 비가역 매핑이므로 변환 단계마다 per-character 오프셋 배열을 전파해야 원문 좌표 환원이 가능하다. 입력과 함께 **문장당 1회 Kiwi 형태소 분석**을 수행해 형태소 경계 인덱스를 미리 계산한다 (매치마다 호출하지 않음 — 호출 수가 매치 수 M이 아닌 입력 길이 N에 비례).
 
-### 단계 1 — Aho-Corasick 다중 패턴 매칭 (~수십 µs)
-- `active` 용어+검증된 변형의 정규화 키를 모두 담은 오토마톤 1회 스캔.
-- 한국어 특성상 **부분 문자열 오탐** 주의: 매칭 경계에서 형태소 검사(Kiwi)로 조사/어미 부착 여부 확인.
-  예: "운지버섯" 안의 "운지" — 경계 검사 단계에서 `safe_contexts` 사전 대조.
+### 단계 1 — Aho-Corasick 다중 패턴 매칭
+- AC 스캔 자체는 ~수십 µs. `active` 용어+검증된 변형의 정규화 키를 모두 담은 오토마톤 1회 스캔.
+- **음절 경계 정렬 필터** (AC 직후, 형태소 검사 전): 자모 스트림 매치는 src_offset으로 환원했을 때 시작이 음절 초성 경계·끝이 음절 종성 경계에 정렬된 경우만 유효. 종성→다음 초성 이음새를 가로지르는 부분 매치(예: '원조/안주' 안의 ㄴ|ㅈ 이음새)는 폐기. 단 `variant_kind='jamo'`(ㅅㅂ)·`chosung`·`pattern` 항목은 자모 단위 매칭이 정상이므로 term_kind/variant_kind 기준으로 예외.
+- **빠른 경로**: exact 매치 + `ambiguity='unambiguous'` + safe_contexts 비해당이면 형태소 검사·퍼지 생략.
+- 잔여 후보만 미리 계산된 형태소 경계 인덱스 조회(문장당 1회 분석 결과 재사용)로 조사/어미 부착 확인 + `safe_contexts` 대조. 예: "운지버섯" 안의 "운지".
 
-### 단계 2 — 패턴/퍼지 매칭 (~ms)
-- `term_kind='pattern'` 정규식 (숫자 조합, 특수 표기).
+### 단계 2 — 패턴/퍼지/조합 매칭 (~ms)
+- `term_kind='pattern'` 정규식 (특수 표기).
+- **조합 규칙 평가 (composite_rule, 02 §3.8)**: number/common 항목은 단독으론 저강도. 날짜/금액/시각 맥락 정규식, 다른 위험 term과의 동시 출현, (이미지 경로에선) OCR 좌표 인접을 평가해 `composite_score` 산출 — "523 단독=무시, 5.23+17:23+52,300원 결합=고위험".
 - 특수문자 삽입 변형: skip-char 윈도우 매칭 (예: "시1발" — 사전 키 사이 비한글 1~2자 허용).
+- 퍼지(soynlp 자모 Levenshtein)는 AC 후보에 한해 적용, **후보 수 상한 + 조기 종료** 규칙으로 비선형 폭증 방지.
 - 결과마다 `match_confidence` 부여 (정확 일치 1.0, 퍼지 매칭 < 1.0).
 
 ### 단계 3 — 문맥 분류 (조건부, ~수십 ms)
@@ -60,10 +63,10 @@ DB 설계 문서 §4의 `normalized_key` 함수를 입력 텍스트 전체에 �
 
 ### 단계 4 — 위험도 산정 및 응답 조립
 ```
-risk = f(severity, match_confidence, context_score, category)
+risk = f(severity, match_confidence, context_score, category, composite_score)
 등급: block(즉시 수정 권고) / warn(검토 권고) / info(참고)
 ```
-응답에는 매칭별로: 원문 위치, 매칭 형태, 대표 용어, 카테고리, 유래 요약(`origin_story`), 출처 링크 목록, 유사 실사고 사례(`incident`), 권고 문구.
+응답에는 매칭별로: 원문 위치, 매칭 형태, 대표 용어, 카테고리, 유래 요약(`origin_story`), 출처 링크 목록, 유사 실사고 사례(`disclosable=true`인 incident의 `display_title`만 — 02 §3.7 노출 거버넌스), 권고 문구.
 
 ## 3. 이미지 검사 파이프라인
 
@@ -86,7 +89,8 @@ POST /v1/check/image       { image_url | base64 }        → 202 + job_id (비�
 GET  /v1/jobs/{job_id}                                   → 이미지 검사 결과
 POST /v1/check/batch       { items: [...] }              → 대량 검사 (마케팅 카피 일괄)
 POST /v1/feedback          { check_id, verdict, note }   → 오탐/미탐 신고 → 검수 큐
-GET  /v1/lexicon/terms/{id}                              → 용어 상세 (유래, 출처, 사례)
+GET  /v1/lexicon/terms/{id}                              → 용어 상세 (유래, 출처. 사례는 disclosable=true의
+                                                            display_title만 — 기업 실명·sample_text 노출 금지)
 GET  /v1/releases/current                                → 현재 사전 버전 (감사용)
 ```
 
@@ -114,7 +118,7 @@ GET  /v1/releases/current                                → 현재 사전 버�
           { "title": "…", "url": "https://...", "type": "news", "reliability": 4 }
         ]
       },
-      "related_incidents": [ { "title": "○○ 광고 논란(2015)", "url": "https://..." } ],
+      "related_incidents": [ { "display_title": "국내 편의점 광고 사례 (2021)", "url": "https://..." } ],
       "recommendation": "해당 표현을 제거하거나 '낙하' 등 중립 표현으로 교체하세요."
     }
   ],
@@ -151,8 +155,8 @@ GET  /v1/releases/current                                → 현재 사전 버�
 
 ## 7. 비기능 요구사항
 
-- **지연**: 텍스트 동기 p95 150ms(문맥분류 제외) / 500ms(포함). 이미지 비동기 p95 10s.
-- **사전 핫리로드**: 새 릴리스 아티팩트를 무중단 스왑 (이중 버퍼 로드 → 원자적 포인터 교체).
+- **지연**: 텍스트 동기 p95 150ms(문맥분류 제외) / 500ms(포함) — **조건 명시: 입력 ≤ 500자, 매치 ≤ 10건 기준** (다중 매치 긴 카피는 부하 테스트로 별도 측정). Kiwi는 문장당 1회 + 인스턴스 풀 재사용으로 콜드스타트 회피. batch API는 항목당 타임아웃 + 전체 데드라인 + 부분 결과 반환 정책을 별도 정의. 이미지 비동기 p95 10s.
+- **사전 핫리로드**: 새 릴리스 아티팩트를 무중단 스왑 (이중 버퍼 로드 → 원자적 포인터 교체). **각 요청은 진입 시 현재 릴리스 포인터를 1회 캡처**하고 정규화·매칭·이미지 인덱스·응답 `release_version` 전 구간이 동일 스냅샷을 참조한다 (처리 중 스왑이 일어나도 진행 중 요청은 캡처 버전을 끝까지 사용). 로드 시 manifest의 `normalizer_code_version`이 API의 normalizer 버전과 불일치하면 로드 거부+경고. (다중 레플리카 확장 시 '전 레플리카 로드 완료 후 일괄 전환'은 k8s 단계의 향후 과제.)
 - **감사 가능성**: 모든 응답에 `release_version` 포함 — "그때 왜 안 잡혔나"를 버전으로 재현 가능.
 - **프라이버시**: 검사 입력 텍스트/이미지는 기본 24h 후 파기(고객 옵트인 시 미탐 분석용 보존), 로그에 원문 미기록(해시만).
 - **악용 방지**: 이 서비스는 검출 회피 도구로 역이용될 수 있음 — API 키 발급제, rate limit, 변형 생성 규칙 비공개.

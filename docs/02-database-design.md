@@ -20,13 +20,14 @@
 
 ```
 source ──< term_evidence >── term ──< term_variant
-   │                          │  └──< term_category (M:N → category)
+   │                          │  ├──< term_category (M:N → category)
+   │                          │  ├──< composite_rule (조합/맥락 규칙)
    │                          └──< review_log
    ├──< marker_evidence >── image_marker ──< marker_reference_image
    │                          └──< review_log
    └──< incident >── (term | image_marker 참조)
 
-dictionary_release ──< release_item (term/variant/marker 스냅샷)
+dictionary_release ──< release_item (term/variant/marker/composite_rule 스냅샷)
 ```
 
 ## 3. 테이블 정의 (PostgreSQL)
@@ -52,7 +53,16 @@ CREATE TABLE source (
     publisher     TEXT,                         -- 매체/기관/저자
     published_at  DATE,
     retrieved_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
-    license       TEXT,                         -- 예: 'CC BY-NC-SA 2.0 KR', 'MIT', '인용만 가능'
+    license       TEXT,                         -- 사람 가독용 원문 (예: 'CC BY-NC-SA 2.0 KR', 'MIT', '인용만 가능')
+    license_class TEXT NOT NULL DEFAULT 'unknown' CHECK (license_class IN (
+                    'permissive',     -- MIT/Apache/CC BY — 상업·재배포 확정
+                    'share_alike',    -- CC BY-SA — 릴리스 가능하나 SA 전파 추적 필수
+                    'noncommercial',  -- CC *-NC* — 릴리스 금지
+                    'no_derivatives', -- *-ND — 릴리스 금지
+                    'restricted',     -- AI Hub 등 자체약관·재배포 제한 — 릴리스 금지
+                    'unknown'         -- 불명/미확정 — 확정 전까지 NC와 동일하게 차단
+                  )),                            -- 게이트 판정은 free-text가 아닌 이 필드 기준
+                                                 -- (원자료 표기 변이 'CC BY-SA' vs 'CC-BY-SA' 때문에 문자열 매칭 불가)
     reliability   SMALLINT NOT NULL DEFAULT 3   -- 1(낮음)~5(높음): 뉴스/학술=4-5, 위키=3, 커뮤니티=2
                   CHECK (reliability BETWEEN 1 AND 5),
     archive_url   TEXT,                         -- 웹아카이브 백업 (출처 소실 대비)
@@ -101,7 +111,11 @@ CREATE INDEX idx_term_nkey   ON term(normalized_key);
 ```
 
 > **상태 기계**: `draft → in_review → active ↔ deprecated`, 어디서든 `→ rejected`.
-> `active` 전이는 **근거(evidence) 1건 이상 + 검수자 승인**이 있어야만 가능 (트리거 또는 앱 레이어에서 강제).
+> `active` 전이는 **근거(evidence) 1건 이상 + 검수자 승인**이 있어야만 가능.
+> **강제 지점은 DB 트리거 단일**: `BEFORE INSERT OR UPDATE OF status` 트리거가 `NEW.status='active'`일 때
+> `term_evidence`에 `evidence_type IN ('origin','definition')` 행 ≥ 1을 검사, 미충족 시 예외.
+> (INSERT도 검사해야 직접 `INSERT ... status='active'` 우회를 막는다. 마지막 origin/definition evidence 삭제는
+> status='active'인 동안 차단. 앱 레이어 검증은 UX용 조기 경고일 뿐 강제 책임이 없다.)
 
 ### 3.3 `term_evidence` — 용어↔출처 증거 연결 (유래의 핵심)
 
@@ -184,7 +198,9 @@ CREATE TABLE image_marker (
     origin_story    TEXT NOT NULL,
     severity        SMALLINT NOT NULL CHECK (severity BETWEEN 1 AND 5),
     detection_method TEXT[] NOT NULL,         -- '{phash,clip,hand_landmark,ocr,object_detection}'
-    status          TEXT NOT NULL DEFAULT 'draft',  -- term과 동일 상태기계
+    status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN
+                      ('draft','in_review','active','deprecated','rejected')),
+                    -- term과 동일 상태기계 + 동일 active 게이트 트리거 (marker_evidence ≥ 1, origin/definition)
     first_seen_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -218,19 +234,57 @@ CREATE TABLE marker_evidence (                -- term_evidence와 동형
 ```sql
 CREATE TABLE incident (
     id          BIGSERIAL PRIMARY KEY,
-    title       TEXT NOT NULL,                -- 예: '○○사 광고 일베 용어 논란 (2015)'
+    title       TEXT NOT NULL,                -- 내부용 원제목 (기업 실명 포함 가능, 예: '○○사 광고 일베 용어 논란 (2015)')
+    display_title TEXT,                       -- 외부 노출용 일반화 제목 (예: '국내 편의점 광고 사례 (2021)')
     occurred_at DATE,
     description TEXT NOT NULL,                -- 무엇이 어떻게 문제가 됐는지
     medium      TEXT CHECK (medium IN ('ad','broadcast','game','product','sns','app','other')),
     term_id     BIGINT REFERENCES term(id),         -- 관련 용어 (둘 중 하나 이상)
     marker_id   BIGINT REFERENCES image_marker(id),
     source_id   BIGINT NOT NULL REFERENCES source(id),  -- 보도 출처
-    sample_text TEXT,                         -- 문제가 된 실제 문구 (회귀 테스트에 사용)
+    sample_text TEXT,                         -- 문제가 된 실제 문구 (내부 전용 — 회귀 테스트에 사용, 최소 인용 원칙 적용)
+    legal_reviewed BOOLEAN NOT NULL DEFAULT false,  -- 기업·개인 실명 노출에 대한 법무 검토 여부
+    disclosable    BOOLEAN NOT NULL DEFAULT false,  -- API 노출 허용 (legal_reviewed=true 전제, display_title만 노출)
     CHECK (term_id IS NOT NULL OR marker_id IS NOT NULL)
 );
 ```
 
-### 3.8 `review_log` — 검수 감사 추적
+> **incident 노출 거버넌스** (01 §5 '공연성 차단·기업 명단 금지'의 스키마 강제):
+> API(`related_incidents`, `/v1/lexicon/terms/{id}`)는 `disclosable=true` 행의 `display_title`만 반환 —
+> 원 `title`(기업 실명)과 `sample_text`는 절대 외부 노출 금지. 뉴스 수집기가 만드는 incident는
+> 기본 `legal_reviewed=false, disclosable=false`로 적재되어 자동 노출이 불가능하다.
+
+### 3.8 `composite_rule` — 조합/맥락 규칙 (숫자 코드, 동시 출현)
+
+`ambiguity='common'`(특정 조합에서만 위험)과 `term_kind='number'`의 실제 판정 규칙 저장처.
+"523은 단독으론 무해하지만 날짜/금액 맥락 또는 다른 일베 코드와 동시 출현 시 고위험" 같은 규칙을 모델링한다.
+
+```sql
+CREATE TABLE composite_rule (
+    id              BIGSERIAL PRIMARY KEY,
+    primary_term_id BIGINT NOT NULL REFERENCES term(id),   -- 예: '523' (number)
+    trigger_kind    TEXT NOT NULL CHECK (trigger_kind IN (
+                      'co_occurrence',  -- 다른 위험 term과 동시 출현
+                      'date_context',   -- 날짜 표기 맥락 (5.23, 5월 23일)
+                      'amount_context', -- 금액 맥락 (52,300원)
+                      'time_context',   -- 시각 맥락 (17:23)
+                      'proximity'       -- OCR 좌표 인접/겹침 (자막 레이어)
+                    )),
+    trigger_terms   BIGINT[],            -- co_occurrence일 때 대상 term id 배열
+    trigger_pattern TEXT,                -- date/amount/time일 때 정규식 (예: '52,?300\s*원')
+    proximity_window INT,                -- 결합 인정 거리 (문자 수 또는 OCR px)
+    base_severity   SMALLINT NOT NULL,   -- 단독 출현 시 강도 (보통 1~2 = 미플래그/info)
+    severity_delta  SMALLINT NOT NULL,   -- 조건 충족 시 가산 → 합산이 실효 severity
+    status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN
+                      ('draft','in_review','active','deprecated','rejected')),
+    notes           TEXT
+);
+```
+
+> 검사 엔진은 number/common 항목 매칭 시 composite_rule을 평가해 `composite_score`를 산출하고
+> 위험도 공식에 반영한다 (`03-architecture.md` §2 단계2·단계4). 규칙도 term과 동일하게 evidence·검수를 거친다.
+
+### 3.9 `review_log` — 검수 감사 추적
 
 ```sql
 CREATE TABLE review_log (
@@ -246,7 +300,7 @@ CREATE TABLE review_log (
 );
 ```
 
-### 3.9 `dictionary_release` — 배포 스냅샷
+### 3.10 `dictionary_release` — 배포 스냅샷
 
 검사 API는 DB를 직접 읽지 않고 **컴파일된 릴리스 아티팩트**를 로드한다.
 
@@ -259,6 +313,8 @@ CREATE TABLE dictionary_release (
     variant_count INT NOT NULL,
     marker_count INT NOT NULL,
     artifact_path TEXT NOT NULL,              -- 컴파일 결과물 경로 (아래 참조)
+    effective_license TEXT NOT NULL,          -- 아티팩트에 전파되는 최종 라이선스
+                                              -- (SA 파생물 1건 이상 포함 시 'CC BY-SA 4.0', 아니면 자체 라이선스)
     changelog    TEXT,
     released_by  TEXT NOT NULL
 );
@@ -267,9 +323,12 @@ CREATE TABLE dictionary_release (
 **릴리스 아티팩트 구성** (빌드 단계에서 `active` 항목만 컴파일):
 - `lexicon.json` — 전체 사전 (용어+변형+메타데이터+출처 요약)
 - `automaton.pkl` — Aho-Corasick 오토마톤 (정규화 키 기준, 즉시 로드용)
-- `patterns.json` — 정규식 패턴 목록
+- `patterns.json` — 정규식 패턴 목록 + composite_rule 컴파일본
 - `phash_index.bin` / `clip_index.faiss` — 이미지 표식 인덱스
-- `manifest.json` — 버전, 카운트, 체크섬
+- `attribution.json` — **저작자 표시 매니페스트**: SA/BY 출처별 저작자·URL·라이선스 목록 자동 생성
+  (origin_story 등이 위키백과·페미위키 CC BY-SA 본문에서 파생되므로 산출물에 표기 의무 전파)
+- `manifest.json` — 버전, 카운트, 체크섬, `effective_license`, **`normalizer_code_version`**
+  (src/normalizer.py 해시 — API 로드 시 자기 normalizer 버전과 불일치하면 로드 거부+경고)
 
 ## 4. 정규화 키 규약 (`normalized_key`)
 
@@ -283,11 +342,38 @@ CREATE TABLE dictionary_release (
 6. 특수문자 삽입 대응은 매칭 단계에서 skip-char 윈도우로 처리 (키 자체에서 제거하면 오탐 급증)
 
 > 정규화 함수는 사전 빌드와 검사 API가 **같은 라이브러리 코드**를 import해야 한다 (버전 불일치 = 미탐).
+> manifest의 `normalizer_code_version`으로 로드 시점에 강제 검증.
+
+### 4.1 오프셋 매핑 — 자모 분해는 1→N 비가역이므로 명시적 추적 필수
+
+검사 경로의 정규화는 문자열 하나가 아니라 튜플을 반환한다:
+
+```python
+normalize(text) -> (norm_text: str, src_offset: list[int])
+# src_offset[i] = norm_text의 i번째 코드포인트가 유래한 원문 코드포인트 인덱스
+```
+
+- 단계 1~4의 **각 변환마다** 배열을 전파: 자모 분해(1→N)는 같은 원문 인덱스를 N회 반복,
+  제로폭 삭제는 항목 제거, NFKC는 유니코드 매핑으로 추적.
+- AC 매치 (자모 start, 자모 end)는 `src_offset`으로 원문 구간으로 환원한다.
+- **음절 경계 스냅 규칙**: 매치 경계가 한 음절의 자모 중간을 가르는 부분 매치는 기본 **거부**
+  (단, `variant_kind='jamo'`(ㅅㅂ)·`chosung`·`pattern` 항목은 자모/초성 단위 매칭이 정상이므로 예외).
+  응답 span은 항상 원문 코드포인트(음절) 경계로 정렬됨을 보장.
+- **불변식** (속성 테스트): `src_offset`은 단조 비감소이고 길이가 `norm_text`와 동일;
+  모든 매치 m에 대해 `normalize(원문[m.span])[0] == 사전키[m.term]`.
+- 사전 빌드 시 키 생성에는 offset이 필요 없으므로 `normalized_key`(§3.2)는 문자열 그대로 저장.
+
+### 4.2 normalized_key 충돌 정책
+
+NFKC/소문자화/자모 분해로 표면형이 다른 입력이 같은 키로 수렴하는 것은 **의도된 동작**이다
+(자모 분리 변형을 한 키로 잡는 것이 목적). 별개 표면형이 같은 키와 충돌하면 등재 차단 오류가 아니라
+기존 term의 `term_variant`로 통합한다. UNIQUE 키에 surface를 추가하지 말 것 — 수렴 자체가 깨진다.
 
 ## 5. 데이터 거버넌스
 
-- **근거 없는 active 금지**: `active` 용어는 `term_evidence` ≥ 1 (그중 `origin` 또는 `definition` 타입 ≥ 1) 강제.
+- **근거 없는 active 금지**: `active` **용어와 이미지 표식 모두** evidence ≥ 1 (그중 `origin` 또는 `definition` 타입 ≥ 1)을 DB 트리거로 강제 (§3.2/§3.6).
+- **라이선스 게이트**: 릴리스 아티팩트에 컴파일되는 모든 active 항목은 연결된 evidence source 전부가 `license_class ∈ {permissive, share_alike}`여야 통과. **unknown/restricted는 NC와 동일하게 차단** (불명 = 차단이 안전 기본값). share_alike 포함 시 `effective_license`·`attribution.json`에 전파 기록.
 - **반론 처리**: 오탐 신고(`/v1/feedback`)는 `review_log`에 적재 → 검수 큐로.
 - **사어화 관리**: 12개월간 매칭/신고/뉴스 언급이 없는 용어는 분기 검수에서 `deprecated` 후보로 자동 제안.
-- **저작권/법적 고려**: 커뮤니티 원문 장문 인용 금지(`excerpt`는 최소 인용), 나무위키 인용 시 CC BY-NC-SA 라이선스 표기, 레퍼런스 이미지는 `license_ok` 확인 후 보관.
-- **개인정보**: 특정인 실명 기반 비하어는 명예훼손 리스크 검토 후 등재 (법무 검토 플래그).
+- **저작권/법적 고려**: 커뮤니티 원문 장문 인용 금지(`excerpt`는 최소 인용), 레퍼런스 이미지는 `license_ok` 확인 후 보관.
+- **법무 검토 플래그 범위**: ① term — 특정인 실명 기반 비하어, ② **incident — 기업·개인 실명(`title`) 및 `sample_text`의 외부 노출** (`disclosable=true` 전환은 법무 검토 필수, §3.7).

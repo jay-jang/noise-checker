@@ -27,11 +27,11 @@
 |---|---|---|---|---|
 | **lexicon-researcher** | 신규 용어/표식 웹 조사, 출처·유래 확보 | 커뮤니티 지형 이해, 출처 신뢰도 평가, 교차 검색 | WebSearch/WebFetch, archive.org | `data/candidates/*.json` |
 | **data-curator** | 데이터셋 통합, 라벨 매핑, 중복 제거, 라이선스 분류 | 라이선스 판독, 스키마 정합성 | pandas, HF datasets, jsonschema | `data/seed/*.json`, ETL 로더 |
-| **variant-engineer** | 변형 자동 생성·검증, 회피 사례 보강 | 한글 유니코드, 변형 패턴 분석 | regex, hypothesis, 자모 처리 | `src/variants/rules.py`, evasion 셋 |
+| **variant-engineer** | 변형 자동 생성·검증, 회피 사례 보강 | 한글 유니코드, 변형 패턴 분석 | regex, hypothesis, 자모 처리 | `src/variants/rules.py`, evasion 후보(→`tests/golden/evasion.jsonl` 머지) |
 | **detection-engineer** | 텍스트 검사 파이프라인 + API | 고성능 문자열 매칭, 오프셋 매핑 | FastAPI, pyahocorasick, kiwipiepy | 검사 API, `src/normalizer.py` |
 | **ml-engineer** | 문맥 분류기 학습·서빙, LLM 폴백 | 파인튜닝, 평가 설계, calibration | transformers, KcELECTRA, ONNX, Claude API | 분류 모델 + 모델 카드 |
 | **image-engineer** | 이미지 검사 3갈래 파이프라인 | OCR/해시/임베딩/랜드마크 | PaddleOCR, imagehash, OpenCLIP, MediaPipe, Redis 큐 | 이미지 워커 |
-| **pipeline-engineer** | 수집 스케줄러, 사전 빌드·릴리스 | 크롤링 윤리/법규, 증분 수집, 릴리스 게이트 | APScheduler→Airflow, 위키/뉴스 API, Alembic | 수집기, 릴리스 빌더 |
+| **pipeline-engineer** | 수집 스케줄러, 사전 빌드·릴리스, 검수 콘솔(MVP Streamlit→확장 시 Next.js) | **합법 소스 화이트리스트 수집** (커뮤니티 직접 크롤링·나무위키 자동수집 전면 금지), 증분 수집, 릴리스 게이트 | APScheduler→Airflow, 위키/뉴스 API, Alembic | 수집기, 릴리스 빌더, 검수 콘솔 |
 | **qa-redteam** | 골든셋, FP/FN 평가, 레드팀, 부하 테스트 | 적대적 사고, 평가 지표 설계 | pytest, hypothesis, locust | `tests/golden/*`, 평가 리포트 |
 
 ## 3. 협업 프로토콜

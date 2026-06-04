@@ -1,0 +1,65 @@
+{
+  "_comment": "스키마 시연용 예시 엔트리. 실제 적재 전 검수자 승인 필요 (status=draft). 동음이의어 처리의 대표 사례.",
+  "surface": "운지",
+  "term_kind": "word",
+  "meaning": "고(故) 노무현 전 대통령의 서거(투신)를 조롱하는 표현. '추락하다/떨어지다'의 비하적 대용어로 사용됨.",
+  "origin_community": "dcinside",
+  "spread_communities": ["dcinside(합성갤 발원)", "ilbe(주 확산처)"],
+  "origin_story": "원래 구름버섯(운지버섯, 雲芝)을 뜻하는 일반 명사이나, 디시인사이드 합성 갤러리에서 노무현 전 대통령 서거를 조롱하는 합성물('운지천' CF 패러디)과 결합되며 '투신/추락'을 비하하는 은어로 전용됨. 이후 일베저장소에서 광범위하게 확산.",
+  "origin_period": "2011년경",
+  "severity": 5,
+  "ambiguity": "ambiguous",
+  "safe_contexts": ["버섯", "운지버섯", "약초", "운지법", "악기", "기타", "피아노"],
+  "categories": ["deceased", "community_jargon", "politics"],
+  "variants_observed": [
+    { "variant": "운G", "variant_kind": "translit" },
+    { "variant": "ㅇㅈ(문맥 의존)", "variant_kind": "chosung" }
+  ],
+  "evidence": [
+    {
+      "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+      "title": "위키백과: 일베저장소의 사건 및 사고 (주요 용어 표)",
+      "source_type": "wiki",
+      "evidence_type": "definition",
+      "license": "CC BY-SA 4.0",
+      "publisher": "한국어 위키백과",
+      "reliability": 4
+    },
+    {
+      "url": "https://www.huffingtonpost.kr/article/257460",
+      "title": "허프포스트: 지상파 방송 일베 표현 사례 — SBS 런닝맨 '개운지' 자막(2016.9.4)",
+      "source_type": "news",
+      "evidence_type": "incident",
+      "license": "언론사 저작권(사실 추출만)",
+      "publisher": "허프포스트코리아",
+      "reliability": 4
+    },
+    {
+      "url": "https://ko.wikipedia.org/wiki/%EC%9A%B4%EC%A7%80",
+      "title": "위키백과: 운지 (동음이의 — 운지법/운지버섯/지명 등 합법 의미)",
+      "source_type": "wiki",
+      "evidence_type": "definition",
+      "license": "CC BY-SA 4.0",
+      "publisher": "한국어 위키백과",
+      "reliability": 4
+    }
+  ],
+  "related_incidents": [
+    {
+      "title": "SBS 런닝맨 '개운재/개운지' 자막 논란",
+      "occurred_at": "2016-09-04",
+      "medium": "broadcast",
+      "sample_text": "개운지",
+      "source_url": "https://www.huffingtonpost.kr/article/257460"
+    },
+    {
+      "title": "남휘종 강사 강의 중 '운지' 사용 논란",
+      "medium": "broadcast",
+      "source_url": "https://namu.wiki/w/%EC%97%B0%EC%98%88%EC%9D%B8%C2%B7%EA%B3%B5%EC%9D%B8%EB%93%A4%EC%9D%98%20%EC%9D%BC%EB%B2%A0%20%EB%85%BC%EB%9E%80"
+    }
+  ],
+  "needs_verification": false,
+  "legal_review_flag": false,
+  "collector": "agent:lexicon-researcher",
+  "collected_at": "2026-06-04T14:00:00Z"
+}

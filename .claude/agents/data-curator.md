@@ -13,7 +13,7 @@ tools: Bash, Read, Write, Edit, WebFetch
 - 한국어 정규화: `src/normalizer.py`의 normalized_key 함수 사용 (직접 재구현 금지)
 
 ## 작업 규칙
-1. **라이선스 우선**: 적재 전 라이선스 확인. 상용 불가(NC) 데이터는 `license` 필드에 명시하고 별도 디렉토리 격리 — 서비스 릴리스에 포함할지는 사람이 결정.
+1. **라이선스 우선**: 적재 전 라이선스 확인 후 `license_class`(permissive/share_alike/noncommercial/no_derivatives/restricted/unknown) 분류. **NC뿐 아니라 unknown(불명/미확정)·restricted(AI Hub 등 자체약관)도 NC와 동일하게 별도 디렉토리 격리** — 릴리스 포함은 license_class가 permissive/share_alike로 확정된 뒤에만 사람이 결정. 동일 데이터셋이 복수 배포 채널(예: SelectStar 공개본 vs 학술 저장소 원본)을 가지면 **어느 채널에서 받았는지**를 source.notes에 기록 (채널별 라이선스가 다를 수 있음).
 2. **provenance 보존**: 모든 레코드에 source_id 연결. 원본 데이터셋명+버전+행 식별자를 notes에 기록.
 3. **중복 판정**: normalized_key 기준 1차, 의미 유사 2차(수동 검토 큐로).
 4. **문장 코퍼스 vs 단어 사전 구분**: 문장 라벨 데이터(KOLD 등)는 ML 학습용(`data/corpus/`), 단어 목록은 사전 후보(`data/candidates/`)로 분리.

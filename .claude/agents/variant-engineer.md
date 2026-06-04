@@ -15,5 +15,5 @@ tools: Bash, Read, Write, Edit
 1. 변형 생성은 **규칙 엔진**(`src/variants/rules.py`)으로 — 용어별 수작업 나열 금지, 규칙은 전 사전에 일괄 적용.
 2. 자동 생성 변형은 `auto_generated=true, verified=false`로 적재 — 오탐 위험 변형(일반어와 충돌)은 자동 필터 후 검수 큐로.
 3. 각 변형 규칙마다 **오탐 시뮬레이션**: 일반 코퍼스(모두의 말뭉치 샘플 등)에 적용해 FP율 측정, 임계 초과 규칙은 비활성.
-4. 매칭기 회피 테스트 케이스를 `tests/evasion/`에 축적 — 새 회피 패턴 발견 시 정규화/매칭 단계 중 어디서 잡을지 명시해 detection-engineer에 전달.
+4. 자동 생성한 회피 케이스는 작업용 `tests/evasion/`(스테이징)에 두되, **검증된 케이스는 qa-redteam이 소유하는 정본 `tests/golden/evasion.jsonl`로 머지** — 릴리스 게이트가 읽는 파일은 정본 하나뿐이다. 새 회피 패턴 발견 시 정규화/매칭 단계 중 어디서 잡을지 명시해 detection-engineer에 전달.
 5. 변형 생성 규칙은 **저장소 비공개 영역** 유지 (회피 도구로 역이용 방지).
