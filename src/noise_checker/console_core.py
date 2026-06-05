@@ -679,7 +679,18 @@ def _apply_new_variant(
 def _apply_incident(conn, planned: PlannedWrites, reviewer: str, result: ApplyResult) -> None:
     for inc in planned.incidents:
         term_id = _resolve_parent_term(conn, None, inc.get("related_surface"))
-        iid = _insert_incident(conn, inc, term_id=term_id, marker_id=None)
+        # term으로 해석 안 되면 marker일 수 있다 (예: 집게손가락). 둘 다 없으면
+        # incident_check 제약(term_id OR marker_id) 위반이므로 명확한 오류로 안내.
+        marker_id = None
+        if term_id is None:
+            marker_id = _resolve_parent_marker(conn, inc.get("related_surface"))
+        if term_id is None and marker_id is None:
+            raise ValueError(
+                f"incident '{inc.get('title', '?')[:40]}'의 related_surface"
+                f"({inc.get('related_surface')!r})를 term/marker로 해석할 수 없음 — "
+                "관련 용어/표식 후보를 먼저 승인하세요"
+            )
+        iid = _insert_incident(conn, inc, term_id=term_id, marker_id=marker_id)
         result.incident_ids.append(iid)
         # incident는 review_log entity_type에 없으므로 관련 term이 있으면 그 term에 기록.
         if term_id is not None:
@@ -733,6 +744,22 @@ def _insert_incident(conn, inc: dict, term_id: int | None, marker_id: int | None
         },
     ).fetchone()[0]
     return iid
+
+
+def _resolve_parent_marker(conn, surface: str | None) -> int | None:
+    from sqlalchemy import text
+
+    if not surface:
+        return None
+    # marker 이름은 '이름 (부연 설명)' 규약 — 부연 앞부분 일치도 허용.
+    row = conn.execute(
+        text(
+            "SELECT id FROM image_marker "
+            "WHERE name=:n OR split_part(name, ' (', 1)=:n ORDER BY id LIMIT 1"
+        ),
+        {"n": surface},
+    ).fetchone()
+    return row[0] if row is not None else None
 
 
 def _resolve_parent_term(conn, term_id: Any, surface: str | None) -> int | None:

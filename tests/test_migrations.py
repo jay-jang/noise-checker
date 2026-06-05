@@ -14,7 +14,31 @@ import pytest
 pytestmark = pytest.mark.db
 
 DEFAULT_DATABASE_URL = "postgresql+psycopg://noise:noise@localhost:5455/noise_checker"
-DATABASE_URL = os.environ.get("DATABASE_URL", DEFAULT_DATABASE_URL)
+
+
+def _test_database_url(url: str) -> str:
+    """운영 DB 보호 가드 — 이 모듈의 왕복 테스트(downgrade base)는 DB를 전부 비우므로
+    dbname이 _test로 끝나지 않으면 '<dbname>_test'를 (없으면 생성해) 대신 사용한다.
+    test_loader/test_console_core는 자체 uuid 임시 DB 패턴이라 해당 없음."""
+    base, _, dbname = url.rpartition("/")
+    if dbname.endswith("_test"):
+        return url
+    try:
+        import psycopg
+
+        dsn = url.replace("postgresql+psycopg://", "postgresql://")
+        with psycopg.connect(dsn, connect_timeout=3, autocommit=True) as conn:
+            exists = conn.execute(
+                "SELECT 1 FROM pg_database WHERE datname = %s", (f"{dbname}_test",)
+            ).fetchone()
+            if not exists:
+                conn.execute(f'CREATE DATABASE "{dbname}_test"')
+    except Exception:  # noqa: BLE001 — 접속 불가는 _connect()의 skip 경로가 처리
+        pass
+    return f"{base}/{dbname}_test"
+
+
+DATABASE_URL = _test_database_url(os.environ.get("DATABASE_URL", DEFAULT_DATABASE_URL))
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 EXPECTED_TABLES = {

@@ -380,6 +380,54 @@ def test_reject_candidate(clean_db):
         assert conn.execute(text("SELECT count(*) FROM term")).scalar() == 0
 
 
+_INCIDENT_DOC = {
+    "kind": "incident",
+    "collector": "agent:test",
+    "payload": {
+        "title": "테스트사 포스터 집게손 논란",
+        "occurred_at": "2021-05-01",
+        "medium": "ad",
+        "related_surface": "집게손가락",
+        "sample_text": "포스터 일러스트",
+        "source_url": "https://news.example.com/a1",
+    },
+}
+
+
+@db
+def test_approve_incident_resolves_marker(clean_db):
+    """related_surface가 term이 아니라 marker(집게손가락)인 incident 승인."""
+    from sqlalchemy import text
+
+    with clean_db.begin() as conn:
+        mid = conn.execute(text(
+            "INSERT INTO image_marker (name, marker_kind, origin_story, severity, "
+            "status, detection_method) "
+            "VALUES ('집게손가락 (엄지·검지 오므린 손 모양)', 'hand_sign', '유래', 3, "
+            "'draft', '{manual}') RETURNING id"  # '이름 (부연)' 규약 — 앞부분 일치 해석
+        )).fetchone()[0]
+        cid = _insert_candidate(conn, _INCIDENT_DOC)
+        result = approve_candidate(conn, cid, "human:r@x.com", _full_checklist())
+
+    assert result.incident_ids
+    with clean_db.connect() as conn:
+        row = conn.execute(
+            text("SELECT term_id, marker_id, disclosable FROM incident WHERE id=:i"),
+            {"i": result.incident_ids[0]},
+        ).fetchone()
+        assert row[0] is None and row[1] == mid
+        assert row[2] is False  # 노출 거버넌스 기본값
+
+
+@db
+def test_approve_incident_unresolvable_surface_raises(clean_db):
+    """related_surface가 term/marker 어느 쪽도 아니면 명확한 오류 (DB 제약 위반 전에)."""
+    with clean_db.begin() as conn:
+        cid = _insert_candidate(conn, _INCIDENT_DOC)
+        with pytest.raises(ValueError, match="먼저 승인"):
+            approve_candidate(conn, cid, "human:r@x.com", _full_checklist())
+
+
 @db
 def test_record_second_review(clean_db):
     from sqlalchemy import text
