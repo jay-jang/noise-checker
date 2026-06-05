@@ -22,6 +22,7 @@ license_class 매핑 해석 (작업 지시 + docs/02 §3.1 주석·§5 게이트
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -309,7 +310,7 @@ def _plan_new_term(payload: dict[str, Any], reviewer: str) -> PlannedWrites:
     incidents = [
         {
             "title": inc["title"],
-            "occurred_at": inc.get("occurred_at"),
+            "occurred_at": _coerce_partial_date(inc.get("occurred_at")),
             "medium": inc.get("medium"),
             "sample_text": inc.get("sample_text"),
             "source_url": inc.get("source_url"),
@@ -707,6 +708,20 @@ def _apply_deprecation(conn, planned: PlannedWrites, reviewer: str, result: Appl
              dep.get("inactivity_basis", "무활동 근거 미기재"))
 
 
+def _coerce_partial_date(value: Any) -> Any:
+    """payload의 부분 날짜('YYYY-MM'/'YYYY')를 date 컬럼용으로 1일 보정.
+
+    후보 스키마는 발생 시점을 월 단위까지만 아는 경우를 허용하지만
+    incident.occurred_at은 date 타입이므로 경계에서 보정한다.
+    """
+    if isinstance(value, str):
+        if re.fullmatch(r"\d{4}-\d{2}", value):
+            return value + "-01"
+        if re.fullmatch(r"\d{4}", value):
+            return value + "-01-01"
+    return value
+
+
 def _insert_incident(conn, inc: dict, term_id: int | None, marker_id: int | None) -> int:
     from sqlalchemy import text
 
@@ -734,7 +749,7 @@ def _insert_incident(conn, inc: dict, term_id: int | None, marker_id: int | None
         ),
         {
             "title": inc["title"],
-            "occurred_at": inc.get("occurred_at"),
+            "occurred_at": _coerce_partial_date(inc.get("occurred_at")),
             "medium": inc.get("medium"),
             "term_id": term_id,
             "marker_id": marker_id,
