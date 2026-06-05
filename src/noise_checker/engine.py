@@ -55,6 +55,29 @@ _JAMO_LEVEL_KINDS = frozenset({"jamo", "chosung", "pattern"})
 # safe_context 탐색 창 (매치 전후 원문 ±N자).
 _SAFE_CONTEXT_WINDOW = 20
 
+# --- M2 인용 휴리스틱 (정책표 적용 직전, M3 문맥분류 도입 전의 규칙 기반 보수 장치) ---
+# 보도/연구/대항표현이 혐오어를 인용·메타 논의하는 문장을 revise로 과잉 권고하지
+# 않도록, 인용 신호가 있으면 usage_recommendation을 review로 상한한다(매치 제거 아님 —
+# 자문 포지셔닝상 인용 보도도 검토 가치는 있으므로 review까지는 유지).
+_QUOTATION_WINDOW = 15
+# 따옴표류: 매치가 이 문자쌍 사이에 감싸여 있으면 인용으로 본다.
+_QUOTE_OPENERS = "'\"'\"「『‘“"
+_QUOTE_CLOSERS = "'\"'\"」』’”"
+_QUOTE_CHARS = frozenset(_QUOTE_OPENERS + _QUOTE_CLOSERS)
+# 메타담론 토큰: ±15자 창에 있으면 용어를 가리키는 메타 논의로 본다.
+# '모욕'은 제외한다 — 혐오 행위 서술('…모욕하는 게시물')과 메타 인용을 가르는 경계어휘.
+_METADISCOURSE_TOKENS = (
+    "표현", "멸칭", "용어", "단어", "혐오 표현", "차별", "비하",
+    "보도", "보고서", "강의", "논문", "기사", "비판", "사례", "인용",
+)
+
+# --- M2 skip-char 창 스캔 -----------------------------------------------------
+# 한글 음절 사이에 삽입된 단일 구분자를 제거한 2차 뷰에서 AC 재스캔(03 §2 정책표 0.8).
+_SKIP_SEPARATORS = frozenset(". \t\n\r·ㆍ•-_*~,")
+# 연속 구분자 허용 상한(‘한\n남’·‘좌. 좀’류 2연속까지만 — 오탐 방지).
+_SKIP_MAX_RUN = 2
+_SKIP_CONFIDENCE = 0.8
+
 
 @dataclass(frozen=True)
 class _Entry:
@@ -90,6 +113,8 @@ class _Match:
     match_confidence: float
     matched_text: str
     flags: list[str] = field(default_factory=list)
+    # 정책표 산정 시 revise→review로 상한할지(인용 휴리스틱·공백 결합 skip-char).
+    cap_review: bool = False
 
 
 class Engine:
@@ -107,6 +132,8 @@ class Engine:
         self._automaton = automaton
         self._pattern_entries = pattern_entries
         self._kiwi = kiwi
+        # 사용자 사전 없는 기본 Kiwi — 경계 재검(단계 1c')에서 lazy 1회 생성.
+        self._base_kiwi: Kiwi | None = None
 
     # ---- 로드 ---------------------------------------------------------------
     @classmethod
@@ -206,6 +233,11 @@ class Engine:
         with _timed(timings, "ac_scan"):
             matches = self._ac_scan(text, norm_text, src_offset)
 
+        # 단계 1a' — skip-char 창 스캔 (음절 사이 단일 구분자 제거 뷰 재스캔)
+        if cfg["skip_char"]:
+            with _timed(timings, "skip_char"):
+                matches.extend(self._skip_char_scan(text, norm_text, src_offset, matches))
+
         # 단계 1b — 자모 경계 필터
         if cfg["jamo_boundary"]:
             with _timed(timings, "jamo_boundary"):
@@ -236,6 +268,14 @@ class Engine:
         if cfg["combination"]:
             with _timed(timings, "combination"):
                 _apply_combination_rules(matches, text)
+
+        # 단계 3' — 인용·메타담론 휴리스틱 (정책표 적용 직전, M3 문맥분류 전 보수 장치)
+        if cfg["quotation"]:
+            with _timed(timings, "quotation"):
+                for m in matches:
+                    if _quotation_context(m, text):
+                        m.cap_review = True
+                        m.flags.append("quotation_heuristic")
 
         # 단계 4 — 위험도 산정 + 응답 조립
         with _timed(timings, "scoring"):
@@ -298,8 +338,103 @@ class Engine:
                 continue
             if _within_larger_token(m.start, m.end, token_spans):
                 continue
+            if self._boundary_recheck_drops(text, m):
+                continue
             kept.append(m)
         return kept
+
+    def _boundary_recheck_drops(self, text: str, m: _Match) -> bool:
+        """사용자 사전 부스트가 경계 검사를 무력화하는 경우를 기본 Kiwi로 재검한다.
+
+        word 매치의 직전/직후 원문 문자가 한글이면, 사용자 사전이 없는 기본 Kiwi로
+        해당 텍스트를 재분석한다. 그 한글에 인접한 매치 경계가 기본 Kiwi 토큰 내부를
+        가로지르면(토큰 경계에 정렬되지 않으면) 매치를 폐기한다. 예:
+          - '노무'(부스트) → '노무라'를 노무+라로 쪼개나, 기본 Kiwi는 '노무라' 한
+            토큰 → 끝 경계가 토큰 내부 → drop.
+          - '삼일한'(부스트) → '삼일한약방'에서 끝 경계가 기본 '한약방' 토큰 내부 → drop.
+        '노무한 박수'·'된장녀라니'처럼 인접 음절이 별도 토큰/조사로 분석돼 매치 경계가
+        토큰 경계에 정렬되면 살린다(미탐 방지).
+        """
+        if m.entry.term_kind != "word":
+            return False
+        before = text[m.start - 1] if m.start > 0 else ""
+        after = text[m.end] if m.end < len(text) else ""
+        before_hangul = _is_hangul_syllable(before)
+        after_hangul = _is_hangul_syllable(after)
+        if not (before_hangul or after_hangul):
+            return False
+        base = self._get_base_kiwi()
+        base_spans = [(t.start, t.start + t.len) for t in base.tokenize(text)]
+        start_cuts = before_hangul and any(ts < m.start < te for ts, te in base_spans)
+        end_cuts = after_hangul and any(ts < m.end < te for ts, te in base_spans)
+        if start_cuts or end_cuts:
+            m.flags.append("boundary_recheck_dropped")
+            return True
+        return False
+
+    def _get_base_kiwi(self) -> Kiwi:
+        """사용자 사전 없는 기본 Kiwi (경계 재검 전용) — lazy 1회 생성."""
+        if self._base_kiwi is None:
+            self._base_kiwi = Kiwi()
+        return self._base_kiwi
+
+    def _skip_char_scan(
+        self,
+        text: str,
+        norm_text: str,
+        src_offset: list[int],
+        exact_matches: list[_Match],
+    ) -> list[_Match]:
+        """음절 사이 단일 구분자를 제거한 2차 뷰에서 AC 재스캔(03 §2 정책표 0.8).
+
+        정규화(자모) 텍스트에서 한글 자모 사이에 낀 구분자 run(≤2자)을 제거한
+        skip 뷰를 만들고(원문 오프셋 유지), 그 위에서 오토마톤을 1회 스캔한다.
+        동일 span에 exact/변형 매치가 이미 있으면 중복 제거한다. 구분자에 공백이
+        포함된 결합 매치는 일반 문장 오탐을 막기 위해 ambiguity 무관 상한 review로
+        제한한다(`space_split 결합 매치는 revise 금지` 불변식).
+        """
+        skip_text, skip_to_norm, joined_has_space = _build_skip_view(norm_text)
+        if skip_text == norm_text:
+            return []  # 제거된 구분자 없음 — exact 스캔과 동일하므로 생략.
+        existing_spans = {(m.start, m.end) for m in exact_matches}
+        out: list[_Match] = []
+        nn = len(norm_text)
+        for end_idx, (key, entries) in self._automaton.iter(skip_text):
+            sk_start = end_idx - len(key) + 1
+            sk_end = end_idx + 1
+            # skip 좌표 → 원래 정규화 좌표
+            norm_start = skip_to_norm[sk_start]
+            norm_end = skip_to_norm[sk_end - 1] + 1
+            # 결합 구간이 실제로 구분자를 가로질렀을 때만 skip-char 후보(아니면 exact가 잡음).
+            if norm_end - norm_start == len(key):
+                continue
+            src_start = src_offset[norm_start]
+            last_src = src_offset[norm_end - 1]
+            src_end = last_src + 1
+            while norm_end < nn and src_offset[norm_end] == last_src:
+                norm_end += 1
+            if (src_start, src_end) in existing_spans:
+                continue
+            spans_space = any(
+                joined_has_space[i] for i in range(sk_start, sk_end - 1)
+            )
+            for entry in entries:
+                if entry.variant_kind is not None:
+                    continue  # skip-char는 exact surface 키에만 적용(변형 중첩 방지).
+                out.append(
+                    _Match(
+                        start=src_start,
+                        end=src_end,
+                        norm_start=norm_start,
+                        norm_end=norm_end,
+                        entry=entry,
+                        match_confidence=_SKIP_CONFIDENCE,
+                        matched_text=text[src_start:src_end],
+                        flags=["skip_char"],
+                        cap_review=spans_space,
+                    )
+                )
+        return out
 
     def _pattern_scan(self, text: str) -> list[_Match]:
         """term_kind='pattern' 정규식 매칭 (원문에 직접 적용)."""
@@ -400,6 +535,70 @@ def _safe_context_resolves(m: _Match, text: str) -> bool:
     return any(tok and tok in window for tok in m.entry.safe_contexts)
 
 
+# --- 단계 1a': skip-char 뷰 --------------------------------------------------
+def _is_jamo(ch: str) -> bool:
+    """호환 자모(정규화 후 음절 표현)인지."""
+    return bool(ch) and "ㄱ" <= ch <= "ㅣ"
+
+
+def _is_hangul_syllable(ch: str) -> bool:
+    """완성형 한글 음절(원문 문자)인지."""
+    return bool(ch) and "가" <= ch <= "힣"
+
+
+def _build_skip_view(norm_text: str) -> tuple[str, list[int], list[bool]]:
+    """정규화 텍스트에서 자모 사이 구분자 run(≤2자)을 제거한 skip 뷰를 만든다.
+
+    Returns:
+        (skip_text, skip_to_norm, joined_has_space)
+        skip_to_norm[i] = skip_text의 i번째 문자의 원래 norm_text 인덱스.
+        joined_has_space[i] = skip_text의 i와 i+1 사이에서 제거된 run에 공백이
+        있었는지(공백 결합 매치 식별용).
+    """
+    skip_chars: list[str] = []
+    skip_to_norm: list[int] = []
+    joined_has_space: list[bool] = []
+    n = len(norm_text)
+    i = 0
+    while i < n:
+        ch = norm_text[i]
+        # 자모 뒤에 구분자 run이 오고 그 다음이 다시 자모면 run을 건너뛴다.
+        if _is_jamo(ch) and i + 1 < n and norm_text[i + 1] in _SKIP_SEPARATORS:
+            j = i + 1
+            while j < n and norm_text[j] in _SKIP_SEPARATORS:
+                j += 1
+            run = norm_text[i + 1:j]
+            if len(run) <= _SKIP_MAX_RUN and j < n and _is_jamo(norm_text[j]):
+                skip_chars.append(ch)
+                skip_to_norm.append(i)
+                joined_has_space.append(any(c.isspace() for c in run))
+                i = j
+                continue
+        skip_chars.append(ch)
+        skip_to_norm.append(i)
+        joined_has_space.append(False)
+        i += 1
+    return "".join(skip_chars), skip_to_norm, joined_has_space
+
+
+# --- 단계 3': 인용·메타담론 휴리스틱 -----------------------------------------
+def _quotation_context(m: _Match, text: str) -> bool:
+    """매치가 인용/메타 논의 맥락에 있으면 True (정책표 상한 review 대상).
+
+    (a) 매치가 따옴표류로 직접 감싸여 있거나, (b) ±15자 창에 메타담론 토큰이
+    있으면 인용으로 본다. M3 문맥분류 도입 전의 규칙 기반 보수 장치이며 매치를
+    제거하지 않고 등급만 상한한다(자문 포지셔닝).
+    """
+    before = text[m.start - 1] if m.start > 0 else ""
+    after = text[m.end] if m.end < len(text) else ""
+    if before in _QUOTE_CHARS and after in _QUOTE_CHARS:
+        return True
+    lo = max(0, m.start - _QUOTATION_WINDOW)
+    hi = min(len(text), m.end + _QUOTATION_WINDOW)
+    window = text[lo:m.start] + text[m.end:hi]
+    return any(tok in window for tok in _METADISCOURSE_TOKENS)
+
+
 # --- 단계 2: 조합 규칙 -------------------------------------------------------
 def _apply_combination_rules(matches: list[_Match], text: str) -> None:
     """term_kind='number' 매치의 combination_rules 충족 여부를 평가한다.
@@ -444,7 +643,7 @@ def _context_score(entry: _Entry) -> float:
 
 
 def _usage_recommendation(
-    entry: _Entry, risk_score: float, *, composite_unsatisfied: bool
+    entry: _Entry, risk_score: float, *, composite_unsatisfied: bool, cap_review: bool
 ) -> str:
     """정책표 v1 (03 §2 단계4) — 조건 순서·불변식을 모두 보존한다.
 
@@ -452,10 +651,13 @@ def _usage_recommendation(
       - **고정 monitor 행**(watchlist / composite 미충족 number): 항상 monitor.
         불변식 ②(watchlist는 항상 monitor)·'그 외 매칭(composite 미충족) → monitor'.
         monitor는 최저 등급이므로 어떤 상한도 이를 끌어올리지 못한다 → 우선 처리.
-      - **상한 review 행**(도그휘슬 / ambiguity != unambiguous): 사다리 결과를
-        review_recommended로 **상한**한다(revise 금지 — 불변식 ①).
+      - **상한 review 행**(도그휘슬 / ambiguity != unambiguous / M2 인용 휴리스틱·
+        공백 결합 skip-char): 사다리 결과를 review_recommended로 **상한**한다
+        (revise 금지 — 불변식 ①).
 
     base 사다리: severity≥4 AND risk≥0.7 → revise / risk≥0.35 → review / 그 외 monitor.
+    cap_review는 인용 휴리스틱(단계 3')·공백 결합 skip-char가 세운 상한 신호로,
+    severity 5 unambiguous(삼일한 등)이어도 revise를 review로 끌어내린다.
     """
     # 고정 monitor (불변식 — 상한이 끌어올리지 못함)
     if entry.status == "watchlist":
@@ -471,8 +673,8 @@ def _usage_recommendation(
     else:
         base = "monitor"
 
-    # 상한 review (도그휘슬·ambiguity): revise → review로 캡
-    capped = entry.is_dogwhistle_marker or entry.ambiguity != "unambiguous"
+    # 상한 review (도그휘슬·ambiguity·M2 인용/공백결합): revise → review로 캡
+    capped = entry.is_dogwhistle_marker or entry.ambiguity != "unambiguous" or cap_review
     if capped and base == "revise_recommended":
         return "review_recommended"
     return base
@@ -485,7 +687,7 @@ def _score_match(m: _Match) -> dict[str, Any]:
     risk_score = (entry.severity / 5) * m.match_confidence * context_score
     composite_unsatisfied = "composite_unsatisfied" in m.flags
     recommendation = _usage_recommendation(
-        entry, risk_score, composite_unsatisfied=composite_unsatisfied
+        entry, risk_score, composite_unsatisfied=composite_unsatisfied, cap_review=m.cap_review
     )
     return {
         "span": {"start": m.start, "end": m.end},
@@ -538,11 +740,13 @@ class _timed:
 
 
 _DEFAULT_STAGES = {
+    "skip_char": True,
     "jamo_boundary": True,
     "morpheme_boundary": True,
     "safe_context": True,
     "pattern": True,
     "combination": True,
+    "quotation": True,
 }
 
 

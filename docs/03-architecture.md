@@ -49,7 +49,7 @@ DB 설계 문서 §4의 정규화를 적용하되, 검사 경로는 `normalize(t
 ### 단계 2 — 패턴/퍼지/조합 매칭 (~ms)
 - `term_kind='pattern'` 정규식 (특수 표기).
 - **조합 규칙 평가 (composite_rule, 02 §3.8)**: number/common 항목은 단독으론 저강도. 날짜/금액/시각 맥락 정규식, 다른 위험 term과의 동시 출현, (이미지 경로에선) OCR 좌표 인접을 평가해 `composite_score` 산출 — "523 단독=무시, 5.23+17:23+52,300원 결합=고위험".
-- 특수문자 삽입 변형: skip-char 윈도우 매칭 (예: "시1발" — 사전 키 사이 비한글 1~2자 허용).
+- 특수문자 삽입 변형: skip-char 윈도우 매칭 (예: "시1발" — 사전 키 사이 비한글 1~2자 허용). M2 구현은 음절 사이 구분자 run(≤2자) 제거 2차 뷰를 AC 재스캔하고 confidence 0.8·flag `skip_char`을 부여한다. **불변식: 공백을 포함한 결합 매치('삼 일 한' 류)는 ambiguity 무관 상한 `review_recommended`** — 일반 문장의 정상 공백 오탐을 보수적으로 막는다.
 - 퍼지(soynlp 자모 Levenshtein)는 AC 후보에 한해 적용, **후보 수 상한 + 조기 종료** 규칙으로 비선형 폭증 방지.
 - 결과마다 `match_confidence` 부여 (정확 일치 1.0, 퍼지 매칭 < 1.0).
 
@@ -84,6 +84,7 @@ risk_score = (effective_severity/5) × match_confidence × context_score
 | 조건 (위에서부터 첫 매칭 적용) | usage_recommendation |
 |---|---|
 | 도그휘슬·의도성 미입증 표식 (집게손가락 등, §6 회색지대) | **상한 `review_recommended` 고정** — revise 금지 |
+| M2 인용 휴리스틱: 매치가 따옴표류로 감싸이거나 ±15자에 메타담론 토큰(표현·멸칭·용어·단어·혐오 표현·차별·비하·보도·보고서·강의·논문·기사·비판·사례·인용. '모욕' 제외)이 있음 | **상한 `review_recommended`** — severity 5 unambiguous(삼일한 등)도 캡. 매치 제거 아님(자문 포지셔닝). flag `quotation_heuristic`. M3 문맥분류 도입 전의 규칙 기반 보수 장치 |
 | `ambiguity != 'unambiguous'` AND (M3 전 또는 context_score < 0.85) | 상한 `review_recommended` |
 | `status='watchlist'`(emerging, 02 §3.2) 또는 evidence_strength 낮음 | `monitor` 고정 — 차단/수정 권고에 사용 금지 |
 | severity ≥ 4 AND risk_score ≥ 0.7 | `revise_recommended` |

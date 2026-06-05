@@ -115,5 +115,20 @@
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": []
+  },
+  {
+    "term_id": 8,
+    "surface": "노무",
+    "term_kind": "word",
+    "normalized_key": "ㄴㅗㅁㅜ",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "status": "active",
+    "release_policy": "general",
+    "categories": ["deceased", "community_jargon"],
+    "safe_contexts": ["노무사", "노무관리", "공인노무사"],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": []
   }
 ]
