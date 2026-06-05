@@ -66,6 +66,11 @@ CREATE TABLE source (
                                                  -- ※ 뉴스(source_type='news')는 본문을 저장하지 않고 사실만 추출하므로
                                                  --   (04 §2/§7) 재배포 게이트의 차단 대상이 아님 → 'permissive'로 적재하되
                                                  --   notes에 '사실 추출만, 본문 복제 금지' 기록 (console_core 동일 규약)
+                                                 -- ※ 학술 논문(source_type='academic')은 서지 정보·연구 결과의 사실 참조
+                                                 --   (유형론 채택, 용어 존재 확인)만 하면 인용권 범위 → 'permissive'로 적재하되
+                                                 --   notes에 '학술 인용(사실 참조)' 기록. 논문 전문/표현 발췌는 금지(저작권)이며,
+                                                 --   논문 부속 데이터셋은 데이터셋 자체 라이선스를 따르므로 별도 source로 분리 등록한다.
+                                                 --   단, 법원이 허위로 판단한 학술 주장은 evidence 부적격(보이루-윤지선 선례).
     reliability   SMALLINT NOT NULL DEFAULT 3   -- 1(낮음)~5(높음): 뉴스/학술=4-5, 위키=3, 커뮤니티=2
                   CHECK (reliability BETWEEN 1 AND 5),
     archive_url   TEXT,                         -- 웹아카이브 백업 (출처 소실 대비)
