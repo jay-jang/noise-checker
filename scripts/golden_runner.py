@@ -14,6 +14,12 @@ noise_checker.engine.Engine(엔진 계약, M2-B 산출)이 import 가능하면 �
               슬롯별 통과율 분해 + review_recommended 발생률 분리 보고(M3 이후 게이트).
   evasion     재현율: expected surface 전부가 매칭에 등장하면 통과(임계 85%, 점진 상향).
 
+분리집계(게이트 비반영 — codex-judge 2026-06-05 정합화):
+  pending_lexicon  : 사전 미등재(운지 등 2차 배치 진행 중) 항목.
+  composite_future : 단일 용어 아닌 조합·맥락 기반(탱크데이·여권/수저) 항목.
+  deferred_variants: verified term_variant 행 0건이라 매칭 불가한 변형 항목.
+  위 버킷은 게이트 계산에서 제외하고 리포트에만 별도 표기한다(가양성/가음성 왜곡 방지).
+
 사용:
   python scripts/golden_runner.py <artifact_dir>
   python scripts/golden_runner.py <artifact_dir> --json   # 기계 판독 출력
@@ -35,6 +41,28 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 GOLDEN_DIR = ROOT / "tests" / "golden"
 REVISE = "revise_recommended"
+
+# 게이트 분리집계 버킷 (codex-judge 2026-06-05 정합화).
+#   pending_lexicon   : 운지 등 사전 미등재(2차 배치 진행 중) — 등재 후 게이트 편입.
+#   composite_future  : 탱크데이·여권/수저 등 단일 용어 아닌 조합·맥락 기반 — M3 조합 게이트 대상.
+#   deferred_variants : verified term_variant 행이 0건이라 매칭 불가한 변형 — 변형 검증 후 편입.
+# 이 버킷의 항목은 게이트 계산에서 제외하되 리포트에 별도 표기한다.
+DEFERRED_BUCKETS = ("pending_lexicon", "composite_future", "deferred_variants")
+
+
+def _gate_class(entry: dict) -> str | None:
+    """게이트 분리집계 버킷 분류. None이면 게이트 반영(정상 채점) 대상.
+
+    명시적 gate_status가 우선한다(예: 운지 leet은 사전 미등재가 근본 원인이므로
+    rely_on=term_variant_row보다 pending_lexicon으로 집계). gate_status가 없고
+    evasion이 미검증 변형(rely_on=term_variant_row)에 의존하면 deferred_variants.
+    """
+    status = entry.get("gate_status")
+    if status in DEFERRED_BUCKETS:
+        return status
+    if entry.get("rely_on") == "term_variant_row":
+        return "deferred_variants"
+    return None
 
 
 def _load_set(name: str) -> list[dict]:
@@ -71,15 +99,31 @@ def _has_review(result: dict) -> bool:
 
 # ── 채점기 ──────────────────────────────────────────────────────────────────
 
+def _empty_bucket() -> dict:
+    return {"total": 0, "passed": 0, "failures": []}
+
+
 def score_must_catch(engine) -> dict:
     entries = _load_set("must_catch")
     passed = 0
     sev5_total = sev5_passed = 0
     failures = []
+    deferred: dict[str, dict] = {b: _empty_bucket() for b in DEFERRED_BUCKETS}
+    gated_total = 0
     for e in entries:
         result = engine.check(e["text"])
         got = _matched_surfaces(result)
         ok = all(surf in got for surf in e["expected"])
+        bucket = _gate_class(e)
+        if bucket is not None:
+            deferred[bucket]["total"] += 1
+            deferred[bucket]["passed"] += int(ok)
+            if not ok:
+                deferred[bucket]["failures"].append(
+                    {"text": e["text"], "expected": e["expected"], "got": sorted(got)}
+                )
+            continue
+        gated_total += 1
         is_sev5 = e.get("severity") == 5
         if is_sev5:
             sev5_total += 1
@@ -90,15 +134,15 @@ def score_must_catch(engine) -> dict:
             failures.append(
                 {"text": e["text"], "expected": e["expected"], "got": sorted(got)}
             )
-    total = len(entries)
     return {
-        "total": total,
+        "total": gated_total,
         "passed": passed,
-        "recall": passed / total if total else 1.0,
+        "recall": passed / gated_total if gated_total else 1.0,
         "sev5_total": sev5_total,
         "sev5_passed": sev5_passed,
         "sev5_recall": sev5_passed / sev5_total if sev5_total else 1.0,
         "failures": failures,
+        "deferred": deferred,
     }
 
 
@@ -109,10 +153,25 @@ def score_must_pass(engine) -> dict:
     by_slot_passed: dict[str, int] = defaultdict(int)
     review_hits = 0  # ambiguous에서 review_recommended 발생(분리 보고, M3 이후 게이트)
     failures = []
+    deferred: dict[str, dict] = {b: _empty_bucket() for b in DEFERRED_BUCKETS}
+    gated_total = 0
     for e in entries:
         result = engine.check(e["text"])
         grade = e.get("grade", "strict")
         slot = e.get("slot", "?")
+        bucket = _gate_class(e)
+        if bucket is not None:
+            failed_d = (
+                _has_revise(result) if grade == "ambiguous" else _has_any_match(result)
+            )
+            deferred[bucket]["total"] += 1
+            deferred[bucket]["passed"] += int(not failed_d)
+            if failed_d:
+                deferred[bucket]["failures"].append(
+                    {"text": e["text"], "slot": slot, "grade": grade}
+                )
+            continue
+        gated_total += 1
         if grade == "ambiguous":
             failed = _has_revise(result)
             if _has_review(result):
@@ -134,17 +193,17 @@ def score_must_pass(engine) -> dict:
                     "matches": sorted(_matched_surfaces(result)),
                 }
             )
-    total = len(entries)
     slot_pass_rate = {
         s: by_slot_passed[s] / by_slot_total[s] for s in sorted(by_slot_total)
     }
     return {
-        "total": total,
+        "total": gated_total,
         "passed": passed,
-        "pass_rate": passed / total if total else 1.0,
+        "pass_rate": passed / gated_total if gated_total else 1.0,
         "slot_pass_rate": slot_pass_rate,
         "review_hits_ambiguous": review_hits,
         "failures": failures,
+        "deferred": deferred,
     }
 
 
@@ -154,11 +213,29 @@ def score_evasion(engine) -> dict:
     by_kind_total: dict[str, int] = defaultdict(int)
     by_kind_passed: dict[str, int] = defaultdict(int)
     failures = []
+    deferred: dict[str, dict] = {b: _empty_bucket() for b in DEFERRED_BUCKETS}
+    gated_total = 0
     for e in entries:
         result = engine.check(e["text"])
         got = _matched_surfaces(result)
         ok = all(surf in got for surf in e["expected"])
         kind = e.get("evasion_kind", "?")
+        bucket = _gate_class(e)
+        if bucket is not None:
+            deferred[bucket]["total"] += 1
+            deferred[bucket]["passed"] += int(ok)
+            if not ok:
+                deferred[bucket]["failures"].append(
+                    {
+                        "text": e["text"],
+                        "expected": e["expected"],
+                        "kind": kind,
+                        "rely_on": e.get("rely_on"),
+                        "got": sorted(got),
+                    }
+                )
+            continue
+        gated_total += 1
         by_kind_total[kind] += 1
         by_kind_passed[kind] += int(ok)
         if ok:
@@ -173,16 +250,16 @@ def score_evasion(engine) -> dict:
                     "got": sorted(got),
                 }
             )
-    total = len(entries)
     kind_recall = {
         k: by_kind_passed[k] / by_kind_total[k] for k in sorted(by_kind_total)
     }
     return {
-        "total": total,
+        "total": gated_total,
         "passed": passed,
-        "recall": passed / total if total else 1.0,
+        "recall": passed / gated_total if gated_total else 1.0,
         "kind_recall": kind_recall,
         "failures": failures,
+        "deferred": deferred,
     }
 
 
@@ -197,6 +274,20 @@ def evaluate_gates(mc: dict, mp: dict, ev: dict) -> dict:
     }
 
 
+def _print_deferred(label: str, deferred: dict) -> None:
+    """게이트 비반영 분리집계 버킷 출력(통과율은 정보용 — 게이트 영향 없음)."""
+    active = {b: d for b, d in deferred.items() if d["total"]}
+    if not active:
+        return
+    print(f"   [{label} 분리집계 — 게이트 비반영]")
+    for bucket, d in active.items():
+        rate = d["passed"] / d["total"] if d["total"] else 1.0
+        print(
+            f"     {bucket:18s} {d['passed']}/{d['total']} 통과({rate:.0%}) "
+            f"— 게이트 제외, 등재/검증 후 편입"
+        )
+
+
 def _print_report(mc: dict, mp: dict, ev: dict, gates: dict) -> None:
     print("=" * 64)
     print("골든셋 3종 채점 리포트")
@@ -209,6 +300,7 @@ def _print_report(mc: dict, mp: dict, ev: dict, gates: dict) -> None:
     )
     for f in mc["failures"]:
         print(f"   MISS: {f['text']!r} expected={f['expected']} got={f['got']}")
+    _print_deferred("must_catch", mc["deferred"])
 
     print(
         f"[must_pass] 통과율 {mp['pass_rate']:.1%} "
@@ -222,6 +314,7 @@ def _print_report(mc: dict, mp: dict, ev: dict, gates: dict) -> None:
             f"   FP: {f['text']!r} slot={f['slot']} grade={f['grade']} "
             f"matches={f['matches']} overall={f['overall']}"
         )
+    _print_deferred("must_pass", mp["deferred"])
 
     print(f"[evasion] 재현율 {ev['recall']:.1%} ({ev['passed']}/{ev['total']})")
     for kind, rate in ev["kind_recall"].items():
@@ -231,6 +324,7 @@ def _print_report(mc: dict, mp: dict, ev: dict, gates: dict) -> None:
             f"   ESCAPE: {f['text']!r} kind={f['kind']} "
             f"rely_on={f['rely_on']} got={f['got']}"
         )
+    _print_deferred("evasion", ev["deferred"])
 
     print("-" * 64)
     print("게이트:")

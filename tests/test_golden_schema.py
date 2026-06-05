@@ -27,12 +27,15 @@ ROOT = Path(__file__).resolve().parent.parent
 GOLDEN_DIR = ROOT / "tests" / "golden"
 SCHEMA_PATH = ROOT / "data" / "schema" / "golden-entry.schema.json"
 
-# 큐 19개 용어 — 03/05/M2-C 브리프 기준. 각 용어는 must_pass F8(동음이의어)에
-# 최소 1개의 무해 용례를 가져야 한다(브리프 요구).
+# 큐 등재 용어 — 03/05/M2-C 브리프 + codex-judge 2026-06-05 정합화 기준.
+# 각 용어는 must_pass F8(동음이의어)에 최소 1개의 무해 용례를 가져야 한다(브리프 요구).
+# '슨상님'은 codex-judge 반려(근거 부족 — 사전 미등재)로 큐에서 제외. '운지'는 사전
+# 미등재(2차 배치)지만 등재 예정 용어이므로 큐에 유지하고 must_catch/evasion에서
+# gate_status=pending_lexicon으로 분리집계한다.
 QUEUE_TERMS = [
     "운지", "노무", "노알라", "응디", "삼일한", "한남", "홍어", "된장녀", "김치녀",
     "맘충", "군무새", "전라디언", "좌좀", "오조오억", "허버허버", "웅앵웅", "오또케",
-    "슨상님", "503", "~노",
+    "503", "~노",
 ]
 
 # must_pass 채점 grade 허용값 (06 §1 채점 규칙 반영).
@@ -149,14 +152,19 @@ def test_must_catch_has_all_severity5_terms():
 
 
 def test_must_catch_incident_sample_texts_present():
-    """8건 incident sample_text 실문구가 must_catch에 포함되어야 한다(최우선 요구)."""
+    """incident sample_text 실문구가 must_catch에 포함되어야 한다(최우선 요구).
+
+    '보이루'는 codex-judge 2026-06-05 정합화로 must_pass(judicial_nonhate)로 이동했으므로
+    must_catch 필수 목록에서 제외한다(아래 test_boiru_moved_to_must_pass가 이동을 강제).
+    '탱크 데이…'·'전라도 여행…'은 단일 용어 아닌 조합·맥락 기반이라 expected는 비웠으나
+    실문구(영구 회귀셋)는 must_catch에 그대로 보존한다.
+    """
     texts = {e["text"] for e in _load_set("must_catch")}
     required = {
         "노무한 박수",
         "탱크 데이 5/18 · 책상에 탁",
         "(들켰노...)",
         "전라도 여행 갈 땐 여권 대신 수저 챙기세요",
-        "보이루",
     }
     missing = required - texts
     assert not missing, f"incident 실문구 누락: {missing}"
@@ -188,3 +196,101 @@ def test_evasion_expected_nonempty():
     """evasion은 회피 입력 — 반드시 복원 기대 surface가 있어야 한다."""
     for i, e in enumerate(_load_set("evasion")):
         assert e["expected"], f"evasion[{i}] expected 비어있음"
+
+
+# ── 7. codex-judge 2026-06-05 정합화: 사전 결정과의 정합성 ────────────────────
+
+# 게이트 분리집계 버킷(러너와 동일 계약) — gate_status 허용값.
+DEFERRED_BUCKETS = {"pending_lexicon", "composite_future", "deferred_variants"}
+
+
+def test_gate_status_values_valid():
+    """gate_status가 존재하면 허용 버킷값이어야 한다(스키마 enum과 이중 보장)."""
+    for set_name in ALL_SETS:
+        for i, e in enumerate(_load_set(set_name)):
+            status = e.get("gate_status")
+            if status is not None:
+                assert status in DEFERRED_BUCKETS, (
+                    f"{set_name}[{i}] gate_status 비허용값: {status!r}"
+                )
+
+
+def test_seunsangnim_not_expected_anywhere():
+    """'슨상님'은 codex-judge 반려(사전 미등재) — 어떤 셋의 expected에도 없어야 한다.
+
+    must_pass(F8/F21)의 무해·대항표현 인용 용례 텍스트에는 등장할 수 있으나,
+    검출 기대(expected) 대상이 되어서는 안 된다.
+    """
+    for set_name in ALL_SETS:
+        for i, e in enumerate(_load_set(set_name)):
+            assert "슨상님" not in e["expected"], (
+                f"{set_name}[{i}] 슨상님이 expected에 잔존(반려 용어 — 제거 필요)"
+            )
+
+
+def test_boiru_moved_to_must_pass_judicial_nonhate():
+    """'보이루'는 사법 비혐오 판단으로 must_catch→must_pass(judicial_nonhate) 이동.
+
+    - must_catch의 어떤 expected에도 '보이루'가 없어야 한다(검출 기대 금지).
+    - evasion에도 '보이루' 복원 기대 항목이 없어야 한다.
+    - must_pass에 단독 '보이루' 무해 케이스(expected=[])가 정확히 존재해야 한다.
+    """
+    for set_name in ("must_catch", "evasion"):
+        for i, e in enumerate(_load_set(set_name)):
+            assert "보이루" not in e["expected"], (
+                f"{set_name}[{i}] 보이루가 expected에 잔존(비혐오 판단 — 이동 필요)"
+            )
+    mp = _load_set("must_pass")
+    boiru = [e for e in mp if e["text"] == "보이루"]
+    assert len(boiru) == 1, "must_pass에 단독 '보이루' 무해 케이스가 정확히 1건이어야 함"
+    assert boiru[0]["slot"] == "judicial_nonhate"
+    assert boiru[0]["expected"] == []
+    assert boiru[0]["grade"] == "strict"
+
+
+def test_unji_marked_pending_lexicon():
+    """'운지'(사전 미등재)를 expected에 가진 must_catch/evasion 항목은 전부
+    gate_status=pending_lexicon으로 분리집계되어야 한다(게이트 비반영)."""
+    for set_name in ("must_catch", "evasion"):
+        for i, e in enumerate(_load_set(set_name)):
+            if "운지" in e["expected"]:
+                assert e.get("gate_status") == "pending_lexicon", (
+                    f"{set_name}[{i}] 운지 항목이 pending_lexicon 미표식"
+                )
+
+
+def test_composite_future_entries_empty_expected():
+    """composite_future(탱크데이·여권/수저)는 단일 용어 매칭 기대가 없어야 한다.
+
+    실문구는 영구 회귀셋으로 보존하되 expected는 비워 분리집계한다.
+    """
+    cf = [
+        e for e in _load_set("must_catch")
+        if e.get("gate_status") == "composite_future"
+    ]
+    assert len(cf) == 2, f"composite_future must_catch 항목 {len(cf)}건(기대 2건)"
+    for e in cf:
+        assert e["expected"] == [], f"composite_future 항목 expected 비어있지 않음: {e['text']}"
+        assert e.get("slot") == "composite_future"
+
+
+def test_runner_gate_class_matches_assets():
+    """러너의 분리집계 분류가 자산 표식과 일치한다(러너-자산 계약 결합).
+
+    gate_status가 있으면 그 값으로, 없고 rely_on=term_variant_row면 deferred_variants로
+    분류되어야 한다(러너 _gate_class와 동일 규칙)."""
+    import sys  # noqa: PLC0415
+
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from scripts.golden_runner import _gate_class  # noqa: PLC0415
+
+    for set_name in ALL_SETS:
+        for i, e in enumerate(_load_set(set_name)):
+            cls = _gate_class(e)
+            if e.get("gate_status") in DEFERRED_BUCKETS:
+                assert cls == e["gate_status"], f"{set_name}[{i}] 분류 불일치"
+            elif e.get("rely_on") == "term_variant_row":
+                assert cls == "deferred_variants", f"{set_name}[{i}] 변형 분류 불일치"
+            else:
+                assert cls is None, f"{set_name}[{i}] 게이트 반영 항목이 분리집계로 오분류"

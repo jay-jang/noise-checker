@@ -21,8 +21,15 @@
       "description": "소속 골든셋"
     },
     "slot": {
-      "enum": ["F8", "F9", "F11", "F18", "F19", "F20", "F21", "jamo_boundary"],
-      "description": "must_pass 기능 슬롯 (HateCheck 체계 + 자체 자모 경계 슬롯)"
+      "enum": [
+        "F8", "F9", "F11", "F18", "F19", "F20", "F21", "jamo_boundary",
+        "judicial_nonhate", "composite_future"
+      ],
+      "description": "must_pass 기능 슬롯 (HateCheck 체계 + 자체 자모 경계 슬롯) / must_catch 분리집계 슬롯(composite_future)"
+    },
+    "gate_status": {
+      "enum": ["pending_lexicon", "composite_future", "deferred_variants"],
+      "description": "게이트 분리집계 표식 — 사전 미등재(pending_lexicon)·맥락조합 미구현(composite_future)·미검증 변형(deferred_variants)은 게이트 계산에서 제외(러너가 별도 표기)."
     }
   },
   "anyOf": [
