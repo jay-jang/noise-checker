@@ -13,9 +13,9 @@
 
 각 항목 필수 필드: `text(또는 image_ref)`, `expected`(매칭 용어/없음), `why`(이 케이스가 존재하는 이유), `source`(출처 URL/incident id), `added_at`.
 
-**must_pass 채점 규칙 (등급별 — M2 게이트가 M3 산출물에 의존하지 않도록)**:
-- `ambiguity != 'unambiguous'` 항목(F8 동음이의어/F9 재전유/F18-21 인용·대항표현): **M3 문맥 분류기 도입 전까지 `block` 발생만 실패로 카운트** (warn/info는 통과 — 05 리스크 표의 'block 대신 warn 기본값'과 정합). warn 통과율은 분리 측정·보고하고 M3 이후 게이트화.
-- `unambiguous` 및 safe_contexts로 해소 가능한 항목: **어떤 매칭이든**(warn 포함) 실패로 카운트.
+**must_pass 채점 규칙 (등급별 — M2 게이트가 M3 산출물에 의존하지 않도록. 등급 어휘는 03 §2 단계 4: revise_recommended/review_recommended/monitor)**:
+- `ambiguity != 'unambiguous'` 항목(F8 동음이의어/F9 재전유/F18-21 인용·대항표현): **M3 문맥 분류기 도입 전까지 `revise_recommended`(구 block) 발생만 실패로 카운트** (review/monitor는 통과 — 05 리스크 표의 'review 상한 기본값'과 정합). review_recommended 통과율은 분리 측정·보고하고 M3 이후 게이트화.
+- `unambiguous` 및 safe_contexts로 해소 가능한 항목: **어떤 매칭이든**(review_recommended 포함) 실패로 카운트.
 - 릴리스 게이트(04 §5 게이트 2)도 동일 규칙으로 채점 (빌드 게이트와 테스트 계획의 채점 불일치 금지).
 
 **골든셋 구조는 한국형 HateCheck 체계를 따른다** (HateCheck ACL 2021, CC BY 4.0 — 한국어판 부재가 확인된 시장 공백):
@@ -69,7 +69,7 @@
 
 1. 파일럿 고객의 실제 카피 1,000건+ 블라인드 검사
 2. 전 결과를 사람이 재검토 → FP/FN 라벨링
-3. 리포트: 카테고리별 정밀도/재현율, block/warn 등급 적정성, 놓친 유형 분석
+3. 리포트: 카테고리별 정밀도/재현율, revise/review 등급 적정성, 놓친 유형 분석
 4. 결과를 사전/모델/임계값에 반영 후 2차 라운드 — 2라운드 연속 목표치 달성 시 베타 종료
 
 ## 4. 운영 중 상시 모니터링

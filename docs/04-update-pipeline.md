@@ -79,6 +79,19 @@ CREATE TABLE candidate_queue (
 - `urgent` 항목(현재 보도 중인 신규 사고)은 즉시 알림 → 24h 내 검수 목표 → 필요 시 핫픽스 릴리스.
 - LLM 사전 분석을 후보에 첨부: 추정 유래, 추정 카테고리, 동음이의어 위험, 권장 severity — **검수자 보조 자료일 뿐 자동 승인 금지.**
 
+**`payload` JSON 스키마는 `data/schema/candidate-payload.schema.json`으로 kind별 계약을 강제한다** (자유 JSONB 방치 금지 — 교차 리뷰 B-M13 반영). 공통 필드 외 kind별 필수 구조:
+
+| kind | payload 필수 구조 |
+|---|---|
+| `new_term` | surface, 추정 meaning/origin, evidence_urls[], **proposed_safe_contexts[]**, **negative_examples[]**(무해 용례 — must_pass 후보) |
+| `new_term` 중 number/common | + **proposed_composite_rules[]**: {trigger_kind, trigger_pattern/terms, proximity_window} 초안 + **trigger_evidence[]**(조합이 실제 위험한 근거 URL) + negative_examples[](단독 출현 무해 용례) — 숫자 코드는 positive evidence만으로 승인 금지 (negative_examples 필수) |
+| `new_variant` | parent_term 식별자, variant, variant_kind, 발견 출처 |
+| `new_marker` | name, marker_kind, 출처·라이선스 메모 (이미지 원본은 M4 전 수동 큐레이션 — §2) |
+| `incident` | title, occurred_at, medium, 관련 term/marker 후보, source_url |
+| `deprecation` | 대상 term, 무활동 근거 (기간, 최종 매칭일) |
+
+후보 승인 시 목적지 상태 선택: 근거 충분 → `in_review`, 근거 약하나 모니터링 가치 → **`watchlist`** (02 §3.2 — monitor 등급 고정, 언론화 전 신조어의 중간 수용처).
+
 ## 4. 검수 워크플로우 (human-in-the-loop)
 
 1. 검수자는 후보의 근거(출처 링크, 발췌)를 확인하고 부족하면 lexicon-researcher 에이전트로 추가 조사 지시.
@@ -91,16 +104,20 @@ CREATE TABLE candidate_queue (
 
 ```
 trigger (주간 정기 / urgent 핫픽스)
-  → active 항목 추출 → 정규화 키 재계산 → 변형 자동 생성(verified만 포함 옵션)
+  → active 항목 추출 (release_policy 채널 필터: internal_only/hold_legal 제외, watchlist는 watchlist.json 분리 — 02 §3.10)
+  → 정규화 키 재계산 → 변형 자동 생성(verified만 포함 옵션)
   → 오토마톤/패턴/이미지 인덱스 컴파일 → manifest(체크섬, normalizer_code_version)
   → [게이트 0] 라이선스 화이트리스트: 릴리스 아티팩트에 컴파일되는 모든 active 항목의
       연결 evidence source 전부가 license_class ∈ {permissive, share_alike}여야 통과.
       noncommercial/no_derivatives/restricted/unknown이 하나라도 있으면 해당 항목 제외 + 검수 큐 반려.
       share_alike 포함 시 effective_license 갱신 + attribution.json 자동 생성, 누락 시 차단.
+      **항목별 provenance_class 재계산·검증** (02 §3.2): share_alike_core는 origin_story 응답 비노출
+      플래그로 컴파일 (03 §2 단계 4, 08 Q1 회신 전 기본값).
       (KOLD·AI Hub 등 문장 코퍼스는 data/corpus/ 격리 ML 학습 전용 — 이 게이트의 대상 아님)
   → [게이트 1] 데이터 무결성: evidence ≥ 1, URL 생존(또는 archive), 필수 필드
   → [게이트 2] 골든셋 회귀: must_catch/must_pass/evasion — 직전 릴리스 대비 신규 실패 0건
-      (must_pass 채점은 06 §1의 등급별 규칙 적용: ambiguous 항목은 M3 전까지 block만 실패로 카운트)
+      (must_pass 채점은 06 §1의 등급별 규칙 적용: ambiguous 항목은 M3 전까지
+       revise_recommended(구 block) 발생만 실패로 카운트)
   → [게이트 3] diff 리포트 생성 → 사람 승인
   → 릴리스 (CalVer: v2026.06.04-1) → 검사 API 핫리로드 → 평가 리포트 보존
 ```

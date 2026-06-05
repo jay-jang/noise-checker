@@ -62,11 +62,42 @@ DB 설계 문서 §4의 정규화를 적용하되, 검사 경로는 `normalize(t
   (→ 이 문장은 신조어 후보로 수집계에 피드백)
 
 ### 단계 4 — 위험도 산정 및 응답 조립
+
+**등급 어휘는 자문형으로 통일** (§6 법적 포지셔닝의 직접 반영 — 교차 리뷰 2026-06-05 합의 3):
+판정·지시로 읽히는 `block/warn/info`를 쓰지 않고 권고 수준만 표현한다.
+
+| usage_recommendation | 의미 | (구 명칭) |
+|---|---|---|
+| `revise_recommended` | 수정 검토를 강하게 권고 | block |
+| `review_recommended` | 내부 검토 권고 | warn |
+| `monitor` | 참고·관찰 | info |
+
+**위험도 정책표 v1** (교차 리뷰 합의 6 — `f(...)` 명시화. M0에서 코드·골든셋 채점과 함께 고정, 변경은 릴리스 노트 의무):
+
 ```
-risk = f(severity, match_confidence, context_score, category, composite_score)
-등급: block(즉시 수정 권고) / warn(검토 권고) / info(참고)
+effective_severity = term.severity                  # composite는 base_severity+severity_delta (충족 시)
+risk_score = (effective_severity/5) × match_confidence × context_score
+  - match_confidence: exact 1.0 / verified variant 0.9 / skip-char 0.8 / fuzzy ≤ 0.7
+  - context_score: unambiguous=1.0 (분류기 생략) / ambiguous는 분류기 harmful 확신도 (M3 전에는 0.5 고정)
 ```
-응답에는 매칭별로: 원문 위치, 매칭 형태, 대표 용어, 카테고리, 유래 요약(`origin_story`), 출처 링크 목록, 유사 실사고 사례(`disclosable=true`인 incident의 `display_title`만 — 02 §3.7 노출 거버넌스), 권고 문구.
+
+| 조건 (위에서부터 첫 매칭 적용) | usage_recommendation |
+|---|---|
+| 도그휘슬·의도성 미입증 표식 (집게손가락 등, §6 회색지대) | **상한 `review_recommended` 고정** — revise 금지 |
+| `ambiguity != 'unambiguous'` AND (M3 전 또는 context_score < 0.85) | 상한 `review_recommended` |
+| `status='watchlist'`(emerging, 02 §3.2) 또는 evidence_strength 낮음 | `monitor` 고정 — 차단/수정 권고에 사용 금지 |
+| severity ≥ 4 AND risk_score ≥ 0.7 | `revise_recommended` |
+| risk_score ≥ 0.35 | `review_recommended` |
+| 그 외 매칭 (composite 미충족 number/common 포함) | `monitor` |
+
+`overall_recommendation` = 매칭들의 최고 등급. 불변식: ① ambiguous 항목은 문맥 분류기 확신 없이 revise 불가 ② watchlist는 어떤 경우에도 monitor ③ 등급 산정 입력값(`harm_likelihood`, `evidence_strength` 등)은 응답에 분리 노출해 고객이 자체 정책을 세울 수 있게 한다.
+
+응답에는 매칭별로: 원문 위치, 매칭 형태, 대표 용어, 카테고리, 유래(아래 SA 정책 적용), 출처 링크 목록, 유사 실사고 사례(`disclosable=true`인 incident의 `display_title`만 — 02 §3.7 노출 거버넌스), 권고 문구(자문형 템플릿).
+
+> **SA 파생 텍스트 응답 포함 금지 (기본값)**: `origin.summary` 등 유래 서술은 해당 term의
+> `provenance_class='share_alike_core'`(02 §3.2)이면 응답에 **직접 포함하지 않는다** — 출처 링크와
+> 메타데이터(커뮤니티/시기)만 반환. 법무 질의(08 문서 Q1) 회신 후 정책 재결정. permissive/자체 작성
+> 유래만 `summary` 텍스트로 노출.
 
 ## 3. 이미지 검사 파이프라인
 
@@ -76,7 +107,7 @@ risk = f(severity, match_confidence, context_score, category, composite_score)
 |---|---|---|---|
 | **OCR → 텍스트 검사** | 이미지 내 문구 | PaddleOCR(한국어) 또는 클라우드 OCR → §2 파이프라인 재사용. **텍스트+좌표를 함께 추출**해 인접/겹침 텍스트 결합 검사 (예: '노진혁'+'무한 박수' 겹침 → '노무한 박수') | 가장 흔한 사고 경로(짤방 속 텍스트, 자막 겹침) |
 | **표식 매칭** | 로고/짤방/워터마크 | pHash(정확·변형 적은 복제) + CLIP 임베딩 kNN(크롭/색변형 대응) | 임계값 이중화: pHash 해밍거리 ≤ 8 즉시 플래그, CLIP cos ≥ 0.92 warn |
-| **손모양 감지** | 일베식 손모양 등 | MediaPipe Hands → 랜드마크 → 경량 분류기 | 오탐 높음 → 단독으로는 warn까지만, 사람 검토 권장 표시 |
+| **손모양 감지** | 일베식 손모양 등 | MediaPipe Hands → 랜드마크 → 경량 분류기 | 오탐 높음 → 단독으로는 `review_recommended`까지만 + `requires_human_visual_review` 플래그, 사람 검토 권장 표시 |
 
 - 합성 이미지(고인 비하 합성 등)는 pHash로 원본 변형 추적 + CLIP으로 의미 유사도.
 - 이미지 파이프라인은 **비동기 워커**(큐 기반)로 처리, 텍스트는 동기 응답.
@@ -99,32 +130,39 @@ GET  /v1/releases/current                                → 현재 사전 버�
 {
   "check_id": "chk_01HX...",
   "release_version": "v2026.06.04-1",
-  "overall_risk": "block",
+  "overall_recommendation": "revise_recommended",
+  "usage_notice": "본 결과는 리스크 자문 의견이며 사실 판정이 아닙니다. 특정인에 대한 의도 추정·인사 조치의 근거로 사용하지 마십시오. 최종 판단과 책임은 이용 고객에게 있습니다.",
   "matches": [
     {
       "span": { "start": 12, "end": 14, "surface_in_text": "운지" },
       "term": "운지",
       "matched_variant": null,
       "categories": ["deceased", "community_jargon"],
-      "severity": 5,
+      "harm_likelihood": 0.94,
+      "controversy_likelihood": 0.97,
+      "evidence_strength": "high",
       "ambiguity": "ambiguous",
-      "context_verdict": { "label": "harmful", "score": 0.94, "model": "kcelectra-ft-v3" },
-      "risk": "block",
+      "context_verdict": { "label": "risk_context_detected", "score": 0.94, "model": "kcelectra-ft-v3" },
+      "usage_recommendation": "revise_recommended",
       "origin": {
         "community": "ilbe",
         "period": "2011년경",
-        "summary": "고(故) 노무현 전 대통령 서거를 조롱하는 표현에서 유래…",
+        "summary": "고(故) 노무현 전 대통령 서거 조롱 표현에서 유래… (provenance_class가 permissive/internal인 경우에만 텍스트 제공 — SA 파생이면 null + sources만)",
         "sources": [
           { "title": "…", "url": "https://...", "type": "news", "reliability": 4 }
         ]
       },
       "related_incidents": [ { "display_title": "국내 편의점 광고 사례 (2021)", "url": "https://..." } ],
-      "recommendation": "해당 표현을 제거하거나 '낙하' 등 중립 표현으로 교체하세요."
+      "recommendation": "내부 검토 후 '낙하' 등 대체 표현 사용을 고려하세요."
     }
   ],
   "out_of_lexicon_warning": null
 }
 ```
+
+- `harm_likelihood`(맥락상 위해 가능성)·`controversy_likelihood`(논란 재현 가능성)·`evidence_strength`(근거 강도: high/medium/low)는 분리 노출 — 도그휘슬류는 "혐오 여부"가 아니라 "논란 가능성" 모델이므로 `controversy_likelihood`만 높고 `harm_likelihood`는 낮을 수 있다.
+- `usage_notice`는 모든 응답에 강제 포함 (생략 불가 필드 — §6 인사조치 활용 금지 고지).
+- `recommendation` 템플릿은 자문형 동사만 허용 ("고려하세요", "검토를 권고합니다") — "제거하세요", "~입니다" 단정형은 템플릿 금지어.
 
 ## 5. 기술 스택
 
@@ -146,11 +184,13 @@ GET  /v1/releases/current                                → 현재 사전 버�
 
 ## 6. 법적 포지셔닝이 강제하는 제품 설계 (01 보고서 §5 근거)
 
-- **자문(advisory), 판정(adjudication) 아님**: 모든 산출물은 "리스크 확률·의견 + 근거"로 표현. `risk` 등급명도 단정 아닌 권고("수정 권고"). "일베 표현이다" 같은 단정 문구는 응답 템플릿 금지어.
+- **자문(advisory), 판정(adjudication) 아님**: 모든 산출물은 "리스크 확률·의견 + 근거"로 표현. 등급 어휘 자체가 권고형(`revise_recommended`/`review_recommended`/`monitor` — §2 단계 4). "일베 표현이다" 같은 단정 문구는 응답 템플릿 금지어.
+- **2차 피해 방지 고지 강제**: 모든 검사 응답에 `usage_notice`(의도 추정·인사 조치 근거 사용 금지) 포함 — 검출기 존재가 부당 징계를 가속하는 메타 리스크 대응 (교차 리뷰 합의 3). 약관에도 동일 사용 제한 조항.
+- **SA 파생 서술 비노출 기본값**: `provenance_class='share_alike_core'`인 유래 서술은 법무 질의(docs/08 Q1) 회신 전까지 응답에 직접 포함하지 않는다 (§2 단계 4).
 - **공연성 차단**: 검사 결과는 요청한 고객에게만 반환. 공개 랭킹, 기업 명단, 제3자 공유 기능은 만들지 않는다.
 - **외부 신고 기능 미제공**: 신고 판단·실행은 고객 귀속 (무고죄 리스크 차단).
 - **근거 보존 = 면책 자산**: 매칭 로그·사전 버전·출처 체인은 '진실 확신의 합리성' 입증 자료 — release_version과 evidence 체계가 법무 요구사항이기도 함.
-- **회색지대(부인 가능성 높은 도그휘슬)**: 집게손가락처럼 의도성 미입증 표식은 `block` 금지, `warn` + 유래·반론 맥락 병기 (위키백과 '음모론' 서술 관점 반영).
+- **회색지대(부인 가능성 높은 도그휘슬)**: 집게손가락처럼 의도성 미입증 표식은 `revise_recommended` 금지, 상한 `review_recommended` + 유래·반론 맥락 병기 (위키백과 '음모론' 서술 관점 반영 — §2 단계 4 정책표 첫 행으로 강제).
 - 약관: 자문 정의 + 경과실 배상 상한 + 오탐 가능성·인간 검수 권고 명시 (약관규제법 §7 — 고의·중과실 면책 불가 전제).
 
 ## 7. 비기능 요구사항

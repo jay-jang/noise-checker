@@ -97,11 +97,26 @@ CREATE TABLE term (
     safe_contexts   TEXT[],                     -- 무해 문맥 예시 키워드 (예: '{버섯,운지버섯,약초}')
     status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN (
                       'draft',        -- 수집됨, 근거 미확정
+                      'watchlist',    -- 근거 약함·모니터링 가치 있음 (emerging — 교차 리뷰 합의 4):
+                                      --   언론화 전 신조어의 중간 상태. 검사 응답에서 monitor 등급 고정,
+                                      --   차단/수정 권고에 사용 금지. evidence 확보 시 in_review로 승격
                       'in_review',    -- 검수 중
                       'active',       -- 검사에 사용
                       'deprecated',   -- 더 이상 위험하지 않음(사어화) — 이력 보존
                       'rejected'      -- 오수집 판정
                     )),
+    release_policy  TEXT NOT NULL DEFAULT 'general' CHECK (release_policy IN (
+                      'general',         -- 전 고객 채널 배포 가능
+                      'advisory_only',   -- 배포하되 등급 상한 review_recommended (도그휘슬·회색지대)
+                      'internal_only',   -- 내부 도구 전용 — 고객 노출 아티팩트에서 제외
+                      'hold_legal'       -- 법무 검토 통과 전 모든 릴리스에서 제외
+                    )),                          -- status(검수 상태)와 직교하는 배포 정책 축 (교차 리뷰 합의 8)
+    provenance_class TEXT NOT NULL DEFAULT 'internal' CHECK (provenance_class IN (
+                      'permissive_core',     -- origin/definition evidence가 모두 permissive 또는 자체 작성
+                      'share_alike_core',    -- SA 출처 파생 서술 포함 → origin_story 텍스트 응답 비노출 기본값
+                      'restricted_eval_only',-- NC/ND/restricted/unknown 근거만 존재 → 릴리스 불가 (평가 전용)
+                      'internal'             -- 자체 리서치·실사고 기반 (응답 노출 가능)
+                    )),                          -- 라이선스 3계층 (교차 리뷰 합의 1). evidence 변경 시 빌드가 재계산·검증
     first_seen_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
     UNIQUE (normalized_key, term_kind)
@@ -111,6 +126,7 @@ CREATE INDEX idx_term_nkey   ON term(normalized_key);
 ```
 
 > **상태 기계**: `draft → in_review → active ↔ deprecated`, 어디서든 `→ rejected`.
+> `watchlist`는 `draft ↔ watchlist → in_review` — active로 직접 전이 불가 (evidence 게이트 우회 방지).
 > `active` 전이는 **근거(evidence) 1건 이상 + 검수자 승인**이 있어야만 가능.
 > **강제 지점은 DB 트리거 단일**: `BEFORE INSERT OR UPDATE OF status` 트리거가 `NEW.status='active'`일 때
 > `term_evidence`에 `evidence_type IN ('origin','definition')` 행 ≥ 1을 검사, 미충족 시 예외.
@@ -129,7 +145,9 @@ CREATE TABLE term_evidence (
                   'incident',     -- 이 용어로 인한 논란 보도
                   'definition'    -- 의미 정의 출처 (사전/데이터셋)
                 )),
-    excerpt     TEXT,             -- 해당 출처에서의 관련 인용 (저작권 고려, 짧게)
+    excerpt     TEXT CHECK (char_length(excerpt) <= 300),
+                                  -- 해당 출처에서의 관련 인용 — 최소 인용 원칙을 DB 제약으로 강제
+                                  -- (수집기 버그로 본문 대량 복제가 적재되는 저작권 리스크 차단)
     added_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
     added_by    TEXT NOT NULL,    -- 수집 파이프라인 ID 또는 검수자
     PRIMARY KEY (term_id, source_id, evidence_type)
@@ -199,8 +217,13 @@ CREATE TABLE image_marker (
     severity        SMALLINT NOT NULL CHECK (severity BETWEEN 1 AND 5),
     detection_method TEXT[] NOT NULL,         -- '{phash,clip,hand_landmark,ocr,object_detection}'
     status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN
-                      ('draft','in_review','active','deprecated','rejected')),
+                      ('draft','watchlist','in_review','active','deprecated','rejected')),
                     -- term과 동일 상태기계 + 동일 active 게이트 트리거 (marker_evidence ≥ 1, origin/definition)
+    release_policy  TEXT NOT NULL DEFAULT 'advisory_only' CHECK (release_policy IN
+                      ('general','advisory_only','internal_only','hold_legal')),
+                    -- term §3.2와 동일 축. 표식은 기본 advisory_only (도그휘슬 메타 리스크 — 손모양은 internal_only 권장)
+    provenance_class TEXT NOT NULL DEFAULT 'internal' CHECK (provenance_class IN
+                      ('permissive_core','share_alike_core','restricted_eval_only','internal')),
     first_seen_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -273,7 +296,7 @@ CREATE TABLE composite_rule (
     trigger_terms   BIGINT[],            -- co_occurrence일 때 대상 term id 배열
     trigger_pattern TEXT,                -- date/amount/time일 때 정규식 (예: '52,?300\s*원')
     proximity_window INT,                -- 결합 인정 거리 (문자 수 또는 OCR px)
-    base_severity   SMALLINT NOT NULL,   -- 단독 출현 시 강도 (보통 1~2 = 미플래그/info)
+    base_severity   SMALLINT NOT NULL,   -- 단독 출현 시 강도 (보통 1~2 = 미플래그/monitor)
     severity_delta  SMALLINT NOT NULL,   -- 조건 충족 시 가산 → 합산이 실효 severity
     status          TEXT NOT NULL DEFAULT 'draft' CHECK (status IN
                       ('draft','in_review','active','deprecated','rejected')),
@@ -320,8 +343,9 @@ CREATE TABLE dictionary_release (
 );
 ```
 
-**릴리스 아티팩트 구성** (빌드 단계에서 `active` 항목만 컴파일):
-- `lexicon.json` — 전체 사전 (용어+변형+메타데이터+출처 요약)
+**릴리스 아티팩트 구성** (빌드 단계에서 `active` 항목만 컴파일 — `release_policy='internal_only'`는 내부 채널 아티팩트에만, `'hold_legal'`은 전 채널 제외. `watchlist` 항목은 별도 `watchlist.json`으로 내부 채널 전용):
+- `lexicon.json` — 전체 사전 (용어+변형+메타데이터+출처 요약). 항목별 `provenance_class` 포함 —
+  `share_alike_core` 항목의 origin_story 텍스트는 검사 API가 응답에 직접 싣지 않는다 (03 §2 단계 4, 08 Q1)
 - `automaton.pkl` — Aho-Corasick 오토마톤 (정규화 키 기준, 즉시 로드용)
 - `patterns.json` — 정규식 패턴 목록 + composite_rule 컴파일본
 - `phash_index.bin` / `clip_index.faiss` — 이미지 표식 인덱스
@@ -373,6 +397,8 @@ NFKC/소문자화/자모 분해로 표면형이 다른 입력이 같은 키로 �
 
 - **근거 없는 active 금지**: `active` **용어와 이미지 표식 모두** evidence ≥ 1 (그중 `origin` 또는 `definition` 타입 ≥ 1)을 DB 트리거로 강제 (§3.2/§3.6).
 - **라이선스 게이트**: 릴리스 아티팩트에 컴파일되는 모든 active 항목은 연결된 evidence source 전부가 `license_class ∈ {permissive, share_alike}`여야 통과. **unknown/restricted는 NC와 동일하게 차단** (불명 = 차단이 안전 기본값). share_alike 포함 시 `effective_license`·`attribution.json`에 전파 기록.
+- **라이선스 3계층 (provenance_class — 교차 리뷰 합의 1)**: 항목 단위로 `permissive_core` / `share_alike_core` / `restricted_eval_only`를 빌드가 evidence에서 재계산·검증. "상업 사용 가능 ≠ 폐쇄형 SaaS 응답 포함 가능" — `share_alike_core` 항목의 파생 서술은 법무 질의(docs/08 Q1) 회신 전까지 API 응답 비노출 기본값. 매칭·차단 동작 자체는 영향 없음(사실의 사용), 서술 텍스트만 통제.
+- **배포 정책 분리 (release_policy)**: 검수 상태(status)와 별개로 항목별 배포 채널·등급 상한을 통제 (§3.2). `disclosable`(incident)·`hold_legal`(term)은 법무 검토 전 자동 노출이 구조적으로 불가능하게 한다.
 - **반론 처리**: 오탐 신고(`/v1/feedback`)는 `review_log`에 적재 → 검수 큐로.
 - **사어화 관리**: 12개월간 매칭/신고/뉴스 언급이 없는 용어는 분기 검수에서 `deprecated` 후보로 자동 제안.
 - **저작권/법적 고려**: 커뮤니티 원문 장문 인용 금지(`excerpt`는 최소 인용), 레퍼런스 이미지는 `license_ok` 확인 후 보관.
