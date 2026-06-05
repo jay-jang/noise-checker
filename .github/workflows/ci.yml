@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: noise
+          POSTGRES_PASSWORD: noise
+          POSTGRES_DB: noise_checker
+        ports:
+          - 5455:5432
+        options: >-
+          --health-cmd "pg_isready -U noise -d noise_checker"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgresql+psycopg://noise:noise@localhost:5455/noise_checker
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: uv sync
+        run: uv sync
+
+      - name: ruff check
+        run: uv run ruff check .
+
+      - name: alembic upgrade head
+        run: uv run alembic upgrade head
+
+      - name: pytest
+        run: uv run pytest -q
