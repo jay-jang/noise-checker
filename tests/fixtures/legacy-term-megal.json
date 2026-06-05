@@ -1,0 +1,22 @@
+{
+  "_comment": "레거시 candidate-term 단독 형식 픽스처 (kind/collector 없음). loader가 new_term payload로 자동 래핑하고 collector='manual:legacy-file'로 설정해야 함. negative_examples 포함하여 래핑 후 검증 통과.",
+  "surface": "레거시테스트어",
+  "term_kind": "word",
+  "meaning": "레거시 래핑 검증용 의미.",
+  "origin_community": "other",
+  "origin_story": "레거시 candidate-term 단독 파일이 new_term payload로 래핑되는지 검증하기 위한 합성 엔트리.",
+  "severity": 4,
+  "ambiguity": "unambiguous",
+  "categories": ["community_jargon"],
+  "evidence": [
+    {
+      "url": "https://example.org/legacy-evidence",
+      "title": "레거시 테스트 출처",
+      "source_type": "wiki",
+      "evidence_type": "definition"
+    }
+  ],
+  "negative_examples": [
+    "이 문장은 무해한 일반 용례입니다."
+  ]
+}
