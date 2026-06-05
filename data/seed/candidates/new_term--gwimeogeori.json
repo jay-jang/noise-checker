@@ -1,0 +1,53 @@
+{
+  "_comment": "귀머거리 — 소리를 듣지 못하는 사람(청각장애인·농인)을 낮춰 부르는 말. '농인'이라는 중립어가 있음에도 쓰여 인권위가 2014년 '벙어리·귀머거리·장님'으로 묶어 공적 영역 자제를 의견표명. '귀머거리' 직접 정의 근거는 한국경제(2014 인권위) 1건. 비마이너 evidence는 본문에 '귀머거리'가 없고 형제어 '벙어리' 발언(2019 황교안)에 대한 청각장애 당사자 반응을 보도한 인접 맥락 출처로만 사용(excerpt를 본문 일치로 교정). 동철 일상어 충돌 낮으나 '귀머거리 삼 년' 속담 등 있어 ambiguous + safe_contexts. 나무위키·커뮤니티 사이트 미접근. legal_review_flag=false. 단일 정의 출처라 사람 검수 시 청정 정의 출처 1건 보강 권장.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "귀머거리",
+    "term_kind": "word",
+    "meaning": "소리를 듣지 못하는 사람(청각장애인·농인)을 낮춰 부르는 말. '농인'이라는 중립적 표현이 있음에도 쓰이며, 비유적으로 '남의 말을 들으려 하지 않는 사람'을 가리키는 데 동원돼 청각장애를 불통·무지의 상징으로 비하한다.",
+    "origin_community": "unknown",
+    "origin_story": "전통적으로 쓰여 온 표현으로, 2014년 국가인권위원회가 '귀머거리·벙어리·장님' 등을 무심결에 장애인에 대한 편견을 심화시키는 표현으로 보고 공적 영역에서 자제하도록 언론에 의견표명했다. 정치인의 '벙어리' 발언(2019 황교안 등)이 청각장애 비하 논란으로 번질 때 청각장애인을 낮추는 비하어 계열로 함께 거론됐다.",
+    "origin_period": "전통적 표현(특정 시점 불명), 2014년 인권위 의견표명으로 부각",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "safe_contexts": [
+      "'귀머거리 삼 년 벙어리 삼 년' 같은 속담·관용구 자체를 다루는 문학·언어 설명",
+      "장애 비하 표현 자제를 안내하는 인권위 의견표명·언어순화 캠페인 보도/교육 문서"
+    ],
+    "categories": ["disability"],
+    "evidence": [
+      {
+        "url": "https://www.hankyung.com/article/2014110392201",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankyung.com/article/2014110392201",
+        "title": "눈뜬장님·벙어리 냉가슴…장애인 비하 표현 자제를",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한국경제",
+        "published_at": "2014-11-03",
+        "excerpt": "국가인권위원회는 '귀머거리, 벙어리, 장님, 절름발이' 등의 표현이 무심결에 사용돼 장애인에 대한 편견을 심화시킨다며 공적 영역에서 자제할 것을 의견표명했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.beminor.com/news/articleView.html?idxno=13719",
+        "archive_url": "http://web.archive.org/web/2024/https://www.beminor.com/news/articleView.html?idxno=13719",
+        "title": "황교안 \"문재인은 벙어리\", 정치인 장애인 비하 발언에 장애계는 분노",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "permissive",
+        "publisher": "비마이너",
+        "published_at": "2019-08-09",
+        "excerpt": "청각장애 당사자 대의원이 '벙어리라는 표현에 담긴 청각장애인들의 상처를 정녕 모르는가'라며 분노했고, 7개 장애인단체가 공식 사과와 재발방지를 요구했다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "'귀머거리 삼 년 벙어리 삼 년'이라는 옛 속담의 유래를 찾아봤다.",
+      "인권위는 '귀머거리' 같은 표현을 공적 영역에서 자제하라고 권고했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

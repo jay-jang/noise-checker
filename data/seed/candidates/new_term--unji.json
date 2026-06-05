@@ -1,0 +1,62 @@
+{
+  "_comment": "운지 — 고(故) 노무현 전 대통령의 서거(투신)를 조롱하는 일베 발원 비하어. '추락/투신/떨어지다'의 대용어. 기존 큐에는 정식 후보로 미존재(예시 픽스처 data/seed/example-payload-new-term-unji.json만 존재)하여 정식 후보로 작성. 동음이의 '운지버섯(雲芝)'·'운지법(악기 운지)'과 충돌하므로 ambiguity=ambiguous + safe_contexts. 고인 실명 직결이라 legal_review_flag=true, severity=5. 청정 출처: 위키백과 '운지'(정의, CC BY-SA 4.0) + 스포츠월드·한국일보(유래=운지천 CF→노무현 투신 비하). 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "운지",
+    "term_kind": "word",
+    "meaning": "고(故) 노무현 전 대통령의 서거(투신)를 조롱·비하하는 표현. 추락·투신·떨어지다 등을 가리키는 비하적 대용어로 전용되어 일베저장소에서 광범위하게 쓰였다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(주 확산처)"],
+    "origin_story": "배우 최민식이 절벽에서 뛰어내리는 음료 CF(운지천) 광고에 빗대어 만들어진 표현으로, 2009년 노무현 전 대통령의 투신 서거를 비하·희화화하는 뜻으로 전용되어 일베저장소에서 확산됐다. 이후 추락·떨어지다 등을 가리키는 은어로도 사용됐다. (출처: 한국일보·스포츠월드. '얼굴 합성 동영상 제작'·'dcinside 합성갤 발원' 등 세부 유래는 인용 출처에서 직접 확인되지 않아 단정에서 제외 — needs_verification.)",
+    "origin_period": "2009년 이후(일베 확산), 시기 세부는 미확정",
+    "severity": 5,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["운지버섯", "운지(雲芝)", "약용 버섯", "운지법", "기타 운지", "피아노 운지", "악기 운지법"],
+    "categories": ["deceased", "community_jargon", "politics"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%9A%B4%EC%A7%80",
+        "archive_url": "http://web.archive.org/web/20260225141421/https://ko.wikipedia.org/wiki/%EC%9A%B4%EC%A7%80",
+        "title": "위키백과: 운지 — 일베저장소 용어 정의",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "운지(雲芝): 노무현 전 대통령의 자살 사건을 비하하는 일베저장소의 용어로, 건전하지 못한 말이다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.sportsworldi.com/newsView/20160228000022",
+        "title": "[기자수첩] 스타라면 필독… 피해야 할 '일베 용어 사전'",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "스포츠월드",
+        "published_at": "2016-02-28",
+        "excerpt": "'운지'란 배우 최민식이 절벽에서 뛰어내리며 외친 운지천 음료 CF에서 비롯된 것이다. 하지만 이는 故 노무현 전 대통령의 서거를 비하하는 뜻으로 사용돼 논란이 일었다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.hankookilbo.com/News/Read/201602271151503273",
+        "title": "류준열도 몰랐다… 스타라면 알아둬야 할 '일베 용어사전'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2016-02-27",
+        "excerpt": "'운지'는 노 전 대통령의 투신을 1990년대 유행했던 드링크 '운지천' 광고에 빗대 희화화한 '일베' 용어.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "운지버섯은 면역에 좋다고 알려진 약용 버섯이다.",
+      "기타 운지법을 매일 꾸준히 연습한다.",
+      "할머니가 산에서 운지를 따 오셨다."
+    ],
+    "needs_verification": true,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

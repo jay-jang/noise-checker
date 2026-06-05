@@ -1,0 +1,13 @@
+{
+  "_comment": "한남충 모욕죄 유죄 판결 — 20대 여성 A씨가 2015년 12월 여성 커뮤니티에 남성작가 B씨를 '한남충'으로 지칭하는 글을 올려 모욕 혐의로 기소, 서울서부지법(강희경 판사)이 2017-07-17 벌금 30만원 선고. 법원은 '충'을 부정적 의미가 강한 벌레로 보고 개인 대상 모욕의 고의를 인정. misandry 멸칭 '한남충'이 사법적으로 다뤄진 실사례 → related_surface='한남충'(이미 큐에 있는 '한남' 항목과 연결). 청정 출처: 여성신문(2017-07-24). 나무위키 미사용. occurred_at은 판결 선고일(2017-07-17) 기준.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "'한남충' 개인 지칭 모욕죄 유죄 판결(서울서부지법, 벌금 30만원)",
+    "occurred_at": "2017-07-17",
+    "medium": "sns",
+    "related_surface": "한남",
+    "sample_text": "한남충",
+    "source_url": "https://www.womennews.co.kr/news/articleView.html?idxno=115864"
+  }
+}

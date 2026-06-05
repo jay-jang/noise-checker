@@ -1,0 +1,48 @@
+{
+  "_comment": "개저씨 — '개'+'아저씨'. 나이·지위·권력을 이용해 약자·여성에게 횡포를 부리는 중년 남성을 비하하는 표현. 행동 기반 비하라 순수 남성 일반 멸칭보다 약하지만 misandry + age 교차로 등재. 페미위키 스스로 '남성 비하이자 세대 공격'이라고 규정. 청정 출처: 페미위키(정의·세대 공격, CC BY-SA 4.0)+경향신문(개저씨 vs 젠틀맨, 정의). SBS스페셜(2016-03-13)이 주제로 다룸은 보조 맥락. 나무위키 미사용. 동철 충돌 거의 없어 unambiguous이나, 행동 비판 맥락이 강해 severity 보수적(2).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "개저씨",
+    "term_kind": "word",
+    "meaning": "'개'와 '아저씨'를 합친 말로, 자신의 나이·지위·권력을 이용해 여성이나 약자에게 무례하고 권위적인 횡포를 부리는 중년 남성을 비하·조롱하는 표현.",
+    "origin_community": "other",
+    "spread_communities": ["온라인 커뮤니티·SNS 전반", "여초 커뮤니티에서 빈번"],
+    "origin_story": "2010년대 들어 권위적이고 무례한 중장년 남성을 가리키는 말로 '아저씨'에 비하 의미의 '개'를 붙인 형태가 쓰이기 시작했다. 2016년 3월 SBS 스페셜이 '아저씨, 어쩌다 보니 개저씨'라는 제목으로 이 현상을 다루는 등 사회 현상으로 보도됐다. 남성 개인에 대한 비하인 동시에 특정 세대(중년 남성)에 대한 공격이라는 양면성이 지적된다.",
+    "origin_period": "2010년대 초중반",
+    "severity": 2,
+    "ambiguity": "unambiguous",
+    "categories": ["misandry", "age", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EA%B0%9C%EC%A0%80%EC%94%A8",
+        "archive_url": "http://web.archive.org/web/20250617183151/https://femiwiki.com/w/%EA%B0%9C%EC%A0%80%EC%94%A8",
+        "title": "페미위키: 개저씨",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "'개저씨'는 남성에 대한 비하이기도 하지만 개저씨로 대표되는 세대에 대한 공격이다.",
+        "reliability": 3
+      },
+      {
+        "url": "https://www.khan.co.kr/article/201606162227005",
+        "title": "당신 개저씨인가, 젠틀맨인가",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "경향신문",
+        "published_at": "2016-06-16",
+        "excerpt": "'개저씨'는 '개'와 '아저씨'의 합성어로, 나이·지위를 무기로 약자에게 횡포를 부리는 중년 남성을 가리키는 말이다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "옆집 아저씨가 이삿짐을 같이 들어주셨다.",
+      "택배 아저씨께 감사 인사를 드렸다."
+    ],
+    "needs_verification": true,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

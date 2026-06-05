@@ -1,0 +1,37 @@
+{
+  "_comment": "숨쉴한 — '삼일한'(일베 계열 여성비하 '여자는 3일에 한 번 때려야')을 미러링해 '남성은 숨 쉴 때마다 한 번 때려야 한다'는 의미로 만든 남성 비하어. 신체폭력 정당화 함의가 직접적이라 severity 5. 박대아(2018) '남성 지시형' 계열. 동철 충돌 거의 없어 unambiguous(단 줄임말 특성상 일상어 충돌 낮음). 청정 출처: 서울신문(2015-07-17, 정의·미러링·삼일한 대응). 단일 청정 뉴스 출처라 보수적 처리. 나무위키 미사용. 서울신문 web.archive.org 스냅샷 미존재로 archive_url 생략.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "숨쉴한",
+    "term_kind": "word",
+    "meaning": "'남성은 숨 쉴 때마다 한 번씩 때려야 한다'는 뜻으로, 남성에 대한 신체폭력을 정당화·조롱하는 멸칭. 일베 계열의 여성비하 표현 '삼일한'(여자는 삼일에 한 번 때려야)에 대응하는 미러링으로 만들어졌다.",
+    "origin_community": "megalia",
+    "spread_communities": ["메갈리아 등 여성 중심 커뮤니티"],
+    "origin_story": "2015년경 메갈리아 등 여성 중심 커뮤니티에서, 남성들의 여성혐오 표현을 거울처럼 되받는 '미러링' 전략의 하나로 만들어졌다. 일베 계열에서 쓰이던 여성비하 표현 '삼일한'(여자는 3일에 한 번 때려야)의 구조를 그대로 가져와 대상을 남성으로 바꾸고 빈도를 '숨 쉴 때마다'로 극단화한 형태다. 메르스 사태 등을 계기로 일부 남성들의 여성 공격에 맞대응하는 흐름에서 '씹치남' 등과 함께 확산됐다.",
+    "origin_period": "2015년경",
+    "severity": 5,
+    "ambiguity": "unambiguous",
+    "categories": ["misandry", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.seoul.co.kr/news/society/2015/07/17/20150717500033",
+        "title": "'김치녀·삼일한'에 맞서는 '씹치남·숨쉴한'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-07-16",
+        "excerpt": "남성은 숨 쉴 때마다 한 번씩 패야 한다는 의미인 '숨쉴한'은 여성 비하 표현 '삼일한'에 대응하는 미러링이다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "물속에서 숨을 쉴 한 가지 방법은 스노클을 쓰는 것이다.",
+      "그 한 박자에 숨을 고르고 다시 달렸다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

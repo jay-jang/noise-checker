@@ -1,0 +1,64 @@
+{
+  "_comment": "눈뜬장님 — 눈을 뜨고도 보지 못한다는 뜻으로, '뻔한 것도 알아보지 못하는 사람'을 가리키는 관용 표현. '장님'(시각장애인 비하어)을 핵심어로 삼아 시각장애를 무지·무능의 상징으로 동원해 인권위가 자제를 권고. 관용구로 매우 흔하게 쓰여 ambiguity=common → 단독 매칭은 오탐 위험, combination_rules + trigger_evidence로 보수 처리. 청정 출처: 한국경제(2014 인권위 의견표명)·한글문화연대. 나무위키 미사용. '장님' 단독도 비하어지만 본 항목은 '눈뜬장님' 관용구로 한정.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "눈뜬장님",
+    "term_kind": "phrase",
+    "meaning": "눈을 뜨고도 보지 못한다는 뜻으로, 빤히 보이는 것이나 마땅히 알아야 할 것을 알아보지 못하는 사람을 비꼬는 관용 표현. 시각장애인을 낮춰 부르는 '장님'을 핵심어로 삼아 시각장애를 무지·무능의 상징으로 동원한다는 점에서 장애 비하 표현으로 지적된다.",
+    "origin_community": "unknown",
+    "origin_story": "오래전부터 쓰여 온 관용 표현으로, 2014년 국가인권위원회가 '귀머거리·벙어리·장님' 및 '눈뜬장님', '장님 코끼리 만지기' 등을 무심결에 장애인 편견을 심화시키는 표현으로 보고 공적 영역에서 자제하도록 언론에 의견표명했다.",
+    "origin_period": "전통적 관용 표현, 2014년 인권위 의견표명으로 부각",
+    "severity": 2,
+    "ambiguity": "common",
+    "safe_contexts": [
+      "관용구 자체의 뜻·유래를 다루는 사전·문학·언어 설명",
+      "장애 비하 표현 자제를 안내하는 인권위 의견표명·언어순화 캠페인 보도/교육 문서"
+    ],
+    "categories": ["disability"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["벙어리", "귀머거리", "절름발이", "병신"],
+        "base_severity": 2,
+        "severity_delta": 1
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.hankyung.com/article/2014110392201"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.hankyung.com/article/2014110392201",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankyung.com/article/2014110392201",
+        "title": "눈뜬장님·벙어리 냉가슴…장애인 비하 표현 자제를",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한국경제",
+        "published_at": "2014-11-03",
+        "excerpt": "국가인권위원회는 '눈뜬장님', '장님 코끼리 만지기', '벙어리 냉가슴' 등 장애 관련 관용 표현이 장애인에 대한 편견을 심화시킨다며 공적 영역에서 자제할 것을 의견표명했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.urimal.org/3640",
+        "archive_url": "http://web.archive.org/web/2024/https://www.urimal.org/3640",
+        "title": "무심코 사용하는 장애 차별 표현, '꿀 먹은 벙어리', '선택 장애'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한글문화연대",
+        "published_at": "2021-12-08",
+        "excerpt": "'장님'을 활용한 관용 표현은 시각장애인을 낮추어 보는 의미를 담아 장애 차별 표현으로 분류된다고 설명한다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "이 관용구 사전은 '눈뜬장님'의 유래를 설명한다.",
+      "인권위는 '눈뜬장님' 같은 관용 표현을 공적 영역에서 자제하라고 권고했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

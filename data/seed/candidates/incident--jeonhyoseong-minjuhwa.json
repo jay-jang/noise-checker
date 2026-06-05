@@ -1,0 +1,13 @@
+{
+  "_comment": "2013-05-14 걸그룹 시크릿 전효성이 SBS 파워FM '최화정의 파워타임' 라디오에서 '저희는 개성을 존중하는 팀이라 민주화시키지 않는다'고 발언, 일베식 반어 표현('민주화'=억압/비추천) 사용 논란→당일·20일 두 차례 사과, 대학 축제 초청 취소 등 파장. '민주화' 용어(new_term--minjuhwa.json)가 일반 대중에게 알려진 계기 사건. 실명(연예인) 포함이나 본인이 공개 사과한 보도된 사건 사실만 기록하며 '민주화'를 혐오어로 단정하지 않음(반어적 오용 사례). related_surface=민주화. 청정 출처: 뉴시스. 나무위키 미사용. 실명 포함이라 legal 민감 → 검수 시 주의.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "시크릿 전효성 라디오 '민주화시키지 않는다' 일베식 발언 논란·사과",
+    "occurred_at": "2013-05-14",
+    "medium": "broadcast",
+    "related_surface": "민주화",
+    "sample_text": "저희는 개성을 존중하는 팀이라 민주화시키지 않아요",
+    "source_url": "https://www.newsis.com/view/NISX20130514_0012083237"
+  }
+}

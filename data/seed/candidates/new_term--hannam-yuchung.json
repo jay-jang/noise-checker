@@ -1,0 +1,51 @@
+{
+  "_comment": "한남유충/유충 — '한남(한국 남자)'+'유충(어린 벌레)'으로 남자아이를 비하하는 표현. 한남충의 파생형이며 아동(남아) 대상이라 misandry + age 교차. 미러링 주장 vs 아동혐오 비판이 병존하는 '논란' 성격이라 정직하게 양측 병기. 청정 출처: 여성신문(2020-10-14, 정의·유래·미러링vs아동혐오 논란)+뉴시스(2018-09-07, '-충' 계열 혐오표현으로 한남유충 정의). 나무위키 미사용. 단독 표기는 동철 충돌 거의 없으나 '유충'은 일반 곤충학 용어와 동철이라 ambiguity=ambiguous + safe_contexts.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "한남유충",
+    "term_kind": "word",
+    "meaning": "'한남(한국 남자)'에 '유충(어린 벌레)'을 붙여 남자아이를 비하하는 멸칭. 어린 '한남충'이라는 뜻으로, 특히 성적 가해 문제와 엮어 남아·남자 청소년을 싸잡아 비하할 때 쓰인다. '유충'으로 줄여 쓰기도 한다.",
+    "origin_community": "megalia",
+    "spread_communities": ["메갈리아(발원)", "래디컬 페미니즘 계열 커뮤니티"],
+    "origin_story": "한국 남성을 비하하는 '한남충'의 파생형으로, 메갈리아 등에서 여성혐오 표현 '김치녀'·'된장녀'에 대항하는 미러링 차원에서 만들어진 것으로 알려진다. 2018년 스쿨미투를 전후해 또래 남아의 성폭력 문제를 비판하는 맥락에서 확산됐다. 이를 두고 '여아 비하·성적 대상화에 맞선 미러링'이라는 옹호와 '아동혐오'라는 비판이 병존하며, 아동혐오의 책임이 결국 돌봄을 전담하는 어머니(여성)에게 돌아간다는 반론도 제기됐다.",
+    "origin_period": "2014~2018년경",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["곤충 유충", "유충 단계", "모기 유충", "유충 방제", "한남동", "유충(인명)"],
+    "categories": ["misandry", "age", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.womennews.co.kr/news/articleView.html?idxno=203159",
+        "archive_url": "http://web.archive.org/web/20210725060718/https://www.womennews.co.kr/news/articleView.html?idxno=203159",
+        "title": "남자아이 비하하는 '한남유충' 논란… \"미러링 표현\" vs \"아동혐오\"",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "여성신문",
+        "published_at": "2020-10-14",
+        "excerpt": "'한남'과 어린 벌레를 뜻하는 '유충'을 합쳐, 성적 문제를 일으키는 남자아이·청소년을 비하하는 표현으로, 미러링이라는 옹호와 아동혐오라는 비판이 병존한다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.newsis.com/view/NISX20180906_0000411050",
+        "title": "[혐오를 혐오한다①]맘충·틀딱충·한남충…끝없이 피어나는 '악의 꽃'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2018-09-07",
+        "excerpt": "한남유충은 남자 아이를 비하하는 표현으로, 벌레 충(蟲)을 붙여 상대를 비하하는 '-충' 계열 혐오표현의 하나로 다뤄진다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "모기 유충은 물속에서 장구벌레 형태로 산다.",
+      "나비의 유충 단계에서는 잎을 갉아먹는다.",
+      "한남동 골목에 새 카페가 많이 생겼다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

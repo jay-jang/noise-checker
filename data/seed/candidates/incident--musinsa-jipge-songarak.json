@@ -1,0 +1,15 @@
+{
+  "_comment": "무신사 현대카드 협업 이미지 집게손가락 남혐 논란 (2021-05). GS25→경찰→BBQ로 번진 '집게손가락' 논란이 무신사로 확산. 2021-04-26 공개한 현대카드 협업 이미지에서 카드를 쥔 손 모양이 메갈리아 로고(남성 성기 비하)와 유사하다는 주장. 무신사는 '어떤 의도도 없다'며 일반적 구도라고 반박했으나, 같은 해 여성 전용 할인쿠폰 논란 등과 겹쳐 조만호 대표가 2021-06 사임. 의도성 미입증 — 집게손가락 표식에 연결. 청정 출처: 뉴시스. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "무신사 현대카드 협업 이미지 '집게손가락' 남혐 논란 및 해명 — 조만호 대표 2021-06 사임",
+    "occurred_at": "2021-05-03",
+    "medium": "ad",
+    "related_marker": "집게손가락 (엄지·검지 오므린 손 모양)",
+    "sample_text": "현대카드를 엄지와 검지로 쥔 손 이미지(메갈리아 로고 유사 주장)",
+    "archive_url": "http://web.archive.org/web/20210504004859/https://www.newsis.com/view/?id=NISX20210503_0001428978",
+    "source_url": "https://www.newsis.com/view/?id=NISX20210503_0001428978",
+    "related_surface": "집게손가락"
+  }
+}

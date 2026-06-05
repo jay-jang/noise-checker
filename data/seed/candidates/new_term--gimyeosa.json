@@ -1,0 +1,84 @@
+{
+  "_comment": "김여사 — 운전 미숙·난폭/무질서 운전자를 '여성'으로 전제해 비하하는 성차별 멸칭(가장 흔한 성씨 '김'+중년 여성 호칭 '여사'). 가장 흔한 인명 호칭('김OO 여사', 'OOO 여사님')과 동철이라 ambiguity=common + safe_contexts + combination_rules/trigger_evidence 필수(스키마 강제). 청정 근거: 페미위키(definition·origin, CC BY-SA 4.0) + 한국일보·경인일보(성차별 표현·문체부 지적, 사실 추출). 나무위키 미사용. 특정 실존인 비방이 아니라 일반 멸칭이라 legal_review_flag=false. 검증: 4개 URL 모두 WebFetch로 용어·주장 일치 확인.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "김여사",
+    "term_kind": "word",
+    "meaning": "운전이 서툴거나 무질서·난폭하게 운전하는 사람을 '여성'으로 전제하고 비하하는 성차별적 멸칭. 좁게는 운전 미숙한 (중년) 여성 운전자를, 넓게는 여성 운전자 일반을 싸잡아 조롱한다. 가장 흔한 성씨 '김'과 중년 여성 호칭 '여사(女史)'를 결합했다.",
+    "origin_community": "dcinside",
+    "spread_communities": ["인터넷 게시판·자동차 커뮤니티(2006 확산)", "포털 뉴스 댓글"],
+    "origin_story": "페미위키에 따르면 2006년 4월 중순 무렵 언론에 등장하기 시작했으며, 교통을 어지럽게 하는 운전자 사진을 게시판에 퍼나르는 '김여사 놀이'가 보도되며 확산됐다. 운전을 못하거나 예의 없는 운전을 하는 사람이 '여성일 것'이라는 고정관념을 전제로 삼아, 일부 사례를 여성 운전자 전체로 일반화하는 표현으로 굳었다. 문화체육관광부와 국립국어원은 운전 미숙이 특정 성별의 특성이라는 통계적 근거가 없는데도 여성에만 초점을 맞춰 만든 차별적 표현으로 지적했고, 언론·공공기관은 '운전미숙자' 등 성중립 표현으로 대체할 것을 권고했다. '김OO 여사', 'OOO 여사님' 같은 실제 인명·존칭 호칭과 표기가 겹치므로 반드시 구분해야 한다.",
+    "origin_period": "2006년경",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["여사", "여사님", "김 여사님", "이순자 여사", "영부인", "교사", "선생님 호칭", "존칭", "사모님", "회장 부인"],
+    "categories": ["misogyny", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["운전", "주차", "끼어들기", "역주행", "초보운전", "도로", "차선"],
+        "base_severity": 1,
+        "severity_delta": 2
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.kyeongin.com/article/1684036",
+      "https://www.hankookilbo.com/news/article/amp/201906271356780749"
+    ],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EA%B9%80%EC%97%AC%EC%82%AC",
+        "archive_url": "http://web.archive.org/web/20260217112057/https://femiwiki.com/w/%EA%B9%80%EC%97%AC%EC%82%AC",
+        "title": "페미위키: 김여사",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "운전에 서툰 (중년) 여성 운전자를 비하하는 용어로, 운전을 못하는 사람과 예의 없는 운전자라는 뜻을 함께 가지며 일반적인 여성 운전자로 의미가 확대되기도 한다. 2006년 4월 중순 '김여사 놀이'로 언론에 등장.",
+        "reliability": 3
+      },
+      {
+        "url": "https://www.hankookilbo.com/news/article/amp/201906271356780749",
+        "title": "'김여사' 아니라 '운전미숙자'... 단어 하나가 생각 바꾼다",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2019-06-27",
+        "excerpt": "운전을 잘 못하는 사람을 통칭하는 말로 쓰이는 성차별적 언어 '김여사'를 '운전미숙자'로 바꿔 부르자는 취지의 제안.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.kyeongin.com/article/1684036",
+        "archive_url": "http://web.archive.org/web/20250427001525/https://www.kyeongin.com/article/1684036",
+        "title": "\"운전 배우는 김여사\" 인천시 유튜브, 여성비하 표현 빈축",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "경인일보",
+        "published_at": "2024-03-25",
+        "excerpt": "'김여사'라는 표현은 운전에 미숙한 여성을 낮잡아 부르는 단어다. 문체부는 '김여사'라는 단어엔 운전에 미숙한 사람이 여성일 것이라는 고정관념이 담겼다고 지적했다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "인천시 공식 유튜브 '운전 배우는 김여사' 영상 여성비하 논란",
+        "occurred_at": "2024-03-25",
+        "medium": "sns",
+        "sample_text": "운전 배우는 김여사",
+        "source_url": "https://www.kyeongin.com/article/1684036"
+      }
+    ],
+    "negative_examples": [
+      "김 여사님께서 직접 행사장에 나오셔서 인사를 건네셨다.",
+      "고(故) 이순자 여사의 빈소가 마련되었다.",
+      "담임 김 여사님은 30년 경력의 베테랑 교사다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

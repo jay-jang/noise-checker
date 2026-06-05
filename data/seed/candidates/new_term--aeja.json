@@ -1,0 +1,42 @@
+{
+  "_comment": "애자 — 장애인을 비하하는 욕설성 은어. 파이낸셜뉴스(2018, '너 애자(장애인 비하 표현)냐')가 장애인 혐오 표현으로 직접 명시. '장애자'에서 파생됐다는 통설이 있으나 청정 출처가 어원을 직접 명시하지 않아 origin_story는 단정하지 않고 헤지(needs_verification=true, origin_community=unknown). 동철 일상어 충돌은 낮으나 '애자(이름/단어 일부)' 오탐 여지 있어 ambiguous + safe_contexts. 커뮤니티 사이트 직접 접근 금지 준수(파이낸셜뉴스 보도만 사용). 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "애자",
+    "term_kind": "word",
+    "meaning": "장애인을 비하·모욕하는 욕설성 은어. 온라인 게임·학생들 사이 일상 대화에서 상대를 깎아내리는 욕으로 쓰이며, 실제 장애인을 겨냥하기도 한다. 언론은 '너 애자냐'를 만연한 장애인 혐오 표현의 대표 사례로 보도했다.",
+    "origin_community": "unknown",
+    "origin_story": "온라인 커뮤니티·게임·청소년 사이에서 퍼진 장애인 비하 은어로, '장애자'에서 파생됐다는 통설이 있으나 확인된 청정 출처가 어원을 직접 명시하지는 않는다. 2018년 언론 보도는 '너 애자냐', '저러니 병신 낳지' 등을 일상과 온라인에 만연한 장애인 혐오 표현으로 다뤘다.",
+    "origin_period": "불명(2010년대 온라인·청소년 사이 사용 보도)",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": [
+      "사람 이름의 일부(예: '○애자'라는 이름)나 단어 일부로 우연히 '애자'가 포함되는 경우",
+      "한자어·외래어 음차 등에서 '애자'가 비하 의도 없이 쓰이는 경우",
+      "장애인 혐오 표현 실태를 보도·연구·교육하는 문서에서 사례로 인용되는 경우"
+    ],
+    "categories": ["disability"],
+    "evidence": [
+      {
+        "url": "https://www.fnnews.com/news/201811010914262366",
+        "archive_url": "http://web.archive.org/web/2024/https://www.fnnews.com/news/201811010914262366",
+        "title": "\"너 애자냐\" \"저러니 병신 낳지\" 만연한 장애인 혐오",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "파이낸셜뉴스",
+        "published_at": "2018-11-01",
+        "excerpt": "'너 애자(장애인 비하 표현)냐?', '성깔이 저러니 병신 낳아서 달고 다니지' 등 일상과 온라인에 장애인 혐오 표현이 만연하다고 보도했다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "그 영화의 주인공 이름은 김애자였다.",
+      "장애인 혐오 실태 조사는 '애자' 같은 비하 은어의 확산을 다룬다."
+    ],
+    "needs_verification": true,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

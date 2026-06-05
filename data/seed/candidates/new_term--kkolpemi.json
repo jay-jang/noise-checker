@@ -1,0 +1,47 @@
+{
+  "_comment": "꼴페미 — 낮잡는 접두사 '꼴'(꼴통/꼴사납다 함의)+'페미(니스트)'. 페미니스트를 비꼬·비하하는 멸칭으로 '페미나치'의 한국어 대응어. 페미니스트(여성권리 주장 주체)를 표적하므로 misogyny+community_jargon. 동철 일반어 없음 → unambiguous. 청정 근거: 페미위키 꼴페미(definition, CC BY-SA 4.0; 꼴+페미 구성·비꼼) + 페미위키 페미나치(꼴페미=페미나치 한국어 대응 관계 교차, '꼴통+페미니스트' 명시). 나무위키 미사용. 검증: URL WebFetch로 구성·비하 성격 일치 확인. 페미위키 라이브 archive 미확정으로 archive_url 생략. [검증자 수정 2026-06-05] 기존 evidence #2는 위키백과 페미나치 URL에 '꼴페미 대응' 서술이 있다고 인용했으나 WebFetch 재확인 결과 위키백과 본문에는 꼴페미 언급이 없어(오귀속) 해당 서술을 실제로 담은 페미위키 페미나치 페이지로 출처 교체.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "꼴페미",
+    "term_kind": "word",
+    "meaning": "사람의 모양새·행태를 낮잡아 이르는 접두사 '꼴'과 '페미(니스트)'를 결합해 페미니스트를 비꼬고 비하하는 멸칭. 영어권 'feminazi(페미나치)'의 한국어 대응어로 쓰인다.",
+    "origin_community": "other",
+    "spread_communities": ["남초 커뮤니티", "반페미니즘 담론으로 확산"],
+    "origin_story": "페미위키에 따르면 '사람의 모양새나 행태를 낮잡아 이르는 접두사 꼴'과 '페미(니스트)'의 합성어로, 주로 페미니스트들을 비꼬는 데 쓰이는 비하어로 분류된다. 페미나치(feminazi)를 한국어로 현지화한 대응 표현으로, 페미니스트를 소통 불가능한 극단 집단으로 규정·조롱하는 맥락에서 사용된다.",
+    "origin_period": "2010년대",
+    "severity": 3,
+    "ambiguity": "unambiguous",
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EA%BC%B4%ED%8E%98%EB%AF%B8",
+        "title": "페미위키: 꼴페미",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "사람의 모양새나 행태를 낮잡아 이르는 접두사 '꼴'과 '페미(니스트)'의 합성어로, 주로 페미니스트들을 비꼬는 데에 쓰인다. 분류: 페미니스트 대상 비하어.",
+        "reliability": 3
+      },
+      {
+        "url": "https://femiwiki.com/w/%ED%8E%98%EB%AF%B8%EB%82%98%EC%B9%98",
+        "title": "페미위키: 페미나치 — '꼴페미' 한국어 대응 관계",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "페미나치(feminazi)란 페미니스트(특히 래디컬 페미니스트)에 대한 비하 발언으로, '한국어로 현지화하면 꼴페미(꼴통 + 페미니스트)라고 한다'고 서술함.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "그는 페미니즘 강의를 듣고 생각이 많이 바뀌었다고 했다.",
+      "여성학과에서 페미니스트 이론을 전공으로 공부한다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

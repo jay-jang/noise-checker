@@ -1,0 +1,15 @@
+{
+  "_comment": "BBQ(제너시스 BBQ) 사이드 메뉴 '소떡' 홍보 이미지 집게손가락 남혐 논란 및 사과 (2021-05-07). 엄지·검지로 소떡을 집는 손 모양이 메갈리아 로고(남성 성기 비하)와 유사하다는 주장으로 GS25에 이어 치킨업계로 논란 확산. BBQ는 홈페이지·공식 SNS에 즉시 사과문 게재하고 전 제작물 전수조사 공언. 같은 시점 교촌치킨도 '오리지널/레드콤보' 집는 손 이미지로 동일 논란(무의도 해명·삭제) — 이 파일은 BBQ 사례 기준이며 교촌은 _comment에만 부기. 의도성 미입증. 집게손가락 표식에 연결. 청정 출처: 한국일보. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "BBQ '소떡' 홍보 이미지 집게손가락 남혐 논란 및 즉시 사과",
+    "occurred_at": "2021-05-07",
+    "medium": "ad",
+    "related_marker": "집게손가락 (엄지·검지 오므린 손 모양)",
+    "sample_text": "소떡 한 조각을 엄지와 검지로 집는 손 이미지(메갈리아 로고 유사 주장)",
+    "archive_url": "http://web.archive.org/web/20260112171415/https://www.hankookilbo.com/News/Read/A2021050720560005064",
+    "source_url": "https://www.hankookilbo.com/News/Read/A2021050720560005064",
+    "related_surface": "집게손가락"
+  }
+}

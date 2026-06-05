@@ -1,0 +1,50 @@
+{
+  "_comment": "2번남 — 2022 대선에서 기호 2번(윤석열) 후보를 지지·투표한 남성을 비하·조롱하는 정치 결합형 멸칭. 여초(여성시대 등)에서 확산. misandry + politics 교차. surface가 숫자+단어 조합이라 단독 '2번남' 문자열은 비교적 특이하나, '2번'은 흔한 일반어(좌석 2번, 문제 2번)라 ambiguity=common 처리 → 스키마상 combination_rules + trigger_evidence 필수. 조선일보 원문(daum 재호스팅)은 본 환경에서 크롤러 차단으로 직접 확인 불가 → evidence에서 제외하고, WebFetch로 직접 확인된 서울경제 기사만 채택. 나무위키 미사용. 정치 비대칭 민감 사안이라 보수적으로 '정치적 비하' 성격 명시. legal_review_flag=false(특정 개인 실명 아님, 후보군 일반).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "2번남",
+    "term_kind": "word",
+    "meaning": "2022년 제20대 대선에서 기호 2번(윤석열) 후보를 지지하거나 투표한 남성을 비하·조롱하는 표현. 반여성적이라는 낙인을 함께 씌우는 정치 결합형 멸칭으로 쓰였다.",
+    "origin_community": "other",
+    "spread_communities": ["여성시대 등 여초 커뮤니티(확산)", "디시인사이드·엠엘비파크·에펨코리아 등 남초로 반작용 확산"],
+    "origin_story": "2022년 제20대 대통령 선거 국면에서 여성가족부 폐지 공약 등 젠더 이슈가 쟁점이 되며, 여성시대 같은 여초 커뮤니티를 중심으로 기호 2번(윤석열) 후보를 찍은 남성을 '2번남'이라 부르며 손절·조롱하는 표현이 확산됐다. 기호 1번(이재명) 후보를 찍은 여성을 가리키는 '1번녀'와 대칭으로 소비되며 동세대 내 인신공격성 젠더 갈등을 격화시켰다는 평가를 받았다.",
+    "origin_period": "2022년경",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["2번 출구", "문제 2번", "2번 좌석", "기호 2번 후보", "2번 타자", "버스 2번"],
+    "categories": ["misandry", "politics", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["손절", "한남", "찍은 남자", "반페미", "외모"],
+        "base_severity": 1,
+        "severity_delta": 2
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.sedaily.com/article/13339065"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.sedaily.com/article/13339065",
+        "title": "1번녀·2번남 서로 손절 …더 격화하는 젠더 갈등",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울경제",
+        "published_at": "2022-03-13",
+        "excerpt": "기호 2번(윤석열) 후보에게 투표한 남성을 가리키는 '2번남'은 반여성적이라는 낙인이 찍혔고, 여초·남초 커뮤니티에서 인신공격성 젠더 갈등으로 번졌다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "버스는 2번 출구 앞에 정차한다.",
+      "시험 2번 문제가 가장 어려웠다.",
+      "기호 2번 후보의 공약을 살펴봤다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

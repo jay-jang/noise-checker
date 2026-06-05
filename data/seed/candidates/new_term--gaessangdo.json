@@ -1,0 +1,60 @@
+{
+  "_comment": "개쌍도: '개'+'쌍'(욕설)+'경상도' 합성, 경상도(영남) 사람·지역을 비하하는 멸칭. '홍어'(호남)에 대비되는 영남 비하어로 다수 언론이 명시. 동철 일반어 없음 → unambiguous. 청정 출처: SBS·세계일보·서울신문 뉴스. 나무위키 미기록(법무 정책). 지역비하 보강(영남 방향). 특정인 무관 → legal_review_flag=false.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "개쌍도",
+    "term_kind": "word",
+    "meaning": "경상도(영남) 출신·주민·지역을 비하·혐오하는 멸칭. 욕설 접두 '개'와 비속어 '쌍'을 '경상도'에 결합해 만든 조어로, 호남을 겨냥한 '홍어'에 대비되는 영남 비하 대표어로 쓰인다.",
+    "origin_community": "other",
+    "spread_communities": ["온라인 뉴스 댓글", "각종 커뮤니티의 영호남 대립 맥락에서 확산"],
+    "origin_story": "'개'(욕설 접두)와 '쌍'(비속어)을 '경상도'에 붙여 영남 지역·주민을 싸잡아 비하하는 조어다. 2010년대 초 사이버 공간에서 호남 비하어 '홍어'·'전라디언'에 맞불을 놓는 영남 비하어로 '과메기'와 함께 번졌고, 언론은 이를 영호남 사이버 지역감정의 대표적 조장 단어로 보도했다. 국회 정치개혁특별위가 선거운동 기간 지역감정 자극 발언을 처벌하는 공직선거법 개정을 논의할 때도 '홍어'·'과메기'와 함께 처벌 대상 예시로 거론됐다.",
+    "origin_period": "2010년대 초",
+    "severity": 4,
+    "ambiguity": "unambiguous",
+    "categories": ["region_hate", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1003128014",
+        "title": "'절라디언' '개쌍도'…지역비하 잘못 말했다간 '철창'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "SBS",
+        "published_at": "2015-08-18",
+        "excerpt": "경상도 사람을 비하하고자 '홍어'에 대비해 만들어낸 '과메기'를 빗댄 발언과 '개쌍도' 역시 대표적인 지역감정 조장 단어로 분류됐다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.segye.com/newsView/20130312004785",
+        "title": "개쌍도 vs 전라디언…도 넘은 '사이버 지역감정'",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "세계일보",
+        "published_at": "2013-03-13",
+        "excerpt": "청소년들은 전라도 사람을 비하하는 '홍어', 경상도 사람을 낮춰 부르는 '과메기'라는 단어를 일상에서도 아무렇지 않게 사용한다. '개쌍도'는 경상도 비하 표현으로 거론됨.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.seoul.co.kr/news/newsView.php?id=20150323002016",
+        "title": "[지역감정 조장 댓글 처벌] \"멍청도\" \"감자국\" \"자살했어야\" 노골적인 지역 발언",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-03-23",
+        "excerpt": "'멍청도'(충청), '감자국'(강원), '개쌍도'(경상), '홍어'(전라) 등 각 지역을 비하하는 표현이 온라인 댓글에서 난무한다고 보도.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "경상도 사투리는 억양이 강해 정겹게 들린다.",
+      "그는 경상도에서 나고 자라 부산말을 쓴다.",
+      "이번 여행은 경상도 일대 사찰을 둘러보는 일정이다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

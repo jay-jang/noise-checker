@@ -1,0 +1,62 @@
+{
+  "_comment": "재기/재기해 — 남성연대 상임대표 성재기(2013-07 마포대교 투신 사망)를 빗대 '뛰어내려라/자살하라'고 조롱하는 표현. 페미위키가 스스로 '운지'(일베의 노무현 비하)에 대응하는 미러링으로 자리매김함 → 고인비하(deceased)+misandry+politics 교차. 일반어 '재기(再起, 다시 일어섬)'와 동철이라 ambiguity=ambiguous + safe_contexts 필수. 고인 실명(성재기)·정치인 실명(문재인) 결합 사용례가 있어 legal_review_flag=true. 청정 출처: 페미위키(정의·운지 미러링, CC BY-SA 4.0)+위키백과 '성재기 한강 실족 사건'(사건 사실, CC BY-SA 4.0)+일요신문(혜화역 시위 '문재인 재기해' 구호 incident, 정의 직접 인용). 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "재기",
+    "term_kind": "word",
+    "meaning": "남성연대 상임대표였던 성재기가 2013년 7월 마포대교에서 한강에 투신해 사망한 사건을 빗대어, 특정인에게 '뛰어내려라/죽어라'고 자살을 종용·조롱하는 표현. '재기해', '재기하라'의 형태로 쓰인다.",
+    "origin_community": "womad",
+    "spread_communities": ["워마드 등 래디컬 페미니즘 계열 커뮤니티", "여초 커뮤니티·SNS로 확산"],
+    "origin_story": "2013년 7월 남성연대 상임대표 성재기가 단체 부채와 남성 인권 문제를 알리겠다며 마포대교에서 한강에 투신했다가 사흘 뒤 시신으로 발견됐다. 이후 여초·래디컬 페미니즘 계열에서 그의 죽음을 빗대 '재기해(뛰어내려 죽어라)'라는 조롱 표현이 쓰였고, 페미위키는 이를 일베저장소에서 노무현 전 대통령의 죽음을 비하하는 '운지'가 문제가 되는 것과 비슷한 구조로 서술한다. 2018년 혜화역 불법촬영 편파수사 규탄 시위 등에서 '문재인 재기해' 같은 구호로 정치인을 향해 쓰여 논란이 됐다.",
+    "origin_period": "2013년경",
+    "severity": 5,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["재기(再起)", "사업 재기", "재기에 성공", "패자부활", "재기를 노리다", "다시 일어서다"],
+    "categories": ["deceased", "misandry", "politics", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EC%9E%AC%EA%B8%B0",
+        "archive_url": "http://web.archive.org/web/20220213005230/https://femiwiki.com/w/%EC%9E%AC%EA%B8%B0",
+        "title": "페미위키: 재기",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "일반적으로 자살이라는 뜻으로 쓰인다. 마치 일베저장소에서 노무현 대통령을 비하하는 운지라는 단어가 문제가 되는 것과 비슷하다.",
+        "reliability": 3
+      },
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%84%B1%EC%9E%AC%EA%B8%B0_%ED%95%9C%EA%B0%95_%EC%8B%A4%EC%A1%B1_%EC%82%AC%EA%B1%B4",
+        "archive_url": "http://web.archive.org/web/20260201180642/https://ko.wikipedia.org/wiki/%EC%84%B1%EC%9E%AC%EA%B8%B0_%ED%95%9C%EA%B0%95_%EC%8B%A4%EC%A1%B1_%EC%82%AC%EA%B1%B4",
+        "title": "위키백과: 성재기 한강 실족 사건",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "남성연대 상임대표 성재기가 2013년 7월 26일 마포대교에서 한강에 투신했고, 7월 29일 한강에서 시신으로 발견되었다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.ilyo.co.kr/?ac=article_view&entry_id=303324",
+        "archive_url": "http://web.archive.org/web/20180716091028/http://ilyo.co.kr:80/?ac=article_view&entry_id=303324",
+        "title": "\"문재인 재기해\" 혜화역 시위…그곳에 '햇님' 모시는 워마드 있었다",
+        "source_type": "news",
+        "evidence_type": "usage",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "일요신문",
+        "published_at": "2018-07-12",
+        "excerpt": "'재기'란 남성연대 상임대표를 맡았던 고 성재기의 한강 투신을 희화화하는 표현이다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "그는 부도 이후 재기에 성공해 다시 회사를 차렸다.",
+      "선수는 부상을 딛고 재기를 노리고 있다.",
+      "패자부활전은 탈락자에게 재기의 기회를 준다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": true,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

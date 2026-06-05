@@ -1,0 +1,15 @@
+{
+  "_comment": "경찰 개인형이동장치(PM)·도로교통법 홍보 카드뉴스 손 이미지 남혐 논란 및 수정 (2021-05-02). 서울경찰청 등이 민간 홍보업체에 의뢰해 만든 카드뉴스에서, 페이지 넘김을 강조하려 삽입한 엄지·검지 편 손 이미지가 메갈리아 남성 비하 손모양과 유사하다는 주장. 경찰은 '특정 단체와 무관, 페이지 강조용'이라 해명하고 시도경찰청 통해 수정. GS25 직후 공공기관으로 번진 초기 사례. 의도성 미입증(별도 보도에서 제작자가 40대 남성으로 밝혀졌다는 후속도 있으나 본 출처에는 미기재 — _comment 단정 회피). 집게손가락 표식에 연결. 청정 출처: 한국경제. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "경찰 PM·도로교통법 홍보 카드뉴스 손 이미지 남혐 논란 및 수정",
+    "occurred_at": "2021-05-02",
+    "medium": "ad",
+    "related_marker": "집게손가락 (엄지·검지 오므린 손 모양)",
+    "sample_text": "카드뉴스 페이지 넘김 강조용으로 삽입된 엄지·검지 편 손 이미지(메갈리아 손모양 유사 주장)",
+    "archive_url": "http://web.archive.org/web/20210502132440/https://www.hankyung.com/society/article/2021050209967",
+    "source_url": "https://www.hankyung.com/society/article/2021050209967",
+    "related_surface": "집게손가락"
+  }
+}

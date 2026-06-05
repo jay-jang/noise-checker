@@ -1,0 +1,81 @@
+{
+  "_comment": "과메기: 경상도(특히 포항·영남) 향토음식인 청어/꽁치 말린 것. 호남 비하어 '홍어'에 대비해 경상도 사람을 깎아내리는 지역 멸칭으로도 전용됨. 음식명이 압도적으로 일반어이므로 ambiguity=common → 스키마상 combination_rules + trigger_evidence 필수. 단독 음식 언급은 절대 잡으면 안 되고, '경상도/영남/사람' 등 지역·인물 타깃과 결합할 때만 위험. 청정 출처: 한국일보(우리말 톺아보기, 홍어·과메기 비하 전용 명시)·SBS·세계일보. 나무위키 미기록. 지역비하 보강(영남 방향).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "과메기",
+    "term_kind": "word",
+    "meaning": "본래는 청어·꽁치를 얼리고 말린 경상도(포항 구룡포 등) 향토음식. 호남 비하어 '홍어'에 대비해 경상도(영남) 사람·지역을 음식에 빗대어 비하·조롱하는 지역 멸칭으로도 전용된다. 음식 자체는 무해하며, 지역·사람을 겨냥하는 맥락에서만 비하어로 기능한다.",
+    "origin_community": "other",
+    "spread_communities": ["온라인 뉴스 댓글", "영호남 대립 맥락의 각종 커뮤니티로 확산"],
+    "origin_story": "과메기는 경상도 동해안의 대표 향토음식이다. 호남을 겨냥한 '홍어'처럼 특정 지역의 향토 음식을 그 지역 사람과 등치시켜 조롱하는 방식이 번지면서, '과메기'가 경상도(영남) 사람을 낮춰 부르는 지역 비하어로도 쓰이게 됐다. 언론은 '홍어'와 '과메기'를 각각 전라도·경상도에서 즐겨 먹는 생선으로, 그 독특한 향과 맛 때문에 해당 지역민을 부정적으로 가리키는 데 쓰인다고 설명했다. 사이버 지역감정 보도와 선거법상 지역비하 처벌 논의에서도 '홍어'·'개쌍도'와 함께 영남 비하 예시로 거론됐다. 음식명 자체는 무해하므로 식문화·요리 맥락과 반드시 구분해야 한다.",
+    "origin_period": "2010년대 초 온라인 확산",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["구룡포 과메기", "포항 과메기", "과메기 철", "과메기 무침", "과메기 쌈", "꽁치 과메기", "청어 과메기", "겨울 별미", "요리", "음식", "레시피", "수산물"],
+    "categories": ["region_hate", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["경상도", "영남", "경상", "TK", "대구", "부산", "사람", "것들", "새끼"],
+        "base_severity": 1,
+        "severity_delta": 3
+      },
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["홍어", "전라디언", "개쌍도"],
+        "base_severity": 1,
+        "severity_delta": 3
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.hankookilbo.com/News/Read/201905231097098111",
+      "https://news.sbs.co.kr/news/endPage.do?news_id=N1003128014",
+      "https://www.segye.com/newsView/20130312004785"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/201905231097098111",
+        "archive_url": "http://web.archive.org/web/20190524003715/https://www.hankookilbo.com/News/Read/201905231097098111",
+        "title": "[우리말 톺아보기] 홍어와 과메기",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2019-05-24",
+        "excerpt": "'홍어'와 '과메기'는 각각 전라도와 경상도에서 즐겨 먹는 생선으로, 독특한 향과 맛 때문에 해당 지역민들을 부정적으로 가리키는 데 쓰인다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1003128014",
+        "title": "'절라디언' '개쌍도'…지역비하 잘못 말했다간 '철창'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "SBS",
+        "published_at": "2015-08-18",
+        "excerpt": "경상도 사람을 비하하고자 '홍어'에 대비해 만들어낸 '과메기'를 빗댄 발언과 '개쌍도' 역시 대표적인 지역감정 조장 단어로 분류됐다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.segye.com/newsView/20130312004785",
+        "title": "개쌍도 vs 전라디언…도 넘은 '사이버 지역감정'",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "세계일보",
+        "published_at": "2013-03-13",
+        "excerpt": "청소년들은 전라도 사람을 비하하는 '홍어', 경상도 사람을 낮춰 부르는 '과메기'라는 단어를 일상에서도 아무렇지 않게 사용한다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "겨울이면 구룡포 과메기에 쪽파와 미역을 곁들여 먹는다.",
+      "포항 과메기는 청어나 꽁치를 얼렸다 말려 만든다.",
+      "과메기 철이 돌아와 시장에 제철 과메기가 잔뜩 나왔다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

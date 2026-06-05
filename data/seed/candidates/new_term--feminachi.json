@@ -1,0 +1,47 @@
+{
+  "_comment": "페미나치 — feminism+Nazi 합성어. 페미니스트(특히 래디컬 페미니스트)를 '극단적·반사회적'이라며 비하하는 멸칭. 미국 러시 림보(1990년대) 유래, 한국에서 페미니스트 비난어로 정착. 페미니스트=여성권리 주장 주체를 표적하므로 misogyny+community_jargon. 한국에서 '꼴페미'가 대응어. 동철 일반어 없음 → unambiguous. 청정 근거: 한국어 위키백과(definition·origin, CC BY-SA 4.0; 합성어·러시림보·나치 의미 희석 비판) + 페미위키(definition, CC BY-SA 4.0; 꼴페미 대응 관계). 나무위키 미사용. 검증: 두 URL WebFetch로 정의·유래 일치 확인. 위키백과/페미위키 라이브 archive 미확정으로 archive_url 생략(날조 금지).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "페미나치",
+    "term_kind": "word",
+    "meaning": "'페미니즘(feminism)'과 '나치(Nazi)'를 결합한 합성어로, 페미니스트(특히 래디컬 페미니스트)를 극단적·반사회적이라며 비하하는 멸칭. 한국에서는 인권감수성이 낮은 화자가 자신의 허용 기준을 벗어나는 주장을 하는 페미니스트를 비난할 때 흔히 쓰인다.",
+    "origin_community": "other",
+    "spread_communities": ["남초 커뮤니티", "반페미니즘 담론으로 확산"],
+    "origin_story": "한국어 위키백과에 따르면 1989년경 처음 등장해 1990년대 미국의 라디오 진행자 러시 림보(Rush Limbaugh)가 사용하며 확산됐다. 처음엔 '임신중절을 최대 목표로 삼는 극소수'를 지칭한다고 주장됐으나 2000년대 중반 이후 사실상 모든 페미니스트를 비난하는 용도로 쓰이게 됐다. 글로리아 스타이넘 등은 이 말이 부정확하고 역사적 맥락을 왜곡하며 '나치'의 본래 의미를 희석해 홀로코스트 피해자·생존자를 모독한다고 비판했다. 한국에서는 페미니스트를 비난하는 표현으로 정착했고, 페미위키는 같은 의미의 한국어 대응어로 '꼴페미'를 든다.",
+    "origin_period": "1990년대(미국)~2010년대(한국 확산)",
+    "severity": 3,
+    "ambiguity": "unambiguous",
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%ED%8E%98%EB%AF%B8%EB%82%98%EC%B9%98",
+        "title": "위키백과: 페미나치",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "반사회적인 극단적 여성주의자의 멸칭. 페미니스트와 나치(Nazi)를 조합한 합성어로, 1990년대 러시 림보가 사용하며 확산됐다. 이 용어는 부정확하며 홀로코스트 피해자·생존자에 대한 모독이라는 비판이 있다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://femiwiki.com/w/%ED%8E%98%EB%AF%B8%EB%82%98%EC%B9%98",
+        "title": "페미위키: 페미나치",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "페미니즘과 나치의 합성어로 페미니스트(특히 래디컬 페미니스트)에 대한 비하 발언. 한국어로 현지화하면 '꼴페미'에 해당한다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "페미니즘 이론의 역사를 다룬 강의를 들었다.",
+      "나치 독일의 전쟁범죄를 다룬 다큐멘터리를 봤다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

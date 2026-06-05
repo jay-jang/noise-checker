@@ -1,0 +1,62 @@
+{
+  "_comment": "멍청도: '멍청하다'+'충청도' 발음 유사 합성, 충청도(충청권) 사람·지역을 비하하는 멸칭. 1988년 총선 정치 유세에서 정치적으로 조장된 유래(오마이뉴스). '충청도'와 발음만 유사할 뿐 동철 일반어는 아니나, 비하어임이 자명한 단어라 ambiguity는 unambiguous로 둠(단, '멍청'은 일반 형용사이므로 safe_contexts로 '멍청하다' 일반 용례 분리). 청정 출처: 오마이뉴스(origin)·서울신문·SBS. 나무위키 미기록. 지역비하 보강(충청 방향).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "멍청도",
+    "term_kind": "word",
+    "meaning": "충청도(충청권) 출신·주민·지역을 '멍청하다'는 비하 이미지와 결부해 조롱하는 멸칭. '충청도'와 발음이 유사한 '멍청도'로 비틀어, 충청 사람을 어리석고 굼뜬 존재로 폄하한다.",
+    "origin_community": "other",
+    "spread_communities": ["선거 유세·정치 담론(초기)", "온라인 뉴스 댓글·커뮤니티로 확산"],
+    "origin_story": "'충청도'의 발음을 '멍청하다'와 결부해 비튼 조어로, 충청 사람을 어리석은 집단으로 폄하한다. 보도에 따르면 1988년 제13대 총선 부여 지역구 유세에서 한 후보가 '멍청도라는 이름 청산'을 거론하며 정치적 맥락에서 처음 쓰인 것으로 거론된다. 이후 '핫바지'와 함께 충청 지역주의를 자극하는 정치적 멸칭으로 회자됐고, 2010년대 들어 온라인 뉴스 댓글에서 충청 비하 표현으로 번졌다. 충청권의 '멍청도' 이미지는 자연발생이 아니라 정치적으로 조장된 지역감정의 산물이라는 비판이 함께 제기된다.",
+    "origin_period": "1988년 정치 맥락 거론, 2010년대 온라인 확산",
+    "severity": 4,
+    "ambiguity": "unambiguous",
+    "safe_contexts": ["멍청하다", "멍청이", "멍청한 실수", "충청도", "충청남도", "충청북도"],
+    "categories": ["region_hate", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0001631472",
+        "archive_url": "http://web.archive.org/web/20250124004000/https://www.ohmynews.com/nws_web/view/at_pg.aspx?CNTN_CD=A0001631472",
+        "title": "'멍청도'와 '핫바지', 알고 보니 속았다",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "오마이뉴스",
+        "published_at": "2011-10-06",
+        "excerpt": "바로 이 1988년 선거에서 '멍청도'라는 말이 처음 사용되었다. 충청도의 '멍청도'·'핫바지' 이미지는 정치적으로 조장된 지역감정의 산물이라고 설명.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.seoul.co.kr/news/newsView.php?id=20150323002016",
+        "title": "[지역감정 조장 댓글 처벌] \"멍청도\" \"감자국\" \"자살했어야\" 노골적인 지역 발언",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-03-23",
+        "excerpt": "'멍청도'는 충청 지역을 비하하는 표현으로, 온라인 댓글에서 각 지역을 비하하는 노골적 지역 발언이 난무한다고 보도.",
+        "reliability": 4
+      },
+      {
+        "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1003409358",
+        "title": "[마부작침] 멍청도 NO !! '영리한 충청'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "SBS",
+        "published_at": "2016-02-11",
+        "excerpt": "정치인들은 '멍청도'·'핫바지'·'충청 총리론' 등의 구호로 충청 지역주의를 자극해 왔다고 분석.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "그렇게 멍청한 실수를 하다니 스스로도 한심하다.",
+      "충청도는 백제 문화권으로 유적이 많은 지역이다.",
+      "그는 충청북도 청주에서 직장을 다닌다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

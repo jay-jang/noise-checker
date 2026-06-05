@@ -1,0 +1,75 @@
+{
+  "_comment": "병신 — 한자어 病身에서 온 말로, 장애로 신체 기능에 문제가 있는 사람을 가리키던 데서 오늘날 장애인을 비하하는 대표적 욕설로 굳어진 표현. 국립국어원 연구·인권위 2014 의견표명에서 장애 차별성이 가장 높은 말로 꼽힘. 단 '병신년(丙申年)' 같은 간지(干支), '병신(病身) 냉가슴' 등 동철 충돌이 실재해 ambiguity=ambiguous + safe_contexts 필수. 청정 출처: 위키백과 동음이의(CC BY-SA, 간지/욕설 구분)·파이낸셜뉴스(혐오 표현 보도)·슬로우뉴스(비하 분석)·한국경제(인권위). 나무위키 미사용. 욕설로 매우 흔해 severity 높으나 오탐 위험도 커 검출은 safe_contexts 우선.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "병신",
+    "term_kind": "word",
+    "meaning": "한자어 病身에서 온 말로, 본래 질병·장애로 신체 기능에 문제가 있는 사람을 가리켰으나 오늘날에는 장애인을 비하·모욕하거나 '못나고 어리석은 사람'을 욕할 때 쓰는 비속어·욕설로 굳어졌다. '병신 짓', '병맛'(병신 같은 맛) 등 파생형도 장애를 우스움·열등함의 상징으로 동원한다.",
+    "origin_community": "unknown",
+    "origin_story": "근대 이전에는 변변치 못한 상태 전반을 가리키던 한자어였으나 근대 이후 장애인 혐오 용어로 굳어졌다. 국립국어원 '장애인 차별 언어' 연구와 2014년 국가인권위원회 '언론매체의 장애 비하 표현에 대한 의견표명'에서 장애 차별성이 가장 높은 말 중 하나로 지목됐고, 정치인 발언(예: 2024년 김용현 전 장관 국감 발언)에서도 거듭 문제가 됐다.",
+    "origin_period": "전통적 한자어, 근대 이후 비하어로 고착",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": [
+      "병신년(丙申年) 등 육십갑자 간지(干支) — 비하 의도 없는 연도 표기",
+      "병신박해(1866년 병인박해의 이표기 등) 등 역사 용어에서 干支가 쓰이는 경우",
+      "장애인 혐오 표현 실태를 보도·연구·교육하며 사례로 인용하는 문서"
+    ],
+    "categories": ["disability"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EB%B3%91%EC%8B%A0_(%EB%8F%99%EC%9D%8C%EC%9D%B4%EC%9D%98)",
+        "archive_url": "http://web.archive.org/web/2024/https://ko.wikipedia.org/wiki/%EB%B3%91%EC%8B%A0_(%EB%8F%99%EC%9D%8C%EC%9D%B4%EC%9D%98)",
+        "title": "위키백과: 병신 (동음이의)",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "병신(病身)은 '육체적으로 불편한 사람'을 가리키며 장애인을 비하하는 비속어·욕설로 분류된다. 한편 병신(丙申)은 육십갑자의 33번째로, 비하 의미가 없는 간지다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.fnnews.com/news/201811010914262366",
+        "archive_url": "http://web.archive.org/web/2024/https://www.fnnews.com/news/201811010914262366",
+        "title": "\"너 애자냐\" \"저러니 병신 낳지\" 만연한 장애인 혐오",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "permissive",
+        "publisher": "파이낸셜뉴스",
+        "published_at": "2018-11-01",
+        "excerpt": "'성깔이 저러니 병신 낳아서 달고 다니지' 같은 말이 장애인과 그 가족을 향한 혐오 표현으로 일상에 만연하다고 보도했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://slownews.kr/57952",
+        "archive_url": "http://web.archive.org/web/2024/https://slownews.kr/57952",
+        "title": "'병신'이란 말, '장애인 같다'라는 말을 자주하는 너에게",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "슬로우뉴스",
+        "published_at": "2016-09-19",
+        "excerpt": "'병신 짓'은 '우스운 짓 = 장애인 같은 짓'이라는 논리로 작동하며, '장애인은 우스운 사람'이라는 혐오 전제에 기반한다고 분석한다.",
+        "reliability": 3
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "김용현 전 국방부 장관 국정감사 '병신' 발언, 인권위 진정·행정심판",
+        "occurred_at": "2024-10",
+        "medium": "broadcast",
+        "sample_text": "가만히 있는 건 더 병신이라고 생각합니다",
+        "source_url": "https://www.ablenews.co.kr/news/articleView.html?idxno=221296"
+      }
+    ],
+    "negative_examples": [
+      "병신년(丙申年)은 60간지의 서른세 번째 해다.",
+      "장애인 인권 강의에서 '병신'이 왜 차별 표현인지 설명했다.",
+      "그는 2016년 병신년에 태어났다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

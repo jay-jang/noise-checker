@@ -1,0 +1,62 @@
+{
+  "_comment": "감자국: '감자'+'국(國)', 강원도를 '감자나 먹는 나라'로 폄하하는 멸칭. 음식어 '감자국(감자를 넣은 국)'과 동철이라 ambiguity=ambiguous + safe_contexts 필수. '감자바우'(강원 사람 비하, 원래 순박함의 애칭이 변질)와 같은 강원 비하 계열. 청정 출처: 서울신문(감자국 명시)·시사저널(감자도)·아주경제(감자바우 의미변화). 나무위키 미기록. 지역비하 보강(강원 방향).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "감자국",
+    "term_kind": "word",
+    "meaning": "강원도(영서·영동 포함 강원권)를 '감자나 먹고 사는 나라'로 깎아내려 비하하는 멸칭. 산이 많아 쌀 대신 감자·옥수수에 의존했던 강원도의 식생활을 빌려 지역 전체를 낙후·촌스러움의 상징으로 폄하한다. 같은 계열로 강원 사람을 가리키는 '감자바우'·'감자도'가 있다.",
+    "origin_community": "other",
+    "spread_communities": ["온라인 뉴스 댓글", "영호남 위주 지역감정 담론의 주변부로 확산"],
+    "origin_story": "강원도는 산이 험하고 농지가 부족해 쌀 대신 감자·옥수수에 의존했던 식생활이 있었고, 이를 빌려 '감자바우'(강원 사람을 가리키는 호칭)가 생겼다. 원래 '감자바우'는 우직·순박함의 애칭이었으나 1950년대 선거 이후 강원 사람을 낮춰 부르는 비하적 함의가 덧씌워졌다고 보도된다. '감자국'·'감자도'는 여기서 더 나아가 강원도 자체를 '감자나 먹는 나라'로 깎아내리는 지역 멸칭으로, 2010년대 온라인 지역감정 조장 댓글에서 충청 '멍청도', 경상 '개쌍도', 호남 '홍어'와 나란히 거론됐다.",
+    "origin_period": "2010년대 온라인 확산(감자바우 호칭은 그 이전부터)",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["감자국 끓이다", "감자 넣은 국", "된장 감자국", "감잣국", "강원도 감자", "감자전", "감자옹심이", "요리", "음식", "레시피"],
+    "categories": ["region_hate", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.seoul.co.kr/news/newsView.php?id=20150323002016",
+        "title": "[지역감정 조장 댓글 처벌] \"멍청도\" \"감자국\" \"자살했어야\" 노골적인 지역 발언",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-03-23",
+        "excerpt": "'감자국'은 강원 지역을 비하하는 표현으로, '멍청도'(충청)·'개쌍도'(경상)·'홍어'(전라)와 함께 각 지역을 비하하는 노골적 지역 발언으로 거론됨.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.sisajournal.com/news/articleView.html?idxno=136928",
+        "archive_url": "http://web.archive.org/web/20210208212833/https://www.sisajournal.com/news/articleView.html?idxno=136928",
+        "title": "추방해야 할 '지역감정' 신조어들",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "시사저널",
+        "published_at": "2013-03-12",
+        "excerpt": "지역비하 신조어 목록에 강원도를 가리키는 '감자도'가 충청도 '멍청도', 호남 '홍어'·'전라디언', 영남 '경상디언' 등과 함께 정리됨.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.ajunews.com/view/20160510080537643",
+        "title": "[하도겸의 차 한 잔] '감자바우'를 나쁜 뜻으로 쓰지 마세요!",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "아주경제",
+        "published_at": "2016-05-10",
+        "excerpt": "원래 강원도 '감자바위(감자바우)'라는 말은 우직스럽고 순박하고 순진한 뜻의 애칭이었으나, 이후 강원 사람을 비하하는 표현으로 변질됐다고 설명.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "오늘 저녁엔 된장 풀어 감자국을 끓였다.",
+      "강원도 감자는 분이 많아 쪄 먹으면 맛있다.",
+      "감자옹심이와 감자전은 강원도 대표 향토음식이다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

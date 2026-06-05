@@ -1,0 +1,62 @@
+{
+  "_comment": "성괴 — '성형괴물'의 준말. 과도한 성형으로 부자연스러워졌거나 외모가 '망가졌다'고 여겨지는 사람을 비하하는 외모·성형 멸칭. 성별 무관히 쓰일 수 있으나 출처가 '대부분 여성을 지칭'이라 명시 → 여성 외모 통제 맥락의 여성혐오 성격(misogyny). '성괴'는 동철 일반어가 거의 없어 unambiguous에 가깝지만, '성괴'가 다른 합성을 이룰 여지(예: 게임/창작물 약어) 가능성을 보수적으로 보아 ambiguous로 두고 safe_contexts 최소 표기. 청정 근거: 헤럴드경제(origin, 2013, 웹툰 유래·정의) + 페미위키(definition, CC BY-SA 4.0) + SBS(정의, 김치녀·상폐녀와 병기). 나무위키 미사용. 저속/비하어라 sample 인용 최소·보도 인용 처리.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "성괴",
+    "term_kind": "word",
+    "meaning": "'성형괴물'의 준말로, 과도한 성형수술로 인조적·부자연스러워졌거나 외모가 '망가졌다'고 여겨지는 사람을 비하하는 외모·성형 멸칭. 성별을 명시하지 않고 쓰여도 실제로는 대부분 여성을 가리키며, 여성에게만 강하게 작용하는 외모 규범과 결합해 조롱하는 표현으로 쓰인다.",
+    "origin_community": "other",
+    "spread_communities": ["인터넷 게시판·연예 커뮤니티(2013 확산)", "dcinside"],
+    "origin_story": "헤럴드경제(2013)에 따르면 '똑같은 얼굴의 여성들이 거리를 활보한다'는 의미에서 비롯된 신조어로, 한 웹툰 작가의 만화에서 시작돼 '성괴학교', '성괴졸업식' 등 파생 합성어로 변형되며 확산됐다. 페미위키는 이 표현이 '여성은 예뻐야 한다'는 외모 강요와 '성형한 여자는 싫다'는 이중잣대 속에서 성형이 '실패'한 여성을 조롱하는 여성혐오적 멸칭으로 작동한다고 서술한다. SBS 보도는 '성괴'를 '김치녀', '상폐녀' 등과 함께 온라인 여성혐오 표현으로 분류했다.",
+    "origin_period": "2013년경",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["성균관대 괴담", "약어 오인", "고유명사 약칭"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://biz.heraldcorp.com/article/3734254",
+        "title": "[위크엔드] 똑같은 외모 빗댄 '성형괴물'…의사+하느님 결합한 '의느님'…성형시대 신조어들 왠지 씁쓸…",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "헤럴드경제",
+        "published_at": "2013-07-19",
+        "excerpt": "똑같은 얼굴의 여성들이 거리를 활보하고 있다는 의미에서 비롯된 신조어 '성괴(성형괴물)'. 한 웹툰 작가의 만화에서부터 시작된 신조어는 '성괴학교' '성괴졸업식' 등 다양한 합성어로 변형됐다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://femiwiki.com/w/%EC%84%B1%ED%98%95_%EA%B4%B4%EB%AC%BC",
+        "archive_url": "http://web.archive.org/web/20241102211312/https://femiwiki.com/w/%EC%84%B1%ED%98%95_%EA%B4%B4%EB%AC%BC",
+        "title": "페미위키: 성형 괴물",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "성형으로 인해 부자연스러울 정도로 성형 티가 나거나 외모가 망가진 사람을 칭하는 말. 성별 특정성 없이 쓰여도 대부분 여성을 뜻하며, 여성에게 강하게 작용하는 외모 강요 속에서 성형 '실패'를 조롱한다.",
+        "reliability": 3
+      },
+      {
+        "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1002819998",
+        "title": "[한수진의 SBS 전망대] \"김치녀, 오크녀…온라인 여성혐오 표현 심각한 수준\"",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "SBS",
+        "published_at": "2015-02-04",
+        "excerpt": "'성괴'를 '김치녀', '오크녀', '상장폐지녀(상폐녀)' 등과 동일한 맥락의 온라인 여성혐오 표현으로 분류해 다룸.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "그 배우는 자연스러운 동안 외모로 호평을 받았다.",
+      "성형외과 의사가 회복 과정을 자세히 설명해 주었다.",
+      "괴물이라는 별명은 그의 압도적인 투구를 가리키는 칭찬이었다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

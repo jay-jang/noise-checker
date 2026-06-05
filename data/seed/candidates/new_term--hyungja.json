@@ -1,0 +1,50 @@
+{
+  "_comment": "흉자 — 워마드 발 은어. '흉내자지'의 준말로, '명예남성'(남성 입장에 이입해 다른 여성을 비난하는 여성)을 더 강하게 비하하려 워마드에서 만든 표현. 워마드가 '여성' 범주에서 배제하려는 다른 여성을 표적하므로 학술적으로 '굴절된 여성혐오 메커니즘의 반복'으로 분석됨(고은해 2019, KCI) → 표적이 여성이라 misogyny+community_jargon. 단어 자체가 비속어 어근('자지')을 포함하는 저속어라 severity 4. 동철 일반어 거의 없으나 '흉자'가 한자어/인명 약어로 오인될 미세 여지 → 보수적 ambiguous + safe_contexts. 청정 근거: KCI 학술논문(고은해 2019, definition/origin 서지·초록) + 페미위키(definition·origin, CC BY-SA 4.0). 나무위키·커뮤니티 직접 접근 미사용. 검증: 두 URL WebFetch로 정의·유래 일치 확인. KCI archive 미확정으로 academic은 archive_url 생략.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "흉자",
+    "term_kind": "word",
+    "meaning": "'흉내자지'의 준말로, 남성 입장에 이입해 다른 여성을 비난하는 여성('명예남성')을 더 강하게 비하하기 위해 워마드에서 만든 은어. '여성'으로서의 정체성을 부정당하는 다른 여성을 표적으로 삼는 모욕 표현이다.",
+    "origin_community": "womad",
+    "spread_communities": ["워마드 및 일부 래디컬 페미니즘 커뮤니티"],
+    "origin_story": "페미위키에 따르면 '흉자'는 '흉내자지'의 줄임말로, '명예남성'이라는 표현이 긍정적으로 오인되는 것을 막고 어감을 부정적으로 만들어 더 강하게 비판하기 위해 워마드에서 만들어졌다. 사고방식이 남성에 가깝고 남성 입장에만 이입해 여성을 비난하는 여성을 가리킨다. 고은해(2019)의 KCI 논문은 워마드의 '흉자' 담론이 '다른 여성'을 향한 비난을 실천하게 하는 기제로 작용하며, 불특정 여성의 특성을 일반화하는 여성혐오의 메커니즘을 반복한다고 분석한다. 교차페미니즘 관점에서는 이 표현이 이분법적 성별 정의에 기반하고 워마드의 트랜스혐오와 연결된다는 비판도 있다.",
+    "origin_period": "2016~2018년경",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["한자어 약어 오인", "인명 약칭", "고유명사 약어"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002537120",
+        "title": "웹사이트 워마드의 '흉자' 담론 분석: 굴절된 자기혐오라는 성공에의 동력 (고은해, 2019)",
+        "source_type": "academic",
+        "evidence_type": "definition",
+        "license": "학술지·출판사 저작권(서지·사실 참조만)",
+        "publisher": "미디어, 젠더 & 문화",
+        "published_at": "2019",
+        "excerpt": "워마드의 '흉자' 담론은 '다른 여성'을 향한 비난을 실천하게 하는 기제로 작용하며, 불특정한 여성들의 특성을 일반화하는 여성혐오의 메커니즘을 반복한다고 분석.",
+        "reliability": 5
+      },
+      {
+        "url": "https://femiwiki.com/w/%ED%9D%89%EC%9E%90",
+        "archive_url": "http://web.archive.org/web/20210315040107/https://femiwiki.com/w/%ED%9D%89%EC%9E%90",
+        "title": "페미위키: 흉자",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "'흉내자지'의 줄임말. '명예남성'이 긍정적으로 오인되는 것을 막고 어감을 부정적으로 만들어 더 강하게 비판하기 위해 워마드에서 만들어졌다. 남성 입장에만 이입하고 여성을 비난하는, 사고방식이 남성에 가까운 여성을 가리킨다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "한자 '흉(胸)'은 가슴을 뜻한다고 배웠다.",
+      "그 약어가 무슨 뜻인지 몰라 사전을 찾아봤다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

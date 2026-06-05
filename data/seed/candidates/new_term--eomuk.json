@@ -1,0 +1,84 @@
+{
+  "_comment": "어묵 — 세월호 참사 단원고 희생 학생들을 비하하는 일베/디시 야구갤 발원 은어. 음식 '어묵/오뎅'과 동철인 일상어라 ambiguity=common → combination_rules(세월호/단원고/희생자 동시출현 시 가산) + trigger_evidence 필수. severity=5(어린 학생 희생자 직접 조롱, 실형 판결 다수). 세월호 희생자(특정 단원고 학생 식별 가능)·고인 비하라 legal_review_flag=true. 청정 출처: 위키백과 일베저장소 사건사고(정의=디시 야구갤 발원·단원고 학생 비하, CC BY-SA 4.0) + 헤럴드경제(의미) + 뉴시스(1심 징역4월 판결) + 경향(항소심 실형). 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "어묵",
+    "term_kind": "word",
+    "meaning": "2014년 세월호 참사로 희생된 단원고 학생들을 비하·조롱하는 일베 은어. 침몰 참사 희생자를 음식 '어묵(오뎅)'에 빗대 모욕하는 맥락으로 쓰인다.",
+    "origin_community": "dcinside",
+    "spread_communities": ["dcinside(야구갤러리 발원)", "ilbe(주 확산처)"],
+    "origin_story": "세월호 참사(2014) 직후 디시인사이드 야구갤러리에서 침몰로 희생된 단원고 학생들을 비하하는 맥락으로 '어묵(오뎅)' 표현이 등장했고, 일베저장소로 확산됐다. 단원고 교복 차림으로 어묵을 든 인증 사진과 '친구 먹었다', '오늘은 어묵데이' 등의 게시물이 올라와 사회적 공분을 샀다. 이런 게시물을 올린 일베 회원들은 모욕 혐의로 기소돼 실형(징역 4개월)이 선고됐다.",
+    "origin_period": "2014~2015년경",
+    "severity": 5,
+    "ambiguity": "common",
+    "safe_contexts": ["어묵탕", "부산 어묵", "어묵 국물", "오뎅", "분식", "어묵 꼬치", "어묵볶음", "삼진어묵"],
+    "categories": ["deceased", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["세월호", "단원고", "희생자", "진도", "노란리본", "친구 먹었다", "어묵데이"],
+        "proximity_window": 30,
+        "base_severity": 1,
+        "severity_delta": 4
+      }
+    ],
+    "trigger_evidence": [
+      "https://biz.heraldcorp.com/article/463495",
+      "https://www.newsis.com/view/NISX20150529_0013694588"
+    ],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+        "archive_url": "http://web.archive.org/web/20251117155109/https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+        "title": "위키백과: 일베저장소의 사건 및 사고 — '어묵' 정의",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "어묵은 일베 회원들이 세월호 참사 당시 바닷속에서 운명을 달리한 단원고 학생들을 비하할 때 쓰는 디시인사이드 '야구갤러리'에서 나온 용어이다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://biz.heraldcorp.com/article/463495",
+        "title": "[세월호 1년] 노란리본 추모물결 속…일베는 '어묵' 비하글 도배",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "헤럴드경제",
+        "published_at": "2015-04-17",
+        "excerpt": "어묵은 세월호 희생자를 비하하는 일베의 은어다. '오늘은 어묵데이'라는 게시물은 시중에서 판매되는 어묵 제품 위에 일베를 상징하는 손가락 모양을 취한 인증 사진을 담았다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.newsis.com/view/NISX20150529_0013694588",
+        "title": "세월호 희생자 '어묵' 모욕 일베회원 징역 4월 선고",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2015-05-29",
+        "excerpt": "재판부는 범행으로 다수의 세월호 사고 피해자가 조롱을 당했으며, 그들은 연예인이나 정치인이 아닌 어린 학생들이었다고 지적하며 징역 4개월을 선고했다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "세월호 희생자 '어묵' 비하 일베 회원 항소심도 실형(징역 4월)",
+        "occurred_at": "2015-08-26",
+        "medium": "sns",
+        "sample_text": "단원고 교복을 입고 어묵을 먹는 사진 '친구 먹었다'",
+        "source_url": "https://www.khan.co.kr/national/court-law/article/201508261418571"
+      }
+    ],
+    "negative_examples": [
+      "추운 날 포장마차에서 어묵 국물 한 컵 마셨다.",
+      "부산 어묵은 선물용으로 인기가 많다.",
+      "어묵볶음은 도시락 반찬으로 자주 만든다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

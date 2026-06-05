@@ -1,0 +1,50 @@
+{
+  "_comment": "깽깽이: 전라도 말씨('-께' 반복 등)를 흉내내 호남 사람을 비하하는 멸칭. '깽깽이'는 ① 해금/바이올린류 현악기의 속칭, ② 한 발로 뛰는 '깽깽이걸음/깽깽이뛰기'로도 쓰여 동철 일반어 충돌 큼 → ambiguity=ambiguous + safe_contexts 필수. KCI 학술(양혜승 2022, 전라도 비하어 목록에 '깽깽이' 도출)·노컷뉴스(2007, 전라디언·깽깽이 호남 비하 악플) 교차. 나무위키 미기록. 지역비하: 기존 호남 편중에 추가되나 distinct term이라 등재(균형 목표는 개쌍도/과메기/멍청도/감자국으로 충족).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "깽깽이",
+    "term_kind": "word",
+    "meaning": "전라도(호남) 출신·주민을 비하·혐오하는 멸칭. 전라도 말씨의 특징(말끝 '-께' 등의 반복)을 개가 '깨갱'대는 것에 빗대 호남 사람을 깎아내리는 호명으로, 인터넷 댓글과 일베 등에서 호남 비하어로 쓰인다.",
+    "origin_community": "other",
+    "spread_communities": ["온라인 뉴스 댓글(초기)", "ilbe 등 극우 커뮤니티의 호남 비하 맥락으로 확산"],
+    "origin_story": "전라도 말씨의 어미('-께' 등) 반복을 개가 깨갱대는 소리에 빗대 호남 사람을 비하하는 호명에서 비롯됐다는 속설이 있다. 2000년대 인터넷 뉴스 댓글에서 '전라디언'과 함께 호남 비하 악플로 등장했고, 이후 일베저장소 등 극우 커뮤니티의 호남 혐오 맥락에서도 사용됐다. 학술 분석(양혜승, 2022)은 네이버 범죄뉴스 댓글에서 전라도 비하어로 '홍어'·'홍어족'·'전라디언'과 함께 '깽깽이'가 도출됨을 보고했다. '깽깽이'는 현악기 속칭이나 한 발로 뛰는 '깽깽이걸음' 등 무관한 일반어로도 쓰이므로 지역·사람을 겨냥하는 맥락과 반드시 구분해야 한다.",
+    "origin_period": "2000년대 온라인 확산",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["깽깽이걸음", "깽깽이뛰기", "외발 뛰기", "해금", "바이올린", "현악기", "악기", "깽깽이풀", "들꽃", "야생화"],
+    "categories": ["region_hate", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002842479",
+        "title": "'홍어'라 호명되는 타자들(others): 네이버 범죄뉴스 맥락에서 전라도 혐오성 댓글에 대한 텍스트 마이닝 분석",
+        "source_type": "academic",
+        "evidence_type": "definition",
+        "license": "학술 저작권(사실 추출만)",
+        "publisher": "부산울산경남언론학회 / 지역과 커뮤니케이션 26(2), 36-70",
+        "published_at": "2022",
+        "excerpt": "전라도 사람을 비하하는 단어들로 '홍어','홍어족','전라디언','깽깽이' 등이 도출됨.",
+        "reliability": 5
+      },
+      {
+        "url": "https://www.nocutnews.co.kr/news/241846",
+        "title": "'전라디언·깽깽이…전라도 비하 '악플' 심각",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "노컷뉴스",
+        "published_at": "2007-01-26",
+        "excerpt": "'깽깽이'와 '전라디언'은 전라도 지역 주민을 비하하는 악플 표현으로, 인터넷에서 호남을 비방하는 댓글의 사례로 제시됨.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "아이들이 깽깽이걸음으로 운동장을 가로질렀다.",
+      "이른 봄 숲에는 보라색 깽깽이풀이 피어난다.",
+      "그는 해금을 옛날식으로 '깽깽이'라 부르며 연주했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

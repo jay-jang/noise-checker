@@ -37,6 +37,7 @@
     "evidence": [
       {
         "url": "https://www.mt.co.kr/society/2025/11/06/2025110606011416157",
+        "archive_url": "https://web.archive.org/web/20260605063510/https://www.mt.co.kr/society/2025/11/06/2025110606011416157",
         "title": "EBS '펭수', 극우 '일베' 논란...\"들켰노\" 자막 사과 없이 삭제",
         "source_type": "news",
         "evidence_type": "origin",
@@ -48,6 +49,7 @@
       },
       {
         "url": "https://www.xportsnews.com/article/2075070",
+        "archive_url": "https://web.archive.org/web/20251212060154/https://www.xportsnews.com/article/2075070",
         "title": "EBS 펭수, 갑작스런 일베 논란…'들켰노' 자막 사용→사과 없이 편집",
         "source_type": "news",
         "evidence_type": "definition",
@@ -59,6 +61,7 @@
       },
       {
         "url": "https://ko.wikipedia.org/wiki/동남_방언",
+        "archive_url": "https://web.archive.org/web/20260121134322/https://ko.wikipedia.org/wiki/%EB%8F%99%EB%82%A8_%EB%B0%A9%EC%96%B8",
         "title": "동남 방언 - 위키백과",
         "source_type": "wiki",
         "evidence_type": "definition",

@@ -1,0 +1,13 @@
+{
+  "_comment": "성재기 투신 사망 10주기(2023-07-26) 여초 커뮤니티 조롱글 — '재기' 멸칭이 실제로 고인 조롱에 쓰인 사례. 인사이트 기사가 '재기절 제삿상 구경하기' 등 조롱 게시글과 '재기는 자살을 뜻한다'는 맥락을 직접 보도. related_surface='재기'(new_term--jaegi.json과 연결). 고인 실명(성재기) 포함이라 legal 민감 — incident 기록은 '재기'를 혐오어로 단정하지 않고 조롱 사용이 있었다는 사실만 기록. 청정 출처: 인사이트(2023-07-26). 나무위키 미사용. occurred_at은 10주기 당일(투신일 기준 2013-07-26의 10년) 기준.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "성재기 투신 10주기 여초 커뮤니티 '재기' 조롱글 논란",
+    "occurred_at": "2023-07-26",
+    "medium": "sns",
+    "related_surface": "재기",
+    "sample_text": "재기절 제삿상 구경하기",
+    "source_url": "https://www.insight.co.kr/news/445404"
+  }
+}

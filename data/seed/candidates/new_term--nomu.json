@@ -43,6 +43,7 @@
     "evidence": [
       {
         "url": "https://www.khan.co.kr/article/202006231420001",
+        "archive_url": "https://web.archive.org/web/20260605022623/https://www.khan.co.kr/article/202006231420001",
         "title": "SBS, 끊이지 않는 일베 논란…'왈가닥뷰티' 측 \"노무현 전 대통령 비하, 고개 숙여 사과\"",
         "source_type": "news",
         "evidence_type": "definition",
@@ -54,6 +55,7 @@
       },
       {
         "url": "https://www.news1.kr/society/general-society/6162899",
+        "archive_url": "https://web.archive.org/web/20260605022728/https://www.news1.kr/society/general-society/6162899",
         "title": "광주 출신 노진혁 선수에게 '노무한 박수'?…일베 논란 터진 롯데 자이언츠",
         "source_type": "news",
         "evidence_type": "incident",
@@ -65,6 +67,7 @@
       },
       {
         "url": "https://www.newsis.com/view/NISX20260512_0003625546",
+        "archive_url": "https://web.archive.org/web/20260513072833/https://www.newsis.com/view/NISX20260512_0003625546",
         "title": "'노무한 박수'?…일베 논란 터진 롯데 자이언츠, 공식 사과",
         "source_type": "news",
         "evidence_type": "definition",

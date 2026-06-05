@@ -16,6 +16,7 @@
     "evidence": [
       {
         "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002842479",
+        "archive_url": "https://web.archive.org/web/20260605065624/https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002842479",
         "title": "'홍어'라 호명되는 타자들(others): 네이버 범죄뉴스 맥락에서 전라도 혐오성 댓글에 대한 텍스트 마이닝 분석",
         "source_type": "academic",
         "evidence_type": "definition",
@@ -40,7 +41,7 @@
       {
         "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
         "title": "위키백과: 일베저장소 (전라도 비하 표현 서술)",
-        "archive_url": "https://web.archive.org/web/2024/https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
+        "archive_url": "https://web.archive.org/web/20260412124658/https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
         "source_type": "wiki",
         "evidence_type": "definition",
         "license": "CC BY-SA 4.0",

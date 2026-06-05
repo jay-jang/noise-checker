@@ -1,0 +1,64 @@
+{
+  "_comment": "외눈박이 — 한쪽 눈만 있거나 한쪽 눈을 못 보는 사람을 낮춰 부르는 말이자, '한쪽 면만 본다/편향됐다'는 비유로 쓰여 시각장애를 결함의 상징으로 동원하는 표현. 곽상도 의원의 '외눈박이 대통령' 등 정치인 발언으로 장애계 반발·소송. 단 '외눈박이 물고기'(신화·동화), 편향성 비유 등 일상 비유 용법이 있어 ambiguity=ambiguous + safe_contexts. 청정 출처: 한국일보·경향신문. 나무위키 미사용. 용어 자체는 일반어라 legal_review_flag=false.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "외눈박이",
+    "term_kind": "word",
+    "meaning": "눈이 하나뿐이거나 한쪽 눈만 보이는 사람을 낮춰 부르는 말. 비유적으로 '한쪽 면만 보거나 편향된 시각'을 가리키는 데 쓰여(예: '외눈박이 대통령'), 시각장애를 편협함·결함의 상징으로 동원해 장애인을 비하한다.",
+    "origin_community": "unknown",
+    "origin_story": "전통적으로 쓰여 온 표현으로 특정 커뮤니티 발원은 불명확하다. 2020년 곽상도 의원이 '외눈박이 대통령'이라고 발언하는 등 정치인들이 상대를 편향됐다고 비판할 때 비유적으로 사용해, 장애인단체가 장애 비하라며 인권위 진정·손해배상 소송을 제기했고 법원은 표현이 '매우 부적절'하다고 인정하면서도 배상책임은 기각했다.",
+    "origin_period": "전통적 표현(특정 시점 불명), 2020년대 정치권 논란으로 재부각",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "safe_contexts": [
+      "외눈박이 물고기(신화·동화·시 제목 등 문학적 소재)",
+      "그리스 신화의 외눈박이 거인 키클롭스를 가리키는 문맥",
+      "장애 비하 표현 자제를 안내하는 인권위 의견표명·언어순화 캠페인 보도/교육 문서"
+    ],
+    "categories": ["disability"],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/A2024032816530000154",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankookilbo.com/News/Read/A2024032816530000154",
+        "title": "\"절름발이\" \"외눈박이\" 정치인의 편견 발언... 법원은 \"배상책임 없다\"",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "permissive",
+        "publisher": "한국일보",
+        "published_at": "2024-03-28",
+        "excerpt": "'외눈박이 대통령'(곽상도), '절름발이 정책'(이광재) 등 정치인의 장애 비하 표현에 장애인단체가 배상을 청구했으나 법원은 배상책임을 인정하지 않았다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.khan.co.kr/article/202204151652001",
+        "archive_url": "http://web.archive.org/web/2024/https://www.khan.co.kr/article/202204151652001",
+        "title": "법원 '벙어리' 등 '장애 비하' 표현 쓴 국회의원들, 배상책임 \"없다\"",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "경향신문",
+        "published_at": "2022-04-15",
+        "excerpt": "외눈박이 대통령(곽상도)·절름발이(이광재)·집단적 조현병(허은아)·정신분열적(윤희숙)·꿀 먹은 벙어리(김은혜) 등을 두고 법원은 '매우 부적절'하다고 인정했다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "곽상도 의원 '외눈박이 대통령' 발언 등 정치인 장애 비하 표현 소송(배상책임 기각)",
+        "occurred_at": "2020-06",
+        "medium": "broadcast",
+        "sample_text": "외눈박이 대통령",
+        "source_url": "https://www.khan.co.kr/article/202204151652001"
+      }
+    ],
+    "negative_examples": [
+      "정호승 시인의 '외눈박이 물고기의 사랑'을 읽었다.",
+      "그리스 신화에 나오는 외눈박이 거인 키클롭스 이야기가 흥미롭다.",
+      "인권위는 '외눈박이' 같은 비유가 장애 비하가 될 수 있다고 지적했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "_comment": "절름발이 — 다리(지체) 장애인을 낮춰 부르는 표현. 정치인들이 '절름발이 정책/경제' 식 비유로 써 장애계 반발·인권위 진정·소송으로 이어진 대표적 장애 비하어. 다만 '한쪽으로 균형이 안 맞다'는 일상 비유 관용어로도 광범위하게 쓰여 ambiguity=common → 단독 매칭 금지, combination_rules + trigger_evidence로 보수 처리. 청정 출처: 한국일보·경향신문(정치인 발언+법원 판단)+한국경제(인권위 2014 의견표명). 나무위키 미사용. 특정인 실명은 meaning/origin이 아닌 사례(related_incidents)에만 등장하고 용어 자체는 일반어라 legal_review_flag=false(단 정치인 사례 인용 시 사람 검수 권장).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "절름발이",
+    "term_kind": "word",
+    "meaning": "한쪽 다리가 짧거나 마비되어 걸을 때 절뚝거리는 사람을 낮춰 부르는 말. 지체장애인을 비하하는 표현으로, 비유적으로는 '어느 한쪽이 온전치 못해 균형이 맞지 않는 것'(예: '절름발이 정책')을 가리키는 데 쓰여 장애를 부정적·결함의 상징으로 동원한다.",
+    "origin_community": "unknown",
+    "origin_story": "오래전부터 쓰인 일상어이자 장애 비하 관용 표현으로, 특정 커뮤니티 발원이라기보다 전통적으로 답습돼 온 표현이다. 2014년 국가인권위원회는 '벙어리·귀머거리·장님·절름발이' 등을 공적 영역에서 자제할 것을 언론에 의견표명했고, 2020년 이광재 의원의 '정책 수단이 절름발이가 된다' 발언 등 정치인들의 비유적 사용이 장애계 반발과 소송으로 이어지며 장애 비하 표현으로 거듭 지적됐다.",
+    "origin_period": "전통적 표현(특정 시점 불명), 2014년 인권위 의견표명·2020년대 정치권 논란으로 재부각",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": [
+      "절름발이 정책처럼 비유로 비판하더라도 장애 비유 자제 권고 맥락 자체를 설명하는 보도/교육 문서",
+      "장애 비하 표현을 자제하자는 캠페인·인권위 의견표명·언어순화 안내문",
+      "의학적으로 보행 이상(파행)을 중립적으로 기술하는 의료 문맥"
+    ],
+    "categories": ["disability"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["정책", "경제", "정부", "외눈박이", "병신", "장애"],
+        "base_severity": 2,
+        "severity_delta": 1
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.hankookilbo.com/News/Read/A2024032816530000154",
+      "https://www.khan.co.kr/article/202204151652001"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/A2024032816530000154",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankookilbo.com/News/Read/A2024032816530000154",
+        "title": "\"절름발이\" \"외눈박이\" 정치인의 편견 발언... 법원은 \"배상책임 없다\"",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "permissive",
+        "publisher": "한국일보",
+        "published_at": "2024-03-28",
+        "excerpt": "'절름발이 정책'(이광재), '외눈박이 대통령'(곽상도) 등 정치인의 장애 비하 표현에 장애인단체가 손해배상을 청구했으나 법원은 배상책임을 인정하지 않았다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.khan.co.kr/article/202204151652001",
+        "archive_url": "http://web.archive.org/web/2024/https://www.khan.co.kr/article/202204151652001",
+        "title": "법원 '벙어리' 등 '장애 비하' 표현 쓴 국회의원들, 배상책임 \"없다\"",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "permissive",
+        "publisher": "경향신문",
+        "published_at": "2022-04-15",
+        "excerpt": "외눈박이 대통령(곽상도)·절름발이(이광재)·집단적 조현병(허은아)·정신분열적(윤희숙)·꿀 먹은 벙어리(김은혜) 등을 두고 법원은 '매우 부적절'하나 집단을 이르는 것이라며 청구를 기각했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.hankyung.com/article/2014110392201",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankyung.com/article/2014110392201",
+        "title": "눈뜬장님·벙어리 냉가슴…장애인 비하 표현 자제를",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한국경제",
+        "published_at": "2014-11-03",
+        "excerpt": "국가인권위원회는 '귀머거리, 벙어리, 장님, 절름발이' 등의 표현이 무심결에 사용돼 장애인에 대한 편견을 심화시킨다며 공적 영역에서 자제할 것을 언론에 의견표명했다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "이광재 의원 '절름발이 정책' 발언 등 정치인 장애 비하 표현 소송(배상책임 기각)",
+        "occurred_at": "2020-07",
+        "medium": "broadcast",
+        "sample_text": "정책 수단이 절름발이가 될 수밖에 없다",
+        "source_url": "https://www.hankookilbo.com/News/Read/A2024032816530000154"
+      }
+    ],
+    "negative_examples": [
+      "다리를 다쳐 한동안 절뚝거리며 걸었다.",
+      "국가인권위원회는 '절름발이' 같은 표현을 공적 영역에서 자제하라고 권고했다.",
+      "이 캠페인은 절름발이라는 비유가 왜 장애 비하인지 설명한다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

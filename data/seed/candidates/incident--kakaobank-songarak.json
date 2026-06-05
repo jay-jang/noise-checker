@@ -1,0 +1,15 @@
+{
+  "_comment": "카카오뱅크 홍보물 손가락 모양 남혐 논란 및 사과 (2021-05-27). 카카오뱅크 상품 소개 이미지 등에서 여성 캐릭터 손 모양이 메갈리아 로고(남성 성기 비하)와 유사하다는 주장이 제기됨(2019년부터 여러 차례 사용됐다는 지적 포함). 카카오뱅크는 2021-05-27 앱 공지로 사과하고 해당 이미지 전량 삭제·전수조사. GS25·BBQ·국방부에 이어 금융권으로 번진 사례. 의도성 미입증. 집게손가락 표식에 연결. 청정 출처: 한국일보. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "카카오뱅크 홍보물 손가락 모양 남혐 논란 — 이미지 전량 삭제·사과(2021-05-27)",
+    "occurred_at": "2021-05-27",
+    "medium": "ad",
+    "related_marker": "집게손가락 (엄지·검지 오므린 손 모양)",
+    "sample_text": "상품 소개 이미지 속 여성 캐릭터의 손 모양(메갈리아 로고 유사 주장)",
+    "archive_url": "http://web.archive.org/web/20260112172115/https://www.hankookilbo.com/News/Read/A2021052807170004909",
+    "source_url": "https://www.hankookilbo.com/News/Read/A2021052807170004909",
+    "related_surface": "집게손가락"
+  }
+}

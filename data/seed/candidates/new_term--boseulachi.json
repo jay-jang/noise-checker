@@ -1,0 +1,62 @@
+{
+  "_comment": "보슬아치 — 여성 성기 비속어 '보지'와 '벼슬아치'의 합성어. '여자인 게 벼슬인 줄 안다'는 함의로, 권리만 누리고 의무는 등한시한다며 여성을 싸잡아 비하·성적 대상화하는 저속한 여성혐오 멸칭. severity 5(노골적 성적 모욕). 동철 일반어 없음 → unambiguous. 청정 근거: 페미위키(definition·origin, CC BY-SA 4.0) + 경향신문 강신주 칼럼(definition, 의미·파시즘적 광기 비판) + CBS노컷뉴스(origin/incident, 일베어로 정의). 나무위키 미사용. 저속어이므로 surface 외 원문 인용 최소·보도/위키 인용으로 처리. 검증: 3개 URL WebFetch로 합성어 구성·여성혐오 성격 일치 확인.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "보슬아치",
+    "term_kind": "word",
+    "meaning": "여성 성기를 가리키는 비속어와 '벼슬아치'를 결합한 저속한 여성혐오 멸칭으로, '여자인 게 벼슬인 줄 안다'는 함의를 담는다. '권리만 찾고 의무는 등한시하는 여자'를 지칭한다고 주장하지만 실제로는 기준을 충족하지 못하는 여성에게까지 광범위하게 쓰이며, 여성을 인격체가 아닌 성적 대상으로 한정한다.",
+    "origin_community": "other",
+    "spread_communities": ["dcinside", "ilbe"],
+    "origin_story": "페미위키에 따르면 여성 성기 비속어와 '벼슬아치'의 합성어로, 1990년대 후반 PC통신에서 넷 페미니스트를 비난하는 맥락에서 쓰이기 시작했고, 2011년경 일베저장소 초기·디시인사이드 등 남초 커뮤니티에서 현재의 의미로 확산됐다. CBS노컷뉴스(2013)는 '여성 성기에 빗대 여자인 게 벼슬인 줄 안다는 의미를 내포한 일베어'로 정의하며 김치녀보다 더 노골적으로 여성을 성적 대상으로 한정시키는 표현으로 소개했다. 경향신문 강신주 칼럼(2014)은 이 말이 정당한 노력의 대가를 얻은 여성에게도 무차별 적용되며 여성이라는 속성만 남기고 나머지를 지우는 '파시즘적' 개념이라 비판했다.",
+    "origin_period": "1990년대 후반(PC통신)~2011년경(현 의미 정착)",
+    "severity": 5,
+    "ambiguity": "unambiguous",
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EB%B3%B4%EC%8A%AC%EC%95%84%EC%B9%98",
+        "archive_url": "http://web.archive.org/web/20251216173224/https://femiwiki.com/w/%EB%B3%B4%EC%8A%AC%EC%95%84%EC%B9%98",
+        "title": "페미위키: 보슬아치",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "여성 성기 비속어와 '벼슬아치'의 합성어인 여성혐오 단어. 1990년대 후반 PC통신에서 넷 페미니스트 비난에 쓰이다 2011년경 일베저장소·디시인사이드 등에서 현재 의미로 확산. 분류: 여성혐오 표현, 차별어.",
+        "reliability": 3
+      },
+      {
+        "url": "https://www.nocutnews.co.kr/news/1061098",
+        "archive_url": "http://web.archive.org/web/20251018223140/https://www.nocutnews.co.kr/news/1061098",
+        "title": "'김치女' '보슬아치' 도배된 일베…혐오냐 열등감이냐",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "CBS노컷뉴스",
+        "published_at": "2013-07-02",
+        "excerpt": "'보슬아치'는 여성 성기에 빗대 '여자인 게 벼슬인 줄 안다'는 의미를 내포한 일베어. 여성을 노골적으로 폄하해 인격체가 아닌 성적 대상으로 한정시키는 단어의 대표 사례로 김치녀와 함께 소개.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.khan.co.kr/article/201403162056445",
+        "archive_url": "http://web.archive.org/web/20250803051246/https://www.khan.co.kr/article/201403162056445",
+        "title": "[철학자 강신주의 비상경보기] '보슬아치'라는 말을 누가 조장하는가?",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "경향신문",
+        "published_at": "2014-03-16",
+        "excerpt": "여성의 성기를 나타내는 단어와 '벼슬아치'가 합성된 말. 정당한 노력의 대가를 얻은 여성에게도 무차별 적용되며, 여성이라는 속성만 남기고 나머지 속성을 간과하게 만드는 개념이라고 비판.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "조선시대 벼슬아치들의 품계 제도를 공부했다.",
+      "그는 평생 벼슬에 욕심을 두지 않은 선비였다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

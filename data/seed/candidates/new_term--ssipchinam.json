@@ -1,0 +1,47 @@
+{
+  "_comment": "씹치남 — 메갈리아 발원 한국 남성 비하어. '김치녀'에서 성별을 남자로 바꾸고 앞글자를 비하 의미의 '씹'으로 바꾼 미러링 표현(=한남충 동의어). 박대아(2018) 유형론상 '남성 지시형'(남성 일반 지시)에 해당. 동철 충돌 적어 ambiguity=unambiguous(safe_contexts 불요)이나 보수적으로 일반어 '치남' 류 오탐 가능성은 낮음. 청정 출처: 서울신문(2015-07-17, 정의·미러링)+페미위키(정의·유래, CC BY-SA 4.0). 나무위키 미사용. 서울신문 web.archive.org 스냅샷 미존재로 archive_url 생략(날조 금지).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "씹치남",
+    "term_kind": "word",
+    "meaning": "한국 남성을 비하하는 멸칭. 여성혐오 표현 '김치녀'의 성별을 남성으로 바꾸고 앞글자를 비하 의미의 '씹'으로 바꿔 만든 미러링 표현으로, '한남충'과 같은 뜻으로 쓰였다.",
+    "origin_community": "megalia",
+    "spread_communities": ["메갈리아(발원)", "여초 커뮤니티"],
+    "origin_story": "2015년경 디시인사이드 메르스 갤러리에서 파생된 메갈리아에서, 남성들의 여성혐오 표현을 거울처럼 되받는 '미러링' 전략으로 만들어졌다. 여성 비하어 '김치녀'에서 지칭 대상을 남성으로 바꾸고 앞글자를 비하 의미의 '씹'으로 교체한 형태다. 다만 '씹'을 비하 의미로 쓰는 것 자체가 다시 여성혐오 아니냐는 자성도 커뮤니티 내에서 제기됐고, 2016년 이후로는 '한남충'에 밀려 거의 쓰이지 않는다.",
+    "origin_period": "2015년경",
+    "severity": 3,
+    "ambiguity": "unambiguous",
+    "categories": ["misandry", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.seoul.co.kr/news/society/2015/07/17/20150717500033",
+        "title": "'김치녀·삼일한'에 맞서는 '씹치남·숨쉴한'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-07-16",
+        "excerpt": "한국 남성을 비하하는 속어인 '씹치남'이 여성 회원 중심의 인터넷 커뮤니티를 중심으로 확산되고 있다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://femiwiki.com/w/%EC%94%B9%EC%B9%98%EB%82%A8",
+        "title": "페미위키: 씹치남",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "'김치녀'에서 성별을 남자로 바꾸고 앞글자를 '씹'으로 바꾼 남성 비하 미러링 단어. 2016년 이후 거의 사용되지 않는다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "이 식당은 김치남도(전라남도식 김치) 맛이 일품이다.",
+      "씹다 만 껌을 휴지통에 버렸다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

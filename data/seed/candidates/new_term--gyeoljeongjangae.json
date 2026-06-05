@@ -1,0 +1,69 @@
+{
+  "_comment": "결정장애(선택장애) — '무언가를 쉽게 결정/선택하지 못하는 상태'를 '장애'에 빗대 부르는 신조어. '장애=부족·열등'이라는 관념을 깔고 있어 장애 비하/차별 표현으로 지적됨(한글문화연대·아주경제 '우리말 쉽고 바르게' 시리즈). 일상에서 농담조로 널리 쓰여 ambiguity=common → 단독 매칭 위험(오탐) 큼: '발달장애·지적장애' 등 정식 장애 명칭, '장애물 경기', '청각장애' 등과 구별해야 함. combination_rules + trigger_evidence로 보수 처리. 청정 출처: 아주경제·한글문화연대. 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "결정장애",
+    "term_kind": "word",
+    "meaning": "무언가를 쉽게 결정하거나 선택하지 못하고 망설이는 상태를 '장애'에 빗대어 이르는 신조어('선택장애'와 같은 뜻). 의학적 진단명이 아니라, 우유부단함을 장애로 비유함으로써 '장애=부족하고 열등한 상태'라는 고정관념을 전제·강화한다는 점에서 장애 비하 표현으로 지적된다.",
+    "origin_community": "unknown",
+    "origin_story": "온라인에서 농담조로 퍼진 신조어로 특정 커뮤니티 발원은 불명확하다. 책 <선량한 차별주의자>에서 저자가 '결정장애'라는 말을 쓰자 토론회 참석자가 '왜 결정장애라는 말을 쓰느냐'고 되묻는 일화가 회자됐고, 언어순화 단체와 언론이 '무언가에 장애를 붙이는 것은 부족함을 의미해 장애인을 열등한 존재로 여기게 한다'며 차별 표현으로 거듭 지적했다.",
+    "origin_period": "2010년대(정확한 시점 불명)",
+    "severity": 2,
+    "ambiguity": "common",
+    "safe_contexts": [
+      "발달장애·지적장애·청각장애·시각장애·지체장애 등 정식 장애 유형 명칭",
+      "장애물·장애물 경기 등 물리적 방해물을 뜻하는 일반어",
+      "통신장애·시스템장애·기능장애 등 기술·의료적 고장/이상을 뜻하는 표현",
+      "'결정장애'가 왜 차별 표현인지 설명하는 언어순화 캠페인·교육 문서"
+    ],
+    "categories": ["disability"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["선택장애", "메뉴", "고를", "우유부단"],
+        "base_severity": 1,
+        "severity_delta": 1
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.ajunews.com/view/20210725115150171",
+      "https://www.urimal.org/3640"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.ajunews.com/view/20210725115150171",
+        "archive_url": "http://web.archive.org/web/2024/https://www.ajunews.com/view/20210725115150171",
+        "title": "[우리말 쉽고 바르게]⑦ 나도 '결정장애'?…습관처럼 쓴 이 말, 누군가에겐 큰 상처",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "아주경제",
+        "published_at": "2021-07-26",
+        "excerpt": "무언가에 '장애'를 붙이는 건 '부족함'을 의미하고, 그런 관념 속에서 '장애인'은 늘 부족하고 열등한 존재로 여겨지게 된다고 지적하며 '결정장애'를 차별 표현으로 든다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.urimal.org/3640",
+        "archive_url": "http://web.archive.org/web/2024/https://www.urimal.org/3640",
+        "title": "무심코 사용하는 장애 차별 표현, '꿀 먹은 벙어리', '선택 장애'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한글문화연대",
+        "published_at": "2021-12-08",
+        "excerpt": "'선택 장애'/'결정 장애'는 결정을 쉽게 못 내리는 상황에 농담처럼 쓰이지만 '장애인은 부족하고 열등한 존재'라는 고정관념을 담고 있다고 설명한다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "그는 발달장애가 있는 동생을 돌본다.",
+      "통신장애로 한동안 인터넷이 끊겼다.",
+      "장애물 경기에서 1등을 했다.",
+      "메뉴를 못 골라서 결정장애가 왔다는 농담이 왜 차별 표현인지 강의에서 다뤘다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

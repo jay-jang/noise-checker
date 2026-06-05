@@ -1,0 +1,14 @@
+{
+  "_comment": "무신사 2019 속건성 양말 광고 '책상을 탁 쳤더니 억하고 말라서' 박종철 고문치사 조롱 문구 논란. 1987년 박종철 열사 고문치사 당시 경찰의 '책상을 탁 치니 억 하고 죽었다'는 은폐 발표를 연상시켜 비판. 2026-05 재점화(이재명 대통령 SNS 언급)되며 2026-05-22 조만호·조남성 대표 등 임원진이 서울 관악구 박종철센터를 찾아 재차 사과. 스타벅스 탱크데이('책상에 탁')와 동일한 박종철 트로프 계열 — related_surface='책상에 탁'으로 연결. 청정 출처: 뉴시스. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "무신사 2019 양말 광고 '책상을 탁 쳤더니 억하고' 박종철 고문치사 조롱 논란 — 2026-05 박종철센터 재차 사과",
+    "occurred_at": "2026-05-22",
+    "medium": "ad",
+    "related_surface": "책상에 탁",
+    "sample_text": "책상을 탁 쳤더니 억하고 말라서",
+    "archive_url": "http://web.archive.org/web/20260523025359/https://www.newsis.com/view/NISX20260522_0003641504",
+    "source_url": "https://www.newsis.com/view/NISX20260522_0003641504"
+  }
+}

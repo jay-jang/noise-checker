@@ -1,0 +1,84 @@
+{
+  "_comment": "민주화 — 일베저장소에서 본래 뜻과 정반대로 '비추천/반대/억압/하향평준화'를 뜻하는 반어적 은어. '비추천 버튼'을 '민주화'로 부른 데서 정착. 5·18 광주민주화운동·민주화운동 등 표준어/역사용어와 완전 동철이라 ambiguity=common, 동음충돌이 극심 → combination_rules(일베 맥락어 동시출현 시 가산) + trigger_evidence 필수. severity는 보수적으로 3(단독으로는 정상 단어). 청정 출처: 한국일보·뉴시스·세계일보·아시아투데이(전효성 발언 사건 계기 의미 해설). 나무위키 미사용. 특정인 비방 아님이나 5·18 폄훼 함의가 있어 검수 주의.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "민주화",
+    "term_kind": "word",
+    "meaning": "일베저장소에서 본래의 긍정적 의미와 정반대로 '비추천/반대', 나아가 '억압하다·하향평준화·언어폭력을 가하다'를 뜻하는 반어적 은어. '민주화시키다'는 '(다수가 소수를) 억압하다'는 부정적 의미로 쓰인다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(주 사용처)", "dcinside"],
+    "origin_story": "일베저장소의 게시물 '비추천' 버튼을 '민주화 버튼'으로 부른 데서 비롯돼, '민주화'가 '비추천/반대/억압'을 뜻하는 반어적 은어로 정착했다. 5·18 광주민주화운동을 폄훼하는 맥락과도 결합돼 사용된다. 2013년 5월 걸그룹 시크릿 전효성이 라디오에서 '민주화시키지 않는다'고 발언해 일베식 표현 논란이 일면서 일반에 널리 알려졌다.",
+    "origin_period": "2013년경(전효성 발언 전후 일반에 알려짐)",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["민주화운동", "5·18 민주화운동", "광주 민주화운동", "민주화 세대", "정치 민주화", "사회 민주화", "민주화 이후", "경제 민주화", "민주화 시위"],
+    "categories": ["politics", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["비추천", "민주화시키다", "민주화시켜", "산업화", "일베", "운지", "홍어"],
+        "proximity_window": 20,
+        "base_severity": 1,
+        "severity_delta": 3
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.hankookilbo.com/News/Read/201602271151503273",
+      "https://www.newsis.com/view/NISX20130514_0012083237"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/201602271151503273",
+        "title": "류준열도 몰랐다… 스타라면 알아둬야 할 '일베 용어사전'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2016-02-27",
+        "excerpt": "'민주화'는 '일베'에서 광주민주화운동을 빗대 '억압한다'는 뜻으로 쓰인다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.newsis.com/view/NISX20130514_0012083237",
+        "title": "\"민주화…\" 시크릿 전효성, 일베식 발언 논란",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2013-05-14",
+        "excerpt": "보수 커뮤니티 일베에서 활동하는 네티즌들은 민주화를 '하향평준화, 죽음' 등 부정적인 뜻으로 사용한다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.segye.com/newsView/20130522002182",
+        "title": "전효성 '민주화' 발언, 단순 말실수라기엔…",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "세계일보",
+        "published_at": "2013-05-22",
+        "excerpt": "'민주화'는 극우보수성향 인터넷 사이트 '일간베스트'에서 다른 소수를 집단으로 폭행하거나 언어 폭력을 하는 것을 일컫는 은어로 쓰이고 있다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "시크릿 전효성 라디오 '민주화시키지 않는다' 발언 논란·사과",
+        "occurred_at": "2013-05-14",
+        "medium": "broadcast",
+        "sample_text": "저희는 개성을 존중하는 팀이라 민주화시키지 않아요",
+        "source_url": "https://www.newsis.com/view/NISX20130514_0012083237"
+      }
+    ],
+    "negative_examples": [
+      "5·18 민주화운동은 한국 현대사의 중요한 사건이다.",
+      "1987년 6월 항쟁으로 민주화가 크게 진전됐다.",
+      "경제 민주화는 대선 공약의 핵심 의제였다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

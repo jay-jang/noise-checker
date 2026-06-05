@@ -1,0 +1,77 @@
+{
+  "_comment": "벙어리 — 말을 하지 못하는 언어장애인(농인)을 낮춰 부르는 말. '농인'이라는 중립어가 있음에도 쓰여 인권위·장애계가 거듭 자제를 요구. 황교안 대표 '문 대통령은 벙어리' 발언(2019)으로 8개 장애인단체 규탄, 정치인 '꿀 먹은 벙어리' 발언들도 소송으로 이어짐. '벙어리장갑'·'벙어리 냉가슴'(관용구) 등 동철 일상어가 있어 ambiguity=ambiguous + safe_contexts. 청정 출처: 한국경제·머니투데이·경향신문·한국경제(2014 인권위). 나무위키 미사용. legal_review_flag=false(용어 자체는 일반어).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "벙어리",
+    "term_kind": "word",
+    "meaning": "말을 하지 못하는 사람(언어장애인·농인)을 낮춰 부르는 말. '농인'이라는 중립적 표현이 있음에도 쓰이며, 비유적으로 '입을 다물고 아무 말도 못 하는 상태'(예: '벙어리가 됐다')를 가리키는 데 동원돼 언어장애를 무능·침묵의 상징으로 비하한다.",
+    "origin_community": "unknown",
+    "origin_story": "전통적으로 쓰여 온 표현으로, 2014년 국가인권위원회가 '벙어리·귀머거리·장님' 등을 공적 영역에서 자제하도록 언론에 의견표명했다. 2019년 황교안 자유한국당 대표가 '문재인 대통령이 북한 미사일 도발에는 벙어리가 돼버렸다'고 발언하자 한국농아인협회 등 8개 장애인단체가 규탄하며 공식 사과를 요구했고, 김은혜 의원의 '꿀 먹은 벙어리' 등 정치인 발언들도 장애 비하 소송 대상이 됐다.",
+    "origin_period": "전통적 표현(특정 시점 불명), 2014년 인권위 의견표명·2019년 정치권 논란으로 재부각",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "safe_contexts": [
+      "벙어리장갑(엄지만 따로 있는 장갑)",
+      "벙어리저금통",
+      "벙어리 냉가슴이라는 관용구 자체를 다루는 문학·언어 설명",
+      "장애 비하 표현 자제를 안내하는 인권위 의견표명·언어순화 캠페인 보도"
+    ],
+    "categories": ["disability"],
+    "evidence": [
+      {
+        "url": "https://www.hankyung.com/article/201908094739Y",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankyung.com/article/201908094739Y",
+        "title": "장애인단체 벙어리 표현은 장애인 비하…황교안 사과하라",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "permissive",
+        "publisher": "한국경제",
+        "published_at": "2019-08-09",
+        "excerpt": "황교안 대표가 '북한 미사일 도발에는 벙어리가 돼버렸다'고 발언하자, 한국농아인협회 등 8개 장애인단체가 '벙어리'는 청각·언어 장애인 비하라며 공식 사과를 촉구했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.hankyung.com/article/2014110392201",
+        "archive_url": "http://web.archive.org/web/2024/https://www.hankyung.com/article/2014110392201",
+        "title": "눈뜬장님·벙어리 냉가슴…장애인 비하 표현 자제를",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한국경제",
+        "published_at": "2014-11-03",
+        "excerpt": "국가인권위원회는 '귀머거리, 벙어리, 장님' 및 '벙어리 냉가슴', '꿀 먹은 벙어리' 등의 표현이 장애인에 대한 편견을 심화시킨다며 공적 영역에서 자제할 것을 의견표명했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.urimal.org/3640",
+        "archive_url": "http://web.archive.org/web/2024/https://www.urimal.org/3640",
+        "title": "무심코 사용하는 장애 차별 표현, '꿀 먹은 벙어리', '선택 장애'",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "permissive",
+        "publisher": "한글문화연대",
+        "published_at": "2021-12-08",
+        "excerpt": "'꿀 먹은 벙어리'는 자신의 생각을 표현하지 못하는 언어장애인을 낮추어 보는 표현으로, 장애를 비하하는 의미를 담고 있다고 설명한다.",
+        "reliability": 3
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "황교안 자유한국당 대표 '벙어리' 발언, 8개 장애인단체 규탄",
+        "occurred_at": "2019-08-09",
+        "medium": "broadcast",
+        "sample_text": "북한 미사일 도발에는 벙어리가 돼버렸다",
+        "source_url": "https://www.hankyung.com/article/201908094739Y"
+      }
+    ],
+    "negative_examples": [
+      "겨울이라 아이에게 벙어리장갑을 사 줬다.",
+      "동전을 모으려고 벙어리저금통을 샀다.",
+      "인권위는 '벙어리'라는 표현을 공적 영역에서 자제하라고 권고했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

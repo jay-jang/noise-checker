@@ -1,0 +1,51 @@
+{
+  "_comment": "상폐녀 — '상장폐지녀'의 준말. 여성을 주식에 빗대 일정 나이(통상 25세 전후)를 넘기면 연애·결혼 '가치'가 사라졌다고 비하하는 여성혐오 멸칭. 디시 주식갤러리 발원 추정. 동철 일반어 충돌이 거의 없어 unambiguous에 가깝지만 보수적으로 ambiguous(주식 용어 '상장폐지/상폐' 자체는 무해)로 두고 safe_contexts 명시. 청정 근거: 페미위키(definition·origin, CC BY-SA 4.0) + SBS(정의, 김치녀·성괴와 병기). 나무위키 미사용. 검증: 두 URL WebFetch로 의미·여성혐오 성격 일치 확인.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "상폐녀",
+    "term_kind": "word",
+    "meaning": "'상장폐지녀'의 준말로, 여성을 주식에 빗대 일정 나이(통상 25세 전후)를 넘기면 연애·결혼 '가치'가 사라진다고 비하하는 여성혐오 멸칭. 여성을 남성의 연애·결혼 대상으로만 취급하고 나이와 외모만을 가치 기준으로 삼는다.",
+    "origin_community": "other",
+    "spread_communities": ["남초 커뮤니티로 확산"],
+    "origin_story": "페미위키에 따르면 여성을 주식에 비유하던 맥락에서 만들어진 표현으로, 본래 '나이 들고 관리하지 않아 (연애)가치가 휴지조각이 된 여성'을 뜻하던 것이 '여자는 크리스마스 케이크'라는 표현과 결합해 '25세 이상의, 남성의 판타지적 결혼 상대에서 벗어난 여성'을 가리키는 말로 확대됐다. (구체적 발원 커뮤니티로 디시인사이드 주식 갤러리가 거론되나, 이 출처는 적격 출처에서 확인되지 않아 단정하지 않는다.) 여성을 평가 객체로 두고 남성을 평가 주체로 설정하며, '상장폐지' 기준이 자의적·불명확하다는 점에서 여성혐오 표현으로 비판된다. 주식 용어 '상장폐지/상폐' 자체는 무해하므로 금융 맥락과 구분해야 한다.",
+    "origin_period": "2012~2013년경",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["상장폐지", "상폐", "주식", "증시", "코스닥", "거래정지", "관리종목", "투자"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EC%83%81%ED%8F%90%EB%85%80",
+        "archive_url": "http://web.archive.org/web/20251214113632/https://femiwiki.com/w/%EC%83%81%ED%8F%90%EB%85%80",
+        "title": "페미위키: 상폐녀",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "'상장폐지된 여성'의 약자. 원래 '나이 들고 관리하지 않아 연애가치가 휴지조각이 된 여성'을 뜻하다가 '25세 이상, 남성의 판타지적 결혼 상대에서 벗어나는 여성'을 지칭하는 말로 변화. 여성을 주식처럼 비유해 나이·외모만으로 가치를 매기는 여성혐오.",
+        "reliability": 3
+      },
+      {
+        "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1002819998",
+        "title": "[한수진의 SBS 전망대] \"김치녀, 오크녀…온라인 여성혐오 표현 심각한 수준\"",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "SBS",
+        "published_at": "2015-02-04",
+        "excerpt": "'상장폐지녀'는 주로 노처녀를 비하하는 말로, 나이가 많은 여자들을 '팔리지도 않는 물건'으로 취급하는 표현이라고 설명. 김치녀·오크녀·성괴와 함께 온라인 여성혐오 표현으로 분류.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "거래소가 해당 종목의 상장폐지를 결정했다.",
+      "감사의견 거절로 상폐 위기에 놓인 회사가 늘고 있다.",
+      "관리종목 지정 후 상폐 절차가 진행 중이다."
+    ],
+    "needs_verification": true,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}
