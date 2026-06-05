@@ -63,6 +63,9 @@ CREATE TABLE source (
                     'unknown'         -- 불명/미확정 — 확정 전까지 NC와 동일하게 차단
                   )),                            -- 게이트 판정은 free-text가 아닌 이 필드 기준
                                                  -- (원자료 표기 변이 'CC BY-SA' vs 'CC-BY-SA' 때문에 문자열 매칭 불가)
+                                                 -- ※ 뉴스(source_type='news')는 본문을 저장하지 않고 사실만 추출하므로
+                                                 --   (04 §2/§7) 재배포 게이트의 차단 대상이 아님 → 'permissive'로 적재하되
+                                                 --   notes에 '사실 추출만, 본문 복제 금지' 기록 (console_core 동일 규약)
     reliability   SMALLINT NOT NULL DEFAULT 3   -- 1(낮음)~5(높음): 뉴스/학술=4-5, 위키=3, 커뮤니티=2
                   CHECK (reliability BETWEEN 1 AND 5),
     archive_url   TEXT,                         -- 웹아카이브 백업 (출처 소실 대비)
