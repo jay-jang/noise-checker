@@ -9,6 +9,10 @@ dependencies = [
     "psycopg[binary]>=3.1",
     "jsonschema>=4.21",
     "referencing>=0.35",
+    "pyahocorasick>=2.3.1",
+    "kiwipiepy>=0.23.1",
+    "fastapi>=0.136.3",
+    "uvicorn[standard]>=0.49.0",
 ]
 
 [project.optional-dependencies]
@@ -21,6 +25,7 @@ dev = [
     "pytest>=8.0",
     "hypothesis>=6.100",
     "ruff>=0.4",
+    "httpx>=0.28.1",
 ]
 
 [build-system]
