@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# 환경/비밀
+.env
+.env.*
+*.pem
+secrets/
+
+# 데이터 — 라이선스 비-permissive 자원은 커밋 금지 (docs/04 §7)
+data/corpus/
+data/quarantine/
+*.parquet
+*.sqlite
+
+# 모델/아티팩트
+models/*/weights/
+*.onnx
+*.pkl
+*.faiss
+releases/
+
+# IDE/OS
+.idea/
+.vscode/
+.DS_Store
+
+# 로그/리포트 임시
+*.log
+.coverage
