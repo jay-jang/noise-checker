@@ -1,0 +1,22 @@
+{
+  "_comment": "스키마 위반 픽스처: new_term인데 negative_examples 누락 → candidate-payload 검증 실패해야 함.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "테스트용어",
+    "term_kind": "word",
+    "meaning": "테스트 의미",
+    "origin_story": "테스트 유래",
+    "severity": 3,
+    "ambiguity": "unambiguous",
+    "categories": ["community_jargon"],
+    "evidence": [
+      {
+        "url": "https://example.org/evidence",
+        "title": "테스트 출처",
+        "source_type": "wiki",
+        "evidence_type": "definition"
+      }
+    ]
+  }
+}
