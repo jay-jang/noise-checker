@@ -1,0 +1,77 @@
+{
+  "_comment": "군무새 — 군대+앵무새 합성어. 군대 이야기를 반복하거나 '여자도 군대 가라'를 되뇌는 남성을 비하하는 신조어. 청정 출처: 페미위키(CC BY-SA 4.0, 정의)+이투데이/인사이트 뉴스(논란). 합성 신조어라 동철 일반어 없음 → ambiguity=unambiguous. 의도성/비하 범위에 양론이 있어 origin_story에 병기. 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "군무새",
+    "term_kind": "word",
+    "meaning": "'군대'와 '앵무새'를 합친 신조어로, 상황과 무관하게 군대 이야기를 반복하거나 '여자도 군대 가라'는 말을 되풀이하는 (주로 남성) 사람을 비하·조롱하는 표현.",
+    "origin_community": "other",
+    "spread_communities": ["여초 커뮤니티(발화처)", "디시인사이드·아카라이브 등으로 확산"],
+    "origin_story": "여초 커뮤니티에서 군대 복무 경험을 과도하게 내세우거나 젠더 논쟁에서 '여자도 군대 가라'를 반복하는 남성을 '말만 반복하는 앵무새'에 빗대 만든 멸칭이다. 군 복무 자부심에 거부감을 표하는 맥락에서 쓰여 남성 비하 표현이라는 비판을 받는 한편, 군미필자·여성을 비하하는 발언에 대한 반발로 특정 '행동'을 겨냥한 것이라는 옹호 주장도 있어 비하 대상 범위와 의도성에는 양론이 존재한다. 2018년 XtvN '최신유행 프로그램'이 이 단어를 소재로 다루고, 2021년 GS25 국방부 협업 포스터 의혹 등으로 사회적 논란이 반복됐다.",
+    "origin_period": "2018년경(방송 노출), 2021년(기업 논란)",
+    "severity": 3,
+    "ambiguity": "unambiguous",
+    "categories": ["misandry", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EA%B5%B0%EB%AC%B4%EC%83%88",
+        "title": "페미위키: 군무새",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "군대 이야기를 반복하거나 '여자도 군대를 가라'를 되뇌는 사람을 가리키는 말.",
+        "reliability": 3
+      },
+      {
+        "url": "http://www.etoday.co.kr/news/view/1796493",
+        "title": "김민교 비하논란, 참전 용사→'군무새' 조롱…국민 청원까지 등장",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "이투데이",
+        "published_at": "2019-09-06",
+        "excerpt": "XtvN '최신유행 프로그램'이 '군무새의 특징' 편을 방송해 참전용사 조롱 논란이 일었다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.insight.co.kr/news/336442",
+        "archive_url": "http://web.archive.org/web/20211107140853/https://www.insight.co.kr/news/336442",
+        "title": "\"군인+무궁화+새=군무새\"…남혐 논란 이어 '군인' 비하 의혹까지 터진 GS25",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "인사이트",
+        "published_at": "2021-05-02",
+        "excerpt": "군무새는 군대와 앵무새의 합성어로 여초 카페에서 만들어 낸 비하 단어다.",
+        "reliability": 3
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "XtvN '최신유행 프로그램' '군무새의 특징' 편 참전용사 조롱 논란",
+        "occurred_at": "2018-10",
+        "medium": "broadcast",
+        "sample_text": "군무새의 특징",
+        "source_url": "http://www.etoday.co.kr/news/view/1796493"
+      },
+      {
+        "title": "GS25 국방부 협업 '진심 고맙軍' 포스터 '군무새' 의도 삽입 의혹 논란",
+        "occurred_at": "2021-05",
+        "medium": "ad",
+        "sample_text": "군무새",
+        "source_url": "https://www.insight.co.kr/news/336442"
+      }
+    ],
+    "negative_examples": [
+      "동생이 군대 다녀온 뒤로 운동을 열심히 한다.",
+      "이번 군무 공연에서 칼군무가 정말 멋졌다.",
+      "그는 군무원 시험을 준비하고 있다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

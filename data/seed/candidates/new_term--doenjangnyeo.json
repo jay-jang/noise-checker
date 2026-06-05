@@ -1,0 +1,51 @@
+{
+  "_comment": "된장녀 — 2006년경 유행한 여성혐오 멸칭. '된장(식품)'과 동철 요소가 있어 일반 식품 맥락 구분 위해 ambiguous + safe_contexts. 청정 근거: 위키백과(definition, CC BY-SA 4.0; 커피vs된장찌개 소비 대비 서술) + 페미위키(origin, CC BY-SA 4.0; '된장녀의 하루' 글·2006 유행 서술). 나무위키 미기록(법무 정책). 검증: 두 URL WebFetch로 용어 일치 확인; '스타벅스 컵 오해' 일화·'김치녀 대체' 단정은 출처 미확인으로 제거/완화함.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "된장녀",
+    "term_kind": "word",
+    "meaning": "허영심으로 자기 소득 수준에 맞지 않는 사치를 일삼는 여성, 특히 자기 경제력이 아니라 이성·가족 등 타인에게 기대어 과소비한다고 싸잡아 비하하는 여성혐오 멸칭. 2000년대 중후반 고가 커피(스타벅스) 소비를 상징으로 삼았다.",
+    "origin_community": "other",
+    "spread_communities": ["각종 인터넷 게시판·커뮤니티(2006 확산)", "dcinside"],
+    "origin_story": "2000년대 중반 인터넷 커뮤니티에서 '된장녀의 하루' 같은 글이 크게 유행하면서 확산된 여성혐오 표현이다(페미위키). 2005~2006년 비싼 커피(스타벅스 등)를 마시는 여성을 조롱하는 흐름과 맞물려, 분식집에서 3,000~4,000원짜리 된장찌개로 점심을 때우면서 5,000원짜리 커피를 마신다는 식으로 여성의 소비를 대비·비난하는 멸칭으로 굳었다(위키백과). 이후 '김치녀'(2011년경) 등 유사 여성혐오 멸칭이 등장했다. '된장' 자체는 발효식품·음식명이므로 식문화 맥락과 반드시 구분해야 한다.",
+    "origin_period": "2006년경",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["된장", "된장찌개", "쌈장", "발효식품", "음식", "요리", "콩", "메주", "전통장", "장독"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EB%90%9C%EC%9E%A5%EB%85%80",
+        "title": "위키백과: 된장녀",
+        "archive_url": "https://web.archive.org/web/2024/https://ko.wikipedia.org/wiki/%EB%90%9C%EC%9E%A5%EB%85%80",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "허영심 때문에 자신의 소득 수준에 맞지 않는 사치를 일삼는 여성, 특히 타인(이성·가족)에 기대어 의존적 과소비를 하는 행태를 비하하는 단어로 정의. 2000년대 중반 유행.",
+        "reliability": 4
+      },
+      {
+        "url": "https://femiwiki.com/w/%EB%90%9C%EC%9E%A5%EB%85%80",
+        "title": "페미위키: 된장녀",
+        "archive_url": "https://web.archive.org/web/2024/https://femiwiki.com/w/%EB%90%9C%EC%9E%A5%EB%85%80",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "2006년경 인터넷에서 크게 유행한 여성혐오 표현으로, 여성의 소비를 표적 삼아 비하하는 멸칭으로 서술됨.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "어머니가 직접 담근 된장으로 끓인 된장찌개가 일품이다.",
+      "장독대에서 된장을 한 숟갈 떠 왔다.",
+      "메주를 띄워 된장을 담그는 전통 방식을 배웠다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

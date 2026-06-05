@@ -1,0 +1,70 @@
+{
+  "_comment": "노알라 — 노무현+코알라 합성 비하 이미지/용어. 단어형(이미지 별칭으로 텍스트화). SBS 8뉴스 방송사고(2013)로 언론 정착. 위키백과(CC BY-SA)+뉴스 다수로 청정 근거 확보.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "노알라",
+    "term_kind": "word",
+    "meaning": "고(故) 노무현 전 대통령의 얼굴을 코알라와 합성한 비하 이미지, 또는 그 이미지를 가리키는 호칭. 텍스트 자막·해시태그·스티커명으로도 쓰이며 노무현 비하 의도를 드러낸다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["dcinside(합성 갤러리 발원 추정)", "ilbe(주 유포·정착처)"],
+    "origin_story": "노무현 전 대통령의 상반신 사진에 코알라 얼굴을 합성한 이미지로, 합성물 제작 커뮤니티를 거쳐 일베저장소에서 노무현 조롱·비하 용도로 광범위하게 유포되었다. 2013년 8월 20일 SBS <8뉴스> 자료화면에 이 합성 이미지가 그대로 노출되는 방송사고가 발생해 언론에 '노알라'라는 명칭으로 보도되며 사회적으로 알려졌다.",
+    "origin_period": "2013년경(언론 정착 시점)",
+    "severity": 5,
+    "ambiguity": "unambiguous",
+    "categories": ["deceased", "politics", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+        "archive_url": "http://web.archive.org/web/20251117155109/https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+        "title": "위키백과: 일베저장소의 사건 및 사고 — '노알라' 합성물 항목",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "노무현 대통령과 코알라를 합성한 '노알라' 이미지를 유포하거나",
+        "reliability": 4
+      },
+      {
+        "url": "https://sports.khan.co.kr/article/201308211032243",
+        "archive_url": "http://web.archive.org/web/20241229031440/https://sports.khan.co.kr/article/201308211032243",
+        "title": "SBS 뉴스 방송사고 '故 노무현 비하 일베 노알라 사진 방송'",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "스포츠경향",
+        "published_at": "2013-08-21",
+        "excerpt": "고 노무현 대통령을 코알라와 합성한 일명 '노알라' 사진이다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.mt.co.kr/society/2013/08/20/2013082021001795850",
+        "title": "SBS 8시 뉴스에 일베 노무현 합성사진 '노알라' 등장",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "머니투데이",
+        "published_at": "2013-08-20",
+        "excerpt": "노 전 대통령을 비하할 목적으로 코알라와 합성해 유포한 이미지",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "SBS 8뉴스 '특파원 현장' 자료화면 노알라 합성 이미지 노출 방송사고",
+        "occurred_at": "2013-08-20",
+        "medium": "broadcast",
+        "sample_text": "노알라",
+        "source_url": "https://sports.khan.co.kr/article/201308211032243"
+      }
+    ],
+    "negative_examples": [
+      "동물원에서 코알라가 유칼립투스 잎을 먹고 있었다.",
+      "호주 여행에서 코알라를 직접 안아봤다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

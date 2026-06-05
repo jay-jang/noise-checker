@@ -1,0 +1,74 @@
+{
+  "_comment": "오또케 — '어떡해'의 변형 표기를 빌려 여경·여군·여성이 위급상황에 무능하다는 편견을 조장하는 여성혐오 비속어. '오또케'는 '어떡해'의 귀여운/구어적 표기로도 무해하게 쓰일 수 있어 ambiguous + safe_contexts 필수. 청정 근거: 한국일보(definition: 윤석열 공약집)·경향신문 [여적](origin/definition: 2019 대림동 이후 여경혐오 확산)·서울신문(incident: 2021 GS25 채용공고). 남초 커뮤니티 발원 시점·경위는 청정 출처로 미확정(검증자 주: 기존 '디시 야구갤 2018 발원' 단정은 나무위키 의존 정황이라 제거). 나무위키 미기록(법무 정책).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "오또케",
+    "term_kind": "word",
+    "meaning": "'어떡해'의 변형 표기를 빌려, 여성(특히 여경·여군)이 위급·범죄 상황에서 '어떡해'만 반복하며 아무 대처도 못 한다는 편견을 조장·조롱하는 여성혐오 비속어.",
+    "origin_community": "unknown",
+    "spread_communities": ["각종 남초 커뮤니티(여경 혐오 맥락으로 확산)"],
+    "origin_story": "'오또케'는 본래 '어떡해'를 소리 나는 대로/귀엽게 적은 표기다. 이 표기를 빌려 위급상황에서 '어떡해'만 외치며 대처하지 못하는 사람을 비꼬는 조롱 맥락으로 전용되었고, 경향신문([여적] '오또케', 2022-02-15) 보도에 따르면 2019년 서울 대림동에서 여성 경찰관의 현장 대응 영상이 유포된 이후 '오또케'로 상징되는 여경 혐오가 본격 확산됐다. 이후 여경·여군 등 특정 직업군 여성, 나아가 여성 전반을 무능하다고 비하·조롱하는 도그휘슬로 굳었다. 2021년 4월 GS25 한 점포는 알바 채용공고에 '소극적이고 오또케오또케 하는 분은 지원하지 말라'는 취지의 문구를 적어 논란이 됐고, 2022년 2월에는 윤석열 당시 대선후보 측 사법개혁 공약 참고자료집에 '오또케'가 쓰여 여성·경찰 비하 논란이 일었다. (남초 커뮤니티 발원 시점·경위는 청정 출처로 미확정.) '어떡해'의 무해한 구어 표기와는 반드시 구분해야 한다.",
+    "origin_period": "2019년경 여경 혐오 맥락으로 확산(표기 자체는 그 이전부터 존재)",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["어떡해", "어떻게", "걱정", "당황", "귀여운 말투", "아기 말투", "감탄사", "혼잣말"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/A2022021514300002379",
+        "title": "윤석열, 공약집서 \"오또케\"로 경찰·여성 비하… \"책임자 해촉\"",
+        "archive_url": "https://web.archive.org/web/2024/https://www.hankookilbo.com/News/Read/A2022021514300002379",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2022-02-15",
+        "excerpt": "'오또케'는 '어떡해'를 잘못 적은 말로, 여성 경찰들이 범죄현장에서 무능하다는 편견을 조장하는 비속어로 설명. 여경뿐 아니라 여성 전반을 조롱하는 표현으로도 쓰인다고 보도.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.khan.co.kr/opinion/yeojeok/article/202202152122005",
+        "title": "[여적] '오또케'",
+        "archive_url": "https://web.archive.org/web/2024/https://www.khan.co.kr/opinion/yeojeok/article/202202152122005",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "경향신문",
+        "published_at": "2022-02-15",
+        "excerpt": "'오또케'는 '어떡해'의 변용으로, 여성 경찰관들이 현장에서 소극적이며 무능하다는 취지로 조롱·비하하는 표현이다. 2019년 서울 대림동에서 여성 경찰관 영상이 유포된 이후 '오또케'로 상징되는 여경 혐오가 확산됐다고 설명.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.seoul.co.kr/news/newsView.php?id=20210418500025",
+        "title": "편의점 모집 공고에 \"페미 아닌 자…'오또케오또케' 금지\" 논란",
+        "archive_url": "https://web.archive.org/web/2024/https://www.seoul.co.kr/news/newsView.php?id=20210418500025",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2021-04-18",
+        "excerpt": "한 편의점 알바 모집 공고가 지원자격에 '페미니스트가 아닌 자'를 명시하고 '소극적이고 오또케오또케 하는 분은 지원하지 말라'는 취지의 문구를 적어 성차별 논란이 일었고, 논란 후 공고가 삭제됐다고 보도.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "윤석열 대선후보 사법개혁 공약 참고자료집 '오또케' 사용 논란",
+        "occurred_at": "2022-02-15",
+        "medium": "other",
+        "sample_text": "오또케",
+        "source_url": "https://www.hankookilbo.com/News/Read/A2022021514300002379"
+      }
+    ],
+    "negative_examples": [
+      "시험을 망쳤어, 오또케 ㅠㅠ",
+      "지갑을 잃어버렸는데 오또케 해야 할지 모르겠어.",
+      "아기가 '오또케'라며 귀엽게 따라 말했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

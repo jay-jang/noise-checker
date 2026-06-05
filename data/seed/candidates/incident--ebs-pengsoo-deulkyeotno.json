@@ -1,0 +1,13 @@
+{
+  "_comment": "EBS 펭수 '들켰노' 자막 일베 논란 (2025-11). '~노' 패턴과 연관된 실사고. '자이언트 펭TV' 수능 수학 강의 영상에서 평서문 자막 '(들켰노...)'가 등장. 대화에 사투리가 없었던 점에서 의도성 의심. EBS는 공식 사과 없이 장면만 삭제해 비판. related_surface='~노'. must_catch 후보. 청정 출처: 머니투데이. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "EBS '자이언트 펭TV' 펭수 '들켰노' 자막 일베 논란 및 사과 없이 삭제",
+    "occurred_at": "2025-10-24",
+    "medium": "broadcast",
+    "related_surface": "~노",
+    "sample_text": "(들켰노...)",
+    "source_url": "https://www.mt.co.kr/society/2025/11/06/2025110606011416157"
+  }
+}

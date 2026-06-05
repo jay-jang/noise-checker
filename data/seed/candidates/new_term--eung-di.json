@@ -1,0 +1,59 @@
+{
+  "_comment": "응디 — 노무현 육성 합성 비하 용어. 단, '응디/응딩이'는 엉덩이를 뜻하는 동남 방언/유아어이기도 함 → ambiguous + safe_contexts 필수. 청정 근거: 페미위키(CC BY-SA, 유래/정의) + 스포츠경향(타임스퀘어 광고 incident).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "응디",
+    "term_kind": "word",
+    "meaning": "일베 등 극우 커뮤니티에서 고(故) 노무현 전 대통령을 비하할 때 쓰는 용어. 노무현 전 대통령의 생전 발언 음성을 합성한 소스에서 유래했으며 '응디시티' 등 합성물·파생어로 확산되었다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(주 유포처)"],
+    "origin_story": "'응디/응딩이'는 본래 '엉덩이'를 뜻하는 동남 방언이자 유아어다. 페미위키에 따르면 노무현 전 대통령의 민주평통 발언(공개 연설)에서 쓰인 이 표현의 육성이 일베저장소에서 비하 합성물의 음성 소스로 전용되면서, '응디'가 노무현 조롱·비하 은어로 자리잡았다. 이후 노무현 육성 합성 음원을 기반으로 한 '응디시티' 영상이 2014년 일베저장소에 게시·유포되었고, 2018년 1월 25일에는 일베 이용자들이 뉴욕 타임스퀘어 전광판에 'Happy Un-Ji day' 등과 함께 '응디' 관련 문구를 담은 비하 광고를 게재하는 사건으로 이어졌다.",
+    "origin_period": "2014년경(응디시티 유포 기준; 노무현 밈으로의 전용은 그 이전)",
+    "severity": 5,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["엉덩이", "사투리", "방언", "유아어", "아기", "기저귀", "동남 방언", "경상도"],
+    "categories": ["deceased", "politics", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://femiwiki.com/w/%EC%9D%91%EB%94%94",
+        "title": "페미위키: 응디",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "원래 엉덩이를 가리키는 동남 방언이었으나, 노무현 전 대통령을 비하할 목적으로 사용하는 일베 용어로 자리잡았다.",
+        "reliability": 3
+      },
+      {
+        "url": "https://sports.khan.co.kr/article/201801251522013",
+        "title": "일베, 타임스퀘어에 故 노무현 전 대통령 비하 광고…내용 보니",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "스포츠경향",
+        "published_at": "2018-01-25",
+        "excerpt": "광고에는 'Happy birthday Roh-ala', 'Happy Un-Ji day', '응디 시티' 등 노무현 전 대통령을 비하하는 문구가 담겼다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "뉴욕 타임스퀘어 노무현 비하 광고 게재 사건",
+        "occurred_at": "2018-01-25",
+        "medium": "ad",
+        "sample_text": "응디 시티, 응디 응디",
+        "source_url": "https://sports.khan.co.kr/article/201801251522013"
+      }
+    ],
+    "negative_examples": [
+      "아기가 응디를 실룩거리며 기어다닌다.",
+      "할머니는 엉덩이를 응디라고 부르신다.",
+      "동남 방언으로 응디는 엉덩이를 뜻한다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

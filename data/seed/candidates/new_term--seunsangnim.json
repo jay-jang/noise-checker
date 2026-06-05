@@ -1,0 +1,39 @@
+{
+  "_comment": "슨상님: 김대중 전 대통령을 전라도 사투리 어조로 조롱하는 멸칭. 청정 origin/definition 출처는 나무위키뿐(금지)이라 needs_verification=true. 2014 법원은 특정 사건에서 '슨상님'이 사회통념상 모욕은 아니라고 판단 → 양측 서술 병기. '선생님' 사투리 표기와 동음 → ambiguous + safe_contexts.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "슨상님",
+    "term_kind": "word",
+    "meaning": "'선생님'의 전라도 사투리 발음을 흉내 낸 표기를 빌려 김대중 전 대통령(및 그 지지층·호남)을 조롱·비하하는 멸칭. 호남의 높은 지지를 빌미로 김대중을 사투리 어조로 우스꽝스럽게 호명하는 맥락에서 쓰인다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe", "dcinside(반민주 계열 확산)"],
+    "origin_story": "지지자들이 김대중 전 대통령을 '선생님'이라 부른 데서 출발해, 그 호칭을 전라도 사투리 발음('슨상님')으로 비틀어 조롱하는 멸칭으로 전용됐다. 일베저장소 등에서 김대중·호남을 사투리 어조로 희화화하는 맥락에 쓰인다. 다만 2014년 서울중앙지법 항소심은 특정 모욕 사건에서 '슨상님'이라는 표현 자체가 사회통념상 피해자의 사회적 평가를 떨어뜨리는 모욕이라 단정하기 어렵다고 판단(원심 일부 감형)한 바 있어, 단독 표현의 위법성·의도성은 맥락 의존적이다. 청정한 학술·언론 유래 정의를 추가 확보하기 전까지 초안 상태로 둔다.",
+    "origin_period": "2010년대 초",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["선생님", "사투리", "방언", "전라도 말", "발음", "존칭", "스승"],
+    "categories": ["region_hate", "politics", "community_jargon"],
+    "evidence": [
+      {
+        "url": "http://www.newstomato.com/one/view.aspx?seq=465910",
+        "title": "법원 \"일베 '슨상님' 모욕적인 표현 아니야\"",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴스토마토",
+        "published_at": "2014-05-03",
+        "excerpt": "인터넷 커뮤니티 일베에서 피해자를 김대중 전 대통령에 빗대 '슨상님'이라 칭한 사건에서, 항소심 법원은 해당 표현이 사회통념상 피해자의 사회적 평가를 저하한다고 보기 어렵다고 판단해 일부 감형.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "할머니는 동네 의원 어른을 늘 슨상님이라고 부르셨다.",
+      "전라도 사투리로 선생님을 슨상님이라 발음하기도 한다."
+    ],
+    "needs_verification": true,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

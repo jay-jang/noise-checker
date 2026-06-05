@@ -1,0 +1,105 @@
+{
+  "_comment": "노무 — 노무현 비하 접두/은어. 그러나 '노무'는 노동·인사 관리(노무관리/노무사/노무비/노무자)에서 극히 흔한 일반어 → ambiguity=common. 스키마상 common이면 combination_rules + trigger_evidence 필수. 단독 '노무'는 절대 트리거 금지, 조합(노무+박수/핑계, 노무한 등 노무현 연상 결합)에서만 가산.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "노무",
+    "term_kind": "word",
+    "meaning": "일베 등 극우 커뮤니티에서 고(故) 노무현 전 대통령을 비하하는 은어. '노무현'의 앞 두 글자를 떼어 '노무 좋다', '고 노무 핑계', '노무한' 등 일상어처럼 끼워 넣어 비하 의도를 숨기는 도그휘슬로 쓰인다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(주 사용처)"],
+    "origin_story": "'노무현'의 성+이름 첫 글자를 잘라 만든 비하 은어로, 표면적으로는 노동·인사 관리를 뜻하는 일반어 '노무(勞務)'와 동일하게 보이도록 일상 문장에 위장해 사용하는 도그휘슬 성격이 강하다. 일베 등에서 노무현 전 대통령을 조롱하는 맥락에서 '노무 좋다', '고 노무 핑계' 같은 형태로 정착했다. 도그휘슬 특성상 단독 출현만으로는 비하 의도를 단정할 수 없으며, 노무현을 연상시키는 조합·문맥(박수·핑계 등 조롱 프레임, '노무한' 결합, 추모일·5·18 등 시점)에서만 위험이 성립한다. 2020년 SBS플러스 <왈가닥뷰티> '고 노무 핑계' 자막 사과, 2026년 롯데 자이언츠 '노무한 박수' 자막 사과 등 기업·방송 실사고로 반복 보도되며 비하 용법이 사회적으로 확인되었다.",
+    "origin_period": "2010년대 초반",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["노무관리", "노무사", "노무비", "노무자", "노무인사", "노무현장", "공인노무사", "노무 담당", "인사노무", "노무제공", "노무 도급"],
+    "categories": ["deceased", "politics", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["박수", "핑계", "노무한", "운지", "응디", "노알라"],
+        "base_severity": 1,
+        "severity_delta": 4
+      },
+      {
+        "trigger_kind": "proximity",
+        "trigger_terms_surface": ["노무현", "노짱", "봉하"],
+        "proximity_window": 15,
+        "base_severity": 1,
+        "severity_delta": 3
+      },
+      {
+        "trigger_kind": "date_context",
+        "trigger_pattern": "5\\s*[.·]\\s*18|5\\s*[.·]\\s*23",
+        "base_severity": 1,
+        "severity_delta": 3
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.khan.co.kr/article/202006231420001",
+      "https://www.news1.kr/society/general-society/6162899",
+      "https://www.newsis.com/view/NISX20260512_0003625546"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.khan.co.kr/article/202006231420001",
+        "title": "SBS, 끊이지 않는 일베 논란…'왈가닥뷰티' 측 \"노무현 전 대통령 비하, 고개 숙여 사과\"",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "경향신문",
+        "published_at": "2020-06-23",
+        "excerpt": "'고 노무 핑계'는 일베에서 노무현 전 대통령을 비하할 때 쓰는 표현으로, 제작진이 사과했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.news1.kr/society/general-society/6162899",
+        "title": "광주 출신 노진혁 선수에게 '노무한 박수'?…일베 논란 터진 롯데 자이언츠",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴스1",
+        "published_at": "2026-05-11",
+        "excerpt": "'무한 박수' 자막이 노진혁의 '노'자와 겹쳐 '노무한 박수'로 읽혔고, 일베의 노무현 비하 표현이라는 논란이 일었다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.newsis.com/view/NISX20260512_0003625546",
+        "title": "'노무한 박수'?…일베 논란 터진 롯데 자이언츠, 공식 사과",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2026-05-12",
+        "excerpt": "해당 표현은 일베에서 고 노무현 전 대통령을 비하할 때 사용하는 표현으로 알려져 있다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "SBS플러스 '왈가닥뷰티' '고 노무 핑계' 자막 논란 및 사과",
+        "occurred_at": "2020-06-22",
+        "medium": "broadcast",
+        "sample_text": "고 노무 핑계",
+        "source_url": "https://www.khan.co.kr/article/202006231420001"
+      },
+      {
+        "title": "롯데 자이언츠 공식 유튜브 '노무한 박수' 자막 논란 및 공식 사과",
+        "occurred_at": "2026-05-11",
+        "medium": "sns",
+        "sample_text": "노무한 박수",
+        "source_url": "https://www.newsis.com/view/NISX20260512_0003625546"
+      }
+    ],
+    "negative_examples": [
+      "회사에 노무관리 담당 공인노무사를 새로 채용했다.",
+      "이번 분기 노무비가 예산을 초과했다.",
+      "근로기준법상 노무 제공 의무를 설명하는 강의를 들었다.",
+      "인사노무 시스템을 클라우드로 이전했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

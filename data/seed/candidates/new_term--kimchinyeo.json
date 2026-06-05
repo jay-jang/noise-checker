@@ -1,0 +1,52 @@
+{
+  "_comment": "김치녀 — 한국 여성을 사치·의존적 존재로 비하하는 대표적 여성혐오 멸칭. 일베를 통해 확산(서울신문 확인). 어원/파생 경위('김치맨 파생', '2010년 이전 무해 용례')는 나무위키에만 기재되어 청정 출처 부재 → needs_verification=true. 음식 '김치' 동음 충돌 때문에 ambiguous + safe_contexts 유지. 청정 근거: 서울신문(definition) + 페미위키(origin/definition, CC BY-SA, 된장녀 계열로 서술).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "김치녀",
+    "term_kind": "word",
+    "meaning": "한국 여성을 자기 돈은 쓰지 않으면서 남성의 경제력에 기대 사치한다고 싸잡아 비하하는 여성혐오 멸칭. '한국'을 상징하는 '김치'와 '녀(女)'를 결합해 한국 여성 전반을 부정적 고정관념으로 호명한다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(주 확산처)", "각종 남초 커뮤니티"],
+    "origin_story": "2010년대 들어 '김치녀'는 사치스럽고 이기적인 행태를 보인다며 한국 여성을 싸잡아 지칭하는 멸칭으로 굳어졌다(페미위키). 앞서 2006년 '된장녀의 하루' 게시물로 확산된 '된장녀' 계열의 소비 비하 담론을 잇는 표현으로, 여성혐오를 표방한 일베저장소를 통해 전파된 대표적 표현이다(서울신문). 음식 '김치'나 한국 음식을 좋아하는 사람을 가리키는 일반 맥락과는 반드시 구분해야 한다. ※ '2011년 김치맨에서 파생', '2010년 이전 무해한 농담조 호칭' 등 어원·초기 용례 서술은 청정 출처(위키백과/페미위키/언론)에서 확인되지 않으며 나무위키에만 기재되어 있어 보류함 — needs_verification 참조.",
+    "origin_period": "2010년대 초",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["김치", "김장", "음식", "요리", "발효식품", "반찬", "한식", "배추", "깍두기"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://go.seoul.co.kr/news/newsView.php?id=20150716003006",
+        "title": "[단독] 김치녀·삼일한…'일베' 용어가 일상 속으로",
+        "archive_url": "https://web.archive.org/web/2024/https://go.seoul.co.kr/news/newsView.php?id=20150716003006",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-07-16",
+        "excerpt": "'김치녀'는 여성 혐오를 기치로 내건 일베를 통해 전파된 대표적인 표현이다. 폐쇄적 온라인 커뮤니티의 혐오 표현이 일상 언어로 번지는 사례로 분석됨.",
+        "reliability": 4
+      },
+      {
+        "url": "https://femiwiki.com/w/%EA%B9%80%EC%B9%98%EB%85%80",
+        "title": "페미위키: 김치녀",
+        "archive_url": "https://web.archive.org/web/2024/https://femiwiki.com/w/%EA%B9%80%EC%B9%98%EB%85%80",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "한국 여성을 비하하는 여성혐오 표현. 2010년대 들어 이기적·사치스러운 생활을 즐기는 여성을 지칭하는 멸칭으로 굳어졌으며, 2006년 '된장녀' 계열의 소비 비하 담론을 잇는 표현으로 서술됨(해당 고정관념은 통계적으로 근거 없다고 반박).",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "김장철이라 김치녀석들 배추값이 많이 올랐다는 농담을 했다.",
+      "엄마가 담근 김치는 정말 맛있다.",
+      "그녀는 김치 담그는 법을 할머니에게 배웠다."
+    ],
+    "needs_verification": true,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "롯데 자이언츠 '노무한 박수' 일베 자막 실사고 (2026-05). 관련 용어 surface='노무'. 자막 '무한 박수'가 노진혁 선수 '노'자와 겹쳐 '노무한 박수'로 읽힌 사례. must_catch 후보.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "롯데 자이언츠 공식 유튜브 '노무한 박수' 자막 일베 논란 및 공식 사과",
+    "occurred_at": "2026-05-11",
+    "medium": "broadcast",
+    "related_surface": "노무",
+    "sample_text": "노무한 박수",
+    "source_url": "https://www.news1.kr/society/general-society/6162899"
+  }
+}

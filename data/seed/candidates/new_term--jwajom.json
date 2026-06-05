@@ -1,0 +1,38 @@
+{
+  "_comment": "좌좀(좌파 좀비): 정치 혐오 은어 중 언론 칼럼에 정착한 사례. 한겨레 칼럼(이상수의 고전중독, Nate 재수록)이 좌좀/우좀을 비인간화·증오 표현으로 규정 → definition 출처로 사용. 동철 일반어 없음 → unambiguous.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "좌좀",
+    "term_kind": "word",
+    "meaning": "'좌파 좀비'의 준말. 진보·좌파 성향 인사를 스스로 판단 못 하고 선동에 휘둘리는 영혼 없는 존재(좀비)로 비유해 비인간화·비하하는 정치 멸칭. 대칭어로 '우좀'(우파 좀비)이 있다.",
+    "origin_community": "other",
+    "spread_communities": ["보수 성향 온라인 커뮤니티", "포털 뉴스 댓글", "ilbe(확산)"],
+    "origin_story": "진보·좌파 진영을 가리켜 '좌파 좀비'라 비하하던 표현이 줄어 '좌좀'으로 굳었다. 2008년 촛불집회 전후 시위 참가자를 선동에 휘둘린 좀비에 빗대 비하하던 용법이 퍼진 것으로 회자되며, 이후 보수 성향 온라인 공간과 포털 댓글에서 정치 멸칭으로 정착했다. 한겨레 칼럼은 '좌좀/우좀'을 상대를 인간이 아닌 좀비로 취급해 증오를 담는 표현으로 비판적으로 다뤘다.",
+    "origin_period": "2000년대 후반",
+    "severity": 3,
+    "ambiguity": "unambiguous",
+    "categories": ["politics", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://news.nate.com/view/20130527n32981",
+        "title": "[이상수의 고전중독] 좌좀/우좀과 행시주육",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한겨레(네이트 재수록)",
+        "published_at": "2013-05-27",
+        "excerpt": "'좌좀(좌파좀비)/우좀(우파좀비)'은 자기 진영의 편견을 무분별하게 추종하는 사람을 좀비에 빗댄 말로, 상대를 인간이 아닌 존재로 취급해 증오를 담는 비인간화 표현이라고 비판.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "회의에서 좌측 좀비 캐릭터의 동선을 수정하기로 했다.",
+      "그 게임은 좌우로 좀비가 몰려오는 디펜스 장르다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

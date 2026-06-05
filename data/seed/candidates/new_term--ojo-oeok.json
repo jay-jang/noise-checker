@@ -1,0 +1,91 @@
+{
+  "_comment": "오조오억(5조5억) — 원래 '매우 많다'는 과장 수사. 일부 여초 커뮤니티에서 '남성 정자가 오조오억 개'라며 남성을 희화화하는 맥락으로 쓰인다는 주장으로 남혐 논란. 수(number) 표현이라 단독으로는 무해 → term_kind=number, combination_rules + trigger_evidence 필수. 청정 출처: 뉴시스·위키트리·한국일보 뉴스. 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "오조오억",
+    "term_kind": "number",
+    "meaning": "'5조5억'을 소리 나는 대로 쓴 표현으로 원래는 '셀 수 없이 매우 많다'는 과장된 수사. 일부 여초 커뮤니티에서 '남성 정자 수가 오조오억 개'라는 식으로 남성을 성적으로 희화화·비하하는 맥락으로 쓰인다는 주장이 제기되며 남성 혐오 표현 논란이 일었다.",
+    "origin_community": "other",
+    "spread_communities": ["여초 커뮤니티(비하 용법 주장처)", "온라인 전반 과장 표현으로 확산"],
+    "origin_story": "한국일보 보도에 따르면 2017년 프로듀스101 시즌2 팬 댓글에서 '아주 많다'는 뜻으로 비롯되어 동원참치 CF(2019)·웹툰 등에서 과장 수사로 널리 쓰였다. 이후 일부 여초 커뮤니티에서 '정자가 오조오억 개'라는 식으로 남성을 비하하는 맥락에 동원된다는 주장(주로 남초에서 제기)이 나오면서, 2021년 OCN 드라마 '다크홀' 공식 SNS 홍보 문구('서사 오조오억 개') 등에 쓰인 사례가 남성 혐오 논란으로 비화했다. 단순한 과장 수사일 뿐 비하 의도가 없다는 반론도 강하게 제기되어 의도성은 미입증 상태다.",
+    "origin_period": "2017년경(과장 표현), 2021년(남혐 논란 표면화)",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["조회수", "구독자", "팔로워", "별", "은하", "예산", "매출", "서사", "콘텐츠", "분량"],
+    "categories": ["misandry", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["정자", "한남", "한남충", "허버허버", "웅앵웅"],
+        "base_severity": 1,
+        "severity_delta": 3
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.newsis.com/view/NISX20210420_0001413064",
+      "https://www.wikitree.co.kr/articles/640742"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.newsis.com/view/NISX20210420_0001413064",
+        "title": "'5조5억, 허버허버, 웅앵웅'…이말이 왜 남성혐오? 논란",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2021-04-20",
+        "excerpt": "오조오억은 '정자가 오조오억개'라는 비하 표현이라는 주장이 남초에서 제기됐다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.wikitree.co.kr/articles/640742",
+        "archive_url": "http://web.archive.org/web/20210420083838/https://www.wikitree.co.kr/articles/640742",
+        "title": "'오조오억…' 자막 잘못 써서 남혐 논란 생긴 김옥빈X이준혁 드라마",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "위키트리",
+        "published_at": "2021-04-20",
+        "excerpt": "OCN 드라마 '다크홀' 공식 SNS 홍보 글에 '오조오억'이 쓰여 논란이 됐다.",
+        "reliability": 3
+      },
+      {
+        "url": "https://www.hankookilbo.com/News/Read/A2021042110280003760",
+        "title": "'허버허버' 이어 '오조오억'... 신조어 또 남성혐오 논란, 왜",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2021-04-21",
+        "excerpt": "오조오억은 원래 '매우 많다'는 뜻의 과장 표현으로 쓰였다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "OCN 드라마 '다크홀' 공식 SNS '오조오억' 홍보 문구 논란",
+        "occurred_at": "2021-04",
+        "medium": "sns",
+        "sample_text": "포스터만 봐도 서사 오조오억 개",
+        "source_url": "https://www.wikitree.co.kr/articles/640742"
+      },
+      {
+        "title": "동원참치 광고·제품 정보 '오조오억 개' 표현 남혐 논란",
+        "occurred_at": "2019",
+        "medium": "ad",
+        "sample_text": "오조오억 개",
+        "source_url": "https://www.newsis.com/view/NISX20210420_0001413064"
+      }
+    ],
+    "negative_examples": [
+      "이 영상 조회수가 오조오억 회는 되는 것 같다.",
+      "밤하늘에 별이 오조오억 개쯤 떠 있었다.",
+      "할 일이 오조오억 개라서 정신이 없다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

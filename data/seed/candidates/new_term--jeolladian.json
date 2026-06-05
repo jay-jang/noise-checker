@@ -1,0 +1,70 @@
+{
+  "_comment": "전라디언: 전라도+~an/인디언 합성 멸칭. 동철 일반어 없음 → unambiguous. KCI 학술(definition)·위키백과(definition)·아내의 맛 자막 사고(incident)로 검증. 나무위키 미기록.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "전라디언",
+    "term_kind": "word",
+    "meaning": "전라도(호남) 출신·주민을 한국인이 아닌 이방인·이민족처럼 취급해 비하하는 멸칭. '전라도'에 영어 어미 -an(또는 '인디언')을 결합해 같은 국민이 아닌 외부 집단으로 분리·타자화한다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["네이버 뉴스 댓글(초기 사용)", "ilbe(유행·고착처)"],
+    "origin_story": "'전라도'에 영어 국적 접미사 -an을 붙여 호남 사람을 마치 외국인·이민족처럼 호명하는 조어다. 2000년대 중반 포털 뉴스 댓글에서 '전라디안' 형태로 등장했고, 일베저장소를 거치며 '전라디언'으로 표기가 고착·확산됐다. 호남을 같은 국민이 아닌 이질 집단으로 분리하는 타자화 프레임이 핵심이며, 학술 분석(양혜승, 2022)에서 네이버 범죄뉴스 댓글의 대표적 전라도 비하어 중 하나로 보고됐다.",
+    "origin_period": "2006년경 등장, 2010년대 일베서 고착",
+    "severity": 4,
+    "ambiguity": "unambiguous",
+    "categories": ["region_hate", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002842479",
+        "title": "'홍어'라 호명되는 타자들(others): 네이버 범죄뉴스 맥락에서 전라도 혐오성 댓글에 대한 텍스트 마이닝 분석",
+        "source_type": "academic",
+        "evidence_type": "definition",
+        "license": "학술 저작권(사실 추출만)",
+        "publisher": "부산울산경남언론학회 / 지역과 커뮤니케이션 26(2), 36-70",
+        "published_at": "2022",
+        "excerpt": "전라도 사람을 비하하는 단어들로 '홍어','홍어족','전라디언','깽깽이' 등이 도출됨.",
+        "reliability": 5
+      },
+      {
+        "url": "https://www.asiae.co.kr/article/2019062609313729121",
+        "title": "[전문]'아내의 맛' 제작진 \"전라디언, 일베 용어인 줄 몰랐다\" 해명",
+        "archive_url": "http://web.archive.org/web/20190822085141/https://www.asiae.co.kr/article/2019062609313729121",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "아시아경제",
+        "published_at": "2019-06-26",
+        "excerpt": "'전라디언'은 전라도 지역민을 비하하는 표현으로 극우성향 사이트 '일간 베스트(일베)'에서 사용되는 용어. TV조선 '아내의 맛' 제작진이 자막 사용 후 일베 용어인 줄 몰랐다며 사과.",
+        "reliability": 4
+      },
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
+        "title": "위키백과: 일베저장소 (전라도 비하 표현 서술)",
+        "archive_url": "https://web.archive.org/web/2024/https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "전라도 주민에 대한 여러 비하 단어를 만들어내 인종무시와 지역감정을 부추긴다는 비판('전라디언' 포함).",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "TV조선 '아내의 맛' 송가인 고향 방문 장면에 '전라디언' 자막 사용 후 제작진 사과",
+        "occurred_at": "2019-06-25",
+        "medium": "broadcast",
+        "sample_text": "전라디언",
+        "source_url": "https://www.hankookilbo.com/News/Read/201906260873089324"
+      }
+    ],
+    "negative_examples": [
+      "그는 전라도 출신으로 서울에서 식당을 운영한다.",
+      "전라도 사투리는 정감 있는 억양으로 유명하다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

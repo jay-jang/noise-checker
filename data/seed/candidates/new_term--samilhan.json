@@ -1,0 +1,81 @@
+{
+  "_comment": "삼일한 — '(여자는) 3일에 한 번 (때려야 한다)'는 여성 대상 폭력을 함축한 일베 유래 멸칭. severity 5(폭력 선동). 주의: '삼일한'이라는 글자열은 '삼일한약방'·'출장은 삼일, 한…' 처럼 무관한 문맥의 부분문자열로 등장할 수 있어 ambiguous + safe_contexts + negative_examples 필수. 잡코리아 맞춤법검사기·서울대 게임대회 팀명 등 실사고 다수. 청정 근거: 서울신문(definition) + 머니투데이/세계일보(incident). 나무위키 미기록(법무 정책).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "삼일한",
+    "term_kind": "word",
+    "meaning": "'여자는 3일에 한 번씩 때려야 한다'는 취지의 문구를 축약한 표현으로, 여성에 대한 가정·신체 폭력을 정당화·조롱하는 여성혐오 멸칭. 일베저장소 등에서 여성을 비하·폭력 대상화할 때 쓰였다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(주 유포처)", "각종 남초 커뮤니티"],
+    "origin_story": "'삼일한'은 '(북어와 여자는) 3일에 한 번 패야 한다'는 식의 여성 대상 폭력을 함축한 문구를 줄인 표현으로, 극우 성향 온라인 커뮤니티 일베저장소 이용자들이 여성을 비하·폭력 대상화하며 쓴 멸칭으로 보도되었다. 폭력 선동성이 강해 단순 비하어를 넘어선다. 이 표현은 2014년 서울대 축제 게임대회에서 한 팀이 '삼일한'을 팀명으로 내걸어 논란이 됐고(해당 팀은 공개 사과), 2021년에는 잡코리아·사람인 등 취업포털 맞춤법 검사기에서 '삼일한' 입력 시 '3일에 한 번 때려야 할 여자'라는 대치어가 노출돼 사과·수정되는 사건으로 이어졌다.",
+    "origin_period": "2010년대 초",
+    "severity": 5,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["삼일절", "3.1절", "한약방", "한의원", "출장", "삼일장", "3일간"],
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://go.seoul.co.kr/news/newsView.php?id=20150716003006",
+        "title": "[단독] 김치녀·삼일한…'일베' 용어가 일상 속으로",
+        "archive_url": "https://web.archive.org/web/2024/https://go.seoul.co.kr/news/newsView.php?id=20150716003006",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "서울신문",
+        "published_at": "2015-07-16",
+        "excerpt": "일베에서 비롯한 극단적 여성 비하 용어로 '삼일한'을 거론하며, 폐쇄적 커뮤니티의 혐오 표현이 일상으로 번지는 사례로 분석.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.mt.co.kr/society/2014/10/08/2014100823005853014",
+        "title": "서울대 게임대회서 '일베'용어 '삼일한' 팀명 논란, 무슨 뜻?",
+        "archive_url": "https://web.archive.org/web/2024/https://news.mt.co.kr/mtview.php?no=2014100823005853014",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "머니투데이",
+        "published_at": "2014-10-08",
+        "excerpt": "2014년 서울대 축제 게임대회 결승에서 한 팀이 '삼일한'을 팀명으로 사용해 논란. '(북어와) 여자는 3일에 한 번 때려야 한다'는 일베 여성 비하 표현에서 유래한 명칭으로 보도. 팀은 공개 사과.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.segye.com/newsView/20210825511203",
+        "title": "\"삼일한=3일에 한 번 때려야 할 여자?\"…잡코리아 '여혐' 문구 논란에 사과",
+        "archive_url": "https://web.archive.org/web/2024/https://www.segye.com/newsView/20210825511203",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "세계일보",
+        "published_at": "2021-08-25",
+        "excerpt": "취업포털 잡코리아 맞춤법 검사기에 '삼일한' 입력 시 '3일에 한 번 때려야 할 여자'라는 대치어가 노출돼 논란. 사람인에서도 유사 문제 확인. 잡코리아 사과 후 수정.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "잡코리아·사람인 맞춤법 검사기 '삼일한' 여성 비하 대치어 노출 논란",
+        "occurred_at": "2021-08-25",
+        "medium": "app",
+        "sample_text": "삼일한",
+        "source_url": "https://www.segye.com/newsView/20210825511203"
+      },
+      {
+        "title": "서울대 축제 게임대회 '삼일한' 팀명 논란 및 사과",
+        "occurred_at": "2014-09-30",
+        "medium": "game",
+        "sample_text": "삼일한",
+        "source_url": "https://www.mt.co.kr/society/2014/10/08/2014100823005853014"
+      }
+    ],
+    "negative_examples": [
+      "삼일절 기념식이 3월 1일에 열렸다.",
+      "삼일한약방은 우리 동네에서 오래된 한의원이다.",
+      "이번 출장은 삼일, 한 달에 두 번 정도 다녀온다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

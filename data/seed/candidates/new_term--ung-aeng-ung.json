@@ -1,0 +1,63 @@
+{
+  "_comment": "웅앵웅 — 원래 한국영화 대사가 웅얼웅얼 들린다는 트위터 '웅앵웅 쵸키포키'에서 유래한 '웅얼거림/아무 말' 의태어. 일부 여초 커뮤니티(워마드 등)에서 남성의 말을 무시·조롱하는 맥락으로 쓰인다는 주장으로 남혐 논란. 일반 의태어로도 널리 쓰여 ambiguity=common → combination_rules + trigger_evidence 필수. 청정 출처: 머니투데이·뉴시스 뉴스. 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "웅앵웅",
+    "term_kind": "word",
+    "meaning": "원래는 말이 웅얼웅얼 잘 들리지 않거나 별 의미 없는 말을 늘어놓는 모양을 흉내 낸 의태어. 일부 여초 커뮤니티에서 남성의 발언을 '아무 말'로 치부해 무시·조롱하는 맥락으로 쓰인다는 주장이 제기되며 남성 비하 표현으로 논란이 되었다.",
+    "origin_community": "other",
+    "spread_communities": ["트위터(원유래)", "워마드 등 여초 커뮤니티(비하 용법 주장처)", "온라인 전반 확산"],
+    "origin_story": "한 트위터 이용자가 한국 영화 대사가 웅얼웅얼 들리는 것을 '웅앵웅 쵸키포키'라고 표현한 것이 유행하면서 '웅얼거림/아무 말'을 뜻하는 의태어로 퍼졌다. 이후 일부 여초 커뮤니티에서 남성의 말을 깎아내리는 맥락으로 쓰인다는 지적이 나왔고, 2019~2020년 트와이스 지효의 발언, 2021년 기업·방송 사례 등을 계기로 남성 혐오 표현 논란이 반복됐다. 표현 자체에는 성별 비하 의도가 없다는 반론도 강해 의도성은 미입증 상태다.",
+    "origin_period": "2017~2018년경(트위터 유행, 정확 시점 미확정), 2020~2021년(남혐 논란 표면화)",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["영화", "대사", "음향", "웅얼웅얼", "발음", "소리", "혼잣말", "중얼중얼"],
+    "categories": ["misandry", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["한남", "한남충", "오조오억", "허버허버", "군무새"],
+        "base_severity": 2,
+        "severity_delta": 2
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.mt.co.kr/society/2020/01/06/2020010610024713207",
+      "https://www.newsis.com/view/NISX20210420_0001413064"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.mt.co.kr/society/2020/01/06/2020010610024713207",
+        "title": "남혐 논란 '웅앵웅', 어떻게 쓰였나 보니…",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "머니투데이",
+        "published_at": "2020-01-06",
+        "excerpt": "트위터에서 한국 영화 대사가 웅얼웅얼 들리는 걸 '웅앵웅 쵸키포키'라 표현한 데서 유행했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.newsis.com/view/NISX20210420_0001413064",
+        "title": "'5조5억, 허버허버, 웅앵웅'…이말이 왜 남성혐오? 논란",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2021-04-20",
+        "excerpt": "웅앵웅은 남성의 말을 무시하는 표현이라는 주장이 제기됐다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "영화관 스피커 상태가 안 좋아서 대사가 웅앵웅 들렸다.",
+      "동생이 잠결에 웅앵웅 혼잣말을 했다.",
+      "마이크가 멀어서 발표 소리가 웅앵웅거렸다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "_comment": "맘충 — '맘(mom)'+'충(蟲, 벌레)'. 자녀 둔 여성을 벌레에 빗대는 여성혐오 멸칭. 합성어 surface '맘충' 자체는 일반어와 동철 아님 → unambiguous. 청정 근거: 한국일보(definition) + 페미위키(origin, CC BY-SA). 나무위키 미기록(법무 정책).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "맘충",
+    "term_kind": "word",
+    "meaning": "'엄마(mom)'에 혐오의 의미로 '벌레 충(蟲)'을 붙여, 어린 자녀를 둔 여성(특히 공공장소에서 자녀를 통제하지 못한다고 지목된 엄마)을 벌레에 빗대 비하하는 여성혐오 멸칭.",
+    "origin_community": "other",
+    "spread_communities": ["인터넷 방송 시청자층", "각종 남초 커뮤니티"],
+    "origin_story": "'맘충'은 영어 'mom'에 벌레를 뜻하는 한자 '충(蟲)'을 붙인 혐오 신조어다. 페미위키에 따르면, MBC 예능 '마이 리틀 텔레비전'에서 백종원이 진행한 세부 코너에서 주부 멤버들이 과도하게 간섭하거나 재미없는 드립을 친다는 이유로 비하당한 한편 남성 시청자의 과도한 코멘트는 용인된 흐름이, 이 표현이 여성혐오에서 비롯됐음을 보여주는 사례로 거론된다. 이후 카페·식당 등 공공장소의 '무개념 엄마'를 표적 삼는 것을 넘어 어린 자녀를 둔 여성 전반을 위축시키는 여성혐오 표현으로 비판받았다.",
+    "origin_period": "2015년경",
+    "severity": 4,
+    "ambiguity": "unambiguous",
+    "categories": ["misogyny", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/201910251131797081",
+        "title": "'Mum-Roach'? 한국에만 있는 혐오표현 '맘충' 어떻게 번역",
+        "archive_url": "https://web.archive.org/web/2024/https://www.hankookilbo.com/News/Read/201910251131797081",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2019-10-25",
+        "excerpt": "'엄마'를 뜻하는 'mom'에 벌레 '충(蟲)'을 붙인 인터넷 속어로, 가부장제에서 떠받들던 모성마저 멸시 대상이 된 여성혐오 표현으로 설명. 해충에 빗댄 멸칭임을 지적.",
+        "reliability": 4
+      },
+      {
+        "url": "https://femiwiki.com/w/%EB%A7%98%EC%B6%A9",
+        "title": "페미위키: 맘충",
+        "archive_url": "https://web.archive.org/web/2024/https://femiwiki.com/w/%EB%A7%98%EC%B6%A9",
+        "source_type": "wiki",
+        "evidence_type": "origin",
+        "license": "CC BY-SA 4.0",
+        "publisher": "페미위키",
+        "excerpt": "'엄마'를 뜻하는 '맘(mom)' 뒤에 혐오의 의미로 '벌레 충(蟲)'을 붙인 신조어로, 카페·식당 등 공공장소의 젊은 엄마를 표적 삼는 여성혐오 표현으로 서술.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "그 카페는 노키즈존이 아니라 아이 동반 부모가 편하게 쉴 수 있다.",
+      "엄마가 아이를 데리고 도서관 행사에 다녀왔다.",
+      "육아 커뮤니티에서 이유식 레시피를 공유했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

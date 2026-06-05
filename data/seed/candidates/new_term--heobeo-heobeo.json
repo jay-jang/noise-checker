@@ -1,0 +1,79 @@
+{
+  "_comment": "허버허버 — 음식을 급히 먹는 모습을 묘사하는 의성/의태어. 2018년 온라인 글에서 '남자친구가 허버허버 먹는다' 맥락으로 퍼진 뒤 일부 여초 커뮤니티에서 남성 비하 뉘앙스로 쓰인다는 주장으로 논란. 일반 의태어로도 널리 쓰여 ambiguity=common → combination_rules + trigger_evidence 필수. 청정 출처: 한국일보·뉴시스 뉴스(원유래·정의·논란). 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "허버허버",
+    "term_kind": "word",
+    "meaning": "원래는 음식을 허겁지겁 먹는 모습을 나타내는 의성·의태어. 일부 여초 커뮤니티에서 음식을 게걸스럽게 먹는 남성을 폄하하는 뉘앙스로 쓰인다는 주장이 제기되며 남성 비하 표현으로 논란이 되었다.",
+    "origin_community": "other",
+    "spread_communities": ["여초 커뮤니티(발화 맥락 추정)", "전 연령대 일반 의태어로 확산"],
+    "origin_story": "2018년경 한 온라인 커뮤니티에 '남자 친구가 입을 메기같이 벌리고 허버허버 먹는다'는 취지의 글이 올라오며 표현이 널리 알려졌고, 이후 10~20대 사이에서 음식을 급히 먹는 모습을 나타내는 일반 의태어로 정착했다. 2021년 초 일부 이용자들이 '남성에게만 비하적으로 쓰인다'며 남성 혐오 표현이라고 주장하면서 논란이 확산되었다. 표현 자체에 비하 의도가 없다는 반론도 강하게 제기되어 의도성은 미입증 상태다.",
+    "origin_period": "2018년경(확산), 2021년(남혐 논란 표면화)",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["밥", "먹방", "음식", "허겁지겁", "맛있게", "급하게", "강아지", "고양이", "아기"],
+    "categories": ["misandry", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["한남", "한남충", "오조오억", "웅앵웅", "군무새"],
+        "base_severity": 2,
+        "severity_delta": 2
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.hankookilbo.com/News/Read/A2021031614060000740",
+      "https://www.newsis.com/view/NISX20210420_0001413064"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.hankookilbo.com/News/Read/A2021031614060000740",
+        "title": "'허버허버'가 뭐길래…카카오 \"이모티콘 판매 종료\" 선언까지 했나",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국일보",
+        "published_at": "2021-03-16",
+        "excerpt": "2018년 한 온라인 커뮤니티에서 누리꾼이 글을 올리면서 널리 퍼진 인터넷 신조어",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.newsis.com/view/NISX20210420_0001413064",
+        "title": "'5조5억, 허버허버, 웅앵웅'…이말이 왜 남성혐오? 논란",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2021-04-20",
+        "excerpt": "허버허버는 남성들이 음식을 마구 먹는 모습을 희화화한다는 주장이 제기됐다.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "카카오 '허버허버' 사용 이모티콘 4종 판매 종료",
+        "occurred_at": "2021-03-15",
+        "medium": "product",
+        "sample_text": "허버허버",
+        "source_url": "https://www.hankookilbo.com/News/Read/A2021031614060000740"
+      },
+      {
+        "title": "MBC '나 혼자 산다' 기안84 먹방 장면 '허버허버' 자막 논란",
+        "occurred_at": "2021-02",
+        "medium": "broadcast",
+        "sample_text": "허버허버",
+        "source_url": "https://www.insight.co.kr/news/329509"
+      }
+    ],
+    "negative_examples": [
+      "배가 너무 고파서 라면을 허버허버 먹어 치웠다.",
+      "강아지가 사료를 허버허버 먹는 모습이 귀엽다.",
+      "아이가 간식을 허버허버 먹길래 천천히 먹으라고 했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "_comment": "숫자 코드 '503' — 박근혜 전 대통령의 수형(수인) 번호로, 일부 극우 커뮤니티에서 박 전 대통령을 가리키는 도그휘슬로 쓰임. term_kind=number → combination_rules + trigger_evidence 필수. 단독 숫자 503은 용량·호실·코드 등 무해 용례가 압도적이므로 ambiguity=common, 인물 조롱/특정 날짜·제품 맥락과 결합될 때만 위험. 스타벅스 탱크데이 논란(2026-05)에서 503ml 텀블러가 수인번호 연상이라는 보도가 트리거 근거. 청정 출처: 뉴시스·한국부동산뉴스(karnews.or.kr). 나무위키 미사용. 주의: '503' 사용 진영의 정치적 귀속(보수/진보)은 출처마다 엇갈려 보수적으로 중립 기술함.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "503",
+    "term_kind": "number",
+    "meaning": "박근혜 전 대통령의 수형(수인) 번호. 온라인에서 박 전 대통령을 직접 거명하지 않고 우회적으로 지칭·조롱하는 숫자 코드(도그휘슬)로 사용된다. 숫자 자체는 용량·방 호수·제품 코드 등 일상 맥락에서 무해하게 널리 쓰인다. (사용 진영의 정치적 귀속은 출처마다 엇갈림 — 사람 검수 필요)",
+    "origin_community": "other",
+    "spread_communities": ["온라인 전반(밈)"],
+    "origin_story": "박근혜 전 대통령이 2017년 국정농단 사건으로 구속·수감되면서 부여받은 수형 번호가 503번이었던 데서 비롯됐다. 이후 온라인에서 박 전 대통령을 직접 거명하지 않고 '503'으로 지칭하거나 조롱하는 용법이 퍼졌다(출처에 따라 진보·비판 진영의 멸칭으로 소개되기도 한다). 2026년 5월 스타벅스 코리아의 '탱크데이' 논란에서, 문제가 된 텀블러 용량이 503ml로 표기된 점을 두고 박 전 대통령의 수인번호를 연상시킨다는 의혹이 제기됐다(스타벅스는 17온즈를 ml로 환산하는 과정에서 502.8ml가 503으로 표기된 것이라 해명). 이처럼 숫자 503은 단독으로는 의미를 갖지 않고, 특정 인물 조롱 맥락이나 의심스러운 날짜·제품 표기와 결합할 때 도그휘슬로 기능한다.",
+    "origin_period": "2017년경(수감)~",
+    "severity": 2,
+    "ambiguity": "common",
+    "safe_contexts": ["503호", "503ml", "503번", "503동", "버스 503", "방 번호", "용량", "객실", "우편번호", "모델명"],
+    "categories": ["politics", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["박근혜", "근혜", "탱크데이", "전두환", "전땅크", "5/18", "5·18"],
+        "base_severity": 1,
+        "severity_delta": 3
+      },
+      {
+        "trigger_kind": "amount_context",
+        "trigger_pattern": "503\\s*(ml|㎖|호|번)",
+        "base_severity": 1,
+        "severity_delta": 2
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.newsis.com/view/NISX20260519_0003635639",
+      "https://www.karnews.or.kr/news/articleView.html?idxno=23921"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.newsis.com/view/NISX20260519_0003635639",
+        "title": "\"전땅크·503·책상을 탁!…이러고도 우연?\"…스벅 '탱크데이' 해석 확산",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "뉴시스",
+        "published_at": "2026-05-19",
+        "excerpt": "텀블러 용량이 503㎖로 설정된 점을 두고 박근혜 전 대통령의 수인번호 '503'을 연상시킨다는 주장이 나왔다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.karnews.or.kr/news/articleView.html?idxno=23921",
+        "title": "'5·18 당일 탱크데이 논란' 스벅, 이벤트 속 '7·21·503' 의미 해석 분분",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "한국부동산뉴스",
+        "published_at": "2026-05-20",
+        "excerpt": "503은 박근혜 전 대통령의 수인 번호 등 여러 해석이 제시됐다.",
+        "reliability": 3
+      }
+    ],
+    "negative_examples": [
+      "회의는 본관 503호에서 진행됩니다.",
+      "이 텀블러 용량은 503ml입니다.",
+      "503번 버스를 타면 시청 앞에서 내릴 수 있어요.",
+      "우리 집은 5동 503호야."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": true,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

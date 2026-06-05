@@ -1,0 +1,13 @@
+{
+  "_comment": "GS25 '캠핑가자' 포스터 집게손가락 남혐 논란 (2021-05). 표식 '집게손가락'과 연관된 실사고. 소시지를 집는 손 모양이 메갈리아 로고와 유사하다는 주장으로 논란. GS25는 의도성 부인·사과. 의도성 미입증. related_marker로 연결. 청정 출처: 서울신문. 나무위키 미사용.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "GS25 '캠핑가자' 이벤트 포스터 집게손가락 남성혐오 논란 및 사과",
+    "occurred_at": "2021-05-01",
+    "medium": "ad",
+    "related_marker": "집게손가락 (엄지·검지 오므린 손 모양)",
+    "sample_text": "소시지를 집는 집게손가락 일러스트 + 'Emotional Camping Must-have Item'(각 단어 끝글자 조합 'megal' 주장)",
+    "source_url": "https://www.seoul.co.kr/news/newsView.php?id=20210502500087"
+  }
+}

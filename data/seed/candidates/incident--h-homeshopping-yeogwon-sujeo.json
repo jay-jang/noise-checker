@@ -1,0 +1,13 @@
+{
+  "_comment": "H홈쇼핑 호남 비하 광고 문구 실사고. 세계일보 보도(JTBC '사건반장' 인용)로 확인. related_surface는 직접 등재 용어가 아니라 문맥 비하 문구이므로 가장 근접한 등재 후보 surface(홍어 계열 지역비하)에 연결. sample_text는 must_catch 후보.",
+  "kind": "incident",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "title": "H홈쇼핑 '전라도 갈 땐 여권 대신 수저' 호남 지역 비하 광고 문구 논란",
+    "occurred_at": "2026-05-26",
+    "medium": "ad",
+    "related_surface": "홍어",
+    "sample_text": "전라도 여행 갈 땐 여권 대신 수저 챙기세요",
+    "source_url": "https://segye.com/newsView/20260527507034"
+  }
+}

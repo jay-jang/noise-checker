@@ -1,0 +1,71 @@
+{
+  "_comment": "홍어: 어류(음식)와 동철인 ambiguous 지역비하 은어. safe_contexts 필수. KCI 학술논문(origin/definition)·위키백과(definition)·뉴스(incident)로 교차 검증. 나무위키 미기록(법무 정책).",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "홍어",
+    "term_kind": "word",
+    "meaning": "전라도(호남) 출신·주민을 비하·혐오하는 멸칭. 전라도 향토 음식인 삭힌 홍어를 빌려 지역 전체를 조롱하는 도그휘슬로 쓰임. '홍어족', '홍어들' 등으로 확장됨.",
+    "origin_community": "dcinside",
+    "spread_communities": ["dcinside(야구갤 등 초기 확산)", "ilbe(주 확산·정착처)"],
+    "origin_story": "전라도의 대표적 향토 음식인 삭힌 홍어를 지역 정체성과 등치시켜 호남 사람을 비하하는 호명으로 전용된 표현이다. 2000년대 후반 디시인사이드 야구 갤러리 등에서 호남 연고 구단·팬을 겨냥하며 번졌고, 2010년대 일베저장소에서 5·18 등 호남 관련 비극과 결합한 조롱과 함께 광범위하게 정착했다. 학술 분석(양혜승, 2022)은 네이버 범죄뉴스 댓글에서 전라도 비하어로 '홍어','홍어족','전라디언','깽깽이'가 도출됨을 보고했다. 음식명 자체는 무해하므로 식문화·요리 맥락과 반드시 구분해야 한다.",
+    "origin_period": "2000년대 후반~2010년대",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["삭힌 홍어", "홍어회", "홍어삼합", "흑산도", "막걸리", "전어", "생선", "요리", "음식", "수산물", "어류", "남도음식", "잔칫상"],
+    "categories": ["region_hate", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002842479",
+        "title": "'홍어'라 호명되는 타자들(others): 네이버 범죄뉴스 맥락에서 전라도 혐오성 댓글에 대한 텍스트 마이닝 분석",
+        "source_type": "academic",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "부산울산경남언론학회 / 지역과 커뮤니케이션 26(2), 36-70",
+        "published_at": "2022",
+        "excerpt": "전라도 사람을 비하하는 단어들로 '홍어','홍어족','전라디언','깽깽이' 등이 도출. 분석 대상 지역 혐오성 댓글 5,762개 중 전라도 혐오성 댓글이 4,538개(78.76%).",
+        "reliability": 5
+      },
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
+        "title": "위키백과: 일베저장소 (전라도 비하 표현 서술)",
+        "archive_url": "https://web.archive.org/web/2024/https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "전라도 주민에 대한 여러 비하 단어를 만들어내 인종무시와 지역감정을 부추긴다는 비판이 서술됨('홍어','전라디언' 포함).",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.huffingtonpost.kr/article/257466",
+        "title": "지역감정의 진화 \"전라도 갈 땐 여권 챙겨라\": 지역감정이 일베를 거쳐 '지역혐오'로 악화했다",
+        "source_type": "news",
+        "evidence_type": "incident",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "허프포스트코리아",
+        "published_at": "2026",
+        "excerpt": "향토 음식을 비하 수단으로 삼은 '홍어' 표현이 역사적 비극의 희생자들을 모욕하는 방식으로 악용됐다고 설명. 평범한 단어의 탈을 쓴 교묘한 암호로 기능한다고 분석.",
+        "reliability": 4
+      }
+    ],
+    "related_incidents": [
+      {
+        "title": "H홈쇼핑 '전라도 갈 땐 여권 대신 수저' 호남 비하 광고 문구 논란",
+        "occurred_at": "2026-05",
+        "medium": "ad",
+        "sample_text": "전라도 여행 갈 땐 여권 대신 수저 챙기세요",
+        "source_url": "https://segye.com/newsView/20260527507034"
+      }
+    ],
+    "negative_examples": [
+      "흑산도 삭힌 홍어삼합에 막걸리 한잔이 최고다.",
+      "어머니가 잔칫상에 올릴 홍어회를 사 오셨다.",
+      "홍어는 암모니아 향이 강해 호불호가 갈리는 남도 음식이다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

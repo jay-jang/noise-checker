@@ -1,0 +1,52 @@
+{
+  "_comment": "한남(한남충) — 메갈리아 발원 한국 남성 비하·혐오 표현(한국 남자+蟲). '한남동'(서울 지명) 및 인명과 동철이라 ambiguity=ambiguous + safe_contexts 필수. 청정 출처: 위키백과 '대한민국의 인터넷 신조어 목록'(CC BY-SA 4.0, 정의)+경향신문(유래·미러링). 나무위키 미사용. 실명/특정인 무관해 legal_review_flag=false.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "한남",
+    "term_kind": "word",
+    "meaning": "'한국 남자'에 벌레를 뜻하는 '충(蟲)'을 붙인 '한남충'의 준말로, 한국 남성 일반을 비하·혐오하는 표현. 좁게는 특정 성향의 한국 남성, 넓게는 한국 남성 전체를 싸잡아 멸칭한다.",
+    "origin_community": "megalia",
+    "spread_communities": ["megalia(발원)", "womad", "래디컬 페미니즘 계열 커뮤니티로 확산"],
+    "origin_story": "2015년경 디시인사이드 메르스 갤러리에서 파생된 커뮤니티 메갈리아에서, 남성들의 여성혐오 표현을 거울처럼 되받는 '미러링' 전략의 일환으로 '한남충'이 쓰이기 시작했다. '김치녀' 등 여성 비하어에 대응하는 형태로 만들어졌다는 맥락이 보도됐다. 이후 '한남'으로 줄어 한국 남성 전반을 싸잡아 비하하는 멸칭으로 폭넓게 사용되며, 미러링이라는 기원과 무관하게 그 자체로 혐오 표현이라는 비판이 제기된다.",
+    "origin_period": "2015년경",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["한남동", "한남대교", "한남대학교", "한남역", "한남더힐", "한남뉴타운", "지명", "성씨"],
+    "categories": ["misandry", "community_jargon"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%EC%9D%B8%ED%84%B0%EB%84%B7_%EC%8B%A0%EC%A1%B0%EC%96%B4_%EB%AA%A9%EB%A1%9D",
+        "archive_url": "http://web.archive.org/web/20260418160559/https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%EC%9D%98_%EC%9D%B8%ED%84%B0%EB%84%B7_%EC%8B%A0%EC%A1%B0%EC%96%B4_%EB%AA%A9%EB%A1%9D",
+        "title": "위키백과: 대한민국의 인터넷 신조어 목록 — '한남/한남충' 항목",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "excerpt": "2015년 8월에 처음 쓰였으며 메갈리아에서 여성혐오에 대한 '미러링'으로 사용하기 시작했다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.khan.co.kr/article/201511231546391",
+        "archive_url": "http://web.archive.org/web/20260405041650/https://www.khan.co.kr/article/201511231546391",
+        "title": "[영상뉴스] 메갈리아, 한남충, 코르셋…'페미니즘' 용어 풀이",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "경향신문",
+        "published_at": "2015-11-23",
+        "excerpt": "한국 남성을 지칭하는 '한남충'(한국남자 + 蟲)으로, 메갈리아의 미러링에서 나왔다.",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "주말에 한남동 카페 거리에 다녀왔다.",
+      "한남대교를 건너 강남으로 출근한다.",
+      "그는 한남대학교 컴퓨터공학과를 졸업했다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}

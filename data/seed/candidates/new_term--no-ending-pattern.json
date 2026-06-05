@@ -1,0 +1,81 @@
+{
+  "_comment": "'~노' 종결어미 패턴 — 일베에서 고(故) 노무현 전 대통령 이름의 '노'를 빌려, 평서문에까지 '노'를 붙이는 말투로 비하·조롱하는 도그휘슬. 단, '~노'는 경상도(동남) 방언의 정상적 의문 종결어미이기도 해 ambiguity=common → combination_rules + trigger_evidence 필수. 패턴 단독 검출 시 방언 화자 오인 위험이 크므로 평서문 결합·고인비하 맥락 동시출현을 가중 조건으로. EBS '들켰노' 사례(2025-11)가 대표 트리거 근거. 청정 출처: 머니투데이·엑스포츠뉴스 뉴스 + 위키백과. 나무위키 미사용.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "~노",
+    "term_kind": "pattern",
+    "pattern": "(.+)노[\\.!\\?…]*$",
+    "meaning": "문장 끝에 '노'를 붙이는 종결 말투. 일베저장소 등 극우 커뮤니티에서 고(故) 노무현 전 대통령 이름의 '노'를 차용해, 경상도 사투리를 빙자하면서 평서문에까지 '노'를 붙여 고인을 비하·조롱하는 도그휘슬로 쓰인다. 다만 '~노'는 경상도(동남 방언)에서 의문사가 있는 의문문에 쓰이는 정상적 종결어미이기도 하다.",
+    "origin_community": "ilbe",
+    "spread_communities": ["ilbe(비하 말투 정착)", "dcinside 등 온라인 일부 확산"],
+    "origin_story": "경상도 방언에서 '밥 먹었노?'처럼 의문사가 포함된 의문문 끝에 자연스럽게 쓰이던 '노' 어미를, 일베저장소 이용자들이 고(故) 노무현 전 대통령 이름의 '노'와 연결지어 비하 코드로 전용했다. 본래 방언에서는 의문문에만 붙는 '노'를 의문문이 아닌 평서문에까지 붙이는 것이 일베 말투의 특징으로 지적된다('~했노' 식 평서문). 이 때문에 정상적으로 사투리를 쓰는 경상도 화자가 '일베 말투'로 오해받는 부작용이 보고되며, 표현 자체가 곧 비하 의도라는 단정은 성립하지 않는다. 2025년 11월 EBS '자이언트 펭TV' 영상에서 평서문 자막 '(들켰노...)'가 등장해 일베 논란이 일었고, EBS가 해명 없이 해당 장면을 삭제하면서 비판을 받은 사례가 대표적이다.",
+    "origin_period": "2010년대 초반(일베 말투 정착)",
+    "severity": 3,
+    "ambiguity": "common",
+    "safe_contexts": ["경상도", "사투리", "방언", "부산", "대구", "의문문", "밥 먹었노", "어디 가노", "뭐 하노"],
+    "categories": ["deceased", "politics", "community_jargon"],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms_surface": ["노무현", "운지", "부엉이바위", "이니", "재기", "근혜"],
+        "base_severity": 1,
+        "severity_delta": 3
+      },
+      {
+        "trigger_kind": "proximity",
+        "trigger_terms_surface": ["들켰노", "재밌노", "꼴좋노", "당했노", "쌌노"],
+        "proximity_window": 0,
+        "base_severity": 2,
+        "severity_delta": 2
+      }
+    ],
+    "trigger_evidence": [
+      "https://www.mt.co.kr/society/2025/11/06/2025110606011416157",
+      "https://www.xportsnews.com/article/2075070"
+    ],
+    "evidence": [
+      {
+        "url": "https://www.mt.co.kr/society/2025/11/06/2025110606011416157",
+        "title": "EBS '펭수', 극우 '일베' 논란...\"들켰노\" 자막 사과 없이 삭제",
+        "source_type": "news",
+        "evidence_type": "origin",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "머니투데이",
+        "published_at": "2025-11-06",
+        "excerpt": "'-노'는 과거 극우 성향 정치 커뮤니티로 논란을 빚은 '일베'에서 사용돼 논란을 빚은 바 있다. 보수 성향이 강한 경상도 사투리 말투를 빙자해 고(故) 노무현 전 대통령을 비하하기 위해 이용됐다.",
+        "reliability": 4
+      },
+      {
+        "url": "https://www.xportsnews.com/article/2075070",
+        "title": "EBS 펭수, 갑작스런 일베 논란…'들켰노' 자막 사용→사과 없이 편집",
+        "source_type": "news",
+        "evidence_type": "definition",
+        "license": "언론사 저작권(사실 추출만)",
+        "publisher": "엑스포츠뉴스",
+        "published_at": "2025-11-06",
+        "excerpt": "'-노'는 과거 극우 성향 커뮤니티로 논란을 빚었던 일베에서 사용되었던 어체다. 경상도 사투리를 빙자해 故 노무현 전 대통령을 비하하기 위해 빈번하게 이용됐다. 실제로 경상도 사투리 어투와는 다르다는 지적이 나오기도 했으나, 실제로 쓰는 표현이라는 주장도 있었다.",
+        "reliability": 3
+      },
+      {
+        "url": "https://ko.wikipedia.org/wiki/동남_방언",
+        "title": "동남 방언 - 위키백과",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "위키백과",
+        "excerpt": "판단 의문의 경우에는 모음 'ㅏ'로 끝나는 형식이 사용되며 의문사 의문의 경우에는 'ㅗ'로 끝나는 형식이 사용된다. (판단 의문 '-나' / 의문사 의문 '-노')",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "할매가 부산 사투리로 '아직 밥 안 먹었나, 와 이리 늦었노?' 하고 물으셨다.",
+      "대구 친구가 '니 지금 어디 가노?' 하고 전화했다.",
+      "경상도 방언에서 의문사 의문문은 '-노', 판정 의문문은 '-나'로 끝난다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-05T00:00:00Z"
+  }
+}
