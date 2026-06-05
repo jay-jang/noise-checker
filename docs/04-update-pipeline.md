@@ -106,7 +106,9 @@ CREATE TABLE candidate_queue (
 trigger (주간 정기 / urgent 핫픽스)
   → active 항목 추출 (release_policy 채널 필터: internal_only/hold_legal 제외, watchlist는 watchlist.json 분리 — 02 §3.10)
   → 정규화 키 재계산 → 변형 자동 생성(verified만 포함 옵션)
-  → 오토마톤/패턴/이미지 인덱스 컴파일 → manifest(체크섬, normalizer_code_version)
+  → 오토마톤/패턴/이미지 인덱스 컴파일 + **Kiwi 사용자 사전 생성**(active 용어·verified 변형 등록 —
+     형태소 오분해로 인한 경계/safe_context 필터 무력화 방지, 교차 리뷰 C-C1)
+  → manifest(체크섬, normalizer_code_version)
   → [게이트 0] 라이선스 화이트리스트: 릴리스 아티팩트에 컴파일되는 모든 active 항목의
       연결 evidence source 전부가 license_class ∈ {permissive, share_alike}여야 통과.
       noncommercial/no_derivatives/restricted/unknown이 하나라도 있으면 해당 항목 제외 + 검수 큐 반려.

@@ -349,6 +349,7 @@ CREATE TABLE dictionary_release (
 - `automaton.pkl` — Aho-Corasick 오토마톤 (정규화 키 기준, 즉시 로드용)
 - `patterns.json` — 정규식 패턴 목록 + composite_rule 컴파일본
 - `phash_index.bin` / `clip_index.faiss` — 이미지 표식 인덱스
+- `kiwi_user_dict.txt` — Kiwi 사용자 사전 (active 용어+verified 변형 — 형태소 오분해 방지, 04 §5)
 - `attribution.json` — **저작자 표시 매니페스트**: SA/BY 출처별 저작자·URL·라이선스 목록 자동 생성
   (origin_story 등이 위키백과·페미위키 CC BY-SA 본문에서 파생되므로 산출물에 표기 의무 전파)
 - `manifest.json` — 버전, 카운트, 체크섬, `effective_license`, **`normalizer_code_version`**
