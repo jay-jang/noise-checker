@@ -1,0 +1,13 @@
+{
+  "_comment": "candidate-payload incident 픽스처. news-monitor가 보도에서 역추출한 실사고 초안. legal_reviewed/disclosable은 적재 시 기본 false (이 payload에는 미포함 — 큐 단계 초안).",
+  "kind": "incident",
+  "collector": "news-monitor",
+  "payload": {
+    "title": "스타벅스 '탱크데이' 표기 논란",
+    "occurred_at": "2023-07-26",
+    "medium": "sns",
+    "related_surface": "탱크데이",
+    "sample_text": "탱크데이",
+    "source_url": "https://www.example-news.kr/article/tankday-controversy"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "noise-checker/candidate-payload",
+  "title": "candidate_queue.payload — kind별 계약 (04 §3 표, B-M13 반영)",
+  "description": "후보 큐 한 행의 payload. kind 필드로 분기하여 payload 본문 구조를 강제한다. 자유 JSONB 방치 금지.",
+  "type": "object",
+  "required": ["kind", "collector", "payload"],
+  "properties": {
+    "kind": { "enum": ["new_term", "new_variant", "new_marker", "incident", "deprecation"] },
+    "collector": { "type": "string", "description": "수집기 ID 또는 'agent:lexicon-researcher' 등" },
+    "payload": { "type": "object" }
+  },
+  "oneOf": [
+    {
+      "title": "new_term",
+      "properties": {
+        "kind": { "const": "new_term" },
+        "payload": { "$ref": "#/$defs/newTermPayload" }
+      }
+    },
+    {
+      "title": "new_variant",
+      "properties": {
+        "kind": { "const": "new_variant" },
+        "payload": { "$ref": "#/$defs/newVariantPayload" }
+      }
+    },
+    {
+      "title": "new_marker",
+      "properties": {
+        "kind": { "const": "new_marker" },
+        "payload": { "$ref": "#/$defs/newMarkerPayload" }
+      }
+    },
+    {
+      "title": "incident",
+      "properties": {
+        "kind": { "const": "incident" },
+        "payload": { "$ref": "#/$defs/incidentPayload" }
+      }
+    },
+    {
+      "title": "deprecation",
+      "properties": {
+        "kind": { "const": "deprecation" },
+        "payload": { "$ref": "#/$defs/deprecationPayload" }
+      }
+    }
+  ],
+  "$defs": {
+    "url": { "type": "string", "format": "uri" },
+    "newTermPayload": {
+      "description": "기존 candidate-term 계약 재사용 + negative_examples 필수. number/common이면 combination_rules + trigger_evidence 필수.",
+      "allOf": [
+        { "$ref": "noise-checker/candidate-term" },
+        {
+          "type": "object",
+          "required": ["negative_examples"],
+          "properties": {
+            "negative_examples": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string" },
+              "description": "무해 용례 (must_pass 후보) — new_term은 최소 1건 필수."
+            },
+            "trigger_evidence": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/url" },
+              "description": "조합이 실제 위험하다는 근거 URL (number/common일 때 필수)."
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "anyOf": [
+              { "properties": { "term_kind": { "const": "number" } }, "required": ["term_kind"] },
+              { "properties": { "ambiguity": { "const": "common" } }, "required": ["ambiguity"] }
+            ]
+          },
+          "then": {
+            "type": "object",
+            "required": ["combination_rules", "trigger_evidence"],
+            "properties": {
+              "combination_rules": { "type": "array", "minItems": 1 },
+              "trigger_evidence": { "type": "array", "minItems": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "newVariantPayload": {
+      "type": "object",
+      "description": "부모 용어 식별 + 변형. parent_surface 또는 parent_term_id 중 하나 필수.",
+      "required": ["variant", "variant_kind", "source_url"],
+      "properties": {
+        "parent_surface": { "type": "string", "description": "부모 용어 대표 표기" },
+        "parent_term_id": { "type": "string", "description": "기존 등재 용어 ID" },
+        "variant": { "type": "string" },
+        "variant_kind": { "enum": ["jamo", "leet", "chosung", "yamin", "translit", "spacing", "regex"] },
+        "source_url": { "$ref": "#/$defs/url" }
+      },
+      "anyOf": [
+        { "required": ["parent_surface"] },
+        { "required": ["parent_term_id"] }
+      ]
+    },
+    "newMarkerPayload": {
+      "type": "object",
+      "description": "이미지/표식 후보 (M4 전 존재·출처 기록만).",
+      "required": ["name", "marker_kind", "origin_note", "source_url", "license_note"],
+      "properties": {
+        "name": { "type": "string" },
+        "marker_kind": { "enum": ["hand_sign", "logo", "meme_image", "watermark", "symbol"] },
+        "origin_note": { "type": "string", "description": "유래·맥락 메모" },
+        "source_url": { "$ref": "#/$defs/url" },
+        "license_note": { "type": "string", "description": "원본 라이선스 메모 (위키미디어 명시본/자체 재현 등)" }
+      }
+    },
+    "incidentPayload": {
+      "type": "object",
+      "description": "실사고. related_surface 또는 related_marker 중 하나 필수.",
+      "required": ["title", "occurred_at", "medium", "source_url"],
+      "properties": {
+        "title": { "type": "string" },
+        "occurred_at": { "type": "string", "description": "발생일 (YYYY-MM-DD 권장)" },
+        "medium": { "enum": ["ad", "broadcast", "game", "product", "sns", "app", "other"] },
+        "related_surface": { "type": "string", "description": "관련 용어 표기" },
+        "related_marker": { "type": "string", "description": "관련 표식 이름" },
+        "sample_text": { "type": "string", "description": "문제가 된 실제 문구 → must_catch 후보" },
+        "source_url": { "$ref": "#/$defs/url" }
+      },
+      "anyOf": [
+        { "required": ["related_surface"] },
+        { "required": ["related_marker"] }
+      ]
+    },
+    "deprecationPayload": {
+      "type": "object",
+      "description": "사어화 제안. 무활동 근거 필수.",
+      "required": ["target_surface", "inactivity_basis"],
+      "properties": {
+        "target_surface": { "type": "string", "description": "사어화 대상 용어 표기" },
+        "target_term_id": { "type": "string" },
+        "inactivity_basis": { "type": "string", "description": "무활동 근거 — 기간·최종 매칭일 서술 (예: '최근 18개월 매칭 0건, 최종 매칭 2024-11')" }
+      }
+    }
+  }
+}

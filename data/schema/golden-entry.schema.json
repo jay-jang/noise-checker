@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "noise-checker/golden-entry",
+  "title": "골든셋 항목 (06 §1 — must_catch / must_pass / evasion 한 줄)",
+  "description": "tests/golden/*.jsonl 한 행의 계약. text 또는 image_ref 중 하나 필수.",
+  "type": "object",
+  "required": ["expected", "why", "source", "added_at"],
+  "properties": {
+    "text": { "type": "string", "description": "검사 입력 문장 (text/image_ref 중 하나 필수)" },
+    "image_ref": { "type": "string", "description": "이미지 입력 참조 (경로/해시 — M4부터)" },
+    "expected": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "매칭되어야 하는 용어 surface 배열. 빈 배열 = 어떤 매칭도 없어야 함 (must_pass)."
+    },
+    "why": { "type": "string", "description": "이 케이스가 존재하는 이유" },
+    "source": { "type": "string", "description": "출처 URL 또는 'incident:<id>'" },
+    "added_at": { "type": "string", "format": "date-time" },
+    "set": {
+      "enum": ["must_catch", "must_pass", "evasion"],
+      "description": "소속 골든셋"
+    },
+    "slot": {
+      "enum": ["F8", "F9", "F11", "F18", "F19", "F20", "F21", "jamo_boundary"],
+      "description": "must_pass 기능 슬롯 (HateCheck 체계 + 자체 자모 경계 슬롯)"
+    }
+  },
+  "anyOf": [
+    { "required": ["text"] },
+    { "required": ["image_ref"] }
+  ]
+}

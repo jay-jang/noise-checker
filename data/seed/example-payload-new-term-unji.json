@@ -1,0 +1,38 @@
+{
+  "_comment": "candidate-payload new_term 픽스처. 기존 운지 용어 엔트리를 payload로 감싸고 negative_examples(무해 용례)를 추가. unambiguous가 아니므로 number/common 조건 비해당 — combination_rules/trigger_evidence 불요.",
+  "kind": "new_term",
+  "collector": "agent:lexicon-researcher",
+  "payload": {
+    "surface": "운지",
+    "term_kind": "word",
+    "meaning": "고(故) 노무현 전 대통령의 서거(투신)를 조롱하는 표현. '추락하다/떨어지다'의 비하적 대용어로 사용됨.",
+    "origin_community": "dcinside",
+    "spread_communities": ["dcinside(합성갤 발원)", "ilbe(주 확산처)"],
+    "origin_story": "디시인사이드 합성 갤러리에서 노무현 전 대통령 서거를 조롱하는 합성물('운지천' CF 패러디)과 결합되며 '투신/추락'을 비하하는 은어로 전용됨. 이후 일베저장소에서 광범위하게 확산.",
+    "origin_period": "2011년경",
+    "severity": 5,
+    "ambiguity": "ambiguous",
+    "safe_contexts": ["버섯", "운지버섯", "약초", "운지법", "악기", "기타", "피아노"],
+    "categories": ["deceased", "community_jargon", "politics"],
+    "evidence": [
+      {
+        "url": "https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%B2%A0%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98_%EC%82%AC%EA%B1%B4_%EB%B0%8F_%EC%82%AC%EA%B3%A0",
+        "title": "위키백과: 일베저장소의 사건 및 사고 (주요 용어 표)",
+        "source_type": "wiki",
+        "evidence_type": "definition",
+        "license": "CC BY-SA 4.0",
+        "publisher": "한국어 위키백과",
+        "reliability": 4
+      }
+    ],
+    "negative_examples": [
+      "운지버섯은 면역에 좋다고 알려진 약용 버섯이다.",
+      "기타 운지법을 매일 연습한다.",
+      "할머니가 산에서 운지를 따 오셨다."
+    ],
+    "needs_verification": false,
+    "legal_review_flag": false,
+    "collector": "agent:lexicon-researcher",
+    "collected_at": "2026-06-04T14:00:00Z"
+  }
+}

@@ -83,6 +83,11 @@
         }
       }
     },
+    "negative_examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "무해 용례 (단독/일반 출현 시 잡으면 안 되는 문장 — must_pass 후보). candidate-payload new_term에서는 필수."
+    },
     "needs_verification": { "type": "boolean", "default": false, "description": "출처 미확정 — draft 고정" },
     "legal_review_flag": { "type": "boolean", "default": false, "description": "특정인 실명 관련 등 법무 검토 필요" },
     "collector": { "type": "string", "description": "생성 주체: 'agent:lexicon-researcher' 등" },
