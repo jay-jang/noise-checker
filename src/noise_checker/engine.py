@@ -248,10 +248,13 @@ class Engine:
             with _timed(timings, "morpheme_boundary"):
                 matches = self._morpheme_filter(text, matches)
 
-        # 단계 1d — safe_contexts 필터
+        # 단계 1d — safe_contexts 필터 (전 매치 스팬을 창에서 마스킹 — 반복 표기 대응)
         if cfg["safe_context"]:
             with _timed(timings, "safe_context"):
-                matches = [m for m in matches if not _safe_context_resolves(m, text)]
+                spans = [(m.start, m.end) for m in matches]
+                matches = [
+                    m for m in matches if not _safe_context_resolves(m, text, spans)
+                ]
 
         # 단계 2 — 패턴/조합 매칭
         if cfg["pattern"]:
@@ -364,13 +367,23 @@ class Engine:
         if not (before_hangul or after_hangul):
             return False
         base = self._get_base_kiwi()
-        base_spans = [(t.start, t.start + t.len) for t in base.tokenize(text)]
-        start_cuts = before_hangul and any(ts < m.start < te for ts, te in base_spans)
-        end_cuts = after_hangul and any(ts < m.end < te for ts, te in base_spans)
-        if start_cuts or end_cuts:
-            m.flags.append("boundary_recheck_dropped")
-            return True
-        return False
+        cutting = [
+            t for t in base.tokenize(text)
+            if (before_hangul and t.start < m.start < t.start + t.len)
+            or (after_hangul and t.start < m.end < t.start + t.len)
+        ]
+        if not cutting:
+            return False
+        # 가로지른 토큰이 전부 OOV(기본 사전에 없는 신조어)면 폐기하지 않는다 —
+        # '응디시티'(파생 멸칭)·'오또케오또케'(중첩 조롱)처럼 비하 파생어 내부
+        # 매치일 가능성이 높다. 경계가 불확실하므로 상한 review로 보수 처리.
+        # 사전어('노무라' NNP, '한약방' NNG) 침범은 종전대로 폐기(오탐 방지).
+        if all(t.oov for t in cutting):
+            m.cap_review = True
+            m.flags.append("oov_boundary_kept")
+            return False
+        m.flags.append("boundary_recheck_dropped")
+        return True
 
     def _get_base_kiwi(self) -> Kiwi:
         """사용자 사전 없는 기본 Kiwi (경계 재검 전용) — lazy 1회 생성."""
@@ -509,16 +522,18 @@ def _within_larger_token(start: int, end: int, token_spans: list[tuple[int, int]
 
 
 # --- 단계 1d: safe_contexts --------------------------------------------------
-def _safe_context_resolves(m: _Match, text: str) -> bool:
+def _safe_context_resolves(
+    m: _Match, text: str, all_spans: list[tuple[int, int]] | None = None
+) -> bool:
     """ambiguous/common 매치 주변 ±20자에 safe context 토큰이 있으면 해소(True).
 
     unambiguous 항목은 safe_context로 해소하지 않는다 (일반어 충돌이 없으므로).
 
-    exact/변형 매치의 창에서는 **매치 스팬 자신을 제외**한다 — surface가 safe
-    토큰을 내포하면(예: '된장녀'의 safe_contexts에 '된장') 매치 텍스트 안의
-    '된장'이 자기 매치를 셀프 해소해 단독 surface조차 미탐되는 버그를 막는다.
-    전후 잔여 텍스트의 경계가 우연히 결합해 safe 토큰을 오인하지 않도록 NUL
-    구분자로 잇는다.
+    exact/변형 매치의 창에서는 **매치 스팬(자신 + 동일 창의 다른 매치들)을 제외**
+    한다 — surface가 safe 토큰을 내포하면(예: '된장녀'의 safe_contexts에 '된장')
+    매치 텍스트 안의 '된장'이 자기 매치를 셀프 해소하고, '된장녀된장녀'처럼 같은
+    용어가 반복되면 서로의 스팬 속 '된장'이 상대를 해소해 둘 다 미탐되는 버그를
+    막는다. 경계가 우연히 결합해 safe 토큰을 오인하지 않도록 NUL로 마스킹한다.
     pattern 매치(예: '~노')는 매치 텍스트가 사용자 작성 문장 전체(greedy .+)라
     safe 토큰이 스팬 내부에 정상 출현하므로 스팬을 제외하지 않고 전체 창을 본다.
     """
@@ -531,7 +546,11 @@ def _safe_context_resolves(m: _Match, text: str) -> bool:
     if m.entry.term_kind == "pattern":
         window = text[lo:hi]
     else:
-        window = text[lo:m.start] + "\x00" + text[m.end:hi]
+        chars = list(text[lo:hi])
+        for s, e in all_spans or [(m.start, m.end)]:
+            for i in range(max(s, lo), min(e, hi)):
+                chars[i - lo] = "\x00"
+        window = "".join(chars)
     return any(tok and tok in window for tok in m.entry.safe_contexts)
 
 

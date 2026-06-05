@@ -8,8 +8,14 @@
     "ambiguity": "ambiguous",
     "status": "active",
     "release_policy": "general",
-    "categories": ["deceased", "community_jargon"],
-    "safe_contexts": ["버섯", "운지법"],
+    "categories": [
+      "deceased",
+      "community_jargon"
+    ],
+    "safe_contexts": [
+      "버섯",
+      "운지법"
+    ],
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": []
@@ -23,7 +29,9 @@
     "ambiguity": "unambiguous",
     "status": "active",
     "release_policy": "general",
-    "categories": ["misogyny"],
+    "categories": [
+      "misogyny"
+    ],
     "safe_contexts": [],
     "is_dogwhistle_marker": false,
     "variants": [
@@ -44,8 +52,13 @@
     "ambiguity": "ambiguous",
     "status": "active",
     "release_policy": "general",
-    "categories": ["misandry"],
-    "safe_contexts": ["한남동", "한남대교"],
+    "categories": [
+      "misandry"
+    ],
+    "safe_contexts": [
+      "한남동",
+      "한남대교"
+    ],
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": []
@@ -60,8 +73,16 @@
     "ambiguity": "common",
     "status": "active",
     "release_policy": "general",
-    "categories": ["community_jargon"],
-    "safe_contexts": ["경상도", "사투리", "방언", "부산", "대구"],
+    "categories": [
+      "community_jargon"
+    ],
+    "safe_contexts": [
+      "경상도",
+      "사투리",
+      "방언",
+      "부산",
+      "대구"
+    ],
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": []
@@ -75,14 +96,18 @@
     "ambiguity": "common",
     "status": "active",
     "release_policy": "general",
-    "categories": ["politics"],
+    "categories": [
+      "politics"
+    ],
     "safe_contexts": [],
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": [
       {
         "trigger_kind": "co_occurrence",
-        "trigger_terms": [2]
+        "trigger_terms": [
+          2
+        ]
       }
     ]
   },
@@ -95,7 +120,9 @@
     "ambiguity": "ambiguous",
     "status": "watchlist",
     "release_policy": "general",
-    "categories": ["community_jargon"],
+    "categories": [
+      "community_jargon"
+    ],
     "safe_contexts": [],
     "is_dogwhistle_marker": false,
     "variants": [],
@@ -110,8 +137,16 @@
     "ambiguity": "ambiguous",
     "status": "active",
     "release_policy": "general",
-    "categories": ["misogyny", "community_jargon"],
-    "safe_contexts": ["된장", "된장찌개", "음식", "요리"],
+    "categories": [
+      "misogyny",
+      "community_jargon"
+    ],
+    "safe_contexts": [
+      "된장",
+      "된장찌개",
+      "음식",
+      "요리"
+    ],
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": []
@@ -125,8 +160,35 @@
     "ambiguity": "ambiguous",
     "status": "active",
     "release_policy": "general",
-    "categories": ["deceased", "community_jargon"],
-    "safe_contexts": ["노무사", "노무관리", "공인노무사"],
+    "categories": [
+      "deceased",
+      "community_jargon"
+    ],
+    "safe_contexts": [
+      "노무사",
+      "노무관리",
+      "공인노무사"
+    ],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": []
+  },
+  {
+    "term_id": 9,
+    "surface": "응디",
+    "term_kind": "word",
+    "normalized_key": "ㅇㅡㅇㄷㅣ",
+    "severity": 5,
+    "ambiguity": "ambiguous",
+    "status": "active",
+    "release_policy": "general",
+    "categories": [
+      "deceased",
+      "community_jargon"
+    ],
+    "safe_contexts": [
+      "엉덩이"
+    ],
     "is_dogwhistle_marker": false,
     "variants": [],
     "combination_rules": []

@@ -391,6 +391,21 @@ def test_boundary_recheck_keeps_josa_attached(engine: Engine) -> None:
     assert "boundary_recheck_dropped" not in m["flags"]
 
 
+def test_boundary_recheck_keeps_oov_derivative_with_review_cap(engine: Engine) -> None:
+    # '응디시티' — 기본 Kiwi OOV 신조어 내부의 '응디' 매치는 폐기하지 않는다
+    # (비하 파생어 미탐 방지). 경계 불확실 → 상한 review로 보수 처리.
+    m = _one(engine, "응디시티 드립으로 고인을 조롱하는 게시물")
+    assert m["surface"] == "응디"
+    assert "oov_boundary_kept" in m["flags"]
+    assert m["usage_recommendation"] in ("review_recommended", "monitor")
+
+
+def test_boundary_recheck_keeps_reduplicated_mockery(engine: Engine) -> None:
+    # '된장녀된장녀' 식 중첩 조롱 — 기본 Kiwi가 OOV 한 토큰으로 묶어도 매치 유지.
+    r = engine.check("된장녀된장녀 거리는 글")
+    assert any(m["surface"] == "된장녀" for m in r["matches"])
+
+
 def test_boundary_recheck_only_when_adjacent_hangul(engine: Engine) -> None:
     # 직전/직후가 한글이 아니면(공백·문장부호) 재검을 트리거하지 않아 정상 매치 유지.
     m = _one(engine, "그 노무 표기")
