@@ -167,6 +167,19 @@ def seeded_db_url(temp_db_url):
             "VALUES (:t, 'date_context', '5\\.23', 1, 3, 'active')"
         ), {"t": t1})
 
+        # ②a active pattern term — pattern 컬럼이 terms.json "pattern"으로 실려야 함(계약 v1.1).
+        tp = conn.execute(text(
+            "INSERT INTO term (surface, normalized_key, term_kind, pattern, origin_story, "
+            "meaning, severity, ambiguity, status, release_policy) "
+            "VALUES ('~노', '', 'pattern', :pat, '유래', '의미', 3, 'common', "
+            "'draft', 'general') RETURNING id"
+        ), {"pat": r"(.+)노[\.!\?…]*$"}).scalar()
+        conn.execute(text(
+            "INSERT INTO term_evidence (term_id, source_id, evidence_type, added_by) "
+            "VALUES (:t, :s, 'origin', 'test')"
+        ), {"t": tp, "s": sid})
+        conn.execute(text("UPDATE term SET status='active' WHERE id=:t"), {"t": tp})
+
         # ② watchlist term
         conn.execute(text(
             "INSERT INTO term (surface, normalized_key, term_kind, origin_story, meaning, "
@@ -196,12 +209,14 @@ def seeded_db_url(temp_db_url):
 def test_build_manifest_counts_and_checksums(seeded_db_url, tmp_path):
     manifest = build_release(seeded_db_url, tmp_path, version="2026.06.05-1")
 
-    # internal_only(C내부) 제외 → active(A운지) + watchlist(B워치) = 2건
-    assert manifest["term_count"] == 2
+    # internal_only(C내부) 제외 → active(A운지) + active pattern(~노) + watchlist(B워치) = 3건
+    assert manifest["term_count"] == 3
     # verified 변형만 (A운G, ㅇㅈ) = 2; 미검증 'A운지미검증'은 제외
     assert manifest["variant_count"] == 2
     assert manifest["release_version"] == "2026.06.05-1"
     assert manifest["normalizer_code_version"] == NORMALIZER_VERSION
+    # 계약 v1.1 (pattern 필드 도입).
+    assert manifest["contract_version"] == "1.1"
 
     release_dir = tmp_path / "2026.06.05-1"
     # 체크섬이 실제 파일과 일치
@@ -217,7 +232,15 @@ def test_terms_json_content(seeded_db_url, tmp_path):
     terms = json.loads((tmp_path / "2026.06.05-1" / "terms.json").read_text())
 
     by_surface = {t["surface"]: t for t in terms}
-    assert set(by_surface) == {"A운지", "B워치"}  # internal_only 제외
+    assert set(by_surface) == {"A운지", "~노", "B워치"}  # internal_only 제외
+
+    # pattern-kind 항목만 "pattern" 정규식 필드를 가진다(계약 v1.1).
+    pat = by_surface["~노"]
+    assert pat["term_kind"] == "pattern"
+    assert pat["pattern"] == r"(.+)노[\.!\?…]*$"
+    # word-kind 항목에는 pattern 필드가 실리지 않는다.
+    assert "pattern" not in by_surface["A운지"]
+    assert "pattern" not in by_surface["B워치"]
 
     active = by_surface["A운지"]
     # normalized_key는 normalize()로 재생성
@@ -251,10 +274,11 @@ def test_kiwi_dict_lines(seeded_db_url, tmp_path):
     forms = {ln.split("\t")[0] for ln in lines}
     # active surface + 음절형 verified 변형(A운G)만. jamo/chosung(ㅇㅈ) 제외.
     assert forms == {"A운지", "A운G"}
-    # watchlist surface(B워치)·미검증 변형·internal_only는 미포함
+    # watchlist surface(B워치)·미검증 변형·internal_only·pattern surface는 미포함
     assert "B워치" not in forms
     assert "C내부" not in forms
     assert "ㅇㅈ" not in forms
+    assert "~노" not in forms
     # 형식: form<TAB>NNP<TAB>score
     for ln in lines:
         parts = ln.split("\t")

@@ -1,11 +1,12 @@
 {
   "release_version": "2026.06.05-1",
+  "contract_version": "1.1",
   "created_at": "2026-06-05T00:00:00Z",
   "normalizer_code_version": "__INJECTED_AT_TEST_TIME__",
-  "term_count": 6,
+  "term_count": 7,
   "variant_count": 1,
   "checksums": {
-    "terms.json": "4e322e19080db2771f3af16fe45558a99e99c5187b82cdb5bd5f6ac8c640a88e",
-    "kiwi_user_dict.tsv": "30c47bded31069a05cb2cb22261ec69af530e1f7ea7fa34c097847fa8761e9f4"
+    "terms.json": "25c7ad01c3569ecb53bb388d0e661e7910cb5a22e5b007d809b9f270c686387d",
+    "kiwi_user_dict.tsv": "85d72953e99463a9120f97ad7bf22f0d89bb9e2bbfeff55eb33b412c8dd2e272"
   }
 }

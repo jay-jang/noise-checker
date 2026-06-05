@@ -79,7 +79,7 @@ def _fetch_terms(conn) -> list[dict[str, Any]]:
     rows = conn.execute(
         text(
             "SELECT id, surface, term_kind, severity, ambiguity, status, "
-            "release_policy, safe_contexts "
+            "release_policy, safe_contexts, pattern "
             "FROM term "
             "WHERE status IN ('active','watchlist') "
             "  AND release_policy NOT IN ('internal_only','hold_legal') "
@@ -103,6 +103,8 @@ def _fetch_terms(conn) -> list[dict[str, Any]]:
                 "is_dogwhistle_marker": r[6] == "advisory_only",
                 "safe_contexts": list(r[7]) if r[7] else [],
                 "release_policy": r[6],
+                # pattern: term_kind='pattern' 전용 정규식 (그 외 kind는 NULL — 02 §3.2).
+                "pattern": r[8],
                 "categories": _fetch_categories(conn, term_id),
                 "variants": _fetch_variants(conn, term_id),
                 "combination_rules": _fetch_combination_rules(conn, term_id),
@@ -175,26 +177,28 @@ def _fetch_combination_rules(conn, term_id: int) -> list[dict[str, Any]]:
 
 
 def _build_terms_json(terms: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """계약 v1 terms.json 항목으로 변환. normalized_key는 normalize()로 재생성."""
+    """계약 v1.1 terms.json 항목으로 변환. normalized_key는 normalize()로 재생성."""
     out: list[dict[str, Any]] = []
     for t in terms:
-        out.append(
-            {
-                "term_id": t["term_id"],
-                "surface": t["surface"],
-                "term_kind": t["term_kind"],
-                "normalized_key": normalize(t["surface"])[0],
-                "severity": t["severity"],
-                "ambiguity": t["ambiguity"],
-                "status": t["status"],
-                "release_policy": t["release_policy"],
-                "categories": t["categories"],
-                "safe_contexts": t["safe_contexts"],
-                "is_dogwhistle_marker": t["is_dogwhistle_marker"],
-                "variants": t["variants"],
-                "combination_rules": t["combination_rules"],
-            }
-        )
+        item = {
+            "term_id": t["term_id"],
+            "surface": t["surface"],
+            "term_kind": t["term_kind"],
+            "normalized_key": normalize(t["surface"])[0],
+            "severity": t["severity"],
+            "ambiguity": t["ambiguity"],
+            "status": t["status"],
+            "release_policy": t["release_policy"],
+            "categories": t["categories"],
+            "safe_contexts": t["safe_contexts"],
+            "is_dogwhistle_marker": t["is_dogwhistle_marker"],
+            "variants": t["variants"],
+            "combination_rules": t["combination_rules"],
+        }
+        # 계약 v1.1: pattern-kind 항목에만 "pattern" 정규식 필드를 싣는다(엔진이 컴파일).
+        if t["term_kind"] == "pattern" and t.get("pattern"):
+            item["pattern"] = t["pattern"]
+        out.append(item)
     return out
 
 
@@ -206,6 +210,9 @@ def _build_kiwi_dict(terms: list[dict[str, Any]]) -> str:
     seen: set[str] = set()
     lines: list[str] = []
     for t in terms:
+        # pattern surface(예: '~노', 정규식)는 형태소가 아니므로 kiwi 사전에서 제외.
+        if t["term_kind"] == "pattern":
+            continue
         # surface는 active만 등록(watchlist는 monitor 고정 — 경계 보강은 active 검사 경로).
         forms: list[str] = []
         if t["status"] == "active":
@@ -261,6 +268,8 @@ def build_release(
 
     manifest = {
         "release_version": version,
+        # 아티팩트 계약 버전 — v1.1: pattern-kind 항목에 "pattern" 정규식 필드 추가.
+        "contract_version": "1.1",
         "created_at": datetime.now(UTC).isoformat(),
         "normalizer_code_version": NORMALIZER_VERSION,
         "term_count": len(terms_json),
