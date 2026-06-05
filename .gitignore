@@ -25,6 +25,7 @@ models/*/weights/
 *.pkl
 *.faiss
 releases/
+dist/
 
 # IDE/OS
 .idea/

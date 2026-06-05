@@ -23,7 +23,17 @@ import hashlib
 import unicodedata
 from pathlib import Path
 
-__all__ = ["normalize", "normalized_key", "NORMALIZER_CODE_VERSION"]
+__all__ = [
+    "normalize",
+    "normalized_key",
+    "NORMALIZER_CODE_VERSION",
+    "NORMALIZER_VERSION",
+]
+
+# 정규화 로직의 의미 버전 (manifest.normalizer_code_version에 기록).
+# 엔진(M2-B)은 로드 시 manifest 값과 이 상수를 대조해 불일치면 로드를 거부한다.
+# 정규화 단계(NFKC→소문자→자모분해→제거)의 의미가 바뀌면 이 값을 올린다.
+NORMALIZER_VERSION: str = "1.0.0"
 
 
 # --- 단계 3: 한글 자모 → 호환 자모(U+3131~U+3163) 매핑 -----------------------
