@@ -1,0 +1,103 @@
+[
+  {
+    "term_id": 1,
+    "surface": "운지",
+    "term_kind": "word",
+    "normalized_key": "ㅇㅜㄴㅈㅣ",
+    "severity": 4,
+    "ambiguity": "ambiguous",
+    "status": "active",
+    "release_policy": "general",
+    "categories": ["deceased", "community_jargon"],
+    "safe_contexts": ["버섯", "운지법"],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": []
+  },
+  {
+    "term_id": 2,
+    "surface": "삼일한",
+    "term_kind": "word",
+    "normalized_key": "ㅅㅏㅁㅇㅣㄹㅎㅏㄴ",
+    "severity": 5,
+    "ambiguity": "unambiguous",
+    "status": "active",
+    "release_policy": "general",
+    "categories": ["misogyny"],
+    "safe_contexts": [],
+    "is_dogwhistle_marker": false,
+    "variants": [
+      {
+        "surface": "삼일1한",
+        "normalized_key": "ㅅㅏㅁㅇㅣㄹ1ㅎㅏㄴ",
+        "variant_kind": "leet"
+      }
+    ],
+    "combination_rules": []
+  },
+  {
+    "term_id": 3,
+    "surface": "한남",
+    "term_kind": "word",
+    "normalized_key": "ㅎㅏㄴㄴㅏㅁ",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "status": "active",
+    "release_policy": "general",
+    "categories": ["misandry"],
+    "safe_contexts": ["한남동", "한남대교"],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": []
+  },
+  {
+    "term_id": 4,
+    "surface": "[가-힣]+노\\?",
+    "term_kind": "pattern",
+    "normalized_key": "",
+    "severity": 3,
+    "ambiguity": "ambiguous",
+    "status": "active",
+    "release_policy": "general",
+    "categories": ["community_jargon"],
+    "safe_contexts": [],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": []
+  },
+  {
+    "term_id": 5,
+    "surface": "503",
+    "term_kind": "number",
+    "normalized_key": "503",
+    "severity": 4,
+    "ambiguity": "common",
+    "status": "active",
+    "release_policy": "general",
+    "categories": ["politics"],
+    "safe_contexts": [],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": [
+      {
+        "trigger_kind": "co_occurrence",
+        "trigger_terms": [2]
+      }
+    ]
+  },
+  {
+    "term_id": 6,
+    "surface": "탱크데이",
+    "term_kind": "word",
+    "normalized_key": "ㅌㅐㅇㅋㅡㄷㅔㅇㅣ",
+    "severity": 2,
+    "ambiguity": "ambiguous",
+    "status": "watchlist",
+    "release_policy": "general",
+    "categories": ["community_jargon"],
+    "safe_contexts": [],
+    "is_dogwhistle_marker": false,
+    "variants": [],
+    "combination_rules": []
+  }
+]
