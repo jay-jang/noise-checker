@@ -107,12 +107,64 @@ def test_number_with_cooccurrence_satisfied(engine: Engine) -> None:
     assert result["overall_recommendation"] == "revise_recommended"
 
 
+# --- safe_context 셀프 해소 회귀 (버그 1) -----------------------------------
+def test_doenjangnyeo_standalone_not_self_resolved(engine: Engine) -> None:
+    # surface '된장녀'는 safe_context '된장'을 내포한다. 매치 스팬을 창에서
+    # 제외하지 않으면 자기 매치가 셀프 해소돼 단독 surface조차 미탐된다.
+    m = _one(engine, "된장녀")
+    assert m["surface"] == "된장녀"
+    assert m["span"] == {"start": 0, "end": 3}
+
+
+def test_doenjangnyeo_resolved_by_outside_safe_token(engine: Engine) -> None:
+    # 스팬 '밖'에 safe 토큰('된장')이 실제로 있으면 정상 해소된다.
+    text = "점심엔 된장찌개를 끓였다 된장녀라니"
+    assert engine.check(text)["matches"] == []
+
+
 # --- pattern -----------------------------------------------------------------
 def test_pattern_no_ending_matches(engine: Engine) -> None:
     # '~노?' 어미 pattern (term_kind='pattern') 정규식 경로.
     matches = engine.check("이걸 진짜 들켰노?")["matches"]
     surfaces = {m["matched_text"] for m in matches}
     assert any("노?" in s for s in surfaces)
+
+
+def test_pattern_declarative_no_ending_matches(engine: Engine) -> None:
+    # 평서문 종결 '들켰노...'도 pattern 정규식((.+)노[…]*$)이 잡는다.
+    # 리터럴 surface('~노')를 컴파일하던 옛 경로는 이를 놓쳤다(버그 2).
+    matches = engine.check("이건 들켰노...")["matches"]
+    assert any(m["term_id"] == 4 for m in matches)
+    # 별도 pattern 필드가 있으므로 폴백 플래그가 붙지 않는다.
+    pat = next(m for m in matches if m["term_id"] == 4)
+    assert "pattern_fallback_literal" not in pat["flags"]
+
+
+def test_pattern_dialect_resolved_by_safe_context(engine: Engine) -> None:
+    # '~노'는 경상도 방언 의문 종결어미와 동형 — safe_context 토큰('부산','사투리')이
+    # 창에 있으면 해소돼 방언 화자 오인을 막는다.
+    assert engine.check("부산 사투리로 어디 가노")["matches"] == []
+
+
+def test_pattern_field_missing_falls_back_to_literal(tmp_path: Path) -> None:
+    # pattern 필드가 없는(구버전) pattern term은 surface를 리터럴로 escape해
+    # 폴백하고 매치에 'pattern_fallback_literal' 플래그를 단다.
+    import json
+
+    dest = materialize_release(tmp_path / "legacy")
+    terms_path = dest / "terms.json"
+    terms = json.loads(terms_path.read_text(encoding="utf-8"))
+    for t in terms:
+        if t["term_id"] == 4:
+            t.pop("pattern", None)
+            t["surface"] = "들켰노"  # 리터럴로 컴파일될 표면형
+    terms_path.write_text(json.dumps(terms, ensure_ascii=False), encoding="utf-8")
+
+    eng = Engine.load(dest)
+    matches = eng.check("그거 들켰노 ㅋㅋ")["matches"]
+    pat = next(m for m in matches if m["term_id"] == 4)
+    assert pat["matched_text"] == "들켰노"
+    assert "pattern_fallback_literal" in pat["flags"]
 
 
 # --- 자모 경계 필터 ----------------------------------------------------------

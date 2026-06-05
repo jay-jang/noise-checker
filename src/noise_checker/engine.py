@@ -100,7 +100,7 @@ class Engine:
         *,
         release_version: str,
         automaton: ahocorasick.Automaton,
-        pattern_entries: list[tuple[re.Pattern[str], _Entry]],
+        pattern_entries: list[tuple[re.Pattern[str], _Entry, tuple[str, ...]]],
         kiwi: Kiwi,
     ) -> None:
         self.release_version = release_version
@@ -132,7 +132,7 @@ class Engine:
         automaton = ahocorasick.Automaton()
         # normalized_key -> [_Entry...] (동철 충돌 대응)
         key_entries: dict[str, list[_Entry]] = {}
-        pattern_entries: list[tuple[re.Pattern[str], _Entry]] = []
+        pattern_entries: list[tuple[re.Pattern[str], _Entry, tuple[str, ...]]] = []
 
         for t in terms:
             entry_common = {
@@ -149,9 +149,19 @@ class Engine:
             }
 
             if t["term_kind"] == "pattern":
-                # pattern은 정규식 경로로 분리 컴파일 (surface가 정규식).
+                # pattern은 정규식 경로로 분리 컴파일. 정규식은 별도 pattern 필드
+                # (아티팩트 계약 v1.1)에서 읽고, 없으면 surface를 리터럴로 escape해
+                # 폴백한다(구버전 아티팩트 안전망 — 매치에 fallback 플래그 기록).
+                regex = t.get("pattern")
+                fallback = regex is None
+                compiled = re.compile(regex if regex is not None else re.escape(t["surface"]))
+                pattern_flags = ["pattern_fallback_literal"] if fallback else []
                 pattern_entries.append(
-                    (re.compile(t["surface"]), _Entry(variant_kind="pattern", **entry_common))
+                    (
+                        compiled,
+                        _Entry(variant_kind="pattern", **entry_common),
+                        tuple(pattern_flags),
+                    )
                 )
                 continue
 
@@ -214,7 +224,15 @@ class Engine:
         # 단계 2 — 패턴/조합 매칭
         if cfg["pattern"]:
             with _timed(timings, "pattern"):
-                matches.extend(self._pattern_scan(text))
+                pattern_matches = self._pattern_scan(text)
+                # pattern 매치도 safe_contexts 해소 대상 (예: '~노'는 경상도 방언
+                # 의문 종결어미와 동형 — 방언 토큰이 창에 있으면 해소). 단계 1d가
+                # AC 스캔 전에 끝나 pattern 매치를 못 보므로 여기서 동일 필터를 적용한다.
+                if cfg["safe_context"]:
+                    pattern_matches = [
+                        m for m in pattern_matches if not _safe_context_resolves(m, text)
+                    ]
+                matches.extend(pattern_matches)
         if cfg["combination"]:
             with _timed(timings, "combination"):
                 _apply_combination_rules(matches, text)
@@ -286,7 +304,7 @@ class Engine:
     def _pattern_scan(self, text: str) -> list[_Match]:
         """term_kind='pattern' 정규식 매칭 (원문에 직접 적용)."""
         out: list[_Match] = []
-        for pat, entry in self._pattern_entries:
+        for pat, entry, pattern_flags in self._pattern_entries:
             for mo in pat.finditer(text):
                 out.append(
                     _Match(
@@ -297,6 +315,7 @@ class Engine:
                         entry=entry,
                         match_confidence=1.0,
                         matched_text=mo.group(0),
+                        flags=list(pattern_flags),
                     )
                 )
         return out
@@ -359,6 +378,14 @@ def _safe_context_resolves(m: _Match, text: str) -> bool:
     """ambiguous/common 매치 주변 ±20자에 safe context 토큰이 있으면 해소(True).
 
     unambiguous 항목은 safe_context로 해소하지 않는다 (일반어 충돌이 없으므로).
+
+    exact/변형 매치의 창에서는 **매치 스팬 자신을 제외**한다 — surface가 safe
+    토큰을 내포하면(예: '된장녀'의 safe_contexts에 '된장') 매치 텍스트 안의
+    '된장'이 자기 매치를 셀프 해소해 단독 surface조차 미탐되는 버그를 막는다.
+    전후 잔여 텍스트의 경계가 우연히 결합해 safe 토큰을 오인하지 않도록 NUL
+    구분자로 잇는다.
+    pattern 매치(예: '~노')는 매치 텍스트가 사용자 작성 문장 전체(greedy .+)라
+    safe 토큰이 스팬 내부에 정상 출현하므로 스팬을 제외하지 않고 전체 창을 본다.
     """
     if m.entry.ambiguity == "unambiguous":
         return False
@@ -366,7 +393,10 @@ def _safe_context_resolves(m: _Match, text: str) -> bool:
         return False
     lo = max(0, m.start - _SAFE_CONTEXT_WINDOW)
     hi = min(len(text), m.end + _SAFE_CONTEXT_WINDOW)
-    window = text[lo:hi]
+    if m.entry.term_kind == "pattern":
+        window = text[lo:hi]
+    else:
+        window = text[lo:m.start] + "\x00" + text[m.end:hi]
     return any(tok and tok in window for tok in m.entry.safe_contexts)
 
 

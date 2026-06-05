@@ -267,3 +267,44 @@ def test_roundtrip_downgrade_upgrade(migrated_db):
         assert present >= EXPECTED_TABLES
     finally:
         conn.close()
+
+
+def _term_has_pattern_column(cur) -> bool:
+    cur.execute(
+        "SELECT 1 FROM information_schema.columns "
+        "WHERE table_schema='public' AND table_name='term' AND column_name='pattern'"
+    )
+    return cur.fetchone() is not None
+
+
+def test_term_pattern_column_added(migrated_db):
+    """0002: term.pattern 컬럼(nullable)이 head 스키마에 존재한다."""
+    conn = _connect()
+    try:
+        with conn.cursor() as cur:
+            assert _term_has_pattern_column(cur), "term.pattern 컬럼 누락"
+            cur.execute(
+                "SELECT is_nullable FROM information_schema.columns "
+                "WHERE table_name='term' AND column_name='pattern'"
+            )
+            assert cur.fetchone()[0] == "YES"
+    finally:
+        conn.close()
+
+
+def test_0002_roundtrip_drops_and_readds_pattern(migrated_db):
+    """0002 down(→0001)에서 pattern 컬럼이 사라지고 up(→head)에서 복원된다."""
+    _alembic("downgrade", "0001")
+    conn = _connect()
+    try:
+        with conn.cursor() as cur:
+            assert not _term_has_pattern_column(cur), "downgrade 후에도 pattern 잔존"
+    finally:
+        conn.close()
+    _alembic("upgrade", "head")
+    conn = _connect()
+    try:
+        with conn.cursor() as cur:
+            assert _term_has_pattern_column(cur), "upgrade 후 pattern 미복원"
+    finally:
+        conn.close()

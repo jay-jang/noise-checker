@@ -269,6 +269,8 @@ def _plan_new_term(payload: dict[str, Any], reviewer: str) -> PlannedWrites:
         "surface": surface,
         "normalized_key": normalized_key(surface),
         "term_kind": term_kind,
+        # pattern: term_kind='pattern' 항목의 정규식 (그 외 kind는 None — 02 §3.2).
+        "pattern": payload.get("pattern"),
         "origin_community": payload.get("origin_community"),
         "origin_story": payload["origin_story"],
         "origin_period": payload.get("origin_period"),
@@ -542,10 +544,10 @@ def _apply_new_term(
     assert term is not None
     term_id = conn.execute(
         text(
-            "INSERT INTO term (surface, normalized_key, term_kind, origin_community, "
+            "INSERT INTO term (surface, normalized_key, term_kind, pattern, origin_community, "
             "origin_story, origin_period, meaning, severity, ambiguity, safe_contexts, "
             "status, provenance_class) VALUES (:surface, :normalized_key, :term_kind, "
-            ":origin_community, :origin_story, :origin_period, :meaning, :severity, "
+            ":pattern, :origin_community, :origin_story, :origin_period, :meaning, :severity, "
             ":ambiguity, :safe_contexts, :status, :provenance_class) RETURNING id"
         ),
         term,

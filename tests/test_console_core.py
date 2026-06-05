@@ -137,6 +137,22 @@ class TestPayloadToRows:
         assert planned.variants[0]["verified"] is False
         assert planned.variants[0]["normalized_key"]
 
+    def test_word_term_has_no_pattern(self):
+        # 비-pattern(word) 항목은 pattern이 None (다른 kind 영향 없음).
+        doc = self._unji()
+        planned = payload_to_rows(doc["payload"], doc["kind"], "human:test@x.com")
+        assert planned.term["pattern"] is None
+
+    def test_pattern_term_carries_regex(self):
+        # term_kind='pattern' 후보의 payload.pattern이 term 행 계획에 보존된다(버그2 ③).
+        doc = json.loads(
+            (PROJECT_ROOT / "data" / "seed" / "candidates" / "new_term--no-ending-pattern.json")
+            .read_text()
+        )
+        planned = payload_to_rows(doc["payload"], doc["kind"], "human:test@x.com")
+        assert planned.term["term_kind"] == "pattern"
+        assert planned.term["pattern"] == r"(.+)노[\.!\?…]*$"
+
 
 # ===========================================================================
 # 트랜잭션 — 임시 DB 격리 (@pytest.mark.db)
@@ -292,6 +308,29 @@ def test_approve_unji_full_transaction(clean_db):
         actions = {r[0] for r in logged}
         assert "approved" in actions
         assert all(r[1] == "human:reviewer@x.com" for r in logged)
+
+
+@db
+def test_approve_pattern_term_persists_pattern(clean_db):
+    """pattern 후보 승인 시 term.pattern 컬럼에 정규식이 적재된다(버그2 ③ 왕복)."""
+    from sqlalchemy import text
+
+    doc = json.loads(
+        (PROJECT_ROOT / "data" / "seed" / "candidates" / "new_term--no-ending-pattern.json")
+        .read_text()
+    )
+    with clean_db.begin() as conn:
+        cid = _insert_candidate(conn, doc)
+        result = approve_candidate(conn, cid, "human:reviewer@x.com", _full_checklist())
+
+    assert result.term_id is not None
+    with clean_db.connect() as conn:
+        row = conn.execute(
+            text("SELECT term_kind, pattern FROM term WHERE id=:t"),
+            {"t": result.term_id},
+        ).fetchone()
+        assert row[0] == "pattern"
+        assert row[1] == r"(.+)노[\.!\?…]*$"
 
 
 @db

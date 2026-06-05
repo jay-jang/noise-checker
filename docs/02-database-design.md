@@ -91,6 +91,7 @@ CREATE TABLE term (
     normalized_key  TEXT NOT NULL,              -- 정규화 키 (자모분해+소문자+특수문자 제거)
     term_kind       TEXT NOT NULL CHECK (term_kind IN ('word','phrase','pattern','number')),
                     -- pattern: 정규식 항목(예: 특정 숫자조합), number: 상징 숫자
+    pattern         TEXT,                       -- term_kind='pattern' 전용 정규식 (예: '(.+)노[\.!\?…]*$'). 그 외 kind는 NULL
     origin_community TEXT,                      -- 유래 커뮤니티: 'ilbe','megalia','womad','dcinside', 'other', 'unknown'
     origin_story    TEXT NOT NULL,              -- 유래 설명 (언제/어떤 사건에서/어떤 의미로 생겼는지)
     origin_period   TEXT,                       -- 대략적 발생 시기 (예: '2012년경')
