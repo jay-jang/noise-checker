@@ -27,6 +27,9 @@ models/*/weights/
 releases/
 dist/
 
+# Claude Code 워크플로우 임시 worktree (에이전트 격리 작업 공간)
+.claude/worktrees/
+
 # IDE/OS
 .idea/
 .vscode/
