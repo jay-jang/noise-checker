@@ -52,6 +52,10 @@ def compiled_normalizer_version() -> str:
 # 자모 단위 매칭이 정상이라 음절 경계 필터에서 예외 처리할 변형 종류 (03 §2 단계1).
 _JAMO_LEVEL_KINDS = frozenset({"jamo", "chosung", "pattern"})
 
+# chosung 변형 match_confidence (03 §2 정책표 — chosung은 본질 lossy라
+# skip-char 0.8보다 보수적인 0.7, 단독 매칭 위험 잔존으로 상한 review 고정).
+_CHOSUNG_CONFIDENCE = 0.7
+
 # safe_context 탐색 창 (매치 전후 원문 ±N자).
 _SAFE_CONTEXT_WINDOW = 20
 
@@ -309,19 +313,42 @@ class Engine:
             while norm_end < nn and src_offset[norm_end] == last_src:
                 norm_end += 1
             for entry in entries:
-                confidence = 1.0 if entry.variant_kind is None else 0.9
-                out.append(
-                    _Match(
-                        start=src_start,
-                        end=src_end,
-                        norm_start=norm_start,
-                        norm_end=norm_end,
-                        entry=entry,
-                        match_confidence=confidence,
-                        matched_text=text[src_start:src_end],
-                    )
-                )
+                out.append(self._make_variant_match(
+                    entry, src_start, src_end, norm_start, norm_end,
+                    text[src_start:src_end],
+                ))
         return out
+
+    @staticmethod
+    def _make_variant_match(
+        entry: _Entry,
+        src_start: int,
+        src_end: int,
+        norm_start: int,
+        norm_end: int,
+        matched_text: str,
+    ) -> _Match:
+        """AC 매치 1건을 변형 종류별 confidence/상한으로 _Match로 만든다.
+
+        exact surface 1.0 / leet 등 검증 변형 0.9 / chosung 0.7(본질 lossy).
+        chosung은 단독 매칭 위험이 남아 상한 review(cap_review)·flag 'chosung_variant'.
+        """
+        if entry.variant_kind is None:
+            return _Match(
+                start=src_start, end=src_end, norm_start=norm_start, norm_end=norm_end,
+                entry=entry, match_confidence=1.0, matched_text=matched_text,
+            )
+        if entry.variant_kind == "chosung":
+            return _Match(
+                start=src_start, end=src_end, norm_start=norm_start, norm_end=norm_end,
+                entry=entry, match_confidence=_CHOSUNG_CONFIDENCE,
+                matched_text=matched_text,
+                flags=["chosung_variant"], cap_review=True,
+            )
+        return _Match(
+            start=src_start, end=src_end, norm_start=norm_start, norm_end=norm_end,
+            entry=entry, match_confidence=0.9, matched_text=matched_text,
+        )
 
     def _morpheme_filter(self, text: str, matches: list[_Match]) -> list[_Match]:
         """Kiwi 형태소 경계 검사 (문장당 1회 분석, 03 §2 단계0/1).

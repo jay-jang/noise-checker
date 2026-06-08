@@ -1,0 +1,2712 @@
+[
+  {
+    "surface": "된장녀",
+    "term_id": 2,
+    "variant": "ㄷㅚㄴㅈㅏㅇㄴㅕ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄷㅚㄴㅈㅏㅇㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "된장녀",
+    "term_id": 2,
+    "variant": "ㄷㅈㄴ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄷㅈㄴ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "ㅇㅡㅇㄷㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅇㅡㅇㄷㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "ㅇㄷ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅇㄷ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "0ㅡㅇ디",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅡㅇㄷㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "oㅡㅇ디",
+    "variant_kind": "leet",
+    "normalized_key": "oㅡㅇㄷㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "응디1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅡㅇㄷㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "응디l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅡㅇㄷㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "응디i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅡㅇㄷㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "0ㅡㅇ디1",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅡㅇㄷㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "0ㅡㅇ디l",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅡㅇㄷㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "0ㅡㅇ디i",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅡㅇㄷㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "oㅡㅇ디1",
+    "variant_kind": "leet",
+    "normalized_key": "oㅡㅇㄷㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "oㅡㅇ디l",
+    "variant_kind": "leet",
+    "normalized_key": "oㅡㅇㄷㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "variant": "oㅡㅇ디i",
+    "variant_kind": "leet",
+    "normalized_key": "oㅡㅇㄷㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "한남",
+    "term_id": 5,
+    "variant": "ㅎㅏㄴㄴㅏㅁ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅎㅏㄴㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "한남",
+    "term_id": 5,
+    "variant": "ㅎㄴ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅎㄴ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "노알라",
+    "term_id": 11,
+    "variant": "ㄴㅗㅇㅏㄹㄹㅏ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄴㅗㅇㅏㄹㄹㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "노알라",
+    "term_id": 11,
+    "variant": "ㄴㅇㄹ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄴㅇㄹ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "노알라",
+    "term_id": 11,
+    "variant": "노0ㅏㄹ라",
+    "variant_kind": "leet",
+    "normalized_key": "ㄴㅗ0ㅏㄹㄹㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "노알라",
+    "term_id": 11,
+    "variant": "노oㅏㄹ라",
+    "variant_kind": "leet",
+    "normalized_key": "ㄴㅗoㅏㄹㄹㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "ㅈㅓㄴㄹㅏㄷㅣㅇㅓㄴ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣㅇㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "ㅈㄹㄷㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅈㄹㄷㅇ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디1언",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣ1ㅇㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디l언",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣlㅇㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디i언",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣiㅇㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디0ㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣ0ㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디oㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣoㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디10ㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣ10ㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디1oㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣ1oㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디l0ㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣl0ㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디loㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣloㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디i0ㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣi0ㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "variant": "전라디ioㅓㄴ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄴㄹㅏㄷㅣioㅓㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "ㄱㅣㅁㅊㅣㄴㅕ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅣㅁㅊㅣㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "ㄱㅊㄴ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅊㄴ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김1치녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ1ㅊㅣㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김l치녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁlㅊㅣㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김i치녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁiㅊㅣㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김치1녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁㅊㅣ1ㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김치l녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁㅊㅣlㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김치i녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁㅊㅣiㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김1치1녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ1ㅊㅣ1ㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김1치l녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ1ㅊㅣlㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김1치i녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ1ㅊㅣiㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김l치1녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁlㅊㅣ1ㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김l치l녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁlㅊㅣlㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김l치i녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁlㅊㅣiㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김i치1녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁiㅊㅣ1ㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김i치l녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁiㅊㅣlㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "variant": "김i치i녀",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁiㅊㅣiㄴㅕ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "오또케",
+    "term_id": 15,
+    "variant": "ㅇㅗㄸㅗㅋㅔ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅇㅗㄸㅗㅋㅔ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "오또케",
+    "term_id": 15,
+    "variant": "ㅇㄸㅋ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅇㄸㅋ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "오또케",
+    "term_id": 15,
+    "variant": "0ㅗ또케",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅗㄸㅗㅋㅔ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "오또케",
+    "term_id": 15,
+    "variant": "oㅗ또케",
+    "variant_kind": "leet",
+    "normalized_key": "oㅗㄸㅗㅋㅔ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "ㅇㅜㅇㅇㅐㅇㅇㅜㅇ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅇㅜㅇㅇㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "ㅇㅇㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅇㅇㅇ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "0ㅜㅇ앵웅",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㅇㅇㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "oㅜㅇ앵웅",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㅇㅇㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅0ㅐㅇ웅",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇ0ㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅oㅐㅇ웅",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇoㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅앵0ㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇㅇㅐㅇ0ㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅앵oㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇㅇㅐㅇoㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "0ㅜㅇ0ㅐㅇ웅",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㅇ0ㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "0ㅜㅇoㅐㅇ웅",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㅇoㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "oㅜㅇ0ㅐㅇ웅",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㅇ0ㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "oㅜㅇoㅐㅇ웅",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㅇoㅐㅇㅇㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "0ㅜㅇ앵0ㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㅇㅇㅐㅇ0ㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "0ㅜㅇ앵oㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㅇㅇㅐㅇoㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "oㅜㅇ앵0ㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㅇㅇㅐㅇ0ㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "oㅜㅇ앵oㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㅇㅇㅐㅇoㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅0ㅐㅇ0ㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇ0ㅐㅇ0ㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅0ㅐㅇoㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇ0ㅐㅇoㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅oㅐㅇ0ㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇoㅐㅇ0ㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "variant": "웅oㅐㅇoㅜㅇ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㅇoㅐㅇoㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "맘충",
+    "term_id": 10,
+    "variant": "ㅁㅏㅁㅊㅜㅇ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅁㅏㅁㅊㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "맘충",
+    "term_id": 10,
+    "variant": "ㅁㅊ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅁㅊ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "허버허버",
+    "term_id": 26,
+    "variant": "ㅎㅓㅂㅓㅎㅓㅂㅓ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅎㅓㅂㅓㅎㅓㅂㅓ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "허버허버",
+    "term_id": 26,
+    "variant": "ㅎㅂㅎㅂ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅎㅂㅎㅂ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "홍어",
+    "term_id": 27,
+    "variant": "ㅎㅗㅇㅇㅓ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅎㅗㅇㅇㅓ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "홍어",
+    "term_id": 27,
+    "variant": "ㅎㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅎㅇ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "홍어",
+    "term_id": 27,
+    "variant": "홍0ㅓ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅎㅗㅇ0ㅓ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "홍어",
+    "term_id": 27,
+    "variant": "홍oㅓ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅎㅗㅇoㅓ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "노무",
+    "term_id": 13,
+    "variant": "ㄴㅗㅁㅜ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄴㅗㅁㅜ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "노무",
+    "term_id": 13,
+    "variant": "ㄴㅁ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄴㅁ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "ㅅㅏㅁㅇㅣㄹㅎㅏㄴ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅅㅏㅁㅇㅣㄹㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "ㅅㅇㅎ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅅㅇㅎ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "삼0ㅣㄹ한",
+    "variant_kind": "leet",
+    "normalized_key": "ㅅㅏㅁ0ㅣㄹㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "삼oㅣㄹ한",
+    "variant_kind": "leet",
+    "normalized_key": "ㅅㅏㅁoㅣㄹㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "삼일1한",
+    "variant_kind": "leet",
+    "normalized_key": "ㅅㅏㅁㅇㅣㄹ1ㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "삼일l한",
+    "variant_kind": "leet",
+    "normalized_key": "ㅅㅏㅁㅇㅣㄹlㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "variant": "삼일i한",
+    "variant_kind": "leet",
+    "normalized_key": "ㅅㅏㅁㅇㅣㄹiㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "군무새",
+    "term_id": 25,
+    "variant": "ㄱㅜㄴㅁㅜㅅㅐ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅜㄴㅁㅜㅅㅐ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "군무새",
+    "term_id": 25,
+    "variant": "ㄱㅁㅅ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅁㅅ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "좌좀",
+    "term_id": 23,
+    "variant": "ㅈㅘㅈㅗㅁ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅈㅘㅈㅗㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "좌좀",
+    "term_id": 23,
+    "variant": "ㅈㅈ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅈㅈ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "개쌍도",
+    "term_id": 36,
+    "variant": "ㄱㅐㅆㅏㅇㄷㅗ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅐㅆㅏㅇㄷㅗ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "개쌍도",
+    "term_id": 36,
+    "variant": "ㄱㅆㄷ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅆㄷ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "ㅂㅗㅅㅡㄹㅇㅏㅊㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅂㅗㅅㅡㄹㅇㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "ㅂㅅㅇㅊ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅂㅅㅇㅊ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬0ㅏ치",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹ0ㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬oㅏ치",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹoㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬아치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹㅇㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬아치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹㅇㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬아치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹㅇㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬0ㅏ치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹ0ㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬0ㅏ치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹ0ㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬0ㅏ치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹ0ㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬oㅏ치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹoㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬oㅏ치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹoㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "variant": "보슬oㅏ치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅗㅅㅡㄹoㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "병신",
+    "term_id": 32,
+    "variant": "ㅂㅕㅇㅅㅣㄴ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅂㅕㅇㅅㅣㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "병신",
+    "term_id": 32,
+    "variant": "ㅂㅅ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅂㅅ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "병신",
+    "term_id": 32,
+    "variant": "병신1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅕㅇㅅㅣㄴ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "병신",
+    "term_id": 32,
+    "variant": "병신l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅕㅇㅅㅣㄴl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "병신",
+    "term_id": 32,
+    "variant": "병신i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅕㅇㅅㅣㄴi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "어묵",
+    "term_id": 33,
+    "variant": "ㅇㅓㅁㅜㄱ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅇㅓㅁㅜㄱ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "어묵",
+    "term_id": 33,
+    "variant": "ㅇㅁ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅇㅁ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "어묵",
+    "term_id": 33,
+    "variant": "0ㅓ묵",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅓㅁㅜㄱ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "어묵",
+    "term_id": 33,
+    "variant": "oㅓ묵",
+    "variant_kind": "leet",
+    "normalized_key": "oㅓㅁㅜㄱ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "ㄱㅣㅁㅇㅕㅅㅏ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅣㅁㅇㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "ㄱㅇㅅ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅇㅅ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김1여사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ1ㅇㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김l여사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁlㅇㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김i여사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁiㅇㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김0ㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ0ㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김oㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁoㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김10ㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ10ㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김1oㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁ1oㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김l0ㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁl0ㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김loㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁloㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김i0ㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁi0ㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "variant": "김ioㅕ사",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅣㅁioㅕㅅㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "과메기",
+    "term_id": 39,
+    "variant": "ㄱㅘㅁㅔㄱㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅘㅁㅔㄱㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "과메기",
+    "term_id": 39,
+    "variant": "ㄱㅁㄱ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅁㄱ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "과메기",
+    "term_id": 39,
+    "variant": "과메기1",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅘㅁㅔㄱㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "과메기",
+    "term_id": 39,
+    "variant": "과메기l",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅘㅁㅔㄱㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "과메기",
+    "term_id": 39,
+    "variant": "과메기i",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅘㅁㅔㄱㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "귀머거리",
+    "term_id": 40,
+    "variant": "ㄱㅟㅁㅓㄱㅓㄹㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅟㅁㅓㄱㅓㄹㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "귀머거리",
+    "term_id": 40,
+    "variant": "ㄱㅁㄱㄹ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅁㄱㄹ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "귀머거리",
+    "term_id": 40,
+    "variant": "귀머거리1",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅟㅁㅓㄱㅓㄹㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "귀머거리",
+    "term_id": 40,
+    "variant": "귀머거리l",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅟㅁㅓㄱㅓㄹㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "귀머거리",
+    "term_id": 40,
+    "variant": "귀머거리i",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅟㅁㅓㄱㅓㄹㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "2번남",
+    "term_id": 44,
+    "variant": "2ㅂㅓㄴㄴㅏㅁ",
+    "variant_kind": "jamo",
+    "normalized_key": "2ㅂㅓㄴㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "2번남",
+    "term_id": 44,
+    "variant": "2ㅂㄴ",
+    "variant_kind": "chosung",
+    "normalized_key": "2ㅂㄴ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "재기",
+    "term_id": 45,
+    "variant": "ㅈㅐㄱㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅈㅐㄱㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "재기",
+    "term_id": 45,
+    "variant": "ㅈㄱ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅈㄱ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "재기",
+    "term_id": 45,
+    "variant": "재기1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅐㄱㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "재기",
+    "term_id": 45,
+    "variant": "재기l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅐㄱㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "재기",
+    "term_id": 45,
+    "variant": "재기i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅐㄱㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹㅇㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹㅇㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "ㅈㄹㅂㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅈㄹㅂㅇ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "절름발0ㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹ0ㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "절름발oㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹoㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "절름발이1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹㅇㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "절름발이l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹㅇㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "variant": "절름발이i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅈㅓㄹㄹㅡㅁㅂㅏㄹㅇㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "흉자",
+    "term_id": 43,
+    "variant": "ㅎㅠㅇㅈㅏ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅎㅠㅇㅈㅏ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "흉자",
+    "term_id": 43,
+    "variant": "ㅎㅈ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅎㅈ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "꼴페미",
+    "term_id": 49,
+    "variant": "ㄲㅗㄹㅍㅔㅁㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄲㅗㄹㅍㅔㅁㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "꼴페미",
+    "term_id": 49,
+    "variant": "ㄲㅍㅁ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄲㅍㅁ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "꼴페미",
+    "term_id": 49,
+    "variant": "꼴페미1",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅗㄹㅍㅔㅁㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "꼴페미",
+    "term_id": 49,
+    "variant": "꼴페미l",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅗㄹㅍㅔㅁㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "꼴페미",
+    "term_id": 49,
+    "variant": "꼴페미i",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅗㄹㅍㅔㅁㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "멍청도",
+    "term_id": 50,
+    "variant": "ㅁㅓㅇㅊㅓㅇㄷㅗ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅁㅓㅇㅊㅓㅇㄷㅗ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "멍청도",
+    "term_id": 50,
+    "variant": "ㅁㅊㄷ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅁㅊㄷ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "민주화",
+    "term_id": 51,
+    "variant": "ㅁㅣㄴㅈㅜㅎㅘ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅁㅣㄴㅈㅜㅎㅘ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "민주화",
+    "term_id": 51,
+    "variant": "ㅁㅈㅎ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅁㅈㅎ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "민주화",
+    "term_id": 51,
+    "variant": "민1주화",
+    "variant_kind": "leet",
+    "normalized_key": "ㅁㅣㄴ1ㅈㅜㅎㅘ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "민주화",
+    "term_id": 51,
+    "variant": "민l주화",
+    "variant_kind": "leet",
+    "normalized_key": "ㅁㅣㄴlㅈㅜㅎㅘ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "민주화",
+    "term_id": 51,
+    "variant": "민i주화",
+    "variant_kind": "leet",
+    "normalized_key": "ㅁㅣㄴiㅈㅜㅎㅘ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "ㅇㅚㄴㅜㄴㅂㅏㄱㅇㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅇㅚㄴㅜㄴㅂㅏㄱㅇㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "ㅇㄴㅂㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅇㄴㅂㅇ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "0ㅚ눈박이",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅚㄴㅜㄴㅂㅏㄱㅇㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "oㅚ눈박이",
+    "variant_kind": "leet",
+    "normalized_key": "oㅚㄴㅜㄴㅂㅏㄱㅇㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "외눈박0ㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅚㄴㅜㄴㅂㅏㄱ0ㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "외눈박oㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅚㄴㅜㄴㅂㅏㄱoㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "외눈박이1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅚㄴㅜㄴㅂㅏㄱㅇㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "외눈박이l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅚㄴㅜㄴㅂㅏㄱㅇㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "외눈박이i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅚㄴㅜㄴㅂㅏㄱㅇㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "0ㅚ눈박0ㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅚㄴㅜㄴㅂㅏㄱ0ㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "0ㅚ눈박oㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅚㄴㅜㄴㅂㅏㄱoㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "0ㅚ눈박이1",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅚㄴㅜㄴㅂㅏㄱㅇㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "0ㅚ눈박이l",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅚㄴㅜㄴㅂㅏㄱㅇㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "0ㅚ눈박이i",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅚㄴㅜㄴㅂㅏㄱㅇㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "oㅚ눈박0ㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "oㅚㄴㅜㄴㅂㅏㄱ0ㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "oㅚ눈박oㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "oㅚㄴㅜㄴㅂㅏㄱoㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "oㅚ눈박이1",
+    "variant_kind": "leet",
+    "normalized_key": "oㅚㄴㅜㄴㅂㅏㄱㅇㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "oㅚ눈박이l",
+    "variant_kind": "leet",
+    "normalized_key": "oㅚㄴㅜㄴㅂㅏㄱㅇㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "variant": "oㅚ눈박이i",
+    "variant_kind": "leet",
+    "normalized_key": "oㅚㄴㅜㄴㅂㅏㄱㅇㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "ㅂㅓㅇㅇㅓㄹㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅂㅓㅇㅇㅓㄹㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "ㅂㅇㄹ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅂㅇㄹ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙0ㅓ리",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇ0ㅓㄹㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙oㅓ리",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇoㅓㄹㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙어리1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇㅇㅓㄹㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙어리l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇㅇㅓㄹㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙어리i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇㅇㅓㄹㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙0ㅓ리1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇ0ㅓㄹㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙0ㅓ리l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇ0ㅓㄹㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙0ㅓ리i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇ0ㅓㄹㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙oㅓ리1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇoㅓㄹㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙oㅓ리l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇoㅓㄹㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "variant": "벙oㅓ리i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅂㅓㅇoㅓㄹㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "ㅆㅣㅂㅊㅣㄴㅏㅁ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅆㅣㅂㅊㅣㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "ㅆㅊㄴ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅆㅊㄴ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹1치남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂ1ㅊㅣㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹l치남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂlㅊㅣㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹i치남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂiㅊㅣㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹치1남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂㅊㅣ1ㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹치l남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂㅊㅣlㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹치i남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂㅊㅣiㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹1치1남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂ1ㅊㅣ1ㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹1치l남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂ1ㅊㅣlㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹1치i남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂ1ㅊㅣiㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹l치1남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂlㅊㅣ1ㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹l치l남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂlㅊㅣlㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹l치i남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂlㅊㅣiㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹i치1남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂiㅊㅣ1ㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹i치l남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂiㅊㅣlㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "variant": "씹i치i남",
+    "variant_kind": "leet",
+    "normalized_key": "ㅆㅣㅂiㅊㅣiㄴㅏㅁ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "숨쉴한",
+    "term_id": 57,
+    "variant": "ㅅㅜㅁㅅㅟㄹㅎㅏㄴ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅅㅜㅁㅅㅟㄹㅎㅏㄴ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "숨쉴한",
+    "term_id": 57,
+    "variant": "ㅅㅅㅎ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅅㅅㅎ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "ㅇㅜㄴㅈㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅇㅜㄴㅈㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "ㅇㅈ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅇㅈ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "0ㅜㄴ지",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㄴㅈㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "oㅜㄴ지",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㄴㅈㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "운지1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㄴㅈㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "운지l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㄴㅈㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "운지i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅇㅜㄴㅈㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "0ㅜㄴ지1",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㄴㅈㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "0ㅜㄴ지l",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㄴㅈㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "0ㅜㄴ지i",
+    "variant_kind": "leet",
+    "normalized_key": "0ㅜㄴㅈㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "oㅜㄴ지1",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㄴㅈㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "oㅜㄴ지l",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㄴㅈㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "variant": "oㅜㄴ지i",
+    "variant_kind": "leet",
+    "normalized_key": "oㅜㄴㅈㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "ㅍㅔㅁㅣㄴㅏㅊㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅍㅔㅁㅣㄴㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "ㅍㅁㄴㅊ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅍㅁㄴㅊ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미1나치",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣ1ㄴㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미l나치",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣlㄴㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미i나치",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣiㄴㅏㅊㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미나치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣㄴㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미나치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣㄴㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미나치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣㄴㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미1나치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣ1ㄴㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미1나치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣ1ㄴㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미1나치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣ1ㄴㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미l나치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣlㄴㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미l나치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣlㄴㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미l나치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣlㄴㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미i나치1",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣiㄴㅏㅊㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미i나치l",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣiㄴㅏㅊㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "variant": "페미i나치i",
+    "variant_kind": "leet",
+    "normalized_key": "ㅍㅔㅁㅣiㄴㅏㅊㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "감자국",
+    "term_id": 37,
+    "variant": "ㄱㅏㅁㅈㅏㄱㅜㄱ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅏㅁㅈㅏㄱㅜㄱ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "감자국",
+    "term_id": 37,
+    "variant": "ㄱㅈㄱ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅈㄱ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "결정장애",
+    "term_id": 41,
+    "variant": "ㄱㅕㄹㅈㅓㅇㅈㅏㅇㅇㅐ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄱㅕㄹㅈㅓㅇㅈㅏㅇㅇㅐ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "결정장애",
+    "term_id": 41,
+    "variant": "ㄱㅈㅈㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄱㅈㅈㅇ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "결정장애",
+    "term_id": 41,
+    "variant": "결정장0ㅐ",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅕㄹㅈㅓㅇㅈㅏㅇ0ㅐ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "결정장애",
+    "term_id": 41,
+    "variant": "결정장oㅐ",
+    "variant_kind": "leet",
+    "normalized_key": "ㄱㅕㄹㅈㅓㅇㅈㅏㅇoㅐ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "한남유충",
+    "term_id": 42,
+    "variant": "ㅎㅏㄴㄴㅏㅁㅇㅠㅊㅜㅇ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅎㅏㄴㄴㅏㅁㅇㅠㅊㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "한남유충",
+    "term_id": 42,
+    "variant": "ㅎㄴㅇㅊ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅎㄴㅇㅊ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 4자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "한남유충",
+    "term_id": 42,
+    "variant": "한남0ㅠ충",
+    "variant_kind": "leet",
+    "normalized_key": "ㅎㅏㄴㄴㅏㅁ0ㅠㅊㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "한남유충",
+    "term_id": 42,
+    "variant": "한남oㅠ충",
+    "variant_kind": "leet",
+    "normalized_key": "ㅎㅏㄴㄴㅏㅁoㅠㅊㅜㅇ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "ㄲㅐㅇㄲㅐㅇㅇㅣ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㄲㅐㅇㄲㅐㅇㅇㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "ㄲㄲㅇ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㄲㄲㅇ",
+    "context_required": true,
+    "decision": "verified",
+    "reason": "초성 3자 + FP-safe — 단독 매칭 위험 잔존(context_required)"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "깽깽0ㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅐㅇㄲㅐㅇ0ㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "깽깽oㅣ",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅐㅇㄲㅐㅇoㅣ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "깽깽이1",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅐㅇㄲㅐㅇㅇㅣ1",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "깽깽이l",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅐㅇㄲㅐㅇㅇㅣl",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "variant": "깽깽이i",
+    "variant_kind": "leet",
+    "normalized_key": "ㄲㅐㅇㄲㅐㅇㅇㅣi",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "성괴",
+    "term_id": 55,
+    "variant": "ㅅㅓㅇㄱㅚ",
+    "variant_kind": "jamo",
+    "normalized_key": "ㅅㅓㅇㄱㅚ",
+    "context_required": false,
+    "decision": "verified",
+    "reason": "왕복OK + FP-safe"
+  },
+  {
+    "surface": "성괴",
+    "term_id": 55,
+    "variant": "ㅅㄱ",
+    "variant_kind": "chosung",
+    "normalized_key": "ㅅㄱ",
+    "context_required": false,
+    "decision": "reject",
+    "reason": "초성 2자(<3) — 일반어 충돌 위험(v1 80.2%)"
+  }
+]

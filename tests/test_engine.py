@@ -211,6 +211,26 @@ def test_verified_variant_confidence_0_9(engine: Engine) -> None:
     assert m["usage_recommendation"] == "revise_recommended"
 
 
+# --- 변형(chosung) 캡 0.7 + 상한 review ------------------------------------
+def test_chosung_variant_capped_to_review(engine: Engine) -> None:
+    # 'ㅅㅇㅎ'(삼일한 chosung 변형, sev5 unambiguous)도 chosung은 본질 lossy →
+    # confidence 0.7 + 상한 review(revise 금지) + flag 'chosung_variant'.
+    m = _one(engine, "ㅅㅇㅎ 하자")
+    assert m["surface"] == "삼일한"
+    assert m["match_confidence"] == 0.7
+    assert "chosung_variant" in m["flags"]
+    # risk = 5/5 * 0.7 * 1.0 = 0.7 ≥ 0.7, sev5 → 캡 없으면 revise였을 것이나 상한 review.
+    assert m["risk_score"] == pytest.approx(0.7)
+    assert m["usage_recommendation"] == "review_recommended"
+
+
+def test_chosung_variant_never_revise_invariant(engine: Engine) -> None:
+    # chosung 변형 매치는 어떤 경우에도 revise가 아니다(단독 매칭 위험 잔존 불변식).
+    for m in engine.check("ㅅㅇㅎ")["matches"]:
+        if "chosung_variant" in m["flags"]:
+            assert m["usage_recommendation"] != "revise_recommended"
+
+
 # --- 원문 오프셋 정확성 ------------------------------------------------------
 def test_offset_accuracy_with_spaces_and_symbols(engine: Engine) -> None:
     # 공백·특수문자가 앞에 섞여도 span이 원문 좌표를 정확히 가리킨다.

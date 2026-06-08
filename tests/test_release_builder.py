@@ -256,6 +256,9 @@ def test_terms_json_content(seeded_db_url, tmp_path):
     assert vsurfaces == {"A운G", "ㅇㅈ"}
     for v in active["variants"]:
         assert v["normalized_key"] == normalize(v["surface"])[0]
+    # variant_kind가 아티팩트에 실려 엔진이 chosung/leet 분기를 할 수 있어야 한다.
+    kinds = {v["surface"]: v["variant_kind"] for v in active["variants"]}
+    assert kinds == {"A운G": "leet", "ㅇㅈ": "chosung"}
     # active composite_rule 1건
     assert len(active["combination_rules"]) == 1
     assert active["combination_rules"][0]["trigger_kind"] == "date_context"

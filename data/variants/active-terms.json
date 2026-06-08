@@ -1,0 +1,242 @@
+[
+  {
+    "surface": "된장녀",
+    "term_id": 2,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "응디",
+    "term_id": 3,
+    "ambiguity": "ambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "한남",
+    "term_id": 5,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "노알라",
+    "term_id": 11,
+    "ambiguity": "unambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "전라디언",
+    "term_id": 8,
+    "ambiguity": "unambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "김치녀",
+    "term_id": 9,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "오또케",
+    "term_id": 15,
+    "ambiguity": "ambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "웅앵웅",
+    "term_id": 16,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "맘충",
+    "term_id": 10,
+    "ambiguity": "unambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "허버허버",
+    "term_id": 26,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "홍어",
+    "term_id": 27,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "노무",
+    "term_id": 13,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "삼일한",
+    "term_id": 17,
+    "ambiguity": "ambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "군무새",
+    "term_id": 25,
+    "ambiguity": "unambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "좌좀",
+    "term_id": 23,
+    "ambiguity": "ambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "개쌍도",
+    "term_id": 36,
+    "ambiguity": "unambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "보슬아치",
+    "term_id": 31,
+    "ambiguity": "unambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "병신",
+    "term_id": 32,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "어묵",
+    "term_id": 33,
+    "ambiguity": "common",
+    "severity": 5
+  },
+  {
+    "surface": "김여사",
+    "term_id": 38,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "과메기",
+    "term_id": 39,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "귀머거리",
+    "term_id": 40,
+    "ambiguity": "ambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "2번남",
+    "term_id": 44,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "재기",
+    "term_id": 45,
+    "ambiguity": "ambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "절름발이",
+    "term_id": 46,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "흉자",
+    "term_id": 43,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "꼴페미",
+    "term_id": 49,
+    "ambiguity": "unambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "멍청도",
+    "term_id": 50,
+    "ambiguity": "unambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "민주화",
+    "term_id": 51,
+    "ambiguity": "common",
+    "severity": 3
+  },
+  {
+    "surface": "외눈박이",
+    "term_id": 53,
+    "ambiguity": "ambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "벙어리",
+    "term_id": 30,
+    "ambiguity": "ambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "씹치남",
+    "term_id": 56,
+    "ambiguity": "unambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "숨쉴한",
+    "term_id": 57,
+    "ambiguity": "unambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "운지",
+    "term_id": 58,
+    "ambiguity": "ambiguous",
+    "severity": 5
+  },
+  {
+    "surface": "페미나치",
+    "term_id": 34,
+    "ambiguity": "unambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "감자국",
+    "term_id": 37,
+    "ambiguity": "ambiguous",
+    "severity": 3
+  },
+  {
+    "surface": "결정장애",
+    "term_id": 41,
+    "ambiguity": "common",
+    "severity": 2
+  },
+  {
+    "surface": "한남유충",
+    "term_id": 42,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "깽깽이",
+    "term_id": 48,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  },
+  {
+    "surface": "성괴",
+    "term_id": 55,
+    "ambiguity": "ambiguous",
+    "severity": 4
+  }
+]

@@ -39,6 +39,11 @@
         "surface": "삼일1한",
         "normalized_key": "ㅅㅏㅁㅇㅣㄹ1ㅎㅏㄴ",
         "variant_kind": "leet"
+      },
+      {
+        "surface": "ㅅㅇㅎ",
+        "normalized_key": "ㅅㅇㅎ",
+        "variant_kind": "chosung"
       }
     ],
     "combination_rules": []
