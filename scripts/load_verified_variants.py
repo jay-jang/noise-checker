@@ -38,13 +38,12 @@ def select_variants() -> list[dict]:
         if it.get("decision") != "verified":
             continue
         kind, var, nkey = it["variant_kind"], it["variant"], it["normalized_key"]
-        if kind == "leet":
-            if _is_fp_safe_leet(nkey):
-                out.append(it)
-        elif kind == "chosung":
-            if len(var) == 4 and var not in _EXCLUDE_CHOSUNG:
-                out.append(it)
-        # jamo 제외 (normalizer 수렴 — 중복)
+        # leet: 비한글 문자 보유로 구조적 FP-safe / chosung: 4자만(3자 제외).
+        # jamo는 normalizer 수렴으로 surface 키와 동일 — 중복이라 제외.
+        if (kind == "leet" and _is_fp_safe_leet(nkey)) or (
+            kind == "chosung" and len(var) == 4 and var not in _EXCLUDE_CHOSUNG
+        ):
+            out.append(it)
     return out
 
 
@@ -66,7 +65,10 @@ def main() -> int:
     with eng.begin() as conn:
         for s in selected:
             tid = conn.execute(
-                text("SELECT id FROM term WHERE normalized_key=:nk AND status='active' ORDER BY id LIMIT 1"),
+                text(
+                    "SELECT id FROM term WHERE normalized_key=:nk AND status='active' "
+                    "ORDER BY id LIMIT 1"
+                ),
                 {"nk": normalized_key(s["surface"])},
             ).fetchone()
             if tid is None:
@@ -92,7 +94,11 @@ def main() -> int:
                 "INSERT INTO review_log (entity_type, entity_id, action, reviewer, rationale) "
                 "VALUES ('term', 0, 'variants_loaded', :r, :msg)"
             ),
-            {"r": REVIEWER, "msg": f"verified 변형 {loaded}건 적재(leet+4자chosung, FP재확인). skip {skipped}/noparent {noparent}"},
+            {
+                "r": REVIEWER,
+                "msg": f"verified 변형 {loaded}건 적재(leet+4자chosung, FP재확인). "
+                f"skip {skipped}/noparent {noparent}",
+            },
         )
     print(f"적재 {loaded} / 중복 skip {skipped} / 부모 미해결 {noparent}")
     return 0
