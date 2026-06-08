@@ -77,7 +77,7 @@ DB 설계 문서 §4의 정규화를 적용하되, 검사 경로는 `normalize(t
 ```
 effective_severity = term.severity                  # composite는 base_severity+severity_delta (충족 시)
 risk_score = (effective_severity/5) × match_confidence × context_score
-  - match_confidence: exact 1.0 / verified variant 0.9 / skip-char 0.8 / fuzzy ≤ 0.7
+  - match_confidence: exact 1.0 / verified variant 0.9 / skip-char 0.8 / chosung 변형 0.7 / fuzzy ≤ 0.7
   - context_score: unambiguous=1.0 (분류기 생략) / ambiguous는 분류기 harmful 확신도 (M3 전에는 0.5 고정)
 ```
 
@@ -85,6 +85,7 @@ risk_score = (effective_severity/5) × match_confidence × context_score
 |---|---|
 | 도그휘슬·의도성 미입증 표식 (집게손가락 등, §6 회색지대) | **상한 `review_recommended` 고정** — revise 금지 |
 | M2 인용 휴리스틱: 매치가 따옴표류로 감싸이거나 ±15자에 메타담론 토큰(표현·멸칭·용어·단어·혐오 표현·차별·비하·보도·보고서·강의·논문·기사·비판·사례·인용. '모욕' 제외)이 있음 | **상한 `review_recommended`** — severity 5 unambiguous(삼일한 등)도 캡. 매치 제거 아님(자문 포지셔닝). flag `quotation_heuristic`. M3 문맥분류 도입 전의 규칙 기반 보수 장치 |
+| chosung 변형 매치(`variant_kind='chosung'`): 초성체는 본질 lossy(단독 키 모호) | match_confidence 0.7 + **상한 `review_recommended`** — revise 금지. flag `chosung_variant`. 적재는 초성 ≥3자·FP-safe(context_required)만(scripts/build_verified_variants) |
 | `ambiguity != 'unambiguous'` AND (M3 전 또는 context_score < 0.85) | 상한 `review_recommended` |
 | `status='watchlist'`(emerging, 02 §3.2) 또는 evidence_strength 낮음 | `monitor` 고정 — 차단/수정 권고에 사용 금지 |
 | severity ≥ 4 AND risk_score ≥ 0.7 | `revise_recommended` |
