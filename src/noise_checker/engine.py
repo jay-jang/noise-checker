@@ -22,6 +22,7 @@ manifest.json / kiwi_user_dict.tsv)만 로드한다 (03 §1, 07 비노출 정책
 from __future__ import annotations
 
 import json
+import os
 import re
 import time
 from dataclasses import dataclass, field
@@ -32,6 +33,7 @@ import ahocorasick
 from kiwipiepy import Kiwi
 
 from noise_checker import normalizer
+from noise_checker.context_classifier import ContextClassifier
 
 __all__ = ["Engine", "compiled_normalizer_version"]
 
@@ -58,6 +60,18 @@ _CHOSUNG_CONFIDENCE = 0.7
 
 # safe_context 탐색 창 (매치 전후 원문 ±N자).
 _SAFE_CONTEXT_WINDOW = 20
+
+# --- M3 문맥 분류 (03 §2 단계3·정책표 context_score) -------------------------
+# 분류기 미탑재 시 context_score 폴백(M3 전 동작 — 하위호환·기존 테스트 불변).
+_CONTEXT_SCORE_FALLBACK = 0.5
+# 정책표 불변식: context_score가 이 임계 미만이면 ambiguous 항목을 revise로 못 올린다
+# (확신 없는 revise 금지 — 상한 review). 임계 이상이면 ambiguity 캡 해제(고확신 harmful).
+_CONTEXT_CONFIDENT_THRESHOLD = 0.85
+# 경계 구간(저신뢰) — 2차 LLM 판정 대상으로 flag 'context_low_confidence'를 단다
+# (실제 LLM 호출은 미구현 — 훅·플래그만. docs/03 §2 단계3 2차 폴백 설계).
+_CONTEXT_LOW_CONF_RANGE = (0.4, 0.6)
+# 분류기 아티팩트 경로 환경변수 (미설정이면 분류기 미탑재 → 폴백 0.5).
+_CONTEXT_MODEL_ENV = "NOISE_CONTEXT_MODEL"
 
 # --- M2 인용 휴리스틱 (정책표 적용 직전, M3 문맥분류 도입 전의 규칙 기반 보수 장치) ---
 # 보도/연구/대항표현이 혐오어를 인용·메타 논의하는 문장을 revise로 과잉 권고하지
@@ -131,21 +145,34 @@ class Engine:
         automaton: ahocorasick.Automaton,
         pattern_entries: list[tuple[re.Pattern[str], _Entry, tuple[str, ...]]],
         kiwi: Kiwi,
+        context_classifier: ContextClassifier | None = None,
     ) -> None:
         self.release_version = release_version
         self._automaton = automaton
         self._pattern_entries = pattern_entries
         self._kiwi = kiwi
+        # M3 문맥 분류기(ambiguous 매치의 context_score 산출). None이면 0.5 폴백.
+        self._context_classifier = context_classifier
         # 사용자 사전 없는 기본 Kiwi — 경계 재검(단계 1c')에서 lazy 1회 생성.
         self._base_kiwi: Kiwi | None = None
 
     # ---- 로드 ---------------------------------------------------------------
     @classmethod
-    def load(cls, artifact_dir: str | Path) -> Engine:
+    def load(
+        cls,
+        artifact_dir: str | Path,
+        *,
+        context_model: str | Path | None = None,
+    ) -> Engine:
         """아티팩트 디렉토리에서 엔진을 구성한다.
 
         manifest.normalizer_code_version이 코드 normalizer 버전과 불일치하면
         ValueError로 로드를 거부한다 (07 §7 — 버전 불일치 = 미탐 방지).
+
+        문맥 분류기(M3)는 context_model 인자 또는 NOISE_CONTEXT_MODEL 환경변수의
+        경로에서 로드한다(03 §2 단계3). 경로가 없으면 미탑재 — context_score는
+        ambiguous 매치에 0.5 폴백(M3 전 동작·기존 테스트 불변). 사전/모델 버저닝
+        독립(05 M3): 분류기는 릴리스 아티팩트와 무관하게 교체·미탑재 가능.
         """
         adir = Path(artifact_dir)
         manifest = json.loads((adir / "manifest.json").read_text(encoding="utf-8"))
@@ -211,12 +238,14 @@ class Engine:
         automaton.make_automaton()
 
         kiwi = _build_kiwi(adir / "kiwi_user_dict.tsv")
+        classifier = _load_context_classifier(context_model)
 
         return cls(
             release_version=str(manifest["release_version"]),
             automaton=automaton,
             pattern_entries=pattern_entries,
             kiwi=kiwi,
+            context_classifier=classifier,
         )
 
     # ---- 검사 ---------------------------------------------------------------
@@ -286,7 +315,9 @@ class Engine:
 
         # 단계 4 — 위험도 산정 + 응답 조립
         with _timed(timings, "scoring"):
-            result_matches = [_score_match(m) for m in matches]
+            result_matches = [
+                _score_match(m, text, self._context_classifier) for m in matches
+            ]
             result_matches.sort(key=lambda r: (r["span"]["start"], r["span"]["end"]))
             overall = _overall_recommendation(result_matches)
 
@@ -496,6 +527,29 @@ class Engine:
         return out
 
 
+# --- M3 문맥 분류기 로드 -----------------------------------------------------
+def _load_context_classifier(
+    context_model: str | Path | None,
+) -> ContextClassifier | None:
+    """문맥 분류기를 로드한다. 경로 미지정(인자·환경변수 모두 없음)이면 None(폴백).
+
+    경로가 명시됐는데 파일이 없으면 ValueError로 거부한다(오타로 분류기가 조용히
+    빠져 ambiguous 오탐이 늘어나는 것 방지). 환경변수만으로 자동 로드되는 경우는
+    파일 부재 시 미탑재로 본다(개발 환경 하위호환).
+    """
+    if context_model is not None:
+        path = Path(context_model)
+        if not path.exists():
+            raise ValueError(f"문맥 분류기 경로가 존재하지 않습니다: {path}")
+        return ContextClassifier.load(path)
+    env_path = os.environ.get(_CONTEXT_MODEL_ENV)
+    if env_path:
+        p = Path(env_path)
+        if p.exists():
+            return ContextClassifier.load(p)
+    return None
+
+
 # --- Kiwi 로드 --------------------------------------------------------------
 def _build_kiwi(user_dict_path: Path) -> Kiwi:
     """Kiwi 인스턴스 + 아티팩트의 사용자 사전 로드.
@@ -683,13 +737,29 @@ def _combination_rule_holds(
 
 
 # --- 단계 4: 위험도 정책표 v1 ------------------------------------------------
-def _context_score(entry: _Entry) -> float:
-    """context_score: unambiguous=1.0 / 그 외 0.5 고정(M3 전, 03 §2)."""
-    return 1.0 if entry.ambiguity == "unambiguous" else 0.5
+def _context_score(
+    entry: _Entry, text: str, classifier: ContextClassifier | None
+) -> float:
+    """context_score (03 §2 정책표): unambiguous=1.0(분류기 생략).
+
+    ambiguity != 'unambiguous'면 분류기 harmful 확신도를 쓴다. 분류기 미탑재면
+    0.5 폴백(M3 전 동작·하위호환). pattern 매치(예: '~노')는 matched_text가 사용자
+    문장 전체(greedy)라 surface 단독 분류 신호가 약하므로 폴백 0.5를 유지한다.
+    """
+    if entry.ambiguity == "unambiguous":
+        return 1.0
+    if classifier is None or entry.term_kind == "pattern":
+        return _CONTEXT_SCORE_FALLBACK
+    return classifier.score(text, entry.surface)
 
 
 def _usage_recommendation(
-    entry: _Entry, risk_score: float, *, composite_unsatisfied: bool, cap_review: bool
+    entry: _Entry,
+    risk_score: float,
+    context_score: float,
+    *,
+    composite_unsatisfied: bool,
+    cap_review: bool,
 ) -> str:
     """정책표 v1 (03 §2 단계4) — 조건 순서·불변식을 모두 보존한다.
 
@@ -704,6 +774,11 @@ def _usage_recommendation(
     base 사다리: severity≥4 AND risk≥0.7 → revise / risk≥0.35 → review / 그 외 monitor.
     cap_review는 인용 휴리스틱(단계 3')·공백 결합 skip-char가 세운 상한 신호로,
     severity 5 unambiguous(삼일한 등)이어도 revise를 review로 끌어내린다.
+
+    ambiguity 캡(M3): ambiguous 항목은 context_score(분류기 harmful 확신도)가
+    _CONTEXT_CONFIDENT_THRESHOLD(0.85) 미만이면 상한 review(확신 없이 revise 불가 —
+    불변식 ①). 확신도 ≥ 임계면 캡을 풀어 고확신 harmful 문맥은 revise까지 도달한다.
+    분류기 미탑재(폴백 0.5)면 항상 임계 미만이라 M3 전과 동일하게 상한 review.
     """
     # 고정 monitor (불변식 — 상한이 끌어올리지 못함)
     if entry.status == "watchlist":
@@ -719,21 +794,45 @@ def _usage_recommendation(
     else:
         base = "monitor"
 
-    # 상한 review (도그휘슬·ambiguity·M2 인용/공백결합): revise → review로 캡
-    capped = entry.is_dogwhistle_marker or entry.ambiguity != "unambiguous" or cap_review
+    # 상한 review:
+    #  - 도그휘슬·M2 인용/공백결합(cap_review): 무조건 캡(M3 무관).
+    #  - ambiguity != unambiguous: context_score < 0.85일 때만 캡(분류기 저확신).
+    ambiguity_capped = (
+        entry.ambiguity != "unambiguous"
+        and context_score < _CONTEXT_CONFIDENT_THRESHOLD
+    )
+    capped = entry.is_dogwhistle_marker or cap_review or ambiguity_capped
     if capped and base == "revise_recommended":
         return "review_recommended"
     return base
 
 
-def _score_match(m: _Match) -> dict[str, Any]:
-    """매치 하나를 정책표 v1로 채점해 응답 항목 dict로 변환한다."""
+def _score_match(
+    m: _Match, text: str, classifier: ContextClassifier | None
+) -> dict[str, Any]:
+    """매치 하나를 정책표 v1로 채점해 응답 항목 dict로 변환한다.
+
+    ambiguous 매치는 context_score를 분류기 harmful 확신도로 산정한다(미탑재 0.5).
+    확신도가 경계 구간(_CONTEXT_LOW_CONF_RANGE)이면 2차 LLM 판정 훅으로 flag
+    'context_low_confidence'를 단다(실제 호출 미구현 — 03 §2 단계3 2차 폴백 설계).
+    """
     entry = m.entry
-    context_score = _context_score(entry)
+    context_score = _context_score(entry, text, classifier)
     risk_score = (entry.severity / 5) * m.match_confidence * context_score
     composite_unsatisfied = "composite_unsatisfied" in m.flags
+    if (
+        classifier is not None
+        and entry.ambiguity != "unambiguous"
+        and entry.term_kind != "pattern"
+        and _CONTEXT_LOW_CONF_RANGE[0] <= context_score <= _CONTEXT_LOW_CONF_RANGE[1]
+    ):
+        m.flags.append("context_low_confidence")
     recommendation = _usage_recommendation(
-        entry, risk_score, composite_unsatisfied=composite_unsatisfied, cap_review=m.cap_review
+        entry,
+        risk_score,
+        context_score,
+        composite_unsatisfied=composite_unsatisfied,
+        cap_review=m.cap_review,
     )
     return {
         "span": {"start": m.start, "end": m.end},
